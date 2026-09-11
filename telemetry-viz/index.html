@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N5 MAX · M.2 telemetry lab (DEMO)</title>
+  <meta name="description" content="Self-contained stylized Minisforum N5 MAX motherboard / M.2 telemetry visualization. Synthetic demo data only." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="lab-header">
+    <div class="lab-title">Minisforum <span>N5 MAX</span> · M.2 telemetry</div>
+    <div class="lab-meta">tiered local-AI NAS · Gen4×1 lane tax · spine = SLOT</div>
+    <div class="demo-banner">DEMO · not sealed · synthetic 1 Hz</div>
+    <div class="provisional-compact" role="status">PROVISIONAL · under adversarial review · do not cite as final</div>
+  </header>
+
+  <div class="main-grid">
+    <section class="hud" aria-label="Test HUD">
+      <div class="hud-cell">
+        <div class="hud-label">Under test</div>
+        <div class="hud-value" id="hud-n">—</div>
+      </div>
+      <div class="hud-cell">
+        <div class="hud-label">Test</div>
+        <div class="hud-value" id="hud-test">—</div>
+      </div>
+      <div class="hud-cell">
+        <div class="hud-label">Layout</div>
+        <div class="hud-value" id="hud-layout">—</div>
+      </div>
+      <div class="hud-cell" style="flex:1">
+        <div class="hud-label">Headline result</div>
+        <div class="hud-value headline" id="hud-headline">—</div>
+      </div>
+    </section>
+
+    <section class="board-panel" aria-label="Board schematic">
+      <div class="board-toolbar">
+        <label>
+          Serial display
+          <select id="serial-mode" title="Public Pages must never show full serials">
+            <option value="hide">Hide</option>
+            <option value="last4" selected>Last-4 (default)</option>
+            <option value="full">Full (local lab only)</option>
+          </select>
+        </label>
+        <span id="serial-warn" class="demo-chip" hidden title="Do not publish full serials on public Pages">⚠ full serials — not for public Pages</span>
+        <button type="button" id="toggle-indiv" title="Show per-SSD chart lines">SSD lines: off</button>
+        <span style="margin-left:auto;font-size:0.68rem;color:var(--text-dim);font-family:var(--mono)">
+          stylized schematic · not a photo
+        </span>
+      </div>
+      <div class="board-svg-wrap" id="board-root"></div>
+    </section>
+
+    <aside class="side-panel" aria-label="Drive & pool stats">
+      <div class="side-section">
+        <h3>Pool aggregate</h3>
+        <div class="pool-stats">
+          <div class="pool-stat">
+            <div class="lbl">Read</div>
+            <div class="val" id="pool-read">—</div>
+          </div>
+          <div class="pool-stat">
+            <div class="lbl">Write</div>
+            <div class="val" id="pool-write">—</div>
+          </div>
+        </div>
+      </div>
+      <div class="side-section">
+        <h3>Seats / drives</h3>
+        <div class="drive-list" id="drive-list"></div>
+      </div>
+      <div class="side-section">
+        <h3>Heat scale</h3>
+        <div class="legend-row">
+          <span><span class="legend-swatch" style="background:#3b82f6"></span>~35°C</span>
+          <span><span class="legend-swatch" style="background:#f59e0b"></span>~52°C</span>
+          <span><span class="legend-swatch" style="background:#ef4444"></span>~70°C+</span>
+        </div>
+      </div>
+      <div class="side-section">
+        <h3>Lab context (sealed — not this run)</h3>
+        <p class="notes">
+          RAIDZ1 seq read <strong>6.02 GB/s</strong> · amp <strong>1.375×</strong> ·
+          ×1 ceiling <strong>1.97</strong> · NM790@×1 ≈ <strong>1.81</strong>.
+          Playback below is <strong>synthetic DEMO</strong> shaped toward those ceilings;
+          real 1 Hz sampler format was rewritten — no completed runs yet.
+        </p>
+      </div>
+      <div class="side-section">
+        <h3>Product note</h3>
+        <p class="notes">
+          Tiered local-AI NAS. Array seats pay Gen4×1 lane tax.
+          The performance spine is the <strong>×4 SLOT</strong>, not whichever SSD is seated in it.
+        </p>
+      </div>
+    </aside>
+
+    <section class="bottom-panel">
+      <div class="chart-wrap">
+        <canvas id="chart" aria-label="Throughput over time"></canvas>
+      </div>
+      <div class="transport">
+        <div class="ctrl">
+          <button type="button" id="btn-play">Play</button>
+        </div>
+        <input type="range" class="scrubber" id="scrubber" min="0" max="0" value="0" />
+        <span class="time-display" id="time-display">0:00 / 0:00</span>
+        <div class="ctrl" aria-label="Playback speed">
+          <button type="button" data-speed="1">1×</button>
+          <button type="button" data-speed="10" class="active">10×</button>
+          <button type="button" data-speed="30">30×</button>
+          <button type="button" data-speed="60">60×</button>
+        </div>
+        <div class="playlist" id="playlist" aria-label="Scenario playlist"></div>
+      </div>
+      <div class="footer-note">
+        ORIGINAL stylized SVG only · no review photos · normalizeSample() ready for future sampler CSV · see ADAPTER.md
+      </div>
+    </section>
+  </div>
+
+  <script src="js/normalize.js"></script>
+  <script src="js/demoTelemetry.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Keep toggle label in sync
+    document.getElementById('toggle-indiv').addEventListener('click', function () {
+      this.textContent = this.classList.contains('active') ? 'SSD lines: on' : 'SSD lines: off';
+    });
+  </script>
+</body>
+</html>

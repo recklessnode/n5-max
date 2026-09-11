@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "NM790 Array Layouts — RAID10 vs RAIDZ1",
+    "eyebrow": "STORAGE LAYOUT BENCHMARK · MINISFORUM N5 MAX · 2026-09",
+    "platform": "Minisforum N5 MAX · Ryzen AI MAX+ 395",
+    "drives": "4× Lexar NM790 4TB · fw V4.0.4",
+    "link": "PCIe Gen4 ×1 each (slot-limited)",
+    "zfs": "ZFS 2.4.4 · ashift 12 · lz4",
+    "bus_ceiling_gbs": 7.88,
+    "source": "sealed result.json",
+    "generated_by": "bin/dendrite-report + dendrite-topology",
+    "rails": ["fio (logical)", "zpool iostat (physical)", "ARC kstat", "SMART"],
+    "status": {
+      "done": "four-rail, four-disk RAID10 vs RAIDZ1 campaign",
+      "pending": "5th SSD campaign → RAIDZ1 5-wide; regenerate tables/charts",
+      "planned": "NM790 @ ×4 + ROG Flow Z13 same-silicon ×1-vs-×4 delta"
+    }
+  },
+  "headline_tiles": [
+    {
+      "id": "capacity",
+      "label": "Usable capacity",
+      "value": 10.08,
+      "unit": "TiB",
+      "winner": "RAIDZ1",
+      "detail": "RAIDZ1 · +50% vs RAID10's 6.71 TiB"
+    },
+    {
+      "id": "write_amp",
+      "label": "Write amplification",
+      "value": 1.37,
+      "unit": "×",
+      "winner": "RAIDZ1",
+      "detail": "RAIDZ1 parity · vs RAID10's 1.97× mirror"
+    },
+    {
+      "id": "rand_4k_wr",
+      "label": "Random 4K write",
+      "value": 39.0,
+      "unit": "K IOPS",
+      "winner": "RAID10",
+      "detail": "RAID10 · ~1.8× RAIDZ1's 21.3K"
+    },
+    {
+      "id": "seq_read",
+      "label": "Sequential read 1M",
+      "value": 6.02,
+      "unit": "GB/s",
+      "winner": "RAIDZ1",
+      "detail": "RAIDZ1 · vs RAID10's 5.58 GB/s"
+    }
+  ],
+  "pcie_map": [
+    {"function": "4× NVMe (array under test)", "controller": "Lexar NM790 4TB", "link": "Gen4 ×1 ea", "throughput_gbs": 1.97, "note": "ea"},
+    {"function": "1× NVMe (OS)", "controller": "Intel 760p", "link": "Gen3 ×4", "throughput_gbs": 3.94},
+    {"function": "5× SATA bays", "controller": "JMicron JMB58x", "link": "Gen3 ×2 shared", "throughput_gbs": 1.97},
+    {"function": "2× Ethernet", "controller": "Realtek RTL8127", "link": "Gen4 ×1 ea", "throughput_gbs": 10, "unit": "GbE", "note": "ea"},
+    {"function": "2× USB4 / TB5", "controller": "Intel JHL9580", "link": "Gen4 ×4 ea", "throughput_gbs": 7.88, "note": "ea"}
+  ],
+  "sequential_gbs": {
+    "labels": ["read 1M ×4", "write 1M ×4"],
+    "RAID10": [5.58, 0.63],
+    "RAIDZ1": [6.02, 0.73],
+    "unit": "GB/s",
+    "higher_is_better": true
+  },
+  "random_iops_k": {
+    "labels": ["4K rd", "4K wr", "16K rd", "16K wr", "64K rd", "64K wr"],
+    "RAID10": [123.1, 39.0, 68.9, 28.6, 41.7, 8.5],
+    "RAIDZ1": [78.8, 21.3, 35.0, 36.0, 16.2, 8.9],
+    "unit": "thousand IOPS",
+    "higher_is_better": true
+  },
+  "write_amplification": {
+    "RAID10": {"value": 1.97, "label": "RAID10 · mirror"},
+    "RAIDZ1": {"value": 1.375, "label": "RAIDZ1 · parity", "headline_rounded": 1.37},
+    "reference_line": 1.0,
+    "axis_max": 2.2,
+    "operation": "sequential write 1M ×4",
+    "lower_is_better": true
+  },
+  "compression": {
+    "algorithms": ["off", "lz4", "zstd-fast", "zstd-3"],
+    "payloads": {
+      "Bluray (incompressible)": [1.00, 1.00, 1.00, 1.00],
+      "raw VM disk": [1.00, 1.47, 1.51, 1.76],
+      "qcow2 (mixed)": [1.00, 1.80, 1.93, 1.99]
+    },
+    "layout": "RAID10",
+    "unit": "logical ÷ physical",
+    "higher_saves_more": true
+  },
+  "ablation": [
+    {
+      "test": "RAID10 · 16K rand read",
+      "none": 68.9,
+      "metadata": 190.7,
+      "change_pct": 177,
+      "unit": "K IOPS"
+    },
+    {
+      "test": "RAIDZ1 · 16K rand read",
+      "none": 35.0,
+      "metadata": 65.2,
+      "change_pct": 86,
+      "unit": "K IOPS"
+    },
+    {
+      "test": "Random writes",
+      "none": null,
+      "metadata": null,
+      "change": "≈ flat",
+      "note": "writes don't read metadata — unaffected"
+    }
+  ],
+  "single_device": {
+    "headline": [
+      {
+        "label": "NM790 @ ×1 · seq read",
+        "value": 1.81,
+        "unit": "GB/s",
+        "detail": "92% of the 1.97 GB/s ×1 ceiling — the slot is the wall, not the drive (rated ~7 GB/s at ×4)"
+      },
+      {
+        "label": "Array recovers the aggregate",
+        "value": 3.33,
+        "unit": "×",
+        "detail": "RAIDZ1's 6.02 GB/s ÷ one drive — four ×1 members ≈ two ×4 drives of bandwidth"
+      },
+      {
+        "label": "RAID barely helps 4K writes",
+        "value": 1.07,
+        "unit": "×",
+        "detail": "RAID10 39.0K vs a lone NM790's 36.5K IOPS — striping four barely moves small random writes"
+      }
+    ],
+    "table": {
+      "columns": ["NM790 @ ×1 (array silicon)", "760p 512G @ ×4", "760p 2TB @ ×4"],
+      "rows": [
+        {"metric": "Sequential read 1M ×4 (GB/s)", "values": [1.81, 2.97, 1.14]},
+        {"metric": "Sequential write 1M ×4 (GB/s)", "values": [1.27, 0.51, 0.44]},
+        {"metric": "Random read 4K (K IOPS)", "values": [242, 136, 152]},
+        {"metric": "Random write 4K (K IOPS)", "values": [36, 38, 101]},
+        {"metric": "Sync write 16K (K IOPS)", "values": [1.0, 2.1, 15.8]}
+      ]
+    }
+  },
+  "verdict": {
+    "RAID10": [
+      {"stat": "1.8×", "text": "Small random writes — VM disks, database volumes"},
+      {"stat": "1.9×", "text": "Sync-write latency (fsync) — transactional workloads"},
+      {"stat": "·", "text": "Simpler rebuilds; any single drive can fail per mirror"}
+    ],
+    "RAIDZ1": [
+      {"stat": "+50%", "text": "Usable capacity — media, archive, backups"},
+      {"stat": "1.375×", "text": "Lower write amplification — less NAND wear per byte"},
+      {"stat": "6.0GB/s", "text": "Sequential reads — large-file serve"}
+    ]
+  },
+  "usable_capacity": {
+    "RAID10_TiB": 6.71,
+    "RAIDZ1_TiB": 10.08,
+    "delta_pct": 50
+  }
+}
