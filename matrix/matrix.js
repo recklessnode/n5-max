@@ -170,6 +170,43 @@
     );
   }
 
+
+  function caseCounts(cell) {
+    var cases = S.caseList(cell);
+    var total = cases.length;
+    var passed = 0;
+    var failed = 0;
+    cases.forEach(function (c) {
+      var st = S.statusClass(c.status);
+      if (st === "passed") passed++;
+      else if (st === "failed") failed++;
+    });
+    return { total: total, passed: passed, failed: failed };
+  }
+
+  function cellStatusHtml(cell, st) {
+    var counts = caseCounts(cell);
+    var top = st.toUpperCase();
+    var mid = "";
+    var dur = "";
+    if (counts.total > 0) {
+      if (st === "passed") mid = counts.passed + "/" + counts.total;
+      else if (st === "failed")
+        mid = counts.failed + "✗ · " + counts.passed + "/" + counts.total;
+      else if (st === "running" || st === "pending")
+        mid = counts.passed + "/" + counts.total;
+    }
+    if ((st === "passed" || st === "failed") && cell.started_at && cell.finished_at) {
+      dur = S.formatDuration(cell.started_at, cell.finished_at) || "";
+    } else if (st === "running" && cell.started_at) {
+      dur = S.formatDuration(cell.started_at, new Date().toISOString()) || "";
+    }
+    var html = '<span class="cell-status-label">' + esc(top) + "</span>";
+    if (mid) html += '<span class="cell-status-count">' + esc(mid) + "</span>";
+    if (dur) html += '<span class="cell-status-dur">' + esc(dur) + "</span>";
+    return html;
+  }
+
   function renderCell(stage, cell) {
     var key = S.cellKey(stage, cell);
     var st = S.statusClass(cell.status);
@@ -224,7 +261,7 @@
       ) +
       "</span>" +
       '<span class="cell-status">' +
-      esc(st) +
+      cellStatusHtml(cell, st) +
       "</span>" +
       "</button>" +
       body +
