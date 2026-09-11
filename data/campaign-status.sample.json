@@ -1,0 +1,545 @@
+{
+  "schema": "n5-campaign-status/v1",
+  "campaign": "N5 MAX storage + AI-NAS characterization",
+  "updated_at": "2026-09-11T21:35:00Z",
+  "status_updated_at": "2026-09-11T21:35:00Z",
+  "stale_after_s": 900,
+  "harness_commit": "1a90e3b",
+  "git_commit": "1a90e3b",
+  "source": "sample",
+  "note": "SAMPLE fixture derived from campaign/campaign-matrix.json: cell 0 passed, cell 1 running, remaining cells pending. Plausible STO case stubs on cells 0/1. Status and timestamps only. Not a sealed story. UI falls back here until a live campaign-status.json is promoted.",
+  "stages": [
+    {
+      "id": 1,
+      "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
+      "gated_on": null,
+      "cells": [
+        {
+          "n": 0,
+          "layout": "raidz2",
+          "suite": "storage",
+          "mode": "calibrate",
+          "primarycache": "none",
+          "status": "passed",
+          "why": "protocol B calibration: write cases at a 270 s ramp + 30 s window on the heaviest write path; bin/dendrite-derive-ramp turns the 30 s bucket plateau into the validated write ramp for every following cell (campaign/derived-ramps.json)",
+          "started_at": "2026-09-11T19:41:00Z",
+          "finished_at": "2026-09-11T20:46:56Z",
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T19:49:00Z",
+              "finished_at": "2026-09-11T19:53:30Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T19:54:15Z",
+              "finished_at": "2026-09-11T19:55:45Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T19:56:30Z",
+              "finished_at": "2026-09-11T20:01:00Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:01:45Z",
+              "finished_at": "2026-09-11T20:03:15Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:04:00Z",
+              "finished_at": "2026-09-11T20:05:30Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:06:15Z",
+              "finished_at": "2026-09-11T20:10:45Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:11:30Z",
+              "finished_at": "2026-09-11T20:13:00Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:13:45Z",
+              "finished_at": "2026-09-11T20:18:15Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:19:00Z",
+              "finished_at": "2026-09-11T20:20:30Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:21:15Z",
+              "finished_at": "2026-09-11T20:25:45Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:26:30Z",
+              "finished_at": "2026-09-11T20:31:00Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:31:45Z",
+              "finished_at": "2026-09-11T20:36:15Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:37:00Z",
+              "finished_at": "2026-09-11T20:41:30Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:42:15Z",
+              "finished_at": "2026-09-11T20:46:45Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T20:47:30Z",
+              "finished_at": "2026-09-11T20:52:00Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T20:52:45Z",
+              "finished_at": "2026-09-11T20:57:15Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-11T20:58:00Z",
+              "finished_at": "2026-09-11T21:02:30Z"
+            }
+          ]
+        },
+        {
+          "n": 1,
+          "layout": "single",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "running",
+          "started_at": "2026-09-11T21:02:00Z",
+          "finished_at": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T21:08:00Z",
+              "finished_at": "2026-09-11T21:11:00Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T21:11:40Z",
+              "finished_at": "2026-09-11T21:13:00Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:13:40Z",
+              "finished_at": "2026-09-11T21:16:40Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:17:20Z",
+              "finished_at": "2026-09-11T21:18:40Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:19:20Z",
+              "finished_at": "2026-09-11T21:20:40Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "running",
+              "started_at": "2026-09-11T21:21:20Z",
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "layout": "raid0",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 3,
+          "layout": "raid10",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 4,
+          "layout": "raidz1",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 5,
+          "layout": "raidz2",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 6,
+          "layout": "mirror2",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "why": "2-way mirror = the common 4-bay redundancy entry point; isolates mirroring from the 2-vdev stripe that raid10 conflates",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 7,
+          "layout": "single",
+          "suite": "storage",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 8,
+          "layout": "raid0",
+          "suite": "storage",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 9,
+          "layout": "raid10",
+          "suite": "storage",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 10,
+          "layout": "raidz1",
+          "suite": "storage",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 11,
+          "layout": "raidz2",
+          "suite": "storage",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 12,
+          "layout": "mirror2",
+          "suite": "storage",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
+      "gated_on": "5th (new) NM790 installed in the x4 slot (root port 00:02.5) in place of the retired Intel 760p OS disk \u2014 the NAS then has 5 identical NM790s and no OS disk (boots from the USB thumb). Its by-id name goes on line 5 of campaign/drives.local (git-ignored). Chained after stage 1 + soak by bin/dendrite-drive.",
+      "cells": [
+        {
+          "n": 1,
+          "layout": "single-x4",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 2,
+          "layout": "raid0",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 3,
+          "layout": "raidz1",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 4,
+          "layout": "raidz2",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 5,
+          "layout": "raid10+spare",
+          "suite": "storage",
+          "primarycache": "none",
+          "status": "pending",
+          "why": "mirror pairs + hot spare \u2014 the 5-bay deployment shape",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 6,
+          "layout": "single-x4",
+          "suite": "storage",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 7,
+          "layout": "raid0",
+          "suite": "storage",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 8,
+          "layout": "raidz1",
+          "suite": "storage",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 9,
+          "layout": "raidz2",
+          "suite": "storage",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 10,
+          "layout": "raid10+spare",
+          "suite": "storage",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "AI bat (streamed from the winning pool layout)",
+      "gated_on": "stage 1/2 winner + weights staged on the SUT pool + ROCm golden image + suites/ai/run.sh implemented (does not exist yet)",
+      "cells": [
+        {
+          "n": 1,
+          "model": "Qwen-Image BF16 (53G measured)",
+          "layouts": [
+            "winner"
+          ],
+          "suite": "ai",
+          "status": "blocked",
+          "why": "load-time instrument, cold AND warm reported separately; cheapest ROCm-stack validator",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 2,
+          "model": "Kimi-K2-Thinking smol-IQ1_KT (213G measured)",
+          "layouts": [
+            "winner",
+            "raidz1"
+          ],
+          "suite": "ai",
+          "status": "blocked",
+          "why": "32B active = cleanest per-token expert-read signal; two layouts so the RAID effect is measured, not assumed",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 3,
+          "model": "DeepSeek-V3.1 UD-Q2_K_XL (232G measured)",
+          "layouts": [
+            "winner"
+          ],
+          "suite": "ai",
+          "status": "blocked",
+          "why": "second active-param point (37B)",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 4,
+          "model": "vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)",
+          "layouts": [
+            "winner"
+          ],
+          "suite": "ai",
+          "status": "blocked",
+          "why": "AI-13: reproduce Minisforum's published llama-bench figures on the same invocation (HIP and Vulkan); also the no-paging ceiling controls",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
+      "gated_on": "stage 1 all cells passed (auto-chained by unit dendrite-stage4)",
+      "cells": [
+        {
+          "n": 1,
+          "layout": "raidz1",
+          "suite": "storage",
+          "mode": "soak",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "n": 2,
+          "layout": "raid0",
+          "suite": "storage",
+          "mode": "soak",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    }
+  ]
+}

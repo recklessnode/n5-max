@@ -1,0 +1,7 @@
+{
+  "schema": "n5-test-cases-index/v1",
+  "source": "docs/test-cases/",
+  "generated_at": null,
+  "note": "Empty until docs/test-cases/ per-case markdown lands on main.",
+  "cases": {}
+}

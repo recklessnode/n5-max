@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
   <script src="js/app.js" defer></script>
+  <script src="js/campaign-status.js" defer></script>
+  <script src="js/viewer-footer.js" defer></script>
 </head>
 <body>
   <aside class="provisional-banner" role="status" aria-live="polite">
@@ -31,6 +33,7 @@
         <a href="#method">Method</a>
         <a href="#throughput">Charts</a>
         <a href="telemetry-viz/">M.2 lab</a>
+        <a href="matrix/">Matrix</a>
         <a href="#ai">AI destination</a>
         <a href="#social">Watch / Read</a>
         <a href="#next">Next runs</a>
@@ -672,6 +675,11 @@
         <p>Provisional figures · 4 rails: fio · zpool iostat · ARC kstat · SMART — not Protocol&nbsp;B sealed.</p>
         <p>Noise floor from 2-run repeatability; sub-floor deltas suppressed. No hand-typed benchmark numbers. No invented AI inference results.</p>
         <p class="muted-line">Minisforum N5 MAX · Strix Halo · storage + AI-NAS campaign · 2026-09</p>
+        <div class="viewer-stale" data-data-root="data" id="viewer-stale">
+          <p class="viewer-line" data-role="build">Site build · …</p>
+          <p class="viewer-line" data-role="status">Status updated · …</p>
+          <p class="viewer-line" data-role="stale">Viewer may be stale if status older than 15 minutes.</p>
+        </div>
       </div>
     </div>
   </footer>

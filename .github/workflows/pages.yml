@@ -25,6 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Write site build info
+        run: ./scripts/write-build-info.sh n5-max
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
