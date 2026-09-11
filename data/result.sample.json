@@ -13,7 +13,7 @@
     "status": {
       "done": "four-rail, four-disk RAID10 vs RAIDZ1 campaign",
       "pending": "5th SSD campaign → RAIDZ1 5-wide; regenerate tables/charts",
-      "planned": "NM790 @ ×4 + ROG Flow Z13 same-silicon ×1-vs-×4 delta"
+      "planned": "NM790 @ ×4 internal slot vs array Gen4 ×1 — same-silicon lane delta"
     }
   },
   "headline_tiles": [
