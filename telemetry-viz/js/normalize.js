@@ -2,7 +2,7 @@
  * normalizeSample — adapter from raw sampler / golden-image channels → viz model
  * See ADAPTER.md for §6 channel mapping. Sampler CSV schema may change.
  *
- * Role vocabulary (layout brief — stable IDs until Ronald photo map / serial→slot):
+ * Role vocabulary (layout brief — stable IDs until photo/silkscreen map / serial→slot):
  *   os-x4 | face3-mid | face3-low | opp-a | opp-b
  * Legacy aliases accepted: backside-a→opp-a, backside-b→opp-b, inner-cpu→face3-mid, outer→face3-low
  */

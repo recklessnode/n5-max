@@ -1,12 +1,12 @@
 /**
  * N5 MAX board telemetry viz — playback, HUD, side panel, wiring.
- * Modes: DEMO (synthetic) | CALIBRATE (sealed calibration pack).
+ * Modes: DEMO (synthetic) | CALIBRATE (calibrate pack · provisional · shape/DEMO).
  */
 (function () {
   'use strict';
 
   const state = {
-    source: 'calibrate', // 'calibrate' | 'demo' — prefer real sealed cell when pack loads
+    source: 'calibrate', // 'calibrate' | 'demo' — prefer calibrate pack when it loads
     playlistId: null,
     samples: [], // normalized
     scenario: null,
@@ -31,7 +31,7 @@
 
   function statusChipHTML() {
     if (isCalibrate()) {
-      return '<span class="demo-chip calibrate-chip" title="Sealed calibration cell — Protocol B calibrate raidz2 · provisional · not story-sealed">CALIBRATE · provisional</span>';
+      return '<span class="demo-chip calibrate-chip" title="Calibrate pack — Protocol B raidz2 · provisional · shape/DEMO · not story-sealed">CALIBRATE · provisional</span>';
     }
     return '<span class="demo-chip" title="Synthetic demo — provisional / not Protocol B sealed">DEMO · provisional</span>';
   }
@@ -148,7 +148,7 @@
     if (notes) {
       if (isCalibrate()) {
         notes.innerHTML =
-          'Shape/DEMO of sealed <strong>stage1-raidz2-calibrate</strong> cell ' +
+          'Shape/DEMO of <strong>stage1-raidz2-calibrate</strong> pack ' +
           escapeHtml(state.packMeta.source_cell || '') +
           ' — <strong>not a story promote</strong>. Ceiling <strong>' +
           escapeHtml(String(state.packMeta.ceiling_gbps)) +

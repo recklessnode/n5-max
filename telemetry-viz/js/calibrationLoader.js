@@ -1,5 +1,5 @@
 /**
- * calibrationLoader — load sealed calibration pack (cell seal only).
+ * calibrationLoader — load calibrate pack (cell seal only; provisional · shape/DEMO).
  * Pack: data/calibration/{meta.json,telemetry.min.json}
  * Public face: SN labels only — no full by-id / serials.
  */
