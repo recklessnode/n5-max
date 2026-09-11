@@ -7,8 +7,8 @@
     "link": "PCIe Gen4 ×1 each (slot-limited)",
     "zfs": "ZFS 2.4.4 · ashift 12 · lz4",
     "bus_ceiling_gbs": 7.88,
-    "source": "sealed result.json",
-    "generated_by": "bin/dendrite-report + dendrite-topology",
+    "source": "preliminary result.json (provisional / under review)",
+    "generated_by": "campaign report pipeline (provisional)",
     "rails": ["fio (logical)", "zpool iostat (physical)", "ARC kstat", "SMART"],
     "status": {
       "done": "four-rail, four-disk RAID10 vs RAIDZ1 campaign",

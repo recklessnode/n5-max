@@ -1,5 +1,5 @@
-# telemetry-viz (drop-in)
+# telemetry-viz
 
-Self-contained N5 MAX M.2 telemetry lab viz. Place this folder at `site/telemetry-viz/` in the benchmark repo.
+Self-contained N5 MAX M.2 telemetry visualization.
 
-See `../SITE-INTEGRATION.md` and `ADAPTER.md`. Demo-only until sealed CSV.
+See `ADAPTER.md`. **DEMO / provisional** only — synthetic playback shaped toward preliminary ceilings; not Protocol B sealed.

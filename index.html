@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>N5 MAX Storage + AI-NAS — RAID10 vs RAIDZ1 story</title>
-  <meta name="description" content="N5 MAX as tiered local-AI NAS: hot NVMe array + 128GB unified memory + cold SATA. Sealed RAID10 vs RAIDZ1 under Gen4 ×1; AI-from-pool next. For llama.cpp / Comfy / RAG builders. No invented tok/s." />
+  <meta name="description" content="N5 MAX as tiered local-AI NAS: hot NVMe array + 128GB unified memory + cold SATA. Preliminary RAID10 vs RAIDZ1 under Gen4 ×1 (under review); AI-from-pool next. For llama.cpp / Comfy / RAG builders. No invented tok/s." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,7 +16,7 @@
   <aside class="provisional-banner" role="status" aria-live="polite">
     <div class="provisional-banner-inner">
       <strong class="provisional-title">RUNNING ANALYSIS — DO NOT DEPEND</strong>
-      <p class="provisional-body">This public face is a live report under adversarial review. Storage chapter figures marked sealed may still be revised; AI/telemetry demos are synthetic until sealed. Do not cite as final. Lab notebook stays private.</p>
+      <p class="provisional-body">This public face is a live report under adversarial review. Storage chapter figures are preliminary / provisional — not Protocol&nbsp;B sealed. AI/telemetry demos are synthetic. Do not cite as final.</p>
     </div>
   </aside>
 
@@ -26,7 +26,7 @@
       <div class="nav-links">
         <a href="#choose">Choose</a>
         <a href="#media">Media</a>
-        <a href="#sealed">Sealed</a>
+        <a href="#results">Results</a>
         <a href="#platform">Topology</a>
         <a href="#method">Method</a>
         <a href="#throughput">Charts</a>
@@ -61,7 +61,7 @@
       </div>
       <div class="hero-actions">
         <a class="btn btn-raid10" href="#choose">Pick a layout</a>
-        <a class="btn btn-raidz1" href="#sealed">See sealed results</a>
+        <a class="btn btn-raidz1" href="#results">See results</a>
         <a class="btn btn-ghost" href="#next">Recommended next experiments</a>
       </div>
       <div class="badge-row">
@@ -78,7 +78,7 @@
     <div class="wrap reveal">
       <p class="section-label">Recommendations · storage layouts</p>
       <h2>Choose by workload — not by reflex.</h2>
-      <p class="lede">Sealed four-disk campaign only. Use these cards to decide what to run next on the SUT.</p>
+      <p class="lede">Preliminary four-disk storage chapter only — under review. Use these cards to compare layouts, not as a final seal.</p>
 
       <div class="verdict-grid">
         <article class="verdict-card raid10">
@@ -104,7 +104,7 @@
       </div>
 
       <div class="cta-strip">
-        <a class="btn btn-raid10" href="#throughput">Scan sealed charts</a>
+        <a class="btn btn-raid10" href="#throughput">Scan charts</a>
         <a class="btn btn-raidz1" href="#ai">AI destination narrative</a>
         <a class="btn btn-ghost" href="#follow">Follow the campaign</a>
       </div>
@@ -117,7 +117,7 @@
     <div class="wrap reveal">
       <p class="section-label">Hardware · media kit</p>
       <h2>See the box before the charts.</h2>
-            <p class="lede">Build photos from the hot-tier kit — 4× Lexar NM790 4TB and the open N5 MAX chassis. A clean full-chassis exterior still helps as the true hero; drop it in <code>site/media/photos/</code> when you have it.</p>
+            <p class="lede">Build photos from the hot-tier kit — 4× Lexar NM790 4TB and the open N5 MAX chassis. A clean full-chassis exterior still helps as the true hero shot.</p>
 
       <div class="media-strip" aria-label="Hardware photos">
         <figure class="media-card">
@@ -153,20 +153,20 @@
         </figure>
         <figure class="diagram-card" data-lightbox>
           <img src="media/diagrams/tradeoff-compass.png" alt="Tradeoff compass: RAIDZ1 favors capacity and write amp; RAID10 favors random write and sync latency" width="1280" height="720" loading="lazy" />
-          <figcaption>Tradeoff compass · sealed four-disk chapter</figcaption>
+          <figcaption>Tradeoff compass · preliminary four-disk chapter</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- SEALED TODAY -->
-  <section id="sealed">
+  <!-- RESULTS (PROVISIONAL) -->
+  <section id="results">
     <div class="wrap reveal">
-      <p class="section-label">What’s sealed today</p>
+      <p class="section-label">What’s measured so far · provisional</p>
       <h2>Four-disk <span class="t-raid10">RAID10</span> vs <span class="t-raidz1">RAIDZ1</span></h2>
       <p class="lede">More capacity, or more random-write throughput. RAIDZ1 wins usable space and sequential reads; RAID10 wins small random writes and sync latency. The physical rail shows why: RAIDZ1 simply moves less data per write.</p>
 
-      <div class="metrics" aria-label="Headline sealed metrics">
+      <div class="metrics" aria-label="Headline provisional metrics">
         <article class="metric-card win-raidz1">
           <div class="label">Usable capacity</div>
           <div class="value">10.08 TiB</div>
@@ -257,8 +257,8 @@
   <section id="method">
     <div class="wrap reveal">
       <p class="section-label">Scientific methodology</p>
-      <h2>Four rails. Sealed provenance. No hand-typed figures.</h2>
-      <p class="lede">Every displayed storage number is computed from sealed <code>result.json</code> via <code>bin/dendrite-report</code>. Sub-noise deltas are suppressed from 2-run repeatability.</p>
+      <h2>Four rails. Provisional provenance. No hand-typed figures.</h2>
+      <p class="lede">Displayed storage numbers come from preliminary campaign artifacts (under review — not Protocol&nbsp;B sealed). Sub-noise deltas are suppressed from 2-run repeatability.</p>
 
       <div class="method-grid">
         <article class="method-card">
@@ -311,7 +311,7 @@
   <section id="throughput">
     <div class="wrap">
       <div class="reveal">
-        <p class="section-label">Sealed charts · primarycache=none</p>
+        <p class="section-label">Preliminary charts · primarycache=none</p>
         <h2>What each layout moves</h2>
         <p class="lede">Legend: RAID10 (2×2 mirror); RAIDZ1 (4-wide). Absolute figures are slot-limited (Gen4 ×1), not drive-rated ×4.</p>
       </div>
@@ -456,7 +456,7 @@
         <strong>No inference numbers invented here.</strong>
       </p>
 
-      <div class="pending-banner">Status: planned / in progress · ~multi-day runs remaining · see <code>docs/ai-benchmark-plan.md</code></div>
+      <div class="pending-banner">Status: planned / in progress · ~multi-day runs remaining · no inference numbers invented here</div>
 
       <div class="ai-grid">
         <article class="ai-card">
@@ -483,7 +483,7 @@
 
       <div class="callout">
         Prerequisites on the SUT: kernel ≥ 6.18.4, raise <code>ttm.pages_limit</code> for GTT, pin ROCm, force cold via drop_caches + <code>zfs set direct=always</code> + capped <code>zfs_arc_max</code>, verify with <code>zpool iostat</code> before timing.
-        Functional gates (code/HTML/needle) + disk rail during decode — see <code>docs/ai-test-methodology.md</code>.
+        Functional gates (code/HTML/needle) + disk rail during decode will accompany any future AI chapter.
       </div>
     </div>
   </section>
@@ -493,13 +493,13 @@
   <section id="social" class="social-cta-section">
     <div class="wrap reveal">
       <p class="section-label">Watch / Read · campaign kits</p>
-      <h2>Same sealed facts. Two tracks.</h2>
+      <h2>Same provisional facts. Two tracks.</h2>
       <p class="lede">
-        Drafts live in repo <code>social/</code> (not served by Pages). Index:
-        <a href="social-kit.md"><code>site/social-kit.md</code></a>.
+        Campaign kits are drafted privately and promoted only when approved. Index:
+        <a href="social-kit.md"><code>social-kit.md</code></a>.
         Product thesis everywhere: <strong>tiered local-AI NAS</strong> (hot NVMe · unified memory · cold SATA).
         <strong>Lab / vendor</strong> → Minisforum letter. <strong>Public</strong> → local-AI builders on YT / X / LinkedIn —
-        still sealed-honest, no invented tok/s.
+        provisional-honest, no invented tok/s.
       </p>
 
       <div class="social-track-grid">
@@ -515,7 +515,7 @@
         <article class="social-track public">
           <div class="track-badge">Public / accessible</div>
           <h3>YouTube · X · LinkedIn</h3>
-          <p>For local-AI / RAG / llama.cpp audiences — cold load, mmap lies, MoE-from-pool. [SEALED] / [PENDING] on every beat.</p>
+          <p>For local-AI / RAG / llama.cpp audiences — cold load, mmap lies, MoE-from-pool. [PROVISIONAL] / [PENDING] on every beat.</p>
           <ul>
             <li><span class="t-muted">YouTube / X / LinkedIn drafts</span> · private until approved promote</li>
           </ul>
@@ -534,8 +534,8 @@
   <section id="next">
     <div class="wrap reveal">
       <p class="section-label">Recommended next experiments</p>
-      <h2>Runnable requests for the SUT harness</h2>
-      <p class="lede">Campaign is barely started. These are labeled <strong>recommendations</strong> — clear next steps Claude can implement on the N5 MAX — not completed results.</p>
+      <h2>Recommended next experiments</h2>
+      <p class="lede">Campaign is barely started. These are labeled <strong>recommendations</strong> — clear next experiments for the storage + AI chapters — not completed results.</p>
 
       <h3 class="subhead">Storage — strengthen the layout story</h3>
       <div class="exp-grid">
@@ -589,7 +589,7 @@
         </article>
       </div>
 
-      <h3 class="subhead">AI — destination narrative (from plan docs)</h3>
+      <h3 class="subhead">AI — destination narrative</h3>
       <div class="exp-grid">
         <article class="exp-card">
           <div class="exp-tag ai">AI</div>
@@ -624,7 +624,7 @@
         <article class="exp-card">
           <div class="exp-tag ai">AI</div>
           <h3>GTT / kernel prerequisites</h3>
-          <p>Confirm kernel ≥ 6.18.4, set <code>ttm.pages_limit</code>, pin ROCm; document exact versions in result.json.</p>
+          <p>Confirm kernel ≥ 6.18.4, set <code>ttm.pages_limit</code>, pin ROCm; document exact software versions with any future results.</p>
           <p class="why"><strong>Why:</strong> silent GTT caps look like “disk” problems.</p>
         </article>
       </div>
@@ -635,22 +635,22 @@
   <footer class="site-footer" id="follow">
     <div class="wrap reveal">
       <p class="section-label">Follow the campaign</p>
-      <h2 class="footer-h2">Lab notebook on the SUT. Story on Pages.</h2>
-      <p class="lede">This is a collaborative lab notebook + public story — not a single-author blog.</p>
+      <h2 class="footer-h2">Provisional report. Under adversarial review.</h2>
+      <p class="lede">This is the public story face for the N5 MAX storage + AI-NAS campaign — treat figures as under review.</p>
 
       <div class="how-made">
         <h3>How this report is made</h3>
         <ol>
-          <li><strong>Harness on the SUT</strong> — Claude is SSH’d into the target N5 MAX writing and running the dendrite suites.</li>
-          <li><strong>Sealed results in git</strong> — every figure comes from sealed <code>result.json</code> under <code>results/</code> (fio · iostat · ARC · SMART).</li>
-          <li><strong>Pages story site</strong> — this companion writeup (design / narrative layer) consumes those seals; full live JSON wiring follows when remaining runs complete.</li>
+          <li><strong>Measured storage chapter</strong> — four-rail campaign (fio · zpool iostat · ARC · SMART) on the N5 MAX hot-tier array.</li>
+          <li><strong>Provisional figures</strong> — numbers on this page are preliminary / under review, not Protocol&nbsp;B sealed cells.</li>
+          <li><strong>Public story site</strong> — this writeup is the allowlisted narrative layer; AI/telemetry demos stay synthetic until reviewed.</li>
         </ol>
       </div>
 
       <div class="footer-status">
         <article class="status-card">
           <div class="tag done">Done</div>
-          <p>Four-rail, four-disk RAID10 vs RAIDZ1 campaign — all figures on this page from sealed <code>result.json</code>.</p>
+          <p>Four-rail, four-disk RAID10 vs RAIDZ1 campaign — figures on this page are preliminary / provisional (not Protocol&nbsp;B sealed).</p>
         </article>
         <article class="status-card">
           <div class="tag pending">In progress / next</div>
@@ -658,18 +658,18 @@
         </article>
         <article class="status-card">
           <div class="tag planned">Pages</div>
-          <p>After merge: Settings → Pages → Source: <strong>GitHub Actions</strong>. Workflow template: <code>site/pages.workflow.yml</code> → copy to <code>.github/workflows/pages.yml</code>.</p>
+          <p>Hosted on GitHub Pages from this public repository. Publisher reviews promote PRs before merge.</p>
         </article>
       </div>
 
       <div class="cta-strip">
         <a class="btn btn-raid10" href="#choose">Back to recommendations</a>
         <a class="btn btn-raidz1" href="#next">Next experiments</a>
-        <a class="btn btn-ghost" href="#sealed">Sealed metrics</a>
+        <a class="btn btn-ghost" href="#results">Results</a>
       </div>
 
       <div class="provenance">
-        <p>Generated figures via <code>bin/dendrite-report</code> + <code>dendrite-topology</code> · 4 rails: fio · zpool iostat · ARC kstat · SMART.</p>
+        <p>Provisional figures · 4 rails: fio · zpool iostat · ARC kstat · SMART — not Protocol&nbsp;B sealed.</p>
         <p>Noise floor from 2-run repeatability; sub-floor deltas suppressed. No hand-typed benchmark numbers. No invented AI inference results.</p>
         <p class="muted-line">Minisforum N5 MAX · Strix Halo · storage + AI-NAS campaign · 2026-09</p>
       </div>
