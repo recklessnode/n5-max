@@ -35,10 +35,11 @@ INLINE_RE = re.compile(
 CAL_RE = re.compile(r"(?i)\bcalibrat(?:e|ion|ed|ing)\b[^.]*\.?")
 RATE_RE = re.compile(r"(?i)\b(?:GB|GiB|MB|MiB)/s\b")
 GBPS_RE = re.compile(r"(?i)\b(?:read_|write_|bw_)?gbps\b|\bCEILING_GBPS\b")
+PCI_WORD_RE = re.compile(r"(?i)\bPCIe?\b")
 FAMILY_RE = re.compile(r"^([A-Z]+-\d+)")
 FORBIDDEN = (
     "result_dir", "results/", "by-id", "drives.local", "dendrite-sut", "192.168",
-    "GB/s", "GiB/s", "MB/s", "MiB/s", "gbps", "CEILING_GBPS", "calibrat", "fio --", "atom_",
+    "GB/s", "GiB/s", "MB/s", "MiB/s", "gbps", "CEILING_GBPS", "PCI", "PCIe", "calibrat", "fio --", "atom_",
     "suites/storage", "lib/atoms", "bin/dendrite", "journal.jsonl", "derived-ramps",
 )
 
@@ -54,6 +55,7 @@ def scrub_block(text: str, max_chars: int) -> str:
         line = CAL_RE.sub("", line)
         line = RATE_RE.sub("[rate]", line)
         line = GBPS_RE.sub("[rate]", line)
+        line = PCI_WORD_RE.sub("link", line)
         line = re.sub(r"[ \t]{2,}", " ", line).rstrip()
         if not line.strip() or line.strip().startswith("```"):
             if keep and keep[-1] != "":
