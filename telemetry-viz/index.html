@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>N5 MAX · M.2 telemetry lab (DEMO)</title>
-  <meta name="description" content="Self-contained stylized Minisforum N5 MAX motherboard / M.2 telemetry visualization. Synthetic demo data only." />
+  <title>N5 MAX · M.2 telemetry lab</title>
+  <meta name="description" content="Self-contained stylized Minisforum N5 MAX motherboard / M.2 telemetry visualization. Sealed calibration playback + synthetic DEMO fallback." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -14,8 +14,12 @@
   <header class="lab-header">
     <div class="lab-title">Minisforum <span>N5 MAX</span> · M.2 telemetry</div>
     <div class="lab-meta">tiered local-AI NAS · Gen4×1 lane tax · spine = SLOT</div>
-    <div class="demo-banner">DEMO · provisional · synthetic 1 Hz</div>
+    <div class="demo-banner calibrate-banner" id="mode-banner">CALIBRATE · provisional · loading…</div>
     <div class="provisional-compact" role="status">PROVISIONAL · under adversarial review · do not cite as final</div>
+    <div class="source-toggle" role="group" aria-label="Playback source">
+      <button type="button" id="src-calibrate" class="active" title="Sealed Protocol B calibrate raidz2 cell">Calibration</button>
+      <button type="button" id="src-demo" title="Synthetic DEMO playlist">DEMO</button>
+    </div>
   </header>
 
   <div class="main-grid">
@@ -44,7 +48,7 @@
           Serial display
           <select id="serial-mode" title="Public Pages must never show full serials">
             <option value="hide">Hide</option>
-            <option value="last4" selected>Last-4 (default)</option>
+            <option value="last4" selected>SN / last-4 (default)</option>
             <option value="full">Full (local lab only)</option>
           </select>
         </label>
@@ -84,12 +88,9 @@
         </div>
       </div>
       <div class="side-section">
-        <h3>Demo context (provisional ceilings — not this run)</h3>
-        <p class="notes">
-          RAIDZ1 seq read <strong>6.02 GB/s</strong> · amp <strong>1.375×</strong> ·
-          ×1 ceiling <strong>1.97</strong> · NM790@×1 ≈ <strong>1.81</strong>.
-          Playback below is <strong>synthetic DEMO</strong> shaped toward those ceilings;
-          real 1 Hz sampler format was rewritten — no completed runs yet.
+        <h3>Context</h3>
+        <p class="notes" id="side-context-notes">
+          Loading playback source…
         </p>
       </div>
       <div class="side-section">
@@ -120,13 +121,14 @@
         <div class="playlist" id="playlist" aria-label="Scenario playlist"></div>
       </div>
       <div class="footer-note">
-        ORIGINAL stylized SVG only · no review photos · normalizeSample() ready for future sampler CSV · see ADAPTER.md
+        ORIGINAL stylized SVG only · no review photos · calibrate pack = cell seal only · see ADAPTER.md
       </div>
     </section>
   </div>
 
   <script src="js/normalize.js"></script>
   <script src="js/demoTelemetry.js"></script>
+  <script src="js/calibrationLoader.js"></script>
   <script src="js/board.js"></script>
   <script src="js/chart.js"></script>
   <script src="js/app.js"></script>

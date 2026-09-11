@@ -357,10 +357,14 @@
 
   function formatSerial(d, mode) {
     if (mode === 'hide') return '';
+    const suf = d.serialSuffix || d.label || '';
+    // SN1.. labels from by-id short tags — show as-is (no fake ellipsis)
+    const isSnLabel = /^SN\d+$/i.test(String(suf)) || suf === 'OS' || suf === 'OSDISK';
     if (mode === 'full') {
-      return d.serialFull || ('…' + d.serialSuffix);
+      return d.serialFull || (isSnLabel ? String(suf) : ('…' + suf));
     }
-    return '…' + (d.serialSuffix || '????');
+    if (isSnLabel) return String(suf);
+    return '…' + (suf || '????');
   }
 
   global.N5Board = {

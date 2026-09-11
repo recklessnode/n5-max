@@ -1,13 +1,17 @@
 /**
  * N5 MAX board telemetry viz — playback, HUD, side panel, wiring.
+ * Modes: DEMO (synthetic) | CALIBRATE (sealed calibration pack).
  */
 (function () {
   'use strict';
 
   const state = {
-    playlistId: 'nm790-x1',
+    source: 'calibrate', // 'calibrate' | 'demo' — prefer real sealed cell when pack loads
+    playlistId: null,
     samples: [], // normalized
     scenario: null,
+    packMeta: null,
+    calibratePlaylist: [],
     idx: 0,
     playing: false,
     speed: 10, // default 10×
@@ -16,11 +20,19 @@
     raf: null,
     lastTick: 0,
     accum: 0,
+    packError: null,
   };
 
   let chart;
 
-  function demoChipHTML() {
+  function isCalibrate() {
+    return state.source === 'calibrate' && state.packMeta;
+  }
+
+  function statusChipHTML() {
+    if (isCalibrate()) {
+      return '<span class="demo-chip calibrate-chip" title="Sealed calibration cell — Protocol B calibrate raidz2 · provisional · not story-sealed">CALIBRATE · provisional</span>';
+    }
     return '<span class="demo-chip" title="Synthetic demo — provisional / not Protocol B sealed">DEMO · provisional</span>';
   }
 
@@ -28,25 +40,151 @@
     N5Board.buildBoardSVG(document.getElementById('board-root'));
     chart = new N5Chart(document.getElementById('chart'));
 
-    buildPlaylistUI();
     bindControls();
-    loadScenario(state.playlistId);
-    render();
-    // Auto-play gently at default 10×
-    play();
+    bindSourceToggle();
+
+    // Prefer calibration pack; fall back to DEMO if missing
+    bootstrap();
+  }
+
+  async function bootstrap() {
+    try {
+      const pack = await N5Calibration.loadPack();
+      state.packMeta = pack.meta;
+      state.calibratePlaylist = N5Calibration.playlistFromMeta(pack.meta);
+      state.source = 'calibrate';
+      state.packError = null;
+      // Default chapter: STO-01 j4 read (~5 GB/s)
+      const preferred =
+        state.calibratePlaylist.find(function (p) {
+          return p.id === 'STO-01_seq_read_1M_j4';
+        }) || state.calibratePlaylist[0];
+      state.playlistId = preferred ? preferred.id : null;
+      updateBanner();
+      buildPlaylistUI();
+      await loadScenario(state.playlistId);
+      play();
+    } catch (err) {
+      console.warn('calibration pack unavailable — DEMO fallback', err);
+      state.packError = String(err && err.message ? err.message : err);
+      state.source = 'demo';
+      state.playlistId = 'nm790-x1';
+      updateBanner();
+      buildPlaylistUI();
+      loadScenario(state.playlistId);
+      play();
+    }
+  }
+
+  function bindSourceToggle() {
+    const demoBtn = document.getElementById('src-demo');
+    const calBtn = document.getElementById('src-calibrate');
+    if (demoBtn) {
+      demoBtn.addEventListener('click', function () {
+        setSource('demo');
+      });
+    }
+    if (calBtn) {
+      calBtn.addEventListener('click', function () {
+        setSource('calibrate');
+      });
+    }
+  }
+
+  async function setSource(src) {
+    if (src === state.source && state.samples.length) return;
+    pause();
+    state.source = src;
+    updateBanner();
+    if (src === 'calibrate') {
+      try {
+        const pack = await N5Calibration.loadPack();
+        state.packMeta = pack.meta;
+        state.calibratePlaylist = N5Calibration.playlistFromMeta(pack.meta);
+        state.packError = null;
+        const preferred =
+          state.calibratePlaylist.find(function (p) {
+            return p.id === 'STO-01_seq_read_1M_j4';
+          }) || state.calibratePlaylist[0];
+        state.playlistId = preferred.id;
+        buildPlaylistUI();
+        await loadScenario(state.playlistId);
+        play();
+      } catch (err) {
+        state.packError = String(err && err.message ? err.message : err);
+        alert('Calibration pack failed to load: ' + state.packError);
+        state.source = 'demo';
+        updateBanner();
+        buildPlaylistUI();
+        loadScenario('nm790-x1');
+      }
+    } else {
+      state.playlistId = 'nm790-x1';
+      buildPlaylistUI();
+      loadScenario(state.playlistId);
+      play();
+    }
+  }
+
+  function updateBanner() {
+    const banner = document.getElementById('mode-banner');
+    const demoBtn = document.getElementById('src-demo');
+    const calBtn = document.getElementById('src-calibrate');
+    if (demoBtn) demoBtn.classList.toggle('active', state.source === 'demo');
+    if (calBtn) calBtn.classList.toggle('active', state.source === 'calibrate');
+
+    if (!banner) return;
+    if (isCalibrate()) {
+      banner.className = 'demo-banner calibrate-banner';
+      banner.textContent =
+        'CALIBRATE · provisional · shape/DEMO only · Protocol B raidz2 · not story-sealed · cell ' +
+        (state.packMeta.source_cell || '');
+    } else {
+      banner.className = 'demo-banner';
+      banner.textContent = 'DEMO · provisional · synthetic 1 Hz';
+    }
+
+    const notes = document.getElementById('side-context-notes');
+    if (notes) {
+      if (isCalibrate()) {
+        notes.innerHTML =
+          'Shape/DEMO of sealed <strong>stage1-raidz2-calibrate</strong> cell ' +
+          escapeHtml(state.packMeta.source_cell || '') +
+          ' — <strong>not a story promote</strong>. Ceiling <strong>' +
+          escapeHtml(String(state.packMeta.ceiling_gbps)) +
+          ' GB/s</strong> · 4× Gen4×1 (os-x4 idle). ' +
+          'Not the public RAID10/RAIDZ1 chapter. ' +
+          '<span class="demo-chip calibrate-chip">CALIBRATE · provisional</span>';
+      } else {
+        notes.innerHTML =
+          'RAIDZ1 seq read <strong>6.02 GB/s</strong> · amp <strong>1.375×</strong> · ' +
+          '×1 ceiling <strong>1.97</strong> · NM790@×1 ≈ <strong>1.81</strong>. ' +
+          'Playback below is <strong>synthetic DEMO</strong> shaped toward those ceilings.';
+      }
+    }
   }
 
   function buildPlaylistUI() {
     const el = document.getElementById('playlist');
     el.innerHTML = '';
-    demoTelemetry.PLAYLIST.forEach(function (p, i) {
+    const list =
+      state.source === 'calibrate' && state.calibratePlaylist.length
+        ? state.calibratePlaylist
+        : demoTelemetry.PLAYLIST;
+
+    list.forEach(function (p, i) {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.dataset.id = p.id;
+      const chip = p.calibrate
+        ? ' <span class="demo-chip calibrate-chip">CAL</span>'
+        : ' <span class="demo-chip">DEMO</span>';
       btn.innerHTML =
-        (i + 1) + '. ' +
+        i +
+        1 +
+        '. ' +
         escapeHtml(p.name) +
-        ' <span class="demo-chip">DEMO</span>' +
+        chip +
         (p.optional ? ' <span style="color:var(--text-dim)">(opt)</span>' : '');
       if (p.id === state.playlistId) btn.classList.add('active');
       btn.addEventListener('click', function () {
@@ -59,15 +197,37 @@
     });
   }
 
-  function loadScenario(id) {
-    const run = demoTelemetry.synthesizeRun(id);
-    state.playlistId = run.scenario.id;
-    state.scenario = run.scenario;
-    state.samples = run.samples.map(function (raw) {
-      return normalizeSample(raw);
-    });
-    state.idx = 0;
+  async function loadScenario(id) {
+    pause();
     state.accum = 0;
+    state.idx = 0;
+
+    if (state.source === 'calibrate' && state.packMeta) {
+      const pack = await N5Calibration.loadPack();
+      const run = N5Calibration.chapterRun(pack, id);
+      state.playlistId = run.scenario.id;
+      state.scenario = run.scenario;
+      state.samples = run.samples.map(function (raw) {
+        const n = normalizeSample(raw);
+        // Force calibrate meta (normalize defaults demo:true historically)
+        n.meta.demo = false;
+        n.meta.calibrate = true;
+        n.meta.provisional = true;
+        n.meta.storySealed = false;
+        if (!n.meta.playbackBadge) {
+          n.meta.playbackBadge = 'CALIBRATE · provisional';
+        }
+        return n;
+      });
+    } else {
+      const run = demoTelemetry.synthesizeRun(id);
+      state.playlistId = run.scenario.id;
+      state.scenario = run.scenario;
+      state.samples = run.samples.map(function (raw) {
+        return normalizeSample(raw);
+      });
+    }
+
     chart.setHistory(state.samples);
     chart.setShowIndividuals(state.showIndividuals);
     chart.setPlayhead(0);
@@ -149,7 +309,9 @@
   }
 
   function render() {
-    const sample = state.samples[state.idx] || normalizeSample({ t: 0, drives: [], meta: { demo: true } });
+    const sample =
+      state.samples[state.idx] ||
+      normalizeSample({ t: 0, drives: [], meta: { demo: true } });
     const scrub = document.getElementById('scrubber');
     scrub.value = state.idx;
 
@@ -162,18 +324,27 @@
 
   function renderHUD(sample) {
     const meta = sample.meta || {};
-    const n = (sample.drives || []).filter(function (d) { return d.active; }).length;
+    const n = (sample.drives || []).filter(function (d) {
+      return d.active;
+    }).length;
     document.getElementById('hud-n').innerHTML =
-      n + ' drive' + (n === 1 ? '' : 's') + ' ' + demoChipHTML();
-    document.getElementById('hud-test').textContent = meta.testName || state.scenario?.name || '—';
-    document.getElementById('hud-layout').textContent = meta.layout || state.scenario?.layout || '—';
+      n + ' drive' + (n === 1 ? '' : 's') + ' ' + statusChipHTML();
+    document.getElementById('hud-test').textContent =
+      meta.testName || state.scenario?.name || '—';
+    document.getElementById('hud-layout').textContent =
+      meta.layout || state.scenario?.layout || '—';
 
     const pr = sample.pool.readGBs;
+    const pw = sample.pool.writeGBs;
+    const nowLine =
+      pr >= pw
+        ? 'now ' + pr.toFixed(2) + ' GB/s read'
+        : 'now ' + pw.toFixed(2) + ' GB/s write';
     const headline =
       (state.scenario && state.scenario.headline ? state.scenario.headline + ' · ' : '') +
-      'now ' + pr.toFixed(2) + ' GB/s read';
+      nowLine;
     document.getElementById('hud-headline').innerHTML =
-      escapeHtml(headline) + ' ' + demoChipHTML();
+      escapeHtml(headline) + ' ' + statusChipHTML();
   }
 
   function renderSide(sample) {
@@ -181,8 +352,13 @@
     list.innerHTML = '';
     const maxRail = Math.max(
       2,
-      ...sample.drives.map(function (d) { return Math.max(d.readGBs, d.writeGBs); }),
-      sample.pool.readGBs / Math.max(1, sample.drives.filter(function (d) { return d.active; }).length)
+      ...sample.drives.map(function (d) {
+        return Math.max(d.readGBs, d.writeGBs);
+      }),
+      sample.pool.readGBs /
+        Math.max(1, sample.drives.filter(function (d) {
+          return d.active;
+        }).length)
     );
 
     sample.drives.forEach(function (d) {
@@ -192,39 +368,55 @@
       const serial = N5Board.formatSerial(d, state.serialMode);
       card.innerHTML =
         '<div class="drive-card-head">' +
-        '<span class="drive-role">' + escapeHtml(d.role) + '</span>' +
-        '<span class="drive-temp" style="color:' + tempCol + '">' +
-        (d.active && Number.isFinite(d.tempC) ? d.tempC.toFixed(1) + '°C' : '—') +
+        '<span class="drive-role">' +
+        escapeHtml(d.role) +
+        '</span>' +
+        '<span class="drive-temp" style="color:' +
+        tempCol +
+        '">' +
+        (Number.isFinite(d.tempC) ? d.tempC.toFixed(1) + '°C' : '—') +
         '</span></div>' +
         (serial
           ? '<div class="drive-serial">' + escapeHtml(serial) + '</div>'
           : '') +
         railHTML('rd', d.readGBs, maxRail, 'read') +
         railHTML('wr', d.writeGBs, maxRail, 'write') +
-        (d.active ? '<div style="margin-top:4px">' + demoChipHTML() + '</div>' : '');
+        (d.active
+          ? '<div style="margin-top:4px">' + statusChipHTML() + '</div>'
+          : '<div style="margin-top:4px;font-size:0.65rem;color:var(--text-dim)">idle</div>');
       list.appendChild(card);
     });
 
     document.getElementById('pool-read').innerHTML =
-      sample.pool.readGBs.toFixed(2) + ' <small>GB/s</small> ' + demoChipHTML();
+      sample.pool.readGBs.toFixed(2) + ' <small>GB/s</small> ' + statusChipHTML();
     document.getElementById('pool-write').innerHTML =
-      sample.pool.writeGBs.toFixed(2) + ' <small>GB/s</small> ' + demoChipHTML();
+      sample.pool.writeGBs.toFixed(2) + ' <small>GB/s</small> ' + statusChipHTML();
   }
 
   function railHTML(label, val, max, kind) {
     const pct = Math.min(100, (val / max) * 100);
     return (
       '<div class="rail">' +
-      '<span class="rail-label">' + label + '</span>' +
-      '<div class="rail-bar-track"><div class="rail-bar ' + kind + '" style="width:' + pct + '%"></div></div>' +
-      '<span class="rail-val">' + val.toFixed(2) + '</span>' +
+      '<span class="rail-label">' +
+      label +
+      '</span>' +
+      '<div class="rail-bar-track"><div class="rail-bar ' +
+      kind +
+      '" style="width:' +
+      pct +
+      '%"></div></div>' +
+      '<span class="rail-val">' +
+      val.toFixed(2) +
+      '</span>' +
       '</div>'
     );
   }
 
   function renderTime() {
     const t = state.samples[state.idx] ? state.samples[state.idx].t : 0;
-    const total = state.samples.length ? state.samples[state.samples.length - 1].t : 0;
+    const total = state.samples.length
+      ? state.samples[state.samples.length - 1].t
+      : 0;
     document.getElementById('time-display').textContent =
       formatTime(t) + ' / ' + formatTime(total) + ' · ' + state.speed + '×';
   }

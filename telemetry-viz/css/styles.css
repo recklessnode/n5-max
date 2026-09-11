@@ -620,3 +620,51 @@ body {
   text-transform: uppercase;
   text-align: center;
 }
+
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+/* --- Calibration playback --- */
+:root {
+  --calibrate-chip: #34d399;
+}
+.demo-banner.calibrate-banner {
+  color: var(--calibrate-chip);
+}
+.demo-banner.calibrate-banner::before {
+  background: var(--calibrate-chip);
+  box-shadow: 0 0 6px var(--calibrate-chip);
+}
+.demo-chip.calibrate-chip {
+  color: var(--calibrate-chip);
+  border-color: color-mix(in srgb, var(--calibrate-chip) 45%, transparent);
+}
+.source-toggle {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.source-toggle button {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #334155);
+  background: transparent;
+  color: var(--text-dim, #94a3b8);
+  cursor: pointer;
+}
+.source-toggle button.active {
+  color: var(--calibrate-chip);
+  border-color: color-mix(in srgb, var(--calibrate-chip) 55%, transparent);
+  background: color-mix(in srgb, var(--calibrate-chip) 12%, transparent);
+}
+.source-toggle #src-demo.active {
+  color: var(--demo-chip);
+  border-color: color-mix(in srgb, var(--demo-chip) 55%, transparent);
+  background: color-mix(in srgb, var(--demo-chip) 12%, transparent);
+}

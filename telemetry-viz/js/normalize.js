@@ -57,6 +57,7 @@
       const serialFull = d.serialFull ?? d.serial ?? d.sn ?? '';
       const serialSuffix =
         d.serialSuffix ??
+        d.label ??
         (serialFull ? String(serialFull).slice(-4) : pad2(i + 1));
       const tempC = num(d.tempC ?? d.temp_c ?? d.temperature ?? d.temp, NaN);
       const readGBs = num(
@@ -99,6 +100,8 @@
     if (raw.layout && !meta.layout) meta.layout = raw.layout;
     if (raw.headline && !meta.headline) meta.headline = raw.headline;
     if (raw.demo != null && meta.demo == null) meta.demo = !!raw.demo;
+    if (raw.calibrate != null && meta.calibrate == null) meta.calibrate = !!raw.calibrate;
+    if (meta.calibrate && meta.demo == null) meta.demo = false;
     if (meta.demo == null) meta.demo = true;
 
     return {
