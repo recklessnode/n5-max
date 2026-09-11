@@ -11,7 +11,7 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  Chart.defaults.font.family = '"Instrument Sans", ui-sans-serif, system-ui, sans-serif';
+  Chart.defaults.font.family = 'Ubuntu, ui-sans-serif, system-ui, sans-serif';
   Chart.defaults.font.size = 12;
   Chart.defaults.color = TICK;
   Chart.defaults.plugins.legend.display = false;
@@ -44,14 +44,14 @@
             display: !!yTitle,
             text: yTitle,
             color: TICK,
-            font: { family: '"Instrument Sans", sans-serif', size: 11, weight: "500" },
+            font: { family: 'Ubuntu, sans-serif', size: 11, weight: "500" },
           },
         },
       },
       plugins: {
         tooltip: {
           backgroundColor: "#1a1917",
-          titleFont: { family: '"Instrument Sans", sans-serif', weight: "600" },
+          titleFont: { family: 'Ubuntu, sans-serif', weight: "600" },
           bodyFont: { family: '"JetBrains Mono", monospace', size: 12 },
           padding: 10,
           cornerRadius: 8,

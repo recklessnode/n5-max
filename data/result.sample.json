@@ -28,7 +28,7 @@
     {
       "id": "write_amp",
       "label": "Write amplification",
-      "value": 1.37,
+      "value": 1.375,
       "unit": "×",
       "winner": "RAIDZ1",
       "detail": "RAIDZ1 parity · vs RAID10's 1.97× mirror"
@@ -73,7 +73,7 @@
   },
   "write_amplification": {
     "RAID10": {"value": 1.97, "label": "RAID10 · mirror"},
-    "RAIDZ1": {"value": 1.375, "label": "RAIDZ1 · parity", "headline_rounded": 1.37},
+    "RAIDZ1": {"value": 1.375, "label": "RAIDZ1 · parity", "headline_rounded": 1.375},
     "reference_line": 1.0,
     "axis_max": 2.2,
     "operation": "sequential write 1M ×4",
