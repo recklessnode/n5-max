@@ -111,7 +111,7 @@
     return Math.round(sec / 86400) + " d ago";
   }
 
-  function formatDuration(s) {
+  function formatDurationSeconds(s) {
     s = Number(s) || 0;
     if (s < 60) return s + " seconds";
     if (s < 3600) return Math.round(s / 60) + " minutes";
@@ -120,6 +120,62 @@
       return (h >= 10 ? Math.round(h) : h.toFixed(1).replace(/\.0$/, "")) + " hours";
     }
     return Math.round(s / 86400) + " days";
+  }
+
+  /** Compact span: `4m 32s` / `1h 5m` / `45s`. */
+  function formatCompactDuration(sec) {
+    sec = Math.max(0, Math.round(Number(sec) || 0));
+    if (sec < 60) return sec + "s";
+    if (sec < 3600) {
+      var m = Math.floor(sec / 60);
+      var s = sec % 60;
+      return s ? m + "m " + s + "s" : m + "m";
+    }
+    var h = Math.floor(sec / 3600);
+    var rm = Math.floor((sec % 3600) / 60);
+    return rm ? h + "h " + rm + "m" : h + "h";
+  }
+
+  /**
+   * Duration helper.
+   * - formatDuration(startIso, endIso) → compact `Xm Ys` / `Xh Ym`
+   * - formatDuration(seconds) → verbose (viewer-footer stale window)
+   */
+  function formatDuration(start, end) {
+    if (arguments.length < 2) return formatDurationSeconds(start);
+    var a = parseIso(start);
+    var b = parseIso(end);
+    if (!a || !b) return "";
+    return formatCompactDuration((b.getTime() - a.getTime()) / 1000);
+  }
+
+  /** Local wall time, no TZ offset — e.g. `Sep 11, 2:45 PM`. */
+  function formatLocal(iso) {
+    var d = parseIso(iso);
+    if (!d) return "—";
+    try {
+      return d.toLocaleString(undefined, {
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+      });
+    } catch (e) {
+      var pad = function (n) {
+        return n < 10 ? "0" + n : String(n);
+      };
+      return (
+        d.getFullYear() +
+        "-" +
+        pad(d.getMonth() + 1) +
+        "-" +
+        pad(d.getDate()) +
+        " " +
+        pad(d.getHours()) +
+        ":" +
+        pad(d.getMinutes())
+      );
+    }
   }
 
   function formatClock(s) {
@@ -249,6 +305,9 @@
     formatIso: formatIso,
     formatAge: formatAge,
     formatDuration: formatDuration,
+    formatDurationSeconds: formatDurationSeconds,
+    formatCompactDuration: formatCompactDuration,
+    formatLocal: formatLocal,
     formatClock: formatClock,
     isStale: isStale,
     normalizeStatus: normalizeStatus,
