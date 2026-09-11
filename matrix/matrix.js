@@ -151,12 +151,10 @@
     var times = [];
     if (cell.started_at) times.push("started " + S.formatClock(cell.started_at));
     if (cell.finished_at) times.push("finished " + S.formatClock(cell.finished_at));
-    var why = cell.why ? '<p class="cell-why">' + esc(cell.why) + "</p>" : "";
     var body = "";
     if (open) {
       body =
         '<div class="cell-detail">' +
-        why +
         (times.length
           ? '<p class="cell-times">' + esc(times.join(" · ")) + "</p>"
           : "") +
@@ -200,9 +198,6 @@
 
   function renderStage(stage) {
     var cells = Array.isArray(stage.cells) ? stage.cells : [];
-    var gated = stage.gated_on
-      ? '<p class="stage-gate">Gated: ' + esc(stage.gated_on) + "</p>"
-      : "";
     return (
       '<section class="matrix-stage" id="stage-' +
       esc(stage.id) +
@@ -214,7 +209,6 @@
       "<h2>" +
       esc(stage.name || "Stage " + stage.id) +
       "</h2>" +
-      gated +
       "</header>" +
       '<div class="cell-grid">' +
       cells.map(function (c) { return renderCell(stage, c); }).join("") +

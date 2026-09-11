@@ -12,7 +12,6 @@
     {
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
-      "gated_on": null,
       "cells": [
         {
           "n": 0,
@@ -21,7 +20,6 @@
           "mode": "calibrate",
           "primarycache": "none",
           "status": "passed",
-          "why": "protocol B calibration: write cases at a 270 s ramp + 30 s window on the heaviest write path; bin/dendrite-derive-ramp turns the 30 s bucket plateau into the validated write ramp for every following cell (campaign/derived-ramps.json)",
           "started_at": "2026-09-11T19:41:00Z",
           "finished_at": "2026-09-11T20:46:56Z",
           "cases": [
@@ -284,7 +282,6 @@
           "suite": "storage",
           "primarycache": "none",
           "status": "pending",
-          "why": "2-way mirror = the common 4-bay redundancy entry point; isolates mirroring from the 2-vdev stripe that raid10 conflates",
           "started_at": null,
           "finished_at": null
         },
@@ -294,7 +291,6 @@
           "suite": "storage",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -304,7 +300,6 @@
           "suite": "storage",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -314,7 +309,6 @@
           "suite": "storage",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -324,7 +318,6 @@
           "suite": "storage",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -334,7 +327,6 @@
           "suite": "storage",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -344,7 +336,6 @@
           "suite": "storage",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass: metadata cached (a NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         }
@@ -353,7 +344,6 @@
     {
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
-      "gated_on": "5th (new) NM790 installed in the x4 slot (root port 00:02.5) in place of the retired Intel 760p OS disk \u2014 the NAS then has 5 identical NM790s and no OS disk (boots from the USB thumb). Its by-id name goes on line 5 of campaign/drives.local (git-ignored). Chained after stage 1 + soak by bin/dendrite-drive.",
       "cells": [
         {
           "n": 1,
@@ -397,7 +387,6 @@
           "suite": "storage",
           "primarycache": "none",
           "status": "pending",
-          "why": "mirror pairs + hot spare \u2014 the 5-bay deployment shape",
           "started_at": null,
           "finished_at": null
         },
@@ -408,7 +397,6 @@
           "mode": "full",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -419,7 +407,6 @@
           "mode": "full",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -430,7 +417,6 @@
           "mode": "full",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -441,7 +427,6 @@
           "mode": "full",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         },
@@ -452,7 +437,6 @@
           "mode": "full",
           "primarycache": "metadata",
           "status": "pending",
-          "why": "fair-read pass (NAS in service); pairs with the none cell of the same layout",
           "started_at": null,
           "finished_at": null
         }
@@ -461,7 +445,6 @@
     {
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
-      "gated_on": "stage 1/2 winner + weights staged on the SUT pool + ROCm golden image + suites/ai/run.sh implemented (does not exist yet)",
       "cells": [
         {
           "n": 1,
@@ -471,7 +454,6 @@
           ],
           "suite": "ai",
           "status": "blocked",
-          "why": "load-time instrument, cold AND warm reported separately; cheapest ROCm-stack validator",
           "started_at": null,
           "finished_at": null
         },
@@ -484,7 +466,6 @@
           ],
           "suite": "ai",
           "status": "blocked",
-          "why": "32B active = cleanest per-token expert-read signal; two layouts so the RAID effect is measured, not assumed",
           "started_at": null,
           "finished_at": null
         },
@@ -496,7 +477,6 @@
           ],
           "suite": "ai",
           "status": "blocked",
-          "why": "second active-param point (37B)",
           "started_at": null,
           "finished_at": null
         },
@@ -508,7 +488,6 @@
           ],
           "suite": "ai",
           "status": "blocked",
-          "why": "AI-13: reproduce Minisforum's published llama-bench figures on the same invocation (HIP and Vulkan); also the no-paging ceiling controls",
           "started_at": null,
           "finished_at": null
         }
@@ -517,7 +496,6 @@
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
-      "gated_on": "stage 1 all cells passed (auto-chained by unit dendrite-stage4)",
       "cells": [
         {
           "n": 1,

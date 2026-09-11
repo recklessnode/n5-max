@@ -151,7 +151,6 @@
           stages: [{
             id: defaultSid,
             name: defaultName,
-            gated_on: stageMeta.gated_on || null,
             cells: status.cells,
           }],
         });
