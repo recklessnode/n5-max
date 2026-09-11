@@ -1,0 +1,327 @@
+{
+  "schema": "telemetry-viz-calibration-pack/v1",
+  "result_schema": "docs/result-schema.md",
+  "result_schema_note": "Pack reverse-mapped from sealed cell + docs/result-schema.md; public pack uses SN labels only (no full disk paths).",
+  "playback_role": "shape-demo",
+  "source_cell": "2026-09-11-19.41-storage.dendrite-sut",
+  "host": "dendrite-sut",
+  "suite": "storage",
+  "mode": "calibrate",
+  "layout": "stage1-raidz2-calibrate",
+  "protocol": "B-derived-durations (docs/protocol-b-derived-durations.md)",
+  "protocol_label": "Protocol B calibrate raidz2",
+  "playback_badge": "CALIBRATE \u00b7 provisional",
+  "story_sealed": false,
+  "note": "Sealed calibration cell playback \u2014 NOT the public RAID10/RAIDZ1 story chapter.",
+  "pool": "bench",
+  "ceiling_gbps": 7.88,
+  "ceiling_members": 4,
+  "usable_tib": 6.48,
+  "harness_commit": "d51e04a-dirty",
+  "pool_state": "ONLINE",
+  "vdevs": [
+    {
+      "vdev": "raidz2-0",
+      "type": "raidz",
+      "nparity": null,
+      "members": [
+        "SN1",
+        "SN2",
+        "SN3",
+        "SN4"
+      ]
+    }
+  ],
+  "members": [
+    {
+      "label": "SN1",
+      "role": "face3-mid",
+      "dev": "nvme0n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    },
+    {
+      "label": "SN2",
+      "role": "face3-low",
+      "dev": "nvme1n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    },
+    {
+      "label": "SN3",
+      "role": "opp-a",
+      "dev": "nvme3n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    },
+    {
+      "label": "SN4",
+      "role": "opp-b",
+      "dev": "nvme4n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    }
+  ],
+  "os_seat": {
+    "label": "OSDISK",
+    "role": "os-x4",
+    "dev": "nvme2n1",
+    "active": false
+  },
+  "column_map": {
+    "epoch_ms": "epoch_ms",
+    "temps": {
+      "SN1": "ssd_temp_nvme0_composite_c",
+      "SN2": "ssd_temp_nvme1_composite_c",
+      "SN3": "ssd_temp_nvme3_composite_c",
+      "SN4": "ssd_temp_nvme4_composite_c",
+      "OSDISK": "ssd_temp_nvme2_composite_c"
+    },
+    "disk_bw": {
+      "SN1": "disk_nvme0n1_{read,write}_bytes_per_s",
+      "SN2": "disk_nvme1n1_{read,write}_bytes_per_s",
+      "SN3": "disk_nvme3n1_{read,write}_bytes_per_s",
+      "SN4": "disk_nvme4n1_{read,write}_bytes_per_s"
+    },
+    "note": "Controller indices are sparse: members use nvme0,1,3,4; nvme2 is OS. Columns follow controller ids, not dense 0..3."
+  },
+  "telemetry": {
+    "file": "telemetry.min.json",
+    "rows": 3688,
+    "t0_epoch_ms": 1789155689124,
+    "hz": 1,
+    "columns": [
+      "t",
+      "epoch_ms",
+      "drives[].tempC",
+      "drives[].readGBs",
+      "drives[].writeGBs",
+      "pool.readGBs",
+      "pool.writeGBs"
+    ]
+  },
+  "chapters": [
+    {
+      "id": "STO-01_seq_write_1M_j1",
+      "name": "STO-01 seq write 1M j1",
+      "tag": "STO-01_seq_write_1M_j1",
+      "layout": "stage1-raidz2-calibrate",
+      "headline": "~2.17 GB/s pool write",
+      "headlineTarget": 2.167,
+      "begin_ms": 1789156067000,
+      "end_ms": 1789156368000,
+      "t0": 377.876,
+      "t1": 678.876,
+      "wall_s": 301,
+      "rw": "write",
+      "bs": "1M",
+      "numjobs": "1",
+      "read_gbps": 0.0,
+      "write_gbps": 1.073,
+      "pool_read_gbps": 0.0,
+      "pool_write_gbps": 2.167,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "calibrate",
+      "optional": false
+    },
+    {
+      "id": "STO-01_seq_read_1M_j1",
+      "name": "STO-01 seq read 1M j1",
+      "tag": "STO-01_seq_read_1M_j1",
+      "layout": "stage1-raidz2-calibrate",
+      "headline": "~6.45 GB/s pool read",
+      "headlineTarget": 6.452,
+      "begin_ms": 1789156375000,
+      "end_ms": 1789156436000,
+      "t0": 685.876,
+      "t1": 746.876,
+      "wall_s": 61,
+      "rw": "read",
+      "bs": "1M",
+      "numjobs": "1",
+      "read_gbps": 6.434,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 6.452,
+      "pool_write_gbps": 0.0,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "calibrate",
+      "optional": false
+    },
+    {
+      "id": "STO-01_seq_write_1M_j4",
+      "name": "STO-01 seq write 1M j4",
+      "tag": "STO-01_seq_write_1M_j4",
+      "layout": "stage1-raidz2-calibrate",
+      "headline": "~4.14 GB/s pool write",
+      "headlineTarget": 4.137,
+      "begin_ms": 1789156443000,
+      "end_ms": 1789156744000,
+      "t0": 753.876,
+      "t1": 1054.876,
+      "wall_s": 301,
+      "rw": "write",
+      "bs": "1M",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 1.971,
+      "pool_read_gbps": 0.0,
+      "pool_write_gbps": 4.137,
+      "steady": false,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "calibrate",
+      "optional": false
+    },
+    {
+      "id": "STO-01_seq_read_1M_j4",
+      "name": "STO-01 seq read 1M j4",
+      "tag": "STO-01_seq_read_1M_j4",
+      "layout": "stage1-raidz2-calibrate",
+      "headline": "~5.08 GB/s pool read",
+      "headlineTarget": 5.085,
+      "begin_ms": 1789156751000,
+      "end_ms": 1789156813000,
+      "t0": 1061.876,
+      "t1": 1123.876,
+      "wall_s": 61,
+      "rw": "read",
+      "bs": "1M",
+      "numjobs": "4",
+      "read_gbps": 5.1,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 5.085,
+      "pool_write_gbps": 0.0,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "calibrate",
+      "optional": false
+    },
+    {
+      "id": "STO-02_rand_read_4k_j4",
+      "name": "STO-02 rand read 4k j4",
+      "tag": "STO-02_rand_read_4k_j4",
+      "layout": "stage1-raidz2-calibrate",
+      "headline": "~4.05 GB/s pool read",
+      "headlineTarget": 4.05,
+      "begin_ms": 1789156819000,
+      "end_ms": 1789156881000,
+      "t0": 1129.876,
+      "t1": 1191.876,
+      "wall_s": 61,
+      "rw": "randread",
+      "bs": "4k",
+      "numjobs": "4",
+      "read_gbps": 0.419,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 4.05,
+      "pool_write_gbps": 0.0,
+      "steady": false,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "calibrate",
+      "optional": true
+    },
+    {
+      "id": "STO-02_rand_write_4k_j4",
+      "name": "STO-02 rand write 4k j4",
+      "tag": "STO-02_rand_write_4k_j4",
+      "layout": "stage1-raidz2-calibrate",
+      "headline": "~3.78 GB/s pool write",
+      "headlineTarget": 3.779,
+      "begin_ms": 1789156888000,
+      "end_ms": 1789157198000,
+      "t0": 1198.876,
+      "t1": 1508.876,
+      "wall_s": 309,
+      "rw": "randwrite",
+      "bs": "4k",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 0.158,
+      "pool_read_gbps": 0.721,
+      "pool_write_gbps": 3.779,
+      "steady": false,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "calibrate",
+      "optional": true
+    }
+  ],
+  "cell2_fields_todo": {
+    "note": "First present in stage-1 cell 2 (see docs/result-schema.md afternoon fields). This calibrate cell predates them.",
+    "tests.<case>.thermal": [
+      "baseline_c",
+      "pre_min_c",
+      "decision",
+      "before_c",
+      "after_c",
+      "max_during_c",
+      "lead_in_10s",
+      "lead_out_10s",
+      "idle_before_s",
+      "idle_after_s"
+    ],
+    "telemetry_1hz_smart": "SMART sensors/throttle/data-units per member at 1 Hz (companion CSV cols)",
+    "companions": [
+      "thermal-<case>.json",
+      "zpool-1hz.raw"
+    ]
+  }
+}

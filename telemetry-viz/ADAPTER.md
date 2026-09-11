@@ -1,8 +1,17 @@
 # Telemetry adapter — N5 MAX M.2 viz
 
-Lab-report note: the real **1 Hz** sampler format was just rewritten; **no completed runs** exist yet for this schema. This prototype consumes **synthetic** ticks from `demoTelemetry.synthesizeRun()` and passes every tick through `normalizeSample(raw)`.
+**Status:** sealed **calibration** pack wired (`data/calibration/`) from cell
+`2026-09-11-19.41-storage.dendrite-sut` (`mode=calibrate`, `layout=stage1-raidz2-calibrate`).
+Synthetic DEMO playlist remains as a fallback toggle.
 
-When a golden-image / sampler CSV lands, map columns here — **do not** assume the synth field names are final.
+**Playback role:** **shape / DEMO only** — `CALIBRATE · provisional · not story-sealed`.
+This is **not** a story promote and **not** the public RAID10/RAIDZ1 chapter.
+
+**Policy:** do **not** ingest in-flight STO slices — cell seal only.
+
+**Schema:** field meanings follow lab `docs/result-schema.md` (recklessnode/minisforum-n5-max-benchmark)
+(generated from this sealed cell + afternoon/cell-2 fields). Pack is a sanitized projection
+for the viz (SN labels only).
 
 ---
 
@@ -10,10 +19,10 @@ When a golden-image / sampler CSV lands, map columns here — **do not** assume 
 
 ```ts
 {
-  t: number,                    // seconds from run start (1 Hz ticks)
+  t: number,                    // seconds from chapter start (1 Hz ticks)
   drives: [{
     role: string,               // os-x4 | face3-mid | face3-low | opp-a | opp-b
-    serialSuffix: string,       // last-4 for default UI
+    serialSuffix: string,       // SN1..SN4 | OSDISK — never full disk paths on public Pages
     serialFull?: string,        // optional; public Pages MUST NOT render
     tempC: number,
     readGBs: number,
@@ -23,95 +32,122 @@ When a golden-image / sampler CSV lands, map columns here — **do not** assume 
   pool: { readGBs: number, writeGBs: number },
   meta: {
     demo?: boolean,
+    calibrate?: boolean,
+    provisional?: boolean,
+    storySealed?: boolean,      // always false for this pack
     testName?: string,
     layout?: string,
     headline?: string,
     playlistId?: string,
     nActive?: number,
-    provisionalContext?: object      // reference only — not claimed as this run
+    playbackBadge?: string,     // "CALIBRATE · provisional"
+    protocol?: string,
+    sourceCell?: string
   }
 }
 ```
 
 API: `normalizeSample(raw)` → model above (`js/normalize.js`).
+Calibration loader: `N5Calibration.loadPack()` / `chapterRun()` (`js/calibrationLoader.js`).
 
 ---
 
-## Golden-image §6 channels → normalize
+## result.json (schema-aligned)
 
-Map these **conceptual** channels (names may differ in the forthcoming CSV):
+Canonical table: `docs/result-schema.md`. Viz-relevant top-level keys used by the pack:
 
-| §6 / sampler concept | Preferred raw keys (accepted aliases) | Normalized field |
+| key | example | viz use |
 |---|---|---|
-| Elapsed time (s) | `t`, `time`, `timestamp`, `elapsed_s` | `t` |
-| Seat / role id | `role`, `slot`, `seat`, `id` | `drives[].role` |
-| Serial number | `serial`, `serialFull`, `sn` | `serialFull` + derived `serialSuffix` |
-| NAND / SMART temp °C | `tempC`, `temp_c`, `temperature`, `temp` | `tempC` |
-| Host read throughput | `readGBs`, `read_GBs`, `read_gb_s`, or `read_MBs` (/1000) | `readGBs` |
-| Host write throughput | `writeGBs`, `write_GBs`, `write_gb_s`, or `write_MBs` (/1000) | `writeGBs` |
-| Drive participating | `active`, or inferred from throughput / `present` | `active` |
-| Pool / zpool read | `pool.readGBs`, `pool.read_GBs`, `pool.read_gb_s` | `pool.readGBs` (else sum of active drives) |
-| Pool / zpool write | `pool.writeGBs`, … | `pool.writeGBs` |
-| Test label | `testName`, `meta.testName` | `meta.testName` |
-| Topology string | `layout`, `meta.layout` | `meta.layout` |
+| `host` | `dendrite-sut` | meta |
+| `suite` / `mode` | `storage` / `calibrate` | badge + filter |
+| `layout` | `stage1-raidz2-calibrate` | HUD |
+| `ceiling_gbps` / `ceiling_members` | `7.88` / `4` | context (per-direction PCIe sum) |
+| `members[]` | SN-labelled links, negotiated width **1** | seats; **public omits** raw `member` paths |
+| `vdevs[]` | `raidz2-0` | topology chip |
+| `params.protocol` | B-derived-durations | HUD / notes |
+| `params.telemetry_1hz.*` | rows/coverage | pack telemetry block |
+| `tests.<case>.read_gbps` / `write_gbps` | fio window logical | chapter footnotes |
+| `tests.<case>.rails.pool_*_gbps` | physical rail | chapter headlines (prefer matching rw) |
+| `tests.<case>.rails.steadiness` | plateau proof | optional HUD |
+| `tests.<case>.thermal` | — | **cell 2+** (absent in this calibrate cell) |
 
-**Role vocabulary (board seats — layout brief applied):**
+Labels: drives are **SN1..SN4** (`campaign/topology-4wide.json` maps label → nvme → PCI/root port).
+Deprecated protocol-A runs must not be charted.
 
-| Role | Meaning | Heat bias (demo hyp) |
+---
+
+## Real sampler CSV column map (cell seal)
+
+Source: `telemetry-1hz.csv` (~3688 rows @ 1 Hz) — see schema companion-file blurb.
+
+Comment lines (`# …`) then header. **Controller indices are sparse:**
+members `nvme0n1`, `nvme1n1`, `nvme3n1`, `nvme4n1`; **`nvme2` = OSDISK** on the ×4 seat
+(`campaign/topology-4wide.json`). Do **not** assume dense `nvme0..nvme3` ↔ members[0..3].
+
+| Concept | CSV column(s) | Pack / normalize |
 |---|---|---|
-| `os-x4` | Gen4 **×4** — sole ×4; three-slot face upper (OS / spine SLOT) | cooler |
-| `face3-mid` | Gen4 ×1 — three-slot face middle (nearer SoC) | warmer hyp |
-| `face3-low` | Gen4 ×1 — three-slot face lower (outer edge) | cooler hyp |
-| `opp-a` | Gen4 ×1 — opposite face (paired stack near heatsink) | least-airflow / backside hyp |
-| `opp-b` | Gen4 ×1 — opposite face (paired stack) | least-airflow / backside hyp |
+| Time | `epoch_ms` | `t` = (epoch_ms − t0)/1000; chapters from journal `rails_begin`/`rails_end` |
+| SN1 temp | `ssd_temp_nvme0_composite_c` | `face3-mid` |
+| SN2 temp | `ssd_temp_nvme1_composite_c` | `face3-low` |
+| SN3 temp | `ssd_temp_nvme3_composite_c` | `opp-a` |
+| SN4 temp | `ssd_temp_nvme4_composite_c` | `opp-b` |
+| OSDISK temp | `ssd_temp_nvme2_composite_c` | `os-x4` (idle / inactive in calibrate) |
+| SN1..4 bw | `disk_nvme{0,1,3,4}n1_{read,write}_bytes_per_s` | ÷ 1e9 → GB/s |
+| Pool bw | sum of four member disk columns | `pool.readGBs` / `pool.writeGBs` |
 
-Legacy aliases remapped in `normalize.js`: `slot-x4`→`os-x4`, `backside-a`→`opp-a`, `backside-b`→`opp-b`, `inner-cpu`→`face3-mid`, `outer`→`face3-low`.
+Also present (not all shipped in slim pack): per-sensor temps, CPU%, mem_*, net_*, `disk_sda_*`,
+and (cell 2+) SMART sensors/throttle/data-units per member.
 
-If the sampler emits PCI addresses or `nvmeXnY` names, add a **serial→slot** table here before wiring live data. **Absolute seat IDs still need Ronald’s photo map.**
-
----
-
-## Sampler CSV (expected to change)
-
-Hypothetical header (illustrative only — **will change**):
-
-```text
-elapsed_s,role,serial,temp_c,read_MBs,write_MBs,pool_read_MBs,pool_write_MBs,active,test_name,layout
-```
-
-Ingest sketch:
-
-```js
-function rowToRaw(row) {
-  return {
-    t: row.elapsed_s,
-    drives: [/* group by t across roles */],
-    pool: {
-      read_GBs: row.pool_read_MBs / 1000,
-      write_GBs: row.pool_write_MBs / 1000,
-    },
-    meta: { demo: false, testName: row.test_name, layout: row.layout },
-  };
-}
-// then: normalizeSample(raw)
-```
-
-Rules of thumb:
-
-1. Always normalize — never bind the chart/board to CSV columns directly.
-2. Units: prefer **GB/s** (decimal SI as used in lab notes). Convert MB/s ÷ 1000 in the adapter edge.
-3. `meta.demo = false` only for completed / reviewed sampler runs.
-4. Public GitHub Pages: force serial mode **last4** or **hide**; never ship `full`.
+Rebuild: `python3 scripts/build-calibration-pack.py` (requires sealed `DONE` in cell).
 
 ---
 
-## Provisional context (reference ceilings — DEMO only)
+## Role vocabulary (board seats)
 
-| Metric | Value |
+| Role | Meaning | Calibrate layout |
+|---|---|---|
+| `os-x4` | Gen4 **×4** — face A upper | **idle** (OSDISK) |
+| `face3-mid` | Gen4 ×1 — face A mid | SN1 active |
+| `face3-low` | Gen4 ×1 — face A low | SN2 active |
+| `opp-a` | Gen4 ×1 — opposite | SN3 active |
+| `opp-b` | Gen4 ×1 — opposite | SN4 active |
+
+Seat↔SN assignment is **provisional** until Ronald’s photo / silkscreen map (topology notes
+SMBIOS designations are incomplete for two ×1 ports). Absolute IDs still open.
+
+Legacy aliases in `normalize.js`: `slot-x4`→`os-x4`, `backside-a`→`opp-a`, `backside-b`→`opp-b`,
+`inner-cpu`→`face3-mid`, `outer`→`face3-low`.
+
+---
+
+## Playback badges
+
+| Source | HUD / banner |
 |---|---|
-| RAIDZ1 sequential read | 6.02 GB/s |
-| Amplification | 1.375× |
-| Gen4×1 ceiling | 1.97 GB/s |
-| NM790 @ ×1 | ≈ 1.81 GB/s |
+| Sealed calibrate pack | **CALIBRATE · provisional** · Protocol B calibrate raidz2 · **not story-sealed** · shape/DEMO only |
+| Synthetic `demoTelemetry` | **DEMO · provisional** |
 
-Synth playlist shapes toward these numbers and labels every value **DEMO · provisional**.
+---
+
+## Cell-2 fields (schema afternoon — not in this pack)
+
+From `docs/result-schema.md` / first stage-1 cell 2:
+
+- `tests.<case>.thermal` — `baseline_c`, `pre_min_c`, `decision`, `before_c`/`after_c`/`max_during_c`,
+  `lead_in_10s`/`lead_out_10s`, `idle_before_s`/`idle_after_s`
+- SMART at 1 Hz per member (sensor temps, throttle transitions, data units) in telemetry CSV
+- companions: `thermal-<case>.json`, `zpool-1hz.raw`
+
+Wire these when a sealed cell containing them is promoted into a pack (still not a story promote
+unless Publisher says so).
+
+---
+
+## Rules of thumb
+
+1. Always normalize — never bind chart/board to CSV columns directly.
+2. Units: **GB/s** decimal SI (bytes/s ÷ 1e9). Ceiling is **per direction**.
+3. Calibrate pack: `meta.calibrate=true`, `storySealed=false`, badge **CALIBRATE · provisional**.
+4. Public Pages: SN / OSDISK labels or hide — never full serials or `/dev/disk/...` paths.
+5. Promote **sanitized pack only** to the public repo — never raw `results/` trees.
+6. Do not chart `results/deprecated-fixed60/` (protocol A).
