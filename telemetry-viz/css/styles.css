@@ -27,20 +27,23 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-  height: 100%;
+html {
   background: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
-  font-size: 13px;
-  line-height: 1.45;
-  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* —— Header —— */
@@ -98,22 +101,32 @@ body {
   box-shadow: 0 0 6px var(--demo-chip);
 }
 
-/* —— Layout —— */
+/* —— Layout ——
+   Document scrolls as one page. Board | seats on ≥1100px; stack below.
+   No viewport-filling 1fr row that forces nested overflow on both columns. */
 .main-grid {
-  flex: 1;
+  flex: 1 0 auto;
   display: grid;
-  grid-template-columns: 1fr 320px;
-  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  grid-template-rows: auto auto auto;
+  align-items: start;
   gap: 0;
-  min-height: 0;
 }
 
 @media (max-width: 1100px) {
   .main-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto;
   }
-  .side-panel { border-left: none; border-top: 1px solid var(--border); }
+  .board-panel { border-right: none; }
+  .side-panel {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    max-height: none;
+  }
 }
 
 /* —— HUD —— */
@@ -123,6 +136,8 @@ body {
   flex-wrap: wrap;
   align-items: stretch;
   gap: 0;
+  min-width: 0;
+  max-width: 100%;
   background: var(--bg-panel);
   border-bottom: 1px solid var(--border);
 }
@@ -181,7 +196,7 @@ body {
 .board-panel {
   display: flex;
   flex-direction: column;
-  min-height: 0;
+  min-width: 0;
   border-right: 1px solid var(--border);
   background: var(--bg);
 }
@@ -229,19 +244,19 @@ body {
 }
 
 .board-svg-wrap {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
-  min-height: 340px;
-  overflow: auto;
+  padding: 0.75rem 0.9rem 1rem;
+  /* SVG scales with width; no locked tall box, no inner scrollbar */
+  overflow: visible;
 }
 
 .board-svg-wrap svg {
   width: 100%;
   max-width: 780px;
   height: auto;
+  display: block;
 }
 
 /* SVG board styles */
@@ -345,10 +360,11 @@ body {
 .side-panel {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   background: var(--bg-panel);
   border-left: 1px solid var(--border);
-  overflow-y: auto;
-  max-height: 100%;
+  /* Grow with content; page scroll owns vertical motion */
+  overflow: visible;
 }
 
 .side-section {
@@ -366,7 +382,12 @@ body {
   font-weight: 600;
 }
 
-.drive-list { display: flex; flex-direction: column; gap: 0.45rem; }
+.drive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  /* Five seats fit without a nested scroller; page scroll owns vertical motion. */
+}
 
 .drive-card {
   background: var(--bg-elevated);
@@ -503,6 +524,8 @@ body {
 /* —— Chart + transport —— */
 .bottom-panel {
   grid-column: 1 / -1;
+  min-width: 0;
+  max-width: 100%;
   background: var(--bg-panel);
   border-top: 1px solid var(--border);
   display: flex;
@@ -510,9 +533,10 @@ body {
 }
 
 .chart-wrap {
-  height: 160px;
+  height: clamp(140px, 22vh, 200px);
   padding: 0.5rem 1rem 0;
   position: relative;
+  min-width: 0;
 }
 
 .chart-wrap canvas {
