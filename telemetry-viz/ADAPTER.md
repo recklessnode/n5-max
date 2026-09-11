@@ -28,7 +28,7 @@ When a golden-image / sampler CSV lands, map columns here — **do not** assume 
     headline?: string,
     playlistId?: string,
     nActive?: number,
-    sealedContext?: object      // reference only — not claimed as this run
+    provisionalContext?: object      // reference only — not claimed as this run
   }
 }
 ```
@@ -100,12 +100,12 @@ Rules of thumb:
 
 1. Always normalize — never bind the chart/board to CSV columns directly.
 2. Units: prefer **GB/s** (decimal SI as used in lab notes). Convert MB/s ÷ 1000 in the adapter edge.
-3. `meta.demo = false` only for sealed / completed sampler runs.
+3. `meta.demo = false` only for completed / reviewed sampler runs.
 4. Public GitHub Pages: force serial mode **last4** or **hide**; never ship `full`.
 
 ---
 
-## Sealed context (reference ceilings — not live)
+## Provisional context (reference ceilings — DEMO only)
 
 | Metric | Value |
 |---|---|
@@ -114,4 +114,4 @@ Rules of thumb:
 | Gen4×1 ceiling | 1.97 GB/s |
 | NM790 @ ×1 | ≈ 1.81 GB/s |
 
-Synth playlist shapes toward these numbers and labels every value **DEMO · not sealed**.
+Synth playlist shapes toward these numbers and labels every value **DEMO · provisional**.

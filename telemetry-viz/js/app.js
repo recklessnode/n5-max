@@ -21,7 +21,7 @@
   let chart;
 
   function demoChipHTML() {
-    return '<span class="demo-chip" title="Synthetic demo — not a sealed lab run">DEMO · not sealed</span>';
+    return '<span class="demo-chip" title="Synthetic demo — provisional / not Protocol B sealed">DEMO · provisional</span>';
   }
 
   function init() {

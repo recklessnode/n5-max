@@ -11,6 +11,6 @@
     <rect x="-70" y="-40" width="140" height="55" rx="4" fill="none" stroke="#9a948a" stroke-width="2"/>
     <path d="M-55 15 L-55 35 M55 15 L55 35 M-80 40 L80 40" fill="none" stroke="#9a948a" stroke-width="2"/>
     <text y="68" font-size="18" font-weight="600" fill="#3d3a36">Bench desk</text>
-    <text y="92" font-size="13" fill="#9a948a">site/media/photos/bench-desk.jpg</text>
+    <text y="92" font-size="13" fill="#9a948a">media/photos/bench-desk.jpg</text>
   </g>
 </svg>

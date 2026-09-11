@@ -21,12 +21,12 @@ Soft radial washes of orange and teal sit behind the hero so the tradeoff is fel
 
 - **Ubuntu** — body / UI / captions (site go-to sans).
 - **Orbitron** — display / tech: hero titles, section heads, eyebrows where a board-lab tone helps (don’t paint everything Orbitron).
-- **JetBrains Mono** — measured / sealed numerals, chips, axis ticks, amplification bars. Numbers never share the UI sans.
+- **JetBrains Mono** — measured / provisional numerals, chips, axis ticks, amplification bars. Numbers never share the UI sans.
 
 ## Structure
 
 1. Sticky minimal section nav (optional aid; not a product chrome).
-2. Hero: eyebrow → colorized title → subtitle → mono chips → sealed badge → four metric cards with winner-colored top rules.
+2. Hero: eyebrow → colorized title → subtitle → mono chips → provisional badge → four metric cards with winner-colored top rules.
 3. Narrative sections in scroll order matching the artifact: Tradeoff → Platform/PCIe → Throughput & IOPS → Physical rail → Compression → Ablation → Baseline → Verdict dual cards → Provenance.
 4. Charts use Chart.js grouped bars with orange/teal (or algo colors for compression). Write amp is a custom CSS bar with a dashed **1×** reference — more tactile than a third chart type.
 5. Verdict is two peer cards (not a single winner) — “pick by workload.”
@@ -37,7 +37,7 @@ Subtle fade/translate on scroll via `.reveal`. Fully disabled under `prefers-red
 
 ## Constraints honored
 
-- Exact numbers only from `n5-max-artifact.md` / sealed campaign.
+- Exact numbers only from reviewed campaign artifacts (no invented figures).
 - No invented AI inference benchmarks; “AI” only as Ryzen AI MAX+ platform name.
 - Works at ~1280px; stacks cleanly below 960 / 640.
-- Badge: “Computed from sealed result.json.”
+- Badge: provisional / under review until Protocol B seal.

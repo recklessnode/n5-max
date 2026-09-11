@@ -12,6 +12,6 @@
     <circle cx="0" cy="-30" r="10" fill="none" stroke="#9a948a" stroke-width="2"/>
     <path d="M-28 8 L-10 -12 L6 2 L22 -18 L38 8 Z" fill="none" stroke="#9a948a" stroke-width="2"/>
     <text y="48" font-size="18" font-weight="600" fill="#3d3a36">Drop N5 MAX photo</text>
-    <text y="72" font-size="13" fill="#9a948a">site/media/photos/n5-max-exterior.jpg</text>
+    <text y="72" font-size="13" fill="#9a948a">media/photos/n5-max-exterior.jpg</text>
   </g>
 </svg>

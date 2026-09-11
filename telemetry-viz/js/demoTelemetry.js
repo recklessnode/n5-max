@@ -1,8 +1,8 @@
 /**
  * demoTelemetry — synthetic 1Hz-style runs for N5 MAX M.2 viz.
- * Sealed lab numbers used only as context ceilings; all series marked DEMO.
+ * Preliminary / provisional numbers used only as DEMO context ceilings; all series marked DEMO.
  *
- * Sealed context (not live / not claimed as this run):
+ * Provisional context (not live / not claimed as this run):
  *   RAIDZ1 seq read ≈ 6.02 GB/s, amp 1.375×
  *   ×1 Gen4 ceiling ≈ 1.97 GB/s
  *   NM790 @ ×1 ≈ 1.81 GB/s
@@ -195,7 +195,7 @@
           headline: scenario.headline,
           playlistId: scenario.id,
           nActive: scenario.activeRoles.length,
-          sealedContext: {
+          provisionalContext: {
             raidz1_seq_read_GBs: 6.02,
             amp: 1.375,
             x1_ceiling_GBs: 1.97,
