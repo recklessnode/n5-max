@@ -410,10 +410,53 @@
   }
   loadCaseIndex();
 
-  S.loadCampaignStatus("../data")
-    .then(function (status) {
-      openKey = pickDefaultOpen(status);
-      paint(status);
-    })
-    .catch(fail);
+  var POLL_MS = 20000;
+  var lastFingerprint = null;
+  var currentStatus = null;
+  var pollTimer = null;
+
+  function fingerprint(status) {
+    if (!status) return "";
+    return (
+      String(S.statusUpdatedAt(status) || "") +
+      "|" +
+      String(S.gitCommit(status) || "") +
+      "|" +
+      String(status._source_file || "")
+    );
+  }
+
+  function applyStatus(status, isFirst) {
+    currentStatus = status;
+    var fp = fingerprint(status);
+    if (!isFirst && fp === lastFingerprint) return;
+    lastFingerprint = fp;
+    if (isFirst || openKey == null) openKey = pickDefaultOpen(status);
+    paint(status);
+    // Keep footer in sync without a full reload.
+    document.querySelectorAll(".viewer-stale").forEach(function (el) {
+      if (typeof el._n5Refresh === "function") el._n5Refresh();
+    });
+  }
+
+  function tick(isFirst) {
+    if (document.hidden && !isFirst) return;
+    S.loadCampaignStatus("../data")
+      .then(function (status) {
+        applyStatus(status, !!isFirst);
+      })
+      .catch(function (err) {
+        if (isFirst || !currentStatus) fail(err);
+        else console.warn("matrix status poll failed", err);
+      });
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) tick(false);
+  });
+
+  tick(true);
+  pollTimer = setInterval(function () {
+    tick(false);
+  }, POLL_MS);
 })();

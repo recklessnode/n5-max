@@ -41,7 +41,10 @@
   }
 
   function fetchJson(url) {
-    return fetch(url, { cache: "no-store" }).then(function (res) {
+    // Bust CDN/browser caches so live matrix polls see fresh status.
+    var sep = url.indexOf("?") >= 0 ? "&" : "?";
+    var bust = url + sep + "_=" + Date.now();
+    return fetch(bust, { cache: "no-store" }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status + " for " + url);
       return res.json();
     });

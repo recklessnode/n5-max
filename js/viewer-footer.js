@@ -67,7 +67,19 @@
   }
 
   function init() {
-    document.querySelectorAll(".viewer-stale").forEach(fill);
+    document.querySelectorAll(".viewer-stale").forEach(function (el) {
+      el._n5Refresh = function () {
+        fill(el);
+      };
+      fill(el);
+    });
+    // Soft poll so footer age/SHA tracks without a full page reload.
+    setInterval(function () {
+      if (document.hidden) return;
+      document.querySelectorAll(".viewer-stale").forEach(function (el) {
+        if (typeof el._n5Refresh === "function") el._n5Refresh();
+      });
+    }, 20000);
   }
 
   if (document.readyState === "loading") {
