@@ -7,7 +7,7 @@
   "harness_commit": "1a90e3b",
   "git_commit": "1a90e3b",
   "source": "sample",
-  "note": "SAMPLE fixture derived from campaign/campaign-matrix.json: cell 0 passed, cell 1 running, remaining cells pending. Plausible STO case stubs on cells 0/1. Status and timestamps only. Not a sealed story. UI falls back here until a live campaign-status.json is promoted.",
+  "note": "Status-only sample for matrix UI fallback. Not a sealed story chapter.",
   "stages": [
     {
       "id": 1,
