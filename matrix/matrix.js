@@ -114,7 +114,8 @@
       if (st === "running") return "in progress";
       return "—";
     }
-    var local = S.formatLocal(started);
+    // Clock-only on case rows — full date stays on the cell header.
+    var local = (S.formatLocalTime || S.formatLocal)(started);
     if (finished) {
       var dur = S.formatDuration(started, finished);
       return dur ? local + " (" + dur + ")" : local;

@@ -238,9 +238,7 @@
 .case-row.st-blocked .case-mark,
 .case-row.st-skipped .case-mark { color: var(--st-blocked); }
 .case-id {
-  flex: 0 1 auto;
   min-width: 0;
-  max-width: 18rem;
   font-family: var(--mono);
   font-weight: 600;
   white-space: nowrap;
@@ -248,8 +246,7 @@
   text-overflow: ellipsis;
 }
 .case-when {
-  flex: 0 0 auto;
-  margin-left: 0.15rem;
+  margin: 0;
   font-family: var(--mono);
   font-size: 0.68rem;
   color: var(--muted);
@@ -293,11 +290,14 @@
 
 /* Clickable case rows — single dense line; scroll sideways on tiny screens */
 .case-open {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "mark id"
+    ". when";
+  column-gap: 0.45rem;
+  row-gap: 0.05rem;
   align-items: baseline;
-  justify-content: flex-start;
-  gap: 0.35rem 0.5rem;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -308,6 +308,9 @@
   text-align: left;
   cursor: pointer;
 }
+.case-open .case-mark { grid-area: mark; }
+.case-open .case-id { grid-area: id; }
+.case-open .case-when { grid-area: when; }
 .case-open:hover .case-id,
 .case-open:focus-visible .case-id {
   text-decoration: underline;
@@ -442,17 +445,7 @@
     padding: 0.22rem 0.35rem;
     font-size: 0.72rem;
   }
-  .case-open {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 0.12rem 0.4rem;
-  }
-  .case-mark {
-    flex: 0 0 0.9rem;
-  }
   .case-id {
-    flex: 1 1 calc(100% - 1.5rem);
-    max-width: none;
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
@@ -460,8 +453,6 @@
     line-height: 1.25;
   }
   .case-when {
-    flex: 1 1 100%;
-    margin-left: 1.3rem;
     white-space: normal;
   }
   .matrix-meta {

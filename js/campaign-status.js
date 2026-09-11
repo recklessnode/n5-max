@@ -181,6 +181,23 @@
     }
   }
 
+  /** Local clock only — e.g. `3:08 PM` (for dense case rows). */
+  function formatLocalTime(iso) {
+    var d = parseIso(iso);
+    if (!d) return "—";
+    try {
+      return d.toLocaleString(undefined, {
+        hour: "numeric",
+        minute: "2-digit",
+      });
+    } catch (e) {
+      var pad = function (n) {
+        return n < 10 ? "0" + n : String(n);
+      };
+      return pad(d.getHours()) + ":" + pad(d.getMinutes());
+    }
+  }
+
   function formatClock(s) {
     var d = parseIso(s);
     if (!d) return "—";
@@ -311,6 +328,7 @@
     formatDurationSeconds: formatDurationSeconds,
     formatCompactDuration: formatCompactDuration,
     formatLocal: formatLocal,
+    formatLocalTime: formatLocalTime,
     formatClock: formatClock,
     isStale: isStale,
     normalizeStatus: normalizeStatus,
