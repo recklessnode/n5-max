@@ -100,6 +100,29 @@
     return "";
   }
 
+  function caseMark(st) {
+    if (st === "passed") return { mark: "✓", label: "passed" };
+    if (st === "failed") return { mark: "✗", label: "failed" };
+    if (st === "running") return { mark: "●", label: "running" };
+    if (st === "blocked" || st === "skipped") return { mark: "–", label: st };
+    return { mark: "·", label: "pending" };
+  }
+
+  function caseWhen(st, started, finished) {
+    if (st === "pending") return "—";
+    if (!started) {
+      if (st === "running") return "in progress";
+      return "—";
+    }
+    var local = S.formatLocal(started);
+    if (finished) {
+      var dur = S.formatDuration(started, finished);
+      return dur ? local + " (" + dur + ")" : local;
+    }
+    if (st === "running") return local + " (…)";
+    return local;
+  }
+
   function renderCases(cell) {
     var cases = S.caseList(cell);
     if (!cases.length) {
@@ -112,27 +135,30 @@
           var st = S.statusClass(c.status);
           var started = S.caseStarted(c);
           var finished = S.caseFinished(c);
-          var times = [];
-          if (started) times.push("started " + S.formatClock(started));
-          if (finished) times.push("finished " + S.formatClock(finished));
-          else if (st === "running") times.push("in progress");
           var id = S.caseId(c);
+          var mk = caseMark(st);
+          var when = caseWhen(st, started, finished);
           return (
             '<li class="case-row st-' +
             st +
             '">' +
             '<button type="button" class="case-open" data-case-id="' +
             esc(id) +
+            '" title="' +
+            esc(id + " · " + mk.label) +
             '">' +
-            '<span class="case-dot" aria-hidden="true"></span>' +
-            '<span class="case-id">' +
+            '<span class="case-mark" aria-label="' +
+            esc(mk.label) +
+            '">' +
+            esc(mk.mark) +
+            "</span>" +
+            '<span class="case-id" title="' +
+            esc(id) +
+            '">' +
             esc(id) +
             "</span>" +
-            '<span class="case-status">' +
-            esc(st) +
-            "</span>" +
-            '<span class="case-times">' +
-            esc(times.join(" · ") || "—") +
+            '<span class="case-when">' +
+            esc(when) +
             "</span>" +
             "</button>" +
             "</li>"
@@ -149,8 +175,17 @@
     var expandable = canExpand(cell);
     var open = openKey === key;
     var times = [];
-    if (cell.started_at) times.push("started " + S.formatClock(cell.started_at));
-    if (cell.finished_at) times.push("finished " + S.formatClock(cell.finished_at));
+    if (cell.started_at) times.push("started " + S.formatLocal(cell.started_at));
+    if (cell.finished_at) {
+      var cellDur = cell.started_at
+        ? S.formatDuration(cell.started_at, cell.finished_at)
+        : "";
+      times.push(
+        "finished " +
+          S.formatLocal(cell.finished_at) +
+          (cellDur ? " (" + cellDur + ")" : "")
+      );
+    }
     var body = "";
     if (open) {
       body =
