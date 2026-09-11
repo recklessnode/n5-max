@@ -1,7 +1,7 @@
 /**
  * Stylized N5 MAX motherboard schematic — ORIGINAL SVG only.
  * Layout brief applied (reference-derived geometry; still original artwork).
- * Open: Ronald photo map + serial→slot for absolute IDs.
+ * Open: photo/silkscreen map + serial→slot for absolute IDs.
  */
 (function (global) {
   'use strict';
@@ -170,7 +170,7 @@
 
       // Footer note
       '<text class="landmark-label" x="350" y="468" text-anchor="middle" style="font-size:7px">array seats: Gen4 ×1 lane tax  ·  layout brief · schematic ≠ photo</text>',
-      '<text class="landmark-label" x="350" y="482" text-anchor="middle" style="font-size:6.5px;font-style:italic">airflow notes = hypotheses until Ronald photo map + chassis CFD</text>',
+      '<text class="landmark-label" x="350" y="482" text-anchor="middle" style="font-size:6.5px;font-style:italic">airflow notes = hypotheses until photo/silkscreen map + chassis CFD</text>',
     ].join('\n');
 
     const seatsLayer = document.createElementNS(NS, 'g');

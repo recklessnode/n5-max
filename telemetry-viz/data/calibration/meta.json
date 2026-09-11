@@ -1,23 +1,23 @@
 {
   "schema": "telemetry-viz-calibration-pack/v1",
-  "result_schema": "docs/result-schema.md",
-  "result_schema_note": "Pack reverse-mapped from sealed cell + docs/result-schema.md; public pack uses SN labels only (no full disk paths).",
+  "result_schema": "telemetry-viz-calibration-pack/v1 fields (sanitized)",
+  "result_schema_note": "Pack reverse-mapped from calibrate cell; public pack uses SN labels only (no full disk paths).",
   "playback_role": "shape-demo",
   "source_cell": "2026-09-11-19.41-storage.dendrite-sut",
-  "host": "dendrite-sut",
+  "host": "sut",
   "suite": "storage",
   "mode": "calibrate",
   "layout": "stage1-raidz2-calibrate",
-  "protocol": "B-derived-durations (docs/protocol-b-derived-durations.md)",
+  "protocol": "B-derived-durations",
   "protocol_label": "Protocol B calibrate raidz2",
   "playback_badge": "CALIBRATE \u00b7 provisional",
   "story_sealed": false,
-  "note": "Sealed calibration cell playback \u2014 NOT the public RAID10/RAIDZ1 story chapter.",
+  "note": "Calibrate pack playback (provisional \u00b7 shape/DEMO) \u2014 NOT the public RAID10/RAIDZ1 story chapter.",
   "pool": "bench",
   "ceiling_gbps": 7.88,
   "ceiling_members": 4,
   "usable_tib": 6.48,
-  "harness_commit": "d51e04a-dirty",
+  "harness_commit": "redacted",
   "pool_state": "ONLINE",
   "vdevs": [
     {
@@ -305,7 +305,7 @@
     }
   ],
   "cell2_fields_todo": {
-    "note": "First present in stage-1 cell 2 (see docs/result-schema.md afternoon fields). This calibrate cell predates them.",
+    "note": "First present in stage-1 cell 2 (afternoon thermal/idle/SMART fields). This calibrate cell predates them.",
     "tests.<case>.thermal": [
       "baseline_c",
       "pre_min_c",
