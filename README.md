@@ -9,6 +9,7 @@ Public face for **Minisforum N5 MAX** local-AI NAS benchmark reporting (storage 
 ## What you will find
 
 - RAID10 vs RAIDZ1 story and charts (preliminary storage chapter figures — under review)
+- Live **campaign matrix** at [`/matrix/`](https://recklessnode.github.io/n5-max/matrix/) — status and timestamps only (not a sealed story)
 - Telemetry viz labeled **DEMO** / provisional (synthetic until reviewed)
 - Media approved for public Pages (no full drive serials)
 

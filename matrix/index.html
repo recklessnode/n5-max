@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N5 MAX · live campaign matrix</title>
+  <meta name="description" content="Live campaign matrix for the N5 MAX storage + AI-NAS characterization. Status and timestamps only — not a sealed story." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="matrix.css" />
+</head>
+<body class="matrix-page">
+  <aside class="provisional-banner" role="status" aria-live="polite">
+    <div class="provisional-banner-inner">
+      <strong class="provisional-title">RUNNING ANALYSIS — DO NOT DEPEND</strong>
+      <p class="provisional-body">Status feed is not a sealed story. Colors are cell and case status only — no throughput, temperatures, or invented figures.</p>
+    </div>
+  </aside>
+
+  <nav class="site-nav" aria-label="Section navigation">
+    <div class="inner">
+      <div class="nav-brand">N5 MAX · <span class="r10">RAID10</span>/<span class="rz1">RAIDZ1</span></div>
+      <div class="nav-links">
+        <a href="../">Story</a>
+        <a href="../#results">Results</a>
+        <a href="./" class="active" aria-current="page">Matrix</a>
+        <a href="../telemetry-viz/">M.2 lab</a>
+        <a href="../#follow">Follow</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Campaign matrix · status feed</p>
+      <h1>Cells in flight.<br /><span class="t-muted">Not the sealed chapter.</span></h1>
+      <p class="hero-sub">
+        Stage → cell grid from the SUT status daemon
+        (<code>n5-campaign-status/v1</code>). Host identifiers are redacted.
+        Expand a running or passed cell for STO case timestamps.
+      </p>
+      <div id="matrix-meta" class="matrix-meta">Loading status feed…</div>
+    </div>
+  </header>
+
+  <main class="wrap" id="matrix-root" aria-live="polite">
+    <p class="lede">Loading campaign status…</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="section-label">Provenance</p>
+      <p class="lede">Status and timestamps only. This page does not publish sealed throughput or invent inference numbers.</p>
+      <div class="viewer-stale" data-data-root="../data" id="viewer-stale">
+        <p class="viewer-line" data-role="build">Site build · …</p>
+        <p class="viewer-line" data-role="status">Status updated · …</p>
+        <p class="viewer-line" data-role="stale">Viewer may be stale if status older than 15 minutes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="case-doc-modal" class="case-modal" hidden aria-modal="true" role="dialog" aria-labelledby="case-doc-title">
+    <div class="case-modal-panel">
+      <button type="button" class="case-modal-close" aria-label="Close">&times;</button>
+      <p class="case-modal-kicker">Test case</p>
+      <h2 id="case-doc-title" data-role="doc-title">—</h2>
+      <div data-role="doc-body"></div>
+    </div>
+  </div>
+
+  <script src="../js/campaign-status.js"></script>
+  <script src="../js/viewer-footer.js"></script>
+  <script src="matrix.js"></script>
+</body>
+</html>

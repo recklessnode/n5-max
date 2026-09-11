@@ -668,3 +668,20 @@ body {
   border-color: color-mix(in srgb, var(--demo-chip) 55%, transparent);
   background: color-mix(in srgb, var(--demo-chip) 12%, transparent);
 }
+
+/* Stale-viewer footer (dark lab) */
+.viewer-stale {
+  padding: 0.45rem 1.1rem 0.7rem;
+  font-size: 0.65rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  border-top: 1px solid var(--border-subtle);
+}
+.viewer-stale .viewer-line { margin: 0.05rem 0; }
+.viewer-stale code {
+  font-family: inherit;
+  color: var(--text-muted);
+}
+.viewer-stale .viewer-sample { color: var(--demo-chip); }
+.viewer-stale.is-stale { color: var(--demo-chip); }

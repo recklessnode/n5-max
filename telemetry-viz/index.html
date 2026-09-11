@@ -123,6 +123,11 @@
       <div class="footer-note">
         ORIGINAL stylized SVG only · no review photos · calibrate pack = cell seal only · see ADAPTER.md
       </div>
+      <div class="viewer-stale" data-data-root="../data" id="viewer-stale">
+        <p class="viewer-line" data-role="build">Site build · …</p>
+        <p class="viewer-line" data-role="status">Status updated · …</p>
+        <p class="viewer-line" data-role="stale">Viewer may be stale if status older than 15 minutes.</p>
+      </div>
     </section>
   </div>
 
@@ -132,6 +137,8 @@
   <script src="js/board.js"></script>
   <script src="js/chart.js"></script>
   <script src="js/app.js"></script>
+  <script src="../js/campaign-status.js"></script>
+  <script src="../js/viewer-footer.js"></script>
   <script>
     // Keep toggle label in sync
     document.getElementById('toggle-indiv').addEventListener('click', function () {

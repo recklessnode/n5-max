@@ -1246,3 +1246,30 @@ html {
   .provisional-body { font-size: 0.76rem; }
 }
 
+/* ── Stale-viewer footer (build SHA + status timestamps) ── */
+.viewer-stale {
+  margin-top: 1.35rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--faint);
+}
+.viewer-stale .viewer-line { margin: 0.1rem 0; }
+.viewer-stale code {
+  font-family: inherit;
+  background: rgba(26, 25, 23, 0.05);
+  padding: 0.05em 0.3em;
+  border-radius: 3px;
+  color: var(--muted);
+}
+.viewer-stale .viewer-sample { color: #d97706; }
+.viewer-stale.is-stale {
+  color: #d97706;
+  border-top-color: rgba(217, 119, 6, 0.35);
+}
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  background: rgba(26, 25, 23, 0.06);
+}
