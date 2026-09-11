@@ -1182,6 +1182,11 @@ table.data .hl-rz1 { color: var(--raidz1); font-weight: 600; }
   section { padding: 2.75rem 0; }
   .chart-wrap { height: 240px; }
   .chart-wrap.tall { height: 280px; }
+  .provisional-banner-inner {
+    width: min(100% - 1.25rem, var(--max));
+    padding: 0.45rem 0 0.55rem;
+  }
+  body:has(.provisional-banner) { --provisional-h: auto; }
 }
 
 @media (min-width: 1280px) {
