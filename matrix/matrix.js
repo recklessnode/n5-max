@@ -78,13 +78,29 @@
   }
 
   function lookupCaseDoc(index, id) {
-    if (!index) return null;
+    if (!index || !id) return null;
     var cases = index.cases || index;
-    if (cases && typeof cases === "object" && cases[id]) return cases[id];
+    if (cases && typeof cases === "object" && !Array.isArray(cases)) {
+      if (cases[id]) return cases[id];
+      // Sealed subcase → family: STO-01_seq_read_1M_j4 → STO-01
+      var m = /^([A-Z]+-\d+)/.exec(id);
+      if (m && cases[m[1]]) return cases[m[1]];
+      // Longest matching family prefix among known keys
+      var best = null;
+      Object.keys(cases).forEach(function (key) {
+        if (id === key || id.indexOf(key + "_") === 0) {
+          if (!best || key.length > best.length) best = key;
+        }
+      });
+      if (best) return cases[best];
+    }
     if (Array.isArray(cases)) {
       for (var i = 0; i < cases.length; i++) {
         var c = cases[i];
-        if (c && (c.id === id || c.tcid === id)) return c;
+        if (!c) continue;
+        if (c.id === id || c.tcid === id) return c;
+        var fam = c.tcid || c.id;
+        if (fam && (id === fam || id.indexOf(fam + "_") === 0)) return c;
       }
     }
     return null;
