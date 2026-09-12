@@ -70,6 +70,73 @@
 .swatch.st-skipped { background: var(--st-blocked); }
 
 .matrix-stage { margin: 2.25rem 0 0; }
+
+/* Collapsible stages — summary in header like cell cards */
+.matrix-stage.is-collapsed { margin-top: 1rem; }
+.matrix-stage .stage-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  border-top: 3px solid var(--st-pending);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.matrix-stage.st-running .stage-head { border-top-color: var(--st-running); }
+.matrix-stage.st-passed .stage-head { border-top-color: var(--st-passed); }
+.matrix-stage.st-failed .stage-head { border-top-color: var(--st-failed); }
+.matrix-stage.st-pending .stage-head { border-top-color: var(--st-pending); }
+.matrix-stage .stage-head:hover { background: rgba(26, 25, 23, 0.03); }
+.matrix-stage.is-open .stage-head {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: none;
+}
+.matrix-stage.is-open .cell-grid {
+  margin-top: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background: var(--surface);
+}
+.stage-head-text { min-width: 0; flex: 1; }
+.stage-head-text h2 { margin: 0.1rem 0 0; }
+.stage-status {
+  flex: 0 0 auto;
+  text-align: right;
+  max-width: 14rem;
+}
+.stage-status .cell-status-label,
+.stage-status .cell-status-count,
+.stage-status .cell-status-dur {
+  display: block;
+}
+.matrix-stage.st-running .stage-status { color: var(--st-running); }
+.matrix-stage.st-passed .stage-status { color: var(--st-passed); }
+.matrix-stage.st-failed .stage-status { color: var(--st-failed); }
+.stage-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+@media (max-width: 640px) {
+  .matrix-stage .stage-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .stage-status { text-align: left; max-width: none; }
+}
 .stage-head h2 {
   font-family: var(--display);
   font-size: clamp(1.15rem, 2vw, 1.45rem);

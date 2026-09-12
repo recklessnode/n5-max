@@ -6,6 +6,8 @@
   var root = document.getElementById("matrix-root");
   var metaEl = document.getElementById("matrix-meta");
   var openKey = null;
+  var openStageId = null; // null until first paint; then stage id or falsey
+  var stageOpenTouched = false; // user toggled a stage
 
   function esc(s) {
     return String(s == null ? "" : s)
@@ -269,26 +271,166 @@
     );
   }
 
+
+  function stageIdOf(stage) {
+    return stage && stage.id != null ? stage.id : "unknown";
+  }
+
+  function stageRollup(stage) {
+    var cells = Array.isArray(stage.cells) ? stage.cells : [];
+    var cellTotal = cells.length;
+    var cellPassed = 0;
+    var cellFailed = 0;
+    var cellRunning = 0;
+    var cellPending = 0;
+    var caseTotal = 0;
+    var casePassed = 0;
+    var caseFailed = 0;
+    var caseRunning = 0;
+    var starts = [];
+    var ends = [];
+    cells.forEach(function (cell) {
+      var st = S.statusClass(cell.status);
+      if (st === "passed") cellPassed++;
+      else if (st === "failed") cellFailed++;
+      else if (st === "running") cellRunning++;
+      else cellPending++;
+      var cc = caseCounts(cell);
+      caseTotal += cc.total;
+      casePassed += cc.passed;
+      caseFailed += cc.failed;
+      S.caseList(cell).forEach(function (c) {
+        if (S.statusClass(c.status) === "running") caseRunning++;
+      });
+      if (cell.started_at) starts.push(cell.started_at);
+      if (cell.finished_at) ends.push(cell.finished_at);
+      S.caseList(cell).forEach(function (c) {
+        if (c.started_at) starts.push(c.started_at);
+        if (c.finished_at) ends.push(c.finished_at);
+      });
+    });
+    var declared = String(stage.status || "").toLowerCase();
+    var st;
+    if (declared === "soft_finished" || declared === "passed" || declared === "complete" || declared === "completed") {
+      st = "passed";
+    } else if (declared === "running" || cellRunning > 0) {
+      st = "running";
+    } else if (declared === "failed" || cellFailed > 0) {
+      st = "failed";
+    } else if (declared === "pending" || cellTotal === 0 || (cellPending === cellTotal && cellTotal > 0)) {
+      st = "pending";
+    } else if (cellPassed === cellTotal && cellTotal > 0) {
+      st = "passed";
+    } else {
+      st = S.statusClass(stage.status || "pending");
+    }
+    var start = starts.length ? starts.slice().sort()[0] : null;
+    var end = ends.length ? ends.slice().sort().slice(-1)[0] : null;
+    return {
+      st: st,
+      cellTotal: cellTotal,
+      cellPassed: cellPassed,
+      cellFailed: cellFailed,
+      cellRunning: cellRunning,
+      cellPending: cellPending,
+      caseTotal: caseTotal,
+      casePassed: casePassed,
+      caseFailed: caseFailed,
+      caseRunning: caseRunning,
+      started_at: start,
+      finished_at: end,
+    };
+  }
+
+  function stageStatusHtml(roll) {
+    var top = roll.st.toUpperCase();
+    var mid = "";
+    var mid2 = "";
+    var dur = "";
+    if (roll.cellTotal > 0) {
+      if (roll.st === "passed") mid = roll.cellPassed + "/" + roll.cellTotal + " cells";
+      else if (roll.st === "failed")
+        mid = roll.cellFailed + "✗ · " + roll.cellPassed + "/" + roll.cellTotal + " cells";
+      else if (roll.st === "running" || roll.st === "pending")
+        mid = roll.cellPassed + "/" + roll.cellTotal + " cells";
+    } else {
+      mid = "0 cells";
+    }
+    if (roll.caseTotal > 0) {
+      if (roll.st === "failed")
+        mid2 = roll.caseFailed + "✗ · " + roll.casePassed + "/" + roll.caseTotal + " cases";
+      else mid2 = roll.casePassed + "/" + roll.caseTotal + " cases";
+    }
+    if ((roll.st === "passed" || roll.st === "failed") && roll.started_at && roll.finished_at) {
+      dur = S.formatDuration(roll.started_at, roll.finished_at) || "";
+    } else if (roll.st === "running" && roll.started_at) {
+      dur = S.formatDuration(roll.started_at, new Date().toISOString()) || "";
+    }
+    var html = '<span class="cell-status-label">' + esc(top) + "</span>";
+    if (mid) html += '<span class="cell-status-count">' + esc(mid) + "</span>";
+    if (mid2) html += '<span class="cell-status-count">' + esc(mid2) + "</span>";
+    if (dur) html += '<span class="cell-status-dur">' + esc(dur) + "</span>";
+    return html;
+  }
+
+  function pickDefaultOpenStage(status) {
+    var norm = S.normalizeStatus(status);
+    var running = null;
+    var firstWithCells = null;
+    (norm.stages || []).forEach(function (st) {
+      var roll = stageRollup(st);
+      var sid = stageIdOf(st);
+      if (!running && roll.st === "running") running = sid;
+      if (!firstWithCells && roll.cellTotal > 0) firstWithCells = sid;
+    });
+    return running != null ? running : firstWithCells;
+  }
+
   function renderStage(stage) {
     var cells = Array.isArray(stage.cells) ? stage.cells : [];
+    var sid = stageIdOf(stage);
+    var roll = stageRollup(stage);
+    var open = String(openStageId) === String(sid);
+    var hist =
+      stage.status === "soft_finished" || /historical/i.test(stage.name || "");
+    var body = "";
+    if (open) {
+      body =
+        '<div class="cell-grid">' +
+        (cells.length
+          ? cells.map(function (c) {
+              return renderCell(stage, c);
+            }).join("")
+          : '<p class="stage-empty">No cells in this stage yet.</p>') +
+        "</div>";
+    }
     return (
-      '<section class="matrix-stage" id="stage-' +
-      esc(stage.id) +
+      '<section class="matrix-stage st-' +
+      esc(roll.st) +
+      (open ? " is-open" : " is-collapsed") +
+      '" id="stage-' +
+      esc(sid) +
+      '" data-stage-id="' +
+      esc(sid) +
       '">' +
-      '<header class="stage-head">' +
+      '<button type="button" class="stage-head" aria-expanded="' +
+      (open ? "true" : "false") +
+      '">' +
+      '<div class="stage-head-text">' +
       '<p class="section-label">Stage ' +
-      esc(stage.id) +
-      (stage.status === "soft_finished" || /historical/i.test(stage.name || "")
-        ? " · historical"
-        : "") +
+      esc(sid) +
+      (hist ? " · historical" : "") +
+      (open ? "" : " · collapsed") +
       "</p>" +
       "<h2>" +
-      esc(stage.name || "Stage " + stage.id) +
+      esc(stage.name || "Stage " + sid) +
       "</h2>" +
-      "</header>" +
-      '<div class="cell-grid">' +
-      cells.map(function (c) { return renderCell(stage, c); }).join("") +
       "</div>" +
+      '<span class="stage-status cell-status">' +
+      stageStatusHtml(roll) +
+      "</span>" +
+      "</button>" +
+      body +
       "</section>"
     );
   }
@@ -400,6 +542,15 @@
   }
 
   function bind(status) {
+    root.querySelectorAll(".stage-head").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var sec = btn.closest(".matrix-stage");
+        var sid = sec && sec.getAttribute("data-stage-id");
+        stageOpenTouched = true;
+        openStageId = String(openStageId) === String(sid) ? null : sid;
+        paint(status);
+      });
+    });
     root.querySelectorAll(".matrix-cell.is-expandable .cell-head").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var art = btn.closest(".matrix-cell");
@@ -473,6 +624,7 @@
     if (!isFirst && fp === lastFingerprint) return;
     lastFingerprint = fp;
     if (isFirst || openKey == null) openKey = pickDefaultOpen(status);
+    if (isFirst || !stageOpenTouched) openStageId = pickDefaultOpenStage(status);
     paint(status);
     // Keep footer in sync without a full reload.
     document.querySelectorAll(".viewer-stale").forEach(function (el) {
