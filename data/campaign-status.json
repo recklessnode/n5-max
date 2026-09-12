@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T18:00:39Z",
+  "updated_at": "2026-09-12T18:17:22Z",
   "harness_commit": "5ff901b",
-  "git_commit": "7f0a78f",
+  "git_commit": "69c51fd",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 4,
@@ -76,10 +76,9 @@
   "stages": [
     {
       "id": 1,
-      "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12) \u00b7 historical (soft-finished; reruns pending)",
+      "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-12T14:07:20Z",
-      "captured_from_git": "349b52a",
+      "captured_at": "2026-09-12T18:17:22Z",
       "cells": [
         {
           "n": 0,
@@ -90,6 +89,7 @@
           "started_at": "2026-09-11T19:41:32Z",
           "finished_at": "2026-09-11T20:43:11Z",
           "failure_class": null,
+          "confidence": 0.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -202,8 +202,9 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-11T20:54:26Z",
-          "finished_at": "2026-09-11T21:56:40Z",
+          "finished_at": "2026-09-11T21:56:15Z",
           "failure_class": null,
+          "confidence": 0.25,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -316,8 +317,9 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-11T22:02:03Z",
-          "finished_at": "2026-09-11T23:07:09Z",
+          "finished_at": "2026-09-11T23:10:34Z",
           "failure_class": null,
+          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -430,8 +432,9 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-11T23:15:02Z",
-          "finished_at": "2026-09-12T00:22:05Z",
+          "finished_at": "2026-09-12T00:22:00Z",
           "failure_class": null,
+          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -544,8 +547,9 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T00:27:31Z",
-          "finished_at": "2026-09-12T01:32:06Z",
+          "finished_at": "2026-09-12T01:31:51Z",
           "failure_class": null,
+          "confidence": 0.25,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -658,8 +662,9 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T01:37:34Z",
-          "finished_at": "2026-09-12T04:18:15Z",
+          "finished_at": "2026-09-12T05:00:44Z",
           "failure_class": "run",
+          "confidence": 0.25,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -772,8 +777,9 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T05:05:24Z",
-          "finished_at": "2026-09-12T06:19:12Z",
+          "finished_at": "2026-09-12T06:19:05Z",
           "failure_class": null,
+          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -886,8 +892,9 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T06:23:38Z",
-          "finished_at": "2026-09-12T07:40:19Z",
+          "finished_at": "2026-09-12T07:40:09Z",
           "failure_class": null,
+          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1000,8 +1007,9 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T07:44:47Z",
-          "finished_at": "2026-09-12T08:55:08Z",
+          "finished_at": "2026-09-12T08:55:00Z",
           "failure_class": null,
+          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1114,8 +1122,9 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T09:00:35Z",
-          "finished_at": "2026-09-12T10:15:56Z",
+          "finished_at": "2026-09-12T10:15:42Z",
           "failure_class": null,
+          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1228,8 +1237,9 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T10:20:23Z",
-          "finished_at": "2026-09-12T11:29:06Z",
+          "finished_at": "2026-09-12T11:28:46Z",
           "failure_class": null,
+          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1342,8 +1352,9 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T11:33:32Z",
-          "finished_at": "2026-09-12T12:45:40Z",
+          "finished_at": "2026-09-12T12:45:26Z",
           "failure_class": null,
+          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1456,8 +1467,9 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T12:50:07Z",
-          "finished_at": "2026-09-12T14:07:01Z",
+          "finished_at": "2026-09-12T14:07:17Z",
           "failure_class": null,
+          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1566,8 +1578,1175 @@
       ]
     },
     {
+      "id": 2,
+      "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
+      "status": "pending",
+      "captured_at": "2026-09-12T18:17:22Z",
+      "cells": [
+        {
+          "n": 1,
+          "layout": "single-x4",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "layout": "raid0",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "layout": "raidz1",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "layout": "raidz2",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "layout": "raid10+spare",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "layout": "single-x4",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 7,
+          "layout": "raid0",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 8,
+          "layout": "raidz1",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 9,
+          "layout": "raidz2",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 10,
+          "layout": "raid10+spare",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "AI bat (streamed from the winning pool layout)",
+      "status": "pending",
+      "captured_at": "2026-09-12T18:17:22Z",
+      "cells": []
+    },
+    {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
+      "status": "running",
+      "captured_at": "2026-09-12T18:17:22Z",
       "cells": [
         {
           "n": 1,
