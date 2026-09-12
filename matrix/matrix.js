@@ -362,7 +362,7 @@
     loadCaseIndex().then(function (index) {
       var doc = lookupCaseDoc(index, id);
       var title = fieldText(doc, ["title", "name"]) || id;
-      var tcid = fieldText(doc, ["tcid", "id"]) || id;
+      var caseId = fieldText(doc, ["id", "tcid"]) || id;
       var objective = fieldText(doc, ["objective", "Objective"]);
       var reqs = fieldText(doc, ["requirements", "hardware", "requirements_hardware", "Requirements"]);
       var proc = fieldText(doc, ["procedure", "Procedure"]);
@@ -370,7 +370,7 @@
       var comments = fieldText(doc, ["comments", "Comments"]);
       var configs = fieldText(doc, ["configurations", "config", "Configurations"]);
       var published = !!(doc && (objective || reqs || proc || pf || comments || configs || fieldText(doc, ["title"])));
-      if (titleEl) titleEl.textContent = published ? title + " · " + tcid : id;
+      if (titleEl) titleEl.textContent = published ? title + " · " + caseId : id;
       if (!published) {
         bodyEl.innerHTML =
           '<p class="doc-empty">Doc not yet published for <code>' +
@@ -379,7 +379,7 @@
         return;
       }
       bodyEl.innerHTML =
-        section("Title + TCID", title + " (" + tcid + ")") +
+        section("Title", title + " (" + caseId + ")") +
         section("Objective", objective) +
         section("Requirements / hardware", reqs) +
         section("Procedure", proc) +
