@@ -278,6 +278,9 @@
       '<header class="stage-head">' +
       '<p class="section-label">Stage ' +
       esc(stage.id) +
+      (stage.status === "soft_finished" || /historical/i.test(stage.name || "")
+        ? " · historical"
+        : "") +
       "</p>" +
       "<h2>" +
       esc(stage.name || "Stage " + stage.id) +

@@ -1149,5 +1149,2645 @@
         }
       ]
     }
-  ]
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12) \u00b7 historical (soft-finished; reruns pending)",
+      "status": "soft_finished",
+      "captured_at": "2026-09-12T14:07:20Z",
+      "captured_from_git": "349b52a",
+      "cells": [
+        {
+          "n": 0,
+          "layout": "raidz2",
+          "mode": "calibrate",
+          "primarycache": "none",
+          "status": "passed",
+          "started_at": "2026-09-11T19:41:32Z",
+          "finished_at": "2026-09-11T20:43:11Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T19:47:47Z",
+              "finished_at": "2026-09-11T19:52:48Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T19:52:55Z",
+              "finished_at": "2026-09-11T19:53:56Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T19:54:03Z",
+              "finished_at": "2026-09-11T19:59:04Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T19:59:11Z",
+              "finished_at": "2026-09-11T20:00:13Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:00:19Z",
+              "finished_at": "2026-09-11T20:01:21Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:01:28Z",
+              "finished_at": "2026-09-11T20:06:38Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:06:45Z",
+              "finished_at": "2026-09-11T20:07:47Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:07:54Z",
+              "finished_at": "2026-09-11T20:13:35Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:13:41Z",
+              "finished_at": "2026-09-11T20:14:43Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:14:50Z",
+              "finished_at": "2026-09-11T20:20:37Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:20:44Z",
+              "finished_at": "2026-09-11T20:25:45Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:26:00Z",
+              "finished_at": "2026-09-11T20:31:02Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:31:09Z",
+              "finished_at": "2026-09-11T20:37:01Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T20:37:08Z",
+              "finished_at": "2026-09-11T20:42:15Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T20:42:29Z",
+              "finished_at": "2026-09-11T20:42:31Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T20:42:38Z",
+              "finished_at": "2026-09-11T20:42:47Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-11T20:42:54Z",
+              "finished_at": "2026-09-11T20:42:56Z"
+            }
+          ]
+        },
+        {
+          "n": 1,
+          "layout": "single-x1",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "passed",
+          "started_at": "2026-09-11T20:54:26Z",
+          "finished_at": "2026-09-11T21:56:40Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T21:05:57Z",
+              "finished_at": "2026-09-11T21:10:29Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T21:10:35Z",
+              "finished_at": "2026-09-11T21:11:37Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:11:44Z",
+              "finished_at": "2026-09-11T21:16:16Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:16:25Z",
+              "finished_at": "2026-09-11T21:17:26Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:17:33Z",
+              "finished_at": "2026-09-11T21:18:35Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:18:41Z",
+              "finished_at": "2026-09-11T21:23:31Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:23:38Z",
+              "finished_at": "2026-09-11T21:24:40Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:24:46Z",
+              "finished_at": "2026-09-11T21:29:18Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:29:57Z",
+              "finished_at": "2026-09-11T21:30:58Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:31:05Z",
+              "finished_at": "2026-09-11T21:36:20Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:36:26Z",
+              "finished_at": "2026-09-11T21:41:02Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:41:09Z",
+              "finished_at": "2026-09-11T21:45:41Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:45:47Z",
+              "finished_at": "2026-09-11T21:50:19Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T21:50:46Z",
+              "finished_at": "2026-09-11T21:55:23Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T21:55:37Z",
+              "finished_at": "2026-09-11T21:55:39Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T21:55:46Z",
+              "finished_at": "2026-09-11T21:55:53Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-11T21:56:00Z",
+              "finished_at": "2026-09-11T21:56:03Z"
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "layout": "raid0",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "passed",
+          "started_at": "2026-09-11T22:02:03Z",
+          "finished_at": "2026-09-11T23:07:09Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T22:08:40Z",
+              "finished_at": "2026-09-11T22:13:11Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T22:13:28Z",
+              "finished_at": "2026-09-11T22:15:29Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:15:46Z",
+              "finished_at": "2026-09-11T22:20:18Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:20:35Z",
+              "finished_at": "2026-09-11T22:22:37Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:22:54Z",
+              "finished_at": "2026-09-11T22:24:57Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:25:14Z",
+              "finished_at": "2026-09-11T22:30:03Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:30:20Z",
+              "finished_at": "2026-09-11T22:32:21Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:32:38Z",
+              "finished_at": "2026-09-11T22:37:09Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:37:50Z",
+              "finished_at": "2026-09-11T22:39:51Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:40:08Z",
+              "finished_at": "2026-09-11T22:44:40Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:45:26Z",
+              "finished_at": "2026-09-11T22:49:58Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:50:31Z",
+              "finished_at": "2026-09-11T22:55:02Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T22:55:19Z",
+              "finished_at": "2026-09-11T23:00:41Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:00:58Z",
+              "finished_at": "2026-09-11T23:05:38Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T23:06:01Z",
+              "finished_at": "2026-09-11T23:06:05Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-11T23:06:22Z",
+              "finished_at": "2026-09-11T23:06:30Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-11T23:06:47Z",
+              "finished_at": "2026-09-11T23:06:51Z"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "layout": "raid10",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "passed",
+          "started_at": "2026-09-11T23:15:02Z",
+          "finished_at": "2026-09-12T00:22:05Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T23:24:08Z",
+              "finished_at": "2026-09-11T23:28:39Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-11T23:28:56Z",
+              "finished_at": "2026-09-11T23:30:58Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:31:15Z",
+              "finished_at": "2026-09-11T23:35:46Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:36:04Z",
+              "finished_at": "2026-09-11T23:38:05Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:38:22Z",
+              "finished_at": "2026-09-11T23:40:24Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:40:41Z",
+              "finished_at": "2026-09-11T23:45:33Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:45:51Z",
+              "finished_at": "2026-09-11T23:47:52Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:48:09Z",
+              "finished_at": "2026-09-11T23:52:41Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:53:18Z",
+              "finished_at": "2026-09-11T23:55:19Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-11T23:55:37Z",
+              "finished_at": "2026-09-12T00:00:43Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:01:00Z",
+              "finished_at": "2026-09-12T00:05:31Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:06:00Z",
+              "finished_at": "2026-09-12T00:10:32Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:10:49Z",
+              "finished_at": "2026-09-12T00:15:20Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:15:58Z",
+              "finished_at": "2026-09-12T00:20:35Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T00:20:58Z",
+              "finished_at": "2026-09-12T00:21:02Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T00:21:19Z",
+              "finished_at": "2026-09-12T00:21:27Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T00:21:44Z",
+              "finished_at": "2026-09-12T00:21:47Z"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "layout": "raidz1",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "passed",
+          "started_at": "2026-09-12T00:27:31Z",
+          "finished_at": "2026-09-12T01:32:06Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T00:33:57Z",
+              "finished_at": "2026-09-12T00:38:28Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T00:38:45Z",
+              "finished_at": "2026-09-12T00:40:47Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:41:04Z",
+              "finished_at": "2026-09-12T00:45:35Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:45:52Z",
+              "finished_at": "2026-09-12T00:47:54Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:48:11Z",
+              "finished_at": "2026-09-12T00:50:12Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:50:29Z",
+              "finished_at": "2026-09-12T00:55:02Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:55:19Z",
+              "finished_at": "2026-09-12T00:57:20Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T00:57:38Z",
+              "finished_at": "2026-09-12T01:03:04Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:03:22Z",
+              "finished_at": "2026-09-12T01:05:23Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:05:41Z",
+              "finished_at": "2026-09-12T01:10:32Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:10:49Z",
+              "finished_at": "2026-09-12T01:15:21Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:15:42Z",
+              "finished_at": "2026-09-12T01:20:13Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:20:30Z",
+              "finished_at": "2026-09-12T01:25:32Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:25:49Z",
+              "finished_at": "2026-09-12T01:30:24Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T01:30:48Z",
+              "finished_at": "2026-09-12T01:30:50Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T01:31:07Z",
+              "finished_at": "2026-09-12T01:31:16Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T01:31:34Z",
+              "finished_at": "2026-09-12T01:31:36Z"
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "layout": "raidz2",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "passed",
+          "started_at": "2026-09-12T01:37:34Z",
+          "finished_at": "2026-09-12T04:18:15Z",
+          "failure_class": "run",
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T01:47:20Z",
+              "finished_at": "2026-09-12T01:51:51Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T01:52:09Z",
+              "finished_at": "2026-09-12T01:54:10Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:54:27Z",
+              "finished_at": "2026-09-12T01:58:58Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T01:59:16Z",
+              "finished_at": "2026-09-12T02:01:17Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T02:01:34Z",
+              "finished_at": "2026-09-12T02:03:35Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T02:03:53Z",
+              "finished_at": "2026-09-12T02:08:42Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T02:08:59Z",
+              "finished_at": "2026-09-12T02:11:00Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T04:26:02Z",
+              "finished_at": "2026-09-12T04:30:33Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T04:31:27Z",
+              "finished_at": "2026-09-12T04:33:28Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T04:33:45Z",
+              "finished_at": "2026-09-12T04:38:58Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T04:39:16Z",
+              "finished_at": "2026-09-12T04:43:47Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T04:44:30Z",
+              "finished_at": "2026-09-12T04:49:01Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T04:49:19Z",
+              "finished_at": "2026-09-12T04:53:50Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T04:54:37Z",
+              "finished_at": "2026-09-12T04:59:12Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T04:59:36Z",
+              "finished_at": "2026-09-12T04:59:39Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T04:59:59Z",
+              "finished_at": "2026-09-12T05:00:05Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T05:00:24Z",
+              "finished_at": "2026-09-12T05:00:28Z"
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "layout": "mirror2",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "passed",
+          "started_at": "2026-09-12T05:05:24Z",
+          "finished_at": "2026-09-12T06:19:12Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T05:20:59Z",
+              "finished_at": "2026-09-12T05:25:30Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T05:25:47Z",
+              "finished_at": "2026-09-12T05:27:48Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:28:06Z",
+              "finished_at": "2026-09-12T05:32:37Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:32:55Z",
+              "finished_at": "2026-09-12T05:34:56Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:35:13Z",
+              "finished_at": "2026-09-12T05:37:14Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:37:32Z",
+              "finished_at": "2026-09-12T05:42:21Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:42:39Z",
+              "finished_at": "2026-09-12T05:44:40Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:44:58Z",
+              "finished_at": "2026-09-12T05:49:30Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:50:15Z",
+              "finished_at": "2026-09-12T05:52:16Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:52:38Z",
+              "finished_at": "2026-09-12T05:57:29Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T05:57:47Z",
+              "finished_at": "2026-09-12T06:02:18Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:02:51Z",
+              "finished_at": "2026-09-12T06:07:23Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:07:40Z",
+              "finished_at": "2026-09-12T06:12:40Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:12:58Z",
+              "finished_at": "2026-09-12T06:17:36Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T06:18:01Z",
+              "finished_at": "2026-09-12T06:18:03Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T06:18:21Z",
+              "finished_at": "2026-09-12T06:18:28Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T06:18:46Z",
+              "finished_at": "2026-09-12T06:18:49Z"
+            }
+          ]
+        },
+        {
+          "n": 7,
+          "layout": "single-x1",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "passed",
+          "started_at": "2026-09-12T06:23:38Z",
+          "finished_at": "2026-09-12T07:40:19Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T06:37:08Z",
+              "finished_at": "2026-09-12T06:41:39Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T06:41:56Z",
+              "finished_at": "2026-09-12T06:43:57Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:44:15Z",
+              "finished_at": "2026-09-12T06:48:46Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:49:03Z",
+              "finished_at": "2026-09-12T06:51:04Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:51:21Z",
+              "finished_at": "2026-09-12T06:53:22Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:53:40Z",
+              "finished_at": "2026-09-12T06:58:24Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T06:58:41Z",
+              "finished_at": "2026-09-12T07:00:42Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:01:00Z",
+              "finished_at": "2026-09-12T07:05:50Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:06:08Z",
+              "finished_at": "2026-09-12T07:08:09Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:08:29Z",
+              "finished_at": "2026-09-12T07:13:06Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:13:23Z",
+              "finished_at": "2026-09-12T07:17:54Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:18:24Z",
+              "finished_at": "2026-09-12T07:22:56Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:23:14Z",
+              "finished_at": "2026-09-12T07:27:51Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:28:08Z",
+              "finished_at": "2026-09-12T07:32:40Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T07:36:09Z",
+              "finished_at": "2026-09-12T07:36:35Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T07:36:57Z",
+              "finished_at": "2026-09-12T07:39:18Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T07:39:40Z",
+              "finished_at": "2026-09-12T07:39:53Z"
+            }
+          ]
+        },
+        {
+          "n": 8,
+          "layout": "raid0",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "passed",
+          "started_at": "2026-09-12T07:44:47Z",
+          "finished_at": "2026-09-12T08:55:08Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T07:52:06Z",
+              "finished_at": "2026-09-12T07:56:38Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T07:56:55Z",
+              "finished_at": "2026-09-12T07:58:56Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T07:59:16Z",
+              "finished_at": "2026-09-12T08:03:47Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:04:04Z",
+              "finished_at": "2026-09-12T08:06:05Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:06:22Z",
+              "finished_at": "2026-09-12T08:08:24Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:08:41Z",
+              "finished_at": "2026-09-12T08:13:12Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:13:41Z",
+              "finished_at": "2026-09-12T08:15:42Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:16:00Z",
+              "finished_at": "2026-09-12T08:20:43Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:21:00Z",
+              "finished_at": "2026-09-12T08:23:01Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:23:19Z",
+              "finished_at": "2026-09-12T08:27:51Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:28:08Z",
+              "finished_at": "2026-09-12T08:32:39Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:33:00Z",
+              "finished_at": "2026-09-12T08:37:32Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:37:49Z",
+              "finished_at": "2026-09-12T08:42:21Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T08:42:39Z",
+              "finished_at": "2026-09-12T08:47:11Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T08:50:34Z",
+              "finished_at": "2026-09-12T08:51:00Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T08:51:21Z",
+              "finished_at": "2026-09-12T08:53:57Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T08:54:18Z",
+              "finished_at": "2026-09-12T08:54:33Z"
+            }
+          ]
+        },
+        {
+          "n": 9,
+          "layout": "raid10",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "passed",
+          "started_at": "2026-09-12T09:00:35Z",
+          "finished_at": "2026-09-12T10:15:56Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T09:12:25Z",
+              "finished_at": "2026-09-12T09:16:56Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T09:17:13Z",
+              "finished_at": "2026-09-12T09:19:18Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:19:35Z",
+              "finished_at": "2026-09-12T09:24:06Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:24:23Z",
+              "finished_at": "2026-09-12T09:26:24Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:26:42Z",
+              "finished_at": "2026-09-12T09:28:43Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:29:00Z",
+              "finished_at": "2026-09-12T09:33:34Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:33:52Z",
+              "finished_at": "2026-09-12T09:35:53Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:36:11Z",
+              "finished_at": "2026-09-12T09:40:43Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:41:20Z",
+              "finished_at": "2026-09-12T09:43:21Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:43:39Z",
+              "finished_at": "2026-09-12T09:48:10Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:48:31Z",
+              "finished_at": "2026-09-12T09:53:02Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:53:20Z",
+              "finished_at": "2026-09-12T09:57:51Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T09:58:08Z",
+              "finished_at": "2026-09-12T10:02:42Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:03:03Z",
+              "finished_at": "2026-09-12T10:07:37Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T10:11:03Z",
+              "finished_at": "2026-09-12T10:11:32Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T10:11:52Z",
+              "finished_at": "2026-09-12T10:14:52Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T10:15:13Z",
+              "finished_at": "2026-09-12T10:15:26Z"
+            }
+          ]
+        },
+        {
+          "n": 10,
+          "layout": "raidz1",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "passed",
+          "started_at": "2026-09-12T10:20:23Z",
+          "finished_at": "2026-09-12T11:29:06Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T10:27:49Z",
+              "finished_at": "2026-09-12T10:32:21Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T10:32:39Z",
+              "finished_at": "2026-09-12T10:34:41Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:34:59Z",
+              "finished_at": "2026-09-12T10:39:30Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:39:48Z",
+              "finished_at": "2026-09-12T10:41:50Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:42:08Z",
+              "finished_at": "2026-09-12T10:44:12Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:44:31Z",
+              "finished_at": "2026-09-12T10:49:03Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:49:22Z",
+              "finished_at": "2026-09-12T10:51:23Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:51:41Z",
+              "finished_at": "2026-09-12T10:56:14Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:56:32Z",
+              "finished_at": "2026-09-12T10:58:33Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T10:58:52Z",
+              "finished_at": "2026-09-12T11:03:24Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T11:03:43Z",
+              "finished_at": "2026-09-12T11:08:14Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T11:08:44Z",
+              "finished_at": "2026-09-12T11:13:15Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T11:13:34Z",
+              "finished_at": "2026-09-12T11:18:10Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T11:18:29Z",
+              "finished_at": "2026-09-12T11:23:03Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T11:23:22Z",
+              "finished_at": "2026-09-12T11:23:49Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T11:24:10Z",
+              "finished_at": "2026-09-12T11:27:57Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T11:28:18Z",
+              "finished_at": "2026-09-12T11:28:31Z"
+            }
+          ]
+        },
+        {
+          "n": 11,
+          "layout": "raidz2",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "passed",
+          "started_at": "2026-09-12T11:33:32Z",
+          "finished_at": "2026-09-12T12:45:40Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T11:43:36Z",
+              "finished_at": "2026-09-12T11:48:07Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T11:48:27Z",
+              "finished_at": "2026-09-12T11:50:28Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T11:50:46Z",
+              "finished_at": "2026-09-12T11:55:17Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T11:55:35Z",
+              "finished_at": "2026-09-12T11:57:37Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T11:57:55Z",
+              "finished_at": "2026-09-12T11:59:56Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:00:14Z",
+              "finished_at": "2026-09-12T12:04:50Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:05:09Z",
+              "finished_at": "2026-09-12T12:07:10Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:07:28Z",
+              "finished_at": "2026-09-12T12:11:59Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:12:34Z",
+              "finished_at": "2026-09-12T12:14:35Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:14:53Z",
+              "finished_at": "2026-09-12T12:19:25Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:19:43Z",
+              "finished_at": "2026-09-12T12:24:15Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:24:41Z",
+              "finished_at": "2026-09-12T12:29:13Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:29:31Z",
+              "finished_at": "2026-09-12T12:34:09Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T12:34:28Z",
+              "finished_at": "2026-09-12T12:39:02Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T12:39:21Z",
+              "finished_at": "2026-09-12T12:39:48Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T12:40:09Z",
+              "finished_at": "2026-09-12T12:44:37Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T12:44:58Z",
+              "finished_at": "2026-09-12T12:45:11Z"
+            }
+          ]
+        },
+        {
+          "n": 12,
+          "layout": "mirror2",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "passed",
+          "started_at": "2026-09-12T12:50:07Z",
+          "finished_at": "2026-09-12T14:07:01Z",
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T13:07:38Z",
+              "finished_at": "2026-09-12T13:12:09Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "passed",
+              "started_at": "2026-09-12T13:12:27Z",
+              "finished_at": "2026-09-12T13:14:28Z"
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:14:47Z",
+              "finished_at": "2026-09-12T13:19:18Z"
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:19:38Z",
+              "finished_at": "2026-09-12T13:21:39Z"
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:21:58Z",
+              "finished_at": "2026-09-12T13:23:59Z"
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:24:18Z",
+              "finished_at": "2026-09-12T13:28:51Z"
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:29:09Z",
+              "finished_at": "2026-09-12T13:31:10Z"
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:31:28Z",
+              "finished_at": "2026-09-12T13:36:01Z"
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:36:27Z",
+              "finished_at": "2026-09-12T13:38:28Z"
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:38:46Z",
+              "finished_at": "2026-09-12T13:43:23Z"
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:43:41Z",
+              "finished_at": "2026-09-12T13:48:16Z"
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:48:35Z",
+              "finished_at": "2026-09-12T13:53:08Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:53:26Z",
+              "finished_at": "2026-09-12T13:58:03Z"
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "passed",
+              "started_at": "2026-09-12T13:58:21Z",
+              "finished_at": "2026-09-12T14:02:57Z"
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T14:03:17Z",
+              "finished_at": "2026-09-12T14:03:44Z"
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "passed",
+              "started_at": "2026-09-12T14:04:05Z",
+              "finished_at": "2026-09-12T14:06:27Z"
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "passed",
+              "started_at": "2026-09-12T14:06:48Z",
+              "finished_at": "2026-09-12T14:07:01Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
+      "cells": [
+        {
+          "n": 1,
+          "layout": "single-x4",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "layout": "raid0",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "layout": "raidz1",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "layout": "raidz2",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "layout": "raid10+spare",
+          "mode": "full",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "layout": "single-x4",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 7,
+          "layout": "raid0",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 8,
+          "layout": "raidz1",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 9,
+          "layout": "raidz2",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 10,
+          "layout": "raid10+spare",
+          "mode": "full",
+          "primarycache": "metadata",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "cases": [
+            {
+              "id": "STO-01_seq_write_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_write_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-01_seq_read_1M_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_write_64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-03_mixed_70r30w_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-04_sync_write_16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs16k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-05_rand_write_64k_vbs64k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_delete",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "stages includes frozen history + live stage"
 }
