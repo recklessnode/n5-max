@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T18:58:31Z",
+  "updated_at": "2026-09-12T18:58:54Z",
   "harness_commit": "5ff901b",
-  "git_commit": "17ab09d",
+  "git_commit": "e12d969",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 4,
@@ -66,8 +66,8 @@
         },
         {
           "id": "SOAK-02_mixed_70r30w_16k_j4",
-          "status": "pending",
-          "started_at": null,
+          "status": "running",
+          "started_at": "2026-09-12T18:58:35Z",
           "finished_at": null
         }
       ]
@@ -78,7 +78,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-12T18:58:31Z",
+      "captured_at": "2026-09-12T18:58:54Z",
       "cells": [
         {
           "n": 0,
@@ -1581,7 +1581,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "pending",
-      "captured_at": "2026-09-12T18:58:31Z",
+      "captured_at": "2026-09-12T18:58:54Z",
       "cells": [
         {
           "n": 1,
@@ -2739,14 +2739,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-12T18:58:31Z",
+      "captured_at": "2026-09-12T18:58:54Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "running",
-      "captured_at": "2026-09-12T18:58:31Z",
+      "captured_at": "2026-09-12T18:58:54Z",
       "cells": [
         {
           "n": 1,
@@ -2804,8 +2804,8 @@
             },
             {
               "id": "SOAK-02_mixed_70r30w_16k_j4",
-              "status": "pending",
-              "started_at": null,
+              "status": "running",
+              "started_at": "2026-09-12T18:58:35Z",
               "finished_at": null
             }
           ]
