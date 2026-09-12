@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T18:32:55Z",
+  "updated_at": "2026-09-12T18:33:18Z",
   "harness_commit": "5ff901b",
-  "git_commit": "36cb80c",
+  "git_commit": "5865988",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 4,
@@ -78,7 +78,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-12T18:32:55Z",
+      "captured_at": "2026-09-12T18:33:18Z",
       "cells": [
         {
           "n": 0,
@@ -1581,7 +1581,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "pending",
-      "captured_at": "2026-09-12T18:32:55Z",
+      "captured_at": "2026-09-12T18:33:18Z",
       "cells": [
         {
           "n": 1,
@@ -2739,14 +2739,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-12T18:32:55Z",
+      "captured_at": "2026-09-12T18:33:18Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "running",
-      "captured_at": "2026-09-12T18:32:55Z",
+      "captured_at": "2026-09-12T18:33:18Z",
       "cells": [
         {
           "n": 1,
