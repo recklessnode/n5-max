@@ -1,8 +1,8 @@
 {
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T11:24:04Z",
+  "updated_at": "2026-09-12T11:24:26Z",
   "harness_commit": "b38a78c",
-  "git_commit": "50d4b4b",
+  "git_commit": "7854d62",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 1,
@@ -1251,8 +1251,8 @@
         },
         {
           "id": "STO-06_smallfiles_read_1stream",
-          "status": "pending",
-          "started_at": null,
+          "status": "running",
+          "started_at": "2026-09-12T11:24:10Z",
           "finished_at": null
         },
         {
