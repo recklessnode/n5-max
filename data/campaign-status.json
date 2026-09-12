@@ -1,8 +1,8 @@
 {
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T12:45:26Z",
-  "harness_commit": "046def5",
-  "git_commit": "23e5411",
+  "updated_at": "2026-09-12T12:45:40Z",
+  "harness_commit": null,
+  "git_commit": "ceff433",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 1,
@@ -1268,9 +1268,9 @@
       "layout": "raidz2",
       "mode": "full",
       "primarycache": "metadata",
-      "status": "running",
+      "status": "passed",
       "started_at": "2026-09-12T11:33:32Z",
-      "finished_at": null,
+      "finished_at": "2026-09-12T12:45:40Z",
       "failure_class": null,
       "cases": [
         {
