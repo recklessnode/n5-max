@@ -1,8 +1,8 @@
 {
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T17:56:55Z",
+  "updated_at": "2026-09-12T17:58:05Z",
   "harness_commit": "5ff901b",
-  "git_commit": "40176be",
+  "git_commit": "e272065",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 4,
@@ -51,9 +51,9 @@
       "cases": [
         {
           "id": "SOAK-00_probe_seq_write_1M_j4",
-          "status": "running",
+          "status": "passed",
           "started_at": "2026-09-12T17:56:56Z",
-          "finished_at": null
+          "finished_at": "2026-09-12T17:57:57Z"
         },
         {
           "id": "SOAK-01_seq_write_1M_j4",
@@ -1608,9 +1608,9 @@
           "cases": [
             {
               "id": "SOAK-00_probe_seq_write_1M_j4",
-              "status": "running",
+              "status": "passed",
               "started_at": "2026-09-12T17:56:56Z",
-              "finished_at": null
+              "finished_at": "2026-09-12T17:57:57Z"
             },
             {
               "id": "SOAK-01_seq_write_1M_j4",
