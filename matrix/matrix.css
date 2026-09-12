@@ -496,13 +496,33 @@
 .doc-md > :first-child { margin-top: 0; }
 .doc-md > :last-child { margin-bottom: 0; }
 .doc-md p { margin: 0.45rem 0; color: var(--muted); }
-.doc-md h3, .doc-md h4, .doc-md h5, .doc-md h6 {
+.doc-md h3, .doc-md h4, .doc-md h5, .doc-md h6, .doc-md .doc-md-h {
   font-family: var(--display);
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  margin: 0.75rem 0 0.3rem;
+  margin: 0.85rem 0 0.35rem;
   color: var(--ink);
+}
+.doc-md h5.doc-md-h, .doc-md h4.doc-md-h {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.2rem;
+}
+.doc-md pre {
+  margin: 0.5rem 0;
+  padding: 0.55rem 0.65rem;
+  overflow: auto;
+  background: rgba(26, 25, 23, 0.06);
+  border-radius: 0.35rem;
+  font-size: 0.78rem;
+}
+.doc-md pre code {
+  background: transparent;
+  padding: 0;
 }
 .doc-md ul, .doc-md ol {
   margin: 0.35rem 0 0.55rem;

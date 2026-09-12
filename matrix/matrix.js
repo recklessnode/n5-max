@@ -482,17 +482,19 @@
   }
 
 
-  /** Lightweight markdown → HTML for case-doc fields (already public-sanitized). */
+  /** Lightweight markdown → HTML for case-doc fields (public-sanitized). */
   function mdInline(escaped) {
-    // input must already be HTML-escaped
-    return escaped
-      .replace(/`([^`\n]+)`/g, "<code>$1</code>")
-      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-      .replace(/(^|[^*\w])\*([^*\n]+)\*(?!\*)/g, "$1<em>$2</em>")
-      .replace(
-        /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
-      );
+    // input must already be HTML-escaped; transform md markers afterward
+    var s = escaped;
+    s = s.replace(/`([^`\n]+)`/g, "<code>$1</code>");
+    s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/__([^_]+)__/g, "<strong>$1</strong>");
+    s = s.replace(/(^|[^*\w])\*([^*\n]+)\*(?!\*)/g, "$1<em>$2</em>");
+    s = s.replace(
+      /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
+    return s;
   }
 
   function mdToHtml(text) {
@@ -500,53 +502,116 @@
     var lines = String(text).replace(/\r\n/g, "\n").split("\n");
     var html = [];
     var i = 0;
-    function flushPara(buf) {
-      if (!buf.length) return;
-      html.push("<p>" + mdInline(esc(buf.join("\n"))).replace(/\n/g, "<br />") + "</p>");
-      buf.length = 0;
+
+    function isBlank(s) {
+      return !String(s || "").trim();
     }
+    function isFence(s) {
+      return /^```/.test(String(s || "").trim());
+    }
+    function isHeading(s) {
+      return /^(#{1,6})\s+\S/.test(String(s || "").trim());
+    }
+    function isUl(s) {
+      return /^[-*+]\s+\S/.test(String(s || "").trim());
+    }
+    function isOl(s) {
+      return /^\d+\.\s+\S/.test(String(s || "").trim());
+    }
+    function isList(s) {
+      return isUl(s) || isOl(s);
+    }
+    function isCont(s) {
+      // indented continuation of a list item / paragraph
+      return /^\s{2,}\S/.test(String(s || ""));
+    }
+
     while (i < lines.length) {
-      var line = lines[i];
-      var trimmed = line.trim();
-      if (!trimmed) {
+      if (isBlank(lines[i])) {
         i++;
         continue;
       }
-      var hm = /^(#{1,4})\s+(.+)$/.exec(trimmed);
+
+      // fenced code block
+      if (isFence(lines[i])) {
+        i++;
+        var code = [];
+        while (i < lines.length && !isFence(lines[i])) {
+          code.push(lines[i]);
+          i++;
+        }
+        if (i < lines.length) i++; // closing fence
+        html.push("<pre><code>" + esc(code.join("\n")) + "</code></pre>");
+        continue;
+      }
+
+      // AT heading — strip the hashes (they must not appear in the UI)
+      var hm = /^(#{1,6})\s+(.+)$/.exec(lines[i].trim());
       if (hm) {
-        // Section label is already h3; AT1–2 → h4, AT3+ → h5
         var level = hm[1].length <= 2 ? 4 : 5;
         html.push(
-          "<h" + level + ">" + mdInline(esc(hm[2])) + "</h" + level + ">"
+          "<h" +
+            level +
+            ' class="doc-md-h">' +
+            mdInline(esc(hm[2].trim())) +
+            "</h" +
+            level +
+            ">"
         );
         i++;
         continue;
       }
-      if (/^[-*]\s+/.test(trimmed) || /^\d+\.\s+/.test(trimmed)) {
-        var ordered = /^\d+\.\s+/.test(trimmed);
+
+      // list (with indented continuations merged into the item)
+      if (isList(lines[i])) {
+        var ordered = isOl(lines[i]);
         var tag = ordered ? "ol" : "ul";
         var items = [];
         while (i < lines.length) {
-          var tline = lines[i].trim();
-          if (!tline) break;
-          var m = /^[-*]\s+(.+)$/.exec(tline) || /^\d+\.\s+(.+)$/.exec(tline);
+          if (isBlank(lines[i])) {
+            // blank inside list: peek ahead — another item continues the list
+            var j = i + 1;
+            while (j < lines.length && isBlank(lines[j])) j++;
+            if (j < lines.length && isList(lines[j])) {
+              i = j;
+              continue;
+            }
+            break;
+          }
+          if (!isList(lines[i]) && !isCont(lines[i])) break;
+          if (isHeading(lines[i]) || isFence(lines[i])) break;
+          var m = /^[-*+]\s+(.*)$/.exec(lines[i].trim()) || /^\d+\.\s+(.*)$/.exec(lines[i].trim());
           if (!m) break;
-          items.push("<li>" + mdInline(esc(m[1])) + "</li>");
+          var parts = [m[1]];
           i++;
+          // Soft-wrapped list bodies (sanitize often leaves 0–1 leading spaces)
+          while (i < lines.length) {
+            if (isBlank(lines[i])) break;
+            if (isList(lines[i]) || isHeading(lines[i]) || isFence(lines[i])) break;
+            parts.push(lines[i].trim());
+            i++;
+          }
+          items.push("<li>" + mdInline(esc(parts.join(" "))) + "</li>");
         }
         html.push("<" + tag + ">" + items.join("") + "</" + tag + ">");
         continue;
       }
+
+      // paragraph
       var para = [];
       while (i < lines.length) {
-        var pl = lines[i];
-        var pt = pl.trim();
-        if (!pt) break;
-        if (/^(#{1,4})\s+/.test(pt) || /^[-*]\s+/.test(pt) || /^\d+\.\s+/.test(pt)) break;
-        para.push(pl);
+        if (isBlank(lines[i])) break;
+        if (isHeading(lines[i]) || isList(lines[i]) || isFence(lines[i])) break;
+        para.push(lines[i]);
         i++;
       }
-      flushPara(para);
+      if (para.length) {
+        html.push(
+          "<p>" +
+            mdInline(esc(para.join("\n"))).replace(/\n/g, "<br />") +
+            "</p>"
+        );
+      }
     }
     return html.join("");
   }
