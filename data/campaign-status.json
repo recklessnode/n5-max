@@ -1,8 +1,8 @@
 {
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T02:15:04Z",
-  "harness_commit": null,
-  "git_commit": "eccb7ab",
+  "updated_at": "2026-09-12T04:13:47Z",
+  "harness_commit": "849f942",
+  "git_commit": "400f679",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 1,
@@ -591,50 +591,50 @@
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T01:47:20Z",
+          "finished_at": "2026-09-12T01:51:51Z"
         },
         {
           "id": "STO-01_seq_read_1M_j1",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T01:52:09Z",
+          "finished_at": "2026-09-12T01:54:10Z"
         },
         {
           "id": "STO-01_seq_write_1M_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T01:54:27Z",
+          "finished_at": "2026-09-12T01:58:58Z"
         },
         {
           "id": "STO-01_seq_read_1M_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T01:59:16Z",
+          "finished_at": "2026-09-12T02:01:17Z"
         },
         {
           "id": "STO-02_rand_read_4k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T02:01:34Z",
+          "finished_at": "2026-09-12T02:03:35Z"
         },
         {
           "id": "STO-02_rand_write_4k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T02:03:53Z",
+          "finished_at": "2026-09-12T02:08:42Z"
         },
         {
           "id": "STO-02_rand_read_16k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T02:08:59Z",
+          "finished_at": "2026-09-12T02:11:00Z"
         },
         {
           "id": "STO-02_rand_write_16k_j4",
-          "status": "pending",
-          "started_at": null,
+          "status": "running",
+          "started_at": "2026-09-12T02:11:17Z",
           "finished_at": null
         },
         {
