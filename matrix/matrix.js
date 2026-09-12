@@ -481,16 +481,88 @@
     return running || passed;
   }
 
+
+  /** Lightweight markdown → HTML for case-doc fields (already public-sanitized). */
+  function mdInline(escaped) {
+    // input must already be HTML-escaped
+    return escaped
+      .replace(/`([^`\n]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[^*\w])\*([^*\n]+)\*(?!\*)/g, "$1<em>$2</em>")
+      .replace(
+        /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+      );
+  }
+
+  function mdToHtml(text) {
+    if (!text) return "";
+    var lines = String(text).replace(/\r\n/g, "\n").split("\n");
+    var html = [];
+    var i = 0;
+    function flushPara(buf) {
+      if (!buf.length) return;
+      html.push("<p>" + mdInline(esc(buf.join("\n"))).replace(/\n/g, "<br />") + "</p>");
+      buf.length = 0;
+    }
+    while (i < lines.length) {
+      var line = lines[i];
+      var trimmed = line.trim();
+      if (!trimmed) {
+        i++;
+        continue;
+      }
+      var hm = /^(#{1,4})\s+(.+)$/.exec(trimmed);
+      if (hm) {
+        // Section label is already h3; AT1–2 → h4, AT3+ → h5
+        var level = hm[1].length <= 2 ? 4 : 5;
+        html.push(
+          "<h" + level + ">" + mdInline(esc(hm[2])) + "</h" + level + ">"
+        );
+        i++;
+        continue;
+      }
+      if (/^[-*]\s+/.test(trimmed) || /^\d+\.\s+/.test(trimmed)) {
+        var ordered = /^\d+\.\s+/.test(trimmed);
+        var tag = ordered ? "ol" : "ul";
+        var items = [];
+        while (i < lines.length) {
+          var tline = lines[i].trim();
+          if (!tline) break;
+          var m = /^[-*]\s+(.+)$/.exec(tline) || /^\d+\.\s+(.+)$/.exec(tline);
+          if (!m) break;
+          items.push("<li>" + mdInline(esc(m[1])) + "</li>");
+          i++;
+        }
+        html.push("<" + tag + ">" + items.join("") + "</" + tag + ">");
+        continue;
+      }
+      var para = [];
+      while (i < lines.length) {
+        var pl = lines[i];
+        var pt = pl.trim();
+        if (!pt) break;
+        if (/^(#{1,4})\s+/.test(pt) || /^[-*]\s+/.test(pt) || /^\d+\.\s+/.test(pt)) break;
+        para.push(pl);
+        i++;
+      }
+      flushPara(para);
+    }
+    return html.join("");
+  }
+
   function section(label, text) {
     if (!text) return "";
+    var body = mdToHtml(text);
+    if (!body) return "";
     return (
       '<section class="doc-section">' +
-      "<h3>" +
+      '<h3 class="doc-section-label">' +
       esc(label) +
       "</h3>" +
-      "<p>" +
-      esc(text).replace(/\n/g, "<br />") +
-      "</p>" +
+      '<div class="doc-md">' +
+      body +
+      "</div>" +
       "</section>"
     );
   }
