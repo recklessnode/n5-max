@@ -422,6 +422,7 @@
           : '') +
         railHTML('rd', d.readGBs, maxRail, 'read') +
         railHTML('wr', d.writeGBs, maxRail, 'write') +
+        driveSubtempHTML(d) +
         (d.active
           ? '<div style="margin-top:4px">' + statusChipHTML() + '</div>'
           : '<div style="margin-top:4px;font-size:0.65rem;color:var(--text-dim)">idle</div>');
@@ -432,6 +433,82 @@
       sample.pool.readGBs.toFixed(2) + ' <small>GB/s</small> ' + statusChipHTML();
     document.getElementById('pool-write').innerHTML =
       sample.pool.writeGBs.toFixed(2) + ' <small>GB/s</small> ' + statusChipHTML();
+    renderPlatform(sample.platform);
+  }
+
+  function driveSubtempHTML(d) {
+    const bits = [];
+    if (Number.isFinite(d.tempCtrlC)) bits.push('ctrl ' + d.tempCtrlC.toFixed(0) + '°');
+    if (Number.isFinite(d.tempNandC)) bits.push('nand ' + d.tempNandC.toFixed(0) + '°');
+    if (!bits.length) return '';
+    return '<div class="drive-subtemp">' + bits.join(' · ') + '</div>';
+  }
+
+  function fmtPlat(v, unit, digits) {
+    if (!Number.isFinite(v)) return { html: '—', cls: 'muted' };
+    const d = digits == null ? 1 : digits;
+    return { html: v.toFixed(d) + (unit ? ' <small>' + unit + '</small>' : ''), cls: '' };
+  }
+
+  function renderPlatform(plat) {
+    const missing = document.getElementById('platform-missing-note');
+    const hasHwmon = !!(plat && (Number.isFinite(plat.socketPowerW) || Number.isFinite(plat.socTempC)));
+    if (missing) missing.hidden = hasHwmon;
+
+    function set(id, html, cls) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.innerHTML = html;
+      el.className = 'val' + (cls ? ' ' + cls : '');
+    }
+
+    if (!plat) {
+      ['plat-cpu','plat-soc','plat-power','plat-corepwr','plat-fclk','plat-dram','plat-nic','plat-throttle']
+        .forEach(function (id) { set(id, '—', 'muted'); });
+      return;
+    }
+
+    const cpu = fmtPlat(plat.cpuTempC, '°C', 1);
+    let cpuCls = cpu.cls;
+    if (Number.isFinite(plat.cpuTempC) && plat.cpuTempC >= 90) cpuCls = 'hot';
+    else if (Number.isFinite(plat.cpuTempC) && plat.cpuTempC >= 80) cpuCls = 'warn';
+    set('plat-cpu', cpu.html, cpuCls);
+
+    const soc = fmtPlat(plat.socTempC, '°C', 1);
+    set('plat-soc', soc.html, soc.cls);
+
+    const pwr = fmtPlat(plat.socketPowerW != null ? plat.socketPowerW : plat.apuPowerW, 'W', 0);
+    set('plat-power', pwr.html, pwr.cls);
+
+    const core = fmtPlat(plat.allCorePowerW, 'W', 0);
+    set('plat-corepwr', core.html, core.cls);
+
+    const fclk = fmtPlat(plat.fclkMhz, 'MHz', 0);
+    set('plat-fclk', fclk.html, fclk.cls);
+
+    if (Number.isFinite(plat.dramReadMBps) || Number.isFinite(plat.dramWriteMBps)) {
+      const rd = Number.isFinite(plat.dramReadMBps) ? plat.dramReadMBps.toFixed(0) : '—';
+      const wr = Number.isFinite(plat.dramWriteMBps) ? plat.dramWriteMBps.toFixed(0) : '—';
+      set('plat-dram', rd + '/' + wr + ' <small>MB/s</small>', '');
+    } else {
+      set('plat-dram', '—', 'muted');
+    }
+
+    const nic = Number.isFinite(plat.nic0TempC)
+      ? plat.nic0TempC
+      : Number.isFinite(plat.nic1TempC)
+        ? plat.nic1TempC
+        : NaN;
+    const nicF = fmtPlat(nic, '°C', 0);
+    set('plat-nic', nicF.html, nicF.cls);
+
+    if (plat.throttleFlags && plat.throttleFlags.length) {
+      set('plat-throttle', escapeHtml(plat.throttleFlags.join(',')), 'warn');
+    } else if (hasHwmon) {
+      set('plat-throttle', 'none', 'muted');
+    } else {
+      set('plat-throttle', '—', 'muted');
+    }
   }
 
   function railHTML(label, val, max, kind) {

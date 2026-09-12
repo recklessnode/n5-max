@@ -60,6 +60,8 @@
         d.label ??
         (serialFull ? String(serialFull).slice(-4) : pad2(i + 1));
       const tempC = num(d.tempC ?? d.temp_c ?? d.temperature ?? d.temp, NaN);
+      const tempCtrlC = num(d.tempCtrlC ?? d.temp_ctrl_c ?? d.sensor1_c, NaN);
+      const tempNandC = num(d.tempNandC ?? d.temp_nand_c ?? d.sensor2_c, NaN);
       const readGBs = num(
         d.readGBs ?? d.read_GBs ?? d.read_gb_s ?? (d.read_MBs != null ? d.read_MBs / 1000 : null) ?? d.rd,
         0
@@ -74,6 +76,8 @@
         serialSuffix: String(serialSuffix).slice(-4),
         serialFull: serialFull ? String(serialFull) : undefined,
         tempC: tempC,
+        tempCtrlC: tempCtrlC,
+        tempNandC: tempNandC,
         readGBs: readGBs,
         writeGBs: writeGBs,
         active: active,
@@ -104,12 +108,36 @@
     if (meta.calibrate && meta.demo == null) meta.demo = false;
     if (meta.demo == null) meta.demo = true;
 
+    const platform = normalizePlatform(raw.platform || raw.plat || null);
+
     return {
       t: t,
       drives: drives,
       pool: { readGBs: poolRead, writeGBs: poolWrite },
+      platform: platform,
       meta: meta,
     };
+  }
+
+  function normalizePlatform(p) {
+    if (!p || typeof p !== 'object') return null;
+    const out = {};
+    const keys = [
+      'cpuTempC', 'socTempC', 'gfxTempC', 'gpuEdgeTempC',
+      'socketPowerW', 'apuPowerW', 'allCorePowerW', 'gfxPowerW', 'raplPackageW', 'raplCoreW',
+      'fclkMhz', 'uclkMhz', 'socclkMhz', 'gfxclkMhz',
+      'coreC0PctMean', 'coreC0PctMax', 'gfxActivityPct',
+      'dramReadMBps', 'dramWriteMBps',
+      'nic0TempC', 'nic1TempC', 'memAvailableGiB',
+    ];
+    keys.forEach(function (k) {
+      const v = num(p[k], NaN);
+      if (Number.isFinite(v)) out[k] = v;
+    });
+    if (Array.isArray(p.throttleFlags) && p.throttleFlags.length) {
+      out.throttleFlags = p.throttleFlags.slice();
+    }
+    return Object.keys(out).length ? out : null;
   }
 
   function emptySample(t) {
@@ -117,6 +145,7 @@
       t: t,
       drives: [],
       pool: { readGBs: 0, writeGBs: 0 },
+      platform: null,
       meta: { demo: true },
     };
   }

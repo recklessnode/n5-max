@@ -159,3 +159,17 @@ unless Publisher says so).
 5. Promote **sanitized pack only** to the public repo — never raw `results/` trees.
 6. Do not chart `results/deprecated-fixed60/` (protocol A).
 7. Cell1 `nActive=1` / `activeRoles=['face3-mid']` — only one board seat glows.
+
+
+## Platform sensors (`docs/sensor-schema.md`)
+
+Pack ticks may include `platform` (joined when present):
+
+| Field | Source rail | Notes |
+|-------|-------------|--------|
+| `cpuTempC` | `telemetry-1hz.csv` `cpu_temp_tctl_c` | Always on sealed storage cells |
+| `tempCtrlC` / `tempNandC` | `ssd_temp_*_sensor_{1,2}_c` | Per-drive ctrl / NAND |
+| `socketPowerW`, `socTempC`, `fclkMhz`, `dram*MBps`, `nic*TempC`, … | `hwmon-1hz.csv` | Newer cells only; UI shows em-dash until pack has the rail |
+| `throttleFlags` | non-zero `throttle_residency_*` | Coarse live flag; case deltas live in result.json |
+
+Absent on this platform (do not invent): fan RPM, board thermistor, skin temp, Tccd/Tdie — see sensor-schema absent table.

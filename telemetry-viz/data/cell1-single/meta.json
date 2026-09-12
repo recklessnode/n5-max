@@ -81,11 +81,16 @@
       "t",
       "epoch_ms",
       "drives[].tempC",
+      "drives[].tempCtrlC",
+      "drives[].tempNandC",
       "drives[].readGBs",
       "drives[].writeGBs",
       "pool.readGBs",
-      "pool.writeGBs"
-    ]
+      "pool.writeGBs",
+      "platform.*"
+    ],
+    "hwmon_joined": false,
+    "sensor_schema": "docs/sensor-schema.md"
   },
   "chapters": [
     {

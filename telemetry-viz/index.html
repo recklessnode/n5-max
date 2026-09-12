@@ -80,6 +80,22 @@
         <h3>Seats / drives</h3>
         <div class="drive-list" id="drive-list"></div>
       </div>
+      <div class="side-section" id="platform-section">
+        <h3>Platform <span class="dim-hint" id="platform-rail-hint">(sensor-schema)</span></h3>
+        <div class="platform-grid" id="platform-grid">
+          <div class="platform-stat"><div class="lbl">CPU Tctl</div><div class="val" id="plat-cpu">—</div></div>
+          <div class="platform-stat"><div class="lbl">SoC</div><div class="val" id="plat-soc">—</div></div>
+          <div class="platform-stat"><div class="lbl">Socket</div><div class="val" id="plat-power">—</div></div>
+          <div class="platform-stat"><div class="lbl">Cores</div><div class="val" id="plat-corepwr">—</div></div>
+          <div class="platform-stat"><div class="lbl">FCLK</div><div class="val" id="plat-fclk">—</div></div>
+          <div class="platform-stat"><div class="lbl">DRAM</div><div class="val" id="plat-dram">—</div></div>
+          <div class="platform-stat"><div class="lbl">NIC≈amb</div><div class="val" id="plat-nic">—</div></div>
+          <div class="platform-stat"><div class="lbl">Throttle</div><div class="val" id="plat-throttle">—</div></div>
+        </div>
+        <p class="notes" id="platform-missing-note" hidden>
+          hwmon rail not in this pack yet — CPU Tctl comes from telemetry; power/SoC/DRAM appear after the next sealed cell with <code>hwmon-1hz.csv</code>.
+        </p>
+      </div>
       <div class="side-section">
         <h3>Heat scale</h3>
         <div class="legend-row">
