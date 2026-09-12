@@ -6,6 +6,7 @@
 |---|---|---|---|
 | **CELL1 single** | `data/cell1-single/` from `2026-09-11-20.54-storage.dendrite-sut` (`mode=full`, `layout=stage1-single-full`) | **CELL1 · single · provisional** | **yes** (when pack present) |
 | **Calibrate** | `data/calibration/` from `2026-09-11-19.41-storage.dendrite-sut` (`mode=calibrate`, `layout=stage1-raidz2-calibrate`) | **CALIBRATE · provisional** | toggle |
+| **Simulator (Stage 1)** | `data/stage1/` + `catalog.json` (cells 0–12; cell0/1 alias calibrate/cell1) | **SIM · … · provisional** | toggle + cell chip grid |
 | **DEMO** | `js/demoTelemetry.js` | **DEMO · provisional** | fallback |
 
 **Playback role:** **shape / DEMO only** — **not story-sealed**. Cell1 steadiness is incomplete; do not claim a story promote. Calibrate is **not** the public RAID10/RAIDZ1 chapter.
@@ -51,7 +52,7 @@
 
 API: `normalizeSample(raw)` → model above (`js/normalize.js`).
 Pack loader: `N5Calibration.loadPack(base)` / `chapterRun()` (`js/calibrationLoader.js`).
-Bases: `N5Calibration.PACKS.cell1` · `N5Calibration.PACKS.calibrate`.
+Bases: `N5Calibration.PACKS.cell1` · `N5Calibration.PACKS.calibrate` · `N5Calibration.PACKS.stage1` (+ `loadCatalog()`).
 
 ---
 

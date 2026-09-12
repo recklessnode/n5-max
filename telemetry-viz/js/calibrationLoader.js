@@ -1,6 +1,6 @@
 /**
- * Pack loader — calibrate + cell1-single (sealed cells only; provisional · shape/DEMO).
- * Packs: data/calibration/ and data/cell1-single/ → {meta.json,telemetry.min.json}
+ * Pack loader — calibrate + cell1-single + Stage 1 Simulator.
+ * Packs: data/calibration/, data/cell1-single/, data/stage1/cell* → {meta.json,telemetry.min.json}
  * Public face: SN labels only — no full by-id / serials.
  */
 (function (global) {
@@ -9,10 +9,13 @@
   const PACKS = {
     calibrate: 'data/calibration',
     cell1: 'data/cell1-single',
+    stage1: 'data/stage1',
   };
   const PACK_BASE = PACKS.calibrate; // legacy default
+  const CATALOG_URL = PACKS.stage1 + '/catalog.json';
 
   const cache = {}; // root -> { root, meta, ticks }
+  let catalogCache = null;
 
   async function loadPack(base) {
     const root = base || PACK_BASE;
@@ -44,12 +47,43 @@
     }
   }
 
+  async function loadCatalog() {
+    if (catalogCache) return catalogCache;
+    const res = await fetch(CATALOG_URL);
+    if (!res.ok) throw new Error('stage1 catalog HTTP ' + res.status);
+    const cat = await res.json();
+    if (!cat || !Array.isArray(cat.cells) || !cat.cells.length) {
+      throw new Error('stage1 catalog empty');
+    }
+    catalogCache = cat;
+    return cat;
+  }
+
+  function packRootForCell(cell) {
+    if (!cell || !cell.pack) return null;
+    const pack = String(cell.pack);
+    if (pack.startsWith('../') || pack.startsWith('/')) {
+      // relative to data/stage1/
+      return PACKS.stage1 + '/' + pack;
+    }
+    return PACKS.stage1 + '/' + pack;
+  }
+
   function packKind(meta) {
     const badge = (meta && meta.playback_badge) || '';
+    const role = (meta && meta.playback_role) || '';
     const layout = (meta && meta.layout) || '';
+    if (/SIM\b/i.test(badge) || /stage1-simulator/i.test(role)) return 'stage1';
     if (/CELL1/i.test(badge) || /single/i.test(layout)) return 'cell1';
     if (/CALIBRATE/i.test(badge) || /calibrate/i.test(layout)) return 'calibrate';
     return 'calibrate';
+  }
+
+  function badgeForKind(kind, meta) {
+    if (meta && meta.playback_badge) return meta.playback_badge;
+    if (kind === 'cell1') return 'CELL1 · single · provisional';
+    if (kind === 'stage1') return 'SIM · Stage 1 · provisional';
+    return 'CALIBRATE · provisional';
   }
 
   /**
@@ -86,19 +120,22 @@
         t: Math.max(0, +(row.t - t0).toFixed(3)),
         drives: row.drives,
         pool: row.pool,
+        platform: row.platform,
         meta: {
           demo: false,
           calibrate: kind === 'calibrate',
           cell1: kind === 'cell1',
+          stage1: kind === 'stage1',
           provisional: true,
           storySealed: false,
           testName: chapter.name || chapter.tag,
           layout: meta.layout || chapter.layout,
+          primarycache: meta.primarycache,
           headline: chapter.headline,
           playlistId: chapter.id,
           nActive: nActive,
           protocol: meta.protocol_label || meta.protocol,
-          playbackBadge: meta.playback_badge || (kind === 'cell1' ? 'CELL1 · single · provisional' : 'CALIBRATE · provisional'),
+          playbackBadge: badgeForKind(kind, meta),
           sourceCell: meta.source_cell,
         },
       };
@@ -116,6 +153,7 @@
       optional: !!chapter.optional,
       calibrate: kind === 'calibrate',
       cell1: kind === 'cell1',
+      stage1: kind === 'stage1',
     };
 
     return { scenario: scenario, samples: samples, meta: meta };
@@ -133,6 +171,7 @@
         optional: !!c.optional,
         calibrate: kind === 'calibrate',
         cell1: kind === 'cell1',
+        stage1: kind === 'stage1',
         mode: c.mode || kind,
       };
     });
@@ -156,11 +195,15 @@
   global.N5Calibration = {
     loadPack: loadPack,
     probePack: probePack,
+    loadCatalog: loadCatalog,
+    packRootForCell: packRootForCell,
     chapterRun: chapterRun,
     playlistFromMeta: playlistFromMeta,
     preferredChapterId: preferredChapterId,
     packKind: packKind,
+    badgeForKind: badgeForKind,
     PACK_BASE: PACK_BASE,
     PACKS: PACKS,
+    CATALOG_URL: CATALOG_URL,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

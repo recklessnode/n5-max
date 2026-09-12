@@ -1,0 +1,111 @@
+{
+  "schema": "telemetry-viz-stage1-catalog/v1",
+  "playback_role": "stage1-simulator",
+  "note": "Stage 1 Simulator catalog \u2014 provisional \u00b7 shape/DEMO \u00b7 not story-sealed. cell0/cell1 alias existing packs.",
+  "cells": [
+    {
+      "n": 0,
+      "layout": "raidz2",
+      "primarycache": "none",
+      "pack": "../calibration",
+      "label": "0 \u00b7 raidz2 \u00b7 none (calibrate)",
+      "badge": "CALIBRATE"
+    },
+    {
+      "n": 1,
+      "layout": "single-x1",
+      "primarycache": "none",
+      "pack": "../cell1-single",
+      "label": "1 \u00b7 single-x1 \u00b7 none",
+      "badge": "CELL1"
+    },
+    {
+      "n": 2,
+      "layout": "raid0",
+      "primarycache": "none",
+      "pack": "cell2-raid0-none",
+      "label": "2 \u00b7 raid0 \u00b7 none",
+      "badge": "SIM"
+    },
+    {
+      "n": 3,
+      "layout": "raid10",
+      "primarycache": "none",
+      "pack": "cell3-raid10-none",
+      "label": "3 \u00b7 raid10 \u00b7 none",
+      "badge": "SIM"
+    },
+    {
+      "n": 4,
+      "layout": "raidz1",
+      "primarycache": "none",
+      "pack": "cell4-raidz1-none",
+      "label": "4 \u00b7 raidz1 \u00b7 none",
+      "badge": "SIM"
+    },
+    {
+      "n": 5,
+      "layout": "raidz2",
+      "primarycache": "none",
+      "pack": "cell5-raidz2-none",
+      "label": "5 \u00b7 raidz2 \u00b7 none",
+      "badge": "SIM"
+    },
+    {
+      "n": 6,
+      "layout": "mirror2",
+      "primarycache": "none",
+      "pack": "cell6-mirror2-none",
+      "label": "6 \u00b7 mirror2 \u00b7 none",
+      "badge": "SIM"
+    },
+    {
+      "n": 7,
+      "layout": "single-x1",
+      "primarycache": "metadata",
+      "pack": "cell7-single-x1-metadata",
+      "label": "7 \u00b7 single-x1 \u00b7 metadata",
+      "badge": "SIM"
+    },
+    {
+      "n": 8,
+      "layout": "raid0",
+      "primarycache": "metadata",
+      "pack": "cell8-raid0-metadata",
+      "label": "8 \u00b7 raid0 \u00b7 metadata",
+      "badge": "SIM"
+    },
+    {
+      "n": 9,
+      "layout": "raid10",
+      "primarycache": "metadata",
+      "pack": "cell9-raid10-metadata",
+      "label": "9 \u00b7 raid10 \u00b7 metadata",
+      "badge": "SIM"
+    },
+    {
+      "n": 10,
+      "layout": "raidz1",
+      "primarycache": "metadata",
+      "pack": "cell10-raidz1-metadata",
+      "label": "10 \u00b7 raidz1 \u00b7 metadata",
+      "badge": "SIM"
+    },
+    {
+      "n": 11,
+      "layout": "raidz2",
+      "primarycache": "metadata",
+      "pack": "cell11-raidz2-metadata",
+      "label": "11 \u00b7 raidz2 \u00b7 metadata",
+      "badge": "SIM"
+    },
+    {
+      "n": 12,
+      "layout": "mirror2",
+      "primarycache": "metadata",
+      "pack": "cell12-mirror2-metadata",
+      "label": "12 \u00b7 mirror2 \u00b7 metadata",
+      "badge": "SIM"
+    }
+  ]
+}

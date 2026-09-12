@@ -1,0 +1,709 @@
+{
+  "schema": "telemetry-viz-stage1-pack/v1",
+  "result_schema": "docs/result-schema.md",
+  "result_schema_note": "Pack reverse-mapped from sealed cell + docs/result-schema.md; public pack uses SN labels only (no full disk paths).",
+  "playback_role": "stage1-simulator",
+  "source_cell": "2026-09-11-22.02-storage.dendrite-sut",
+  "host": "sut",
+  "suite": "storage",
+  "mode": "full",
+  "layout": "stage1-raid0-full",
+  "primarycache": "none",
+  "protocol": "B-derived-durations (docs/protocol-b-derived-durations.md)",
+  "protocol_label": "Protocol B stage1 \u00b7 raid0 \u00b7 pc=none",
+  "playback_badge": "SIM \u00b7 raid0 \u00b7 none \u00b7 provisional",
+  "story_sealed": false,
+  "note": "Stage 1 Simulator pack (provisional \u00b7 shape/DEMO) \u2014 NOT story-sealed. Layout \u00d7 primarycache cell for lab comparison.",
+  "pool": "bench",
+  "ceiling_gbps": 7.88,
+  "ceiling_members": 4,
+  "usable_tib": 14.15,
+  "harness_commit": "redacted",
+  "pool_state": "ONLINE",
+  "nActive": 4,
+  "activeRoles": [
+    "face3-mid",
+    "face3-low",
+    "opp-a",
+    "opp-b"
+  ],
+  "vdevs": [
+    {
+      "vdev": "SN1",
+      "type": "disk",
+      "nparity": null,
+      "members": [
+        "SN1"
+      ]
+    },
+    {
+      "vdev": "SN2",
+      "type": "disk",
+      "nparity": null,
+      "members": [
+        "SN2"
+      ]
+    },
+    {
+      "vdev": "SN3",
+      "type": "disk",
+      "nparity": null,
+      "members": [
+        "SN3"
+      ]
+    },
+    {
+      "vdev": "SN4",
+      "type": "disk",
+      "nparity": null,
+      "members": [
+        "SN4"
+      ]
+    }
+  ],
+  "members": [
+    {
+      "label": "SN1",
+      "role": "face3-mid",
+      "dev": "nvme0n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    },
+    {
+      "label": "SN2",
+      "role": "face3-low",
+      "dev": "nvme1n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    },
+    {
+      "label": "SN3",
+      "role": "opp-a",
+      "dev": "nvme3n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    },
+    {
+      "label": "SN4",
+      "role": "opp-b",
+      "dev": "nvme4n1",
+      "negotiated": {
+        "gts": 16,
+        "width": 1
+      },
+      "capable": {
+        "gts": 16,
+        "width": 4
+      },
+      "link_gbps": 1.969
+    }
+  ],
+  "os_seat": {
+    "label": "OSDISK",
+    "role": "os-x4",
+    "dev": "nvme2n1",
+    "active": false
+  },
+  "column_map": {
+    "epoch_ms": "epoch_ms",
+    "temps": {
+      "SN1": "ssd_temp_nvme0_composite_c",
+      "SN2": "ssd_temp_nvme1_composite_c",
+      "SN3": "ssd_temp_nvme3_composite_c",
+      "SN4": "ssd_temp_nvme4_composite_c",
+      "OSDISK": "ssd_temp_nvme2_composite_c"
+    },
+    "disk_bw": {
+      "SN1": "disk_nvme0n1_{read,write}_bytes_per_s",
+      "SN2": "disk_nvme1n1_{read,write}_bytes_per_s",
+      "SN3": "disk_nvme3n1_{read,write}_bytes_per_s",
+      "SN4": "disk_nvme4n1_{read,write}_bytes_per_s"
+    },
+    "note": "Controller indices are sparse: members use nvme0,1,3,4; nvme2 is OS. Columns follow controller ids, not dense 0..3. Only activeRoles contribute to pool bw / glow."
+  },
+  "telemetry": {
+    "file": "telemetry.min.json",
+    "rows": 3888,
+    "t0_epoch_ms": 1789164124009,
+    "hz": 1,
+    "columns": [
+      "t",
+      "epoch_ms",
+      "drives[].tempC",
+      "drives[].tempCtrlC",
+      "drives[].tempNandC",
+      "drives[].readGBs",
+      "drives[].writeGBs",
+      "pool.readGBs",
+      "pool.writeGBs",
+      "platform.*"
+    ],
+    "hwmon_joined": false,
+    "sensor_schema": "docs/sensor-schema.md"
+  },
+  "chapters": [
+    {
+      "id": "STO-01_seq_write_1M_j1",
+      "name": "STO-01 seq write 1M j1",
+      "tag": "STO-01_seq_write_1M_j1",
+      "layout": "stage1-raid0-full",
+      "headline": "~0.83 GB/s pool write",
+      "headlineTarget": 0.827,
+      "begin_ms": 1789164520000,
+      "end_ms": 1789164791000,
+      "t0": 395.991,
+      "t1": 666.991,
+      "wall_s": 270,
+      "rw": "write",
+      "bs": "1M",
+      "numjobs": "1",
+      "read_gbps": 0.0,
+      "write_gbps": 0.793,
+      "pool_read_gbps": 0.0,
+      "pool_write_gbps": 0.827,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": false
+    },
+    {
+      "id": "STO-01_seq_read_1M_j1",
+      "name": "STO-01 seq read 1M j1",
+      "tag": "STO-01_seq_read_1M_j1",
+      "layout": "stage1-raid0-full",
+      "headline": "~6.25 GB/s pool read",
+      "headlineTarget": 6.25,
+      "begin_ms": 1789164808000,
+      "end_ms": 1789164929000,
+      "t0": 683.991,
+      "t1": 804.991,
+      "wall_s": 121,
+      "rw": "read",
+      "bs": "1M",
+      "numjobs": "1",
+      "read_gbps": 6.219,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 6.25,
+      "pool_write_gbps": 0.0,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": false
+    },
+    {
+      "id": "STO-01_seq_write_1M_j4",
+      "name": "STO-01 seq write 1M j4",
+      "tag": "STO-01_seq_write_1M_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~2.65 GB/s pool write",
+      "headlineTarget": 2.649,
+      "begin_ms": 1789164946000,
+      "end_ms": 1789165217000,
+      "t0": 821.991,
+      "t1": 1092.991,
+      "wall_s": 271,
+      "rw": "write",
+      "bs": "1M",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 2.259,
+      "pool_read_gbps": 0.0,
+      "pool_write_gbps": 2.649,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": false
+    },
+    {
+      "id": "STO-01_seq_read_1M_j4",
+      "name": "STO-01 seq read 1M j4",
+      "tag": "STO-01_seq_read_1M_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~6.30 GB/s pool read",
+      "headlineTarget": 6.302,
+      "begin_ms": 1789165235000,
+      "end_ms": 1789165357000,
+      "t0": 1110.991,
+      "t1": 1232.991,
+      "wall_s": 121,
+      "rw": "read",
+      "bs": "1M",
+      "numjobs": "4",
+      "read_gbps": 6.284,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 6.302,
+      "pool_write_gbps": 0.0,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": false
+    },
+    {
+      "id": "STO-02_rand_read_4k_j4",
+      "name": "STO-02 rand read 4k j4",
+      "tag": "STO-02_rand_read_4k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~4.57 GB/s pool read",
+      "headlineTarget": 4.571,
+      "begin_ms": 1789165374000,
+      "end_ms": 1789165497000,
+      "t0": 1249.991,
+      "t1": 1372.991,
+      "wall_s": 121,
+      "rw": "randread",
+      "bs": "4k",
+      "numjobs": "4",
+      "read_gbps": 0.472,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 4.571,
+      "pool_write_gbps": 0.0,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-02_rand_write_4k_j4",
+      "name": "STO-02 rand write 4k j4",
+      "tag": "STO-02_rand_write_4k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~2.87 GB/s pool write",
+      "headlineTarget": 2.865,
+      "begin_ms": 1789165514000,
+      "end_ms": 1789165803000,
+      "t0": 1389.991,
+      "t1": 1678.991,
+      "wall_s": 288,
+      "rw": "randwrite",
+      "bs": "4k",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 0.258,
+      "pool_read_gbps": 1.327,
+      "pool_write_gbps": 2.865,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-02_rand_read_16k_j4",
+      "name": "STO-02 rand read 16k j4",
+      "tag": "STO-02_rand_read_16k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~4.71 GB/s pool read",
+      "headlineTarget": 4.712,
+      "begin_ms": 1789165820000,
+      "end_ms": 1789165941000,
+      "t0": 1695.991,
+      "t1": 1816.991,
+      "wall_s": 121,
+      "rw": "randread",
+      "bs": "16k",
+      "numjobs": "4",
+      "read_gbps": 1.012,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 4.712,
+      "pool_write_gbps": 0.0,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-02_rand_write_16k_j4",
+      "name": "STO-02 rand write 16k j4",
+      "tag": "STO-02_rand_write_16k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~2.67 GB/s pool write",
+      "headlineTarget": 2.669,
+      "begin_ms": 1789165958000,
+      "end_ms": 1789166229000,
+      "t0": 1833.991,
+      "t1": 2104.991,
+      "wall_s": 270,
+      "rw": "randwrite",
+      "bs": "16k",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 1.24,
+      "pool_read_gbps": 0.2,
+      "pool_write_gbps": 2.669,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-02_rand_read_64k_j4",
+      "name": "STO-02 rand read 64k j4",
+      "tag": "STO-02_rand_read_64k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~4.87 GB/s pool read",
+      "headlineTarget": 4.874,
+      "begin_ms": 1789166270000,
+      "end_ms": 1789166391000,
+      "t0": 2145.991,
+      "t1": 2266.991,
+      "wall_s": 121,
+      "rw": "randread",
+      "bs": "64k",
+      "numjobs": "4",
+      "read_gbps": 2.39,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 4.874,
+      "pool_write_gbps": 0.0,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-02_rand_write_64k_j4",
+      "name": "STO-02 rand write 64k j4",
+      "tag": "STO-02_rand_write_64k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~3.00 GB/s pool write",
+      "headlineTarget": 2.996,
+      "begin_ms": 1789166408000,
+      "end_ms": 1789166680000,
+      "t0": 2283.991,
+      "t1": 2555.991,
+      "wall_s": 271,
+      "rw": "randwrite",
+      "bs": "64k",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 1.811,
+      "pool_read_gbps": 0.276,
+      "pool_write_gbps": 2.996,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-03_mixed_70r30w_16k_j4",
+      "name": "STO-03 mixed 70r30w 16k j4",
+      "tag": "STO-03_mixed_70r30w_16k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~2.53 GB/s pool read",
+      "headlineTarget": 2.534,
+      "begin_ms": 1789166726000,
+      "end_ms": 1789166998000,
+      "t0": 2601.991,
+      "t1": 2873.991,
+      "wall_s": 271,
+      "rw": "randrw",
+      "bs": "16k",
+      "numjobs": "4",
+      "read_gbps": 0.917,
+      "write_gbps": 0.393,
+      "pool_read_gbps": 2.534,
+      "pool_write_gbps": 1.726,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-04_sync_write_16k_j4",
+      "name": "STO-04 sync write 16k j4",
+      "tag": "STO-04_sync_write_16k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~0.05 GB/s pool write",
+      "headlineTarget": 0.046,
+      "begin_ms": 1789167031000,
+      "end_ms": 1789167302000,
+      "t0": 2906.991,
+      "t1": 3177.991,
+      "wall_s": 271,
+      "rw": "randwrite",
+      "bs": "16k",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 0.039,
+      "pool_read_gbps": 0.003,
+      "pool_write_gbps": 0.046,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-05_rand_write_64k_vbs16k_j4",
+      "name": "STO-05 rand write 64k vbs16k j4",
+      "tag": "STO-05_rand_write_64k_vbs16k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~2.58 GB/s pool write",
+      "headlineTarget": 2.584,
+      "begin_ms": 1789167319000,
+      "end_ms": 1789167641000,
+      "t0": 3194.991,
+      "t1": 3516.991,
+      "wall_s": 321,
+      "rw": "randwrite",
+      "bs": "64k",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 1.551,
+      "pool_read_gbps": 0.206,
+      "pool_write_gbps": 2.584,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-05_rand_write_64k_vbs64k_j4",
+      "name": "STO-05 rand write 64k vbs64k j4",
+      "tag": "STO-05_rand_write_64k_vbs64k_j4",
+      "layout": "stage1-raid0-full",
+      "headline": "~3.21 GB/s pool write",
+      "headlineTarget": 3.214,
+      "begin_ms": 1789167658000,
+      "end_ms": 1789167938000,
+      "t0": 3533.991,
+      "t1": 3813.991,
+      "wall_s": 279,
+      "rw": "randwrite",
+      "bs": "64k",
+      "numjobs": "4",
+      "read_gbps": 0.0,
+      "write_gbps": 2.667,
+      "pool_read_gbps": 0.002,
+      "pool_write_gbps": 3.214,
+      "steady": true,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-06_smallfiles_copy_1stream",
+      "name": "STO-06 smallfiles copy 1stream",
+      "tag": "STO-06_smallfiles_copy_1stream",
+      "layout": "stage1-raid0-full",
+      "headline": "~0.65 GB/s pool write",
+      "headlineTarget": 0.645,
+      "begin_ms": 1789167961000,
+      "end_ms": 1789167965000,
+      "t0": 3836.991,
+      "t1": 3840.991,
+      "wall_s": 24,
+      "rw": null,
+      "bs": null,
+      "numjobs": null,
+      "read_gbps": 0.0,
+      "write_gbps": 0.573,
+      "pool_read_gbps": 0.0,
+      "pool_write_gbps": 0.645,
+      "steady": null,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-06_smallfiles_read_1stream",
+      "name": "STO-06 smallfiles read 1stream",
+      "tag": "STO-06_smallfiles_read_1stream",
+      "layout": "stage1-raid0-full",
+      "headline": "~0.13 GB/s pool read",
+      "headlineTarget": 0.126,
+      "begin_ms": 1789167982000,
+      "end_ms": 1789167990000,
+      "t0": 3857.991,
+      "t1": 3865.991,
+      "wall_s": 159,
+      "rw": null,
+      "bs": null,
+      "numjobs": null,
+      "read_gbps": 0.084,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 0.126,
+      "pool_write_gbps": 0.0,
+      "steady": null,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "STO-06_smallfiles_delete",
+      "name": "STO-06 smallfiles delete",
+      "tag": "STO-06_smallfiles_delete",
+      "layout": "stage1-raid0-full",
+      "headline": "~0.04 GB/s pool read",
+      "headlineTarget": 0.044,
+      "begin_ms": 1789168007000,
+      "end_ms": 1789168011000,
+      "t0": 3882.991,
+      "t1": 3886.991,
+      "wall_s": 21,
+      "rw": null,
+      "bs": null,
+      "numjobs": null,
+      "read_gbps": 0.0,
+      "write_gbps": 0.0,
+      "pool_read_gbps": 0.044,
+      "pool_write_gbps": 0.0,
+      "steady": null,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    },
+    {
+      "id": "PRE-00_canary_seq_read_1M_j1",
+      "name": "PRE-00 canary seq read 1M j1",
+      "tag": "PRE-00_canary_seq_read_1M_j1",
+      "layout": "stage1-raid0-full",
+      "headline": "~0.00R/0.00W GB/s pool",
+      "headlineTarget": 0,
+      "begin_ms": 1789164486000,
+      "end_ms": 1789164503000,
+      "t0": 361.991,
+      "t1": 378.991,
+      "wall_s": null,
+      "rw": null,
+      "bs": null,
+      "numjobs": null,
+      "read_gbps": null,
+      "write_gbps": null,
+      "pool_read_gbps": null,
+      "pool_write_gbps": null,
+      "steady": null,
+      "activeRoles": [
+        "face3-mid",
+        "face3-low",
+        "opp-a",
+        "opp-b"
+      ],
+      "mode": "stage1",
+      "optional": true
+    }
+  ],
+  "cell2_fields_todo": {
+    "note": "Thermal/SMART companion fields \u2014 wire when present in a promoted pack (still not a story promote unless Publisher says so).",
+    "tests.<case>.thermal": [
+      "baseline_c",
+      "pre_min_c",
+      "decision",
+      "before_c",
+      "after_c",
+      "max_during_c",
+      "lead_in_10s",
+      "lead_out_10s",
+      "idle_before_s",
+      "idle_after_s"
+    ],
+    "telemetry_1hz_smart": "SMART sensors/throttle/data-units per member at 1 Hz",
+    "companions": [
+      "thermal-<case>.json",
+      "zpool-1hz.raw"
+    ]
+  }
+}

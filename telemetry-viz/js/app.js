@@ -1,17 +1,19 @@
 /**
  * N5 MAX board telemetry viz — playback, HUD, side panel, wiring.
- * Modes: CELL1 single (default when pack present) | CALIBRATE | DEMO (synthetic).
+ * Modes: CELL1 | CALIBRATE | Simulator (Stage 1) | DEMO (synthetic).
  */
 (function () {
   'use strict';
 
   const state = {
-    source: 'cell1', // 'cell1' | 'calibrate' | 'demo'
+    source: 'cell1', // 'cell1' | 'calibrate' | 'simulator' | 'demo'
     playlistId: null,
     samples: [], // normalized
     scenario: null,
     packMeta: null,
     packPlaylist: [],
+    stage1Catalog: null,
+    stage1CellN: null,
     idx: 0,
     playing: false,
     speed: 10, // default 10×
@@ -26,7 +28,12 @@
   let chart;
 
   function isPackSource() {
-    return (state.source === 'cell1' || state.source === 'calibrate') && state.packMeta;
+    return (
+      (state.source === 'cell1' ||
+        state.source === 'calibrate' ||
+        state.source === 'simulator') &&
+      state.packMeta
+    );
   }
 
   function isCell1() {
@@ -37,13 +44,40 @@
     return state.source === 'calibrate' && state.packMeta;
   }
 
+  function isSimulator() {
+    return state.source === 'simulator' && state.packMeta;
+  }
+
   function packRootFor(src) {
     if (src === 'cell1') return N5Calibration.PACKS.cell1;
     if (src === 'calibrate') return N5Calibration.PACKS.calibrate;
+    if (src === 'simulator') {
+      const cell = stage1CellByN(state.stage1CellN);
+      return cell ? N5Calibration.packRootForCell(cell) : null;
+    }
     return null;
   }
 
+  function stage1CellByN(n) {
+    if (!state.stage1Catalog || n == null) return null;
+    return (state.stage1Catalog.cells || []).find(function (c) {
+      return c.n === n;
+    }) || null;
+  }
+
   function statusChipHTML() {
+    if (isSimulator()) {
+      const cell = stage1CellByN(state.stage1CellN);
+      const badge =
+        (state.packMeta && state.packMeta.playback_badge) ||
+        (cell && cell.badge) ||
+        'SIM · Stage 1 · provisional';
+      return (
+        '<span class="demo-chip sim-chip" title="Stage 1 Simulator — provisional · shape/DEMO · not story-sealed">' +
+        escapeHtml(badge) +
+        '</span>'
+      );
+    }
     if (isCell1()) {
       return '<span class="demo-chip cell1-chip" title="Cell 1 single-drive pack — provisional · shape/DEMO · not story-sealed">CELL1 · single · provisional</span>';
     }
@@ -60,7 +94,14 @@
     bindControls();
     bindSourceToggle();
 
-    // Prefer cell1 pack; then calibrate; then DEMO
+    // Warm Stage 1 catalog (non-blocking); prefer cell1 → calibrate → DEMO
+    N5Calibration.loadCatalog()
+      .then(function (cat) {
+        state.stage1Catalog = cat;
+      })
+      .catch(function (err) {
+        console.warn('stage1 catalog unavailable', err);
+      });
     bootstrap();
   }
 
@@ -100,6 +141,7 @@
     const map = {
       'src-cell1': 'cell1',
       'src-calibrate': 'calibrate',
+      'src-simulator': 'simulator',
       'src-demo': 'demo',
     };
     Object.keys(map).forEach(function (id) {
@@ -112,30 +154,46 @@
   }
 
   async function setSource(src) {
-    if (src === state.source && state.samples.length) return;
+    if (src === state.source && state.samples.length && src !== 'simulator') return;
     pause();
     state.source = src;
     updateBanner();
-    if (src === 'cell1' || src === 'calibrate') {
+    if (src === 'cell1' || src === 'calibrate' || src === 'simulator') {
       try {
-        const pack = await N5Calibration.loadPack(packRootFor(src));
+        if (src === 'simulator') {
+          await ensureStage1Catalog();
+          if (state.stage1CellN == null) {
+            state.stage1CellN = (state.stage1Catalog.cells[0] || {}).n;
+          }
+          buildStage1CellUI();
+        } else {
+          hideStage1CellUI();
+        }
+        const root = packRootFor(src);
+        if (!root) throw new Error('no pack root for ' + src);
+        const pack = await N5Calibration.loadPack(root);
         state.packMeta = pack.meta;
         state.packPlaylist = N5Calibration.playlistFromMeta(pack.meta);
         state.packError = null;
         const preferred = N5Calibration.preferredChapterId(state.packPlaylist);
         state.playlistId = preferred ? preferred.id : null;
+        updateBanner();
         buildPlaylistUI();
         await loadScenario(state.playlistId);
         play();
       } catch (err) {
         state.packError = String(err && err.message ? err.message : err);
-        alert((src === 'cell1' ? 'Cell1' : 'Calibration') + ' pack failed to load: ' + state.packError);
+        const label =
+          src === 'cell1' ? 'Cell1' : src === 'calibrate' ? 'Calibration' : 'Simulator';
+        alert(label + ' pack failed to load: ' + state.packError);
         state.source = 'demo';
+        hideStage1CellUI();
         updateBanner();
         buildPlaylistUI();
         loadScenario('nm790-x1');
       }
     } else {
+      hideStage1CellUI();
       state.playlistId = 'nm790-x1';
       buildPlaylistUI();
       loadScenario(state.playlistId);
@@ -143,20 +201,100 @@
     }
   }
 
+  async function ensureStage1Catalog() {
+    if (state.stage1Catalog) return state.stage1Catalog;
+    state.stage1Catalog = await N5Calibration.loadCatalog();
+    return state.stage1Catalog;
+  }
+
+  function hideStage1CellUI() {
+    const el = document.getElementById('stage1-cell-picker');
+    if (el) el.hidden = true;
+  }
+
+  function buildStage1CellUI() {
+    const el = document.getElementById('stage1-cell-picker');
+    if (!el || !state.stage1Catalog) return;
+    el.hidden = false;
+    el.innerHTML = '';
+    const title = document.createElement('div');
+    title.className = 'stage1-picker-label';
+    title.textContent = 'Stage 1 cell';
+    el.appendChild(title);
+    const grid = document.createElement('div');
+    grid.className = 'stage1-cell-grid';
+    grid.setAttribute('role', 'listbox');
+    grid.setAttribute('aria-label', 'Stage 1 cells');
+    (state.stage1Catalog.cells || []).forEach(function (cell) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'stage1-cell-chip';
+      btn.dataset.n = String(cell.n);
+      btn.title = cell.label + ' · ' + (cell.badge || 'SIM');
+      btn.innerHTML =
+        '<span class="n">' +
+        escapeHtml(String(cell.n)) +
+        '</span><span class="layout">' +
+        escapeHtml(cell.layout) +
+        '</span><span class="pc">' +
+        escapeHtml(cell.primarycache) +
+        '</span>';
+      if (cell.n === state.stage1CellN) btn.classList.add('active');
+      btn.addEventListener('click', function () {
+        selectStage1Cell(cell.n);
+      });
+      grid.appendChild(btn);
+    });
+    el.appendChild(grid);
+  }
+
+  async function selectStage1Cell(n) {
+    if (state.source !== 'simulator') return;
+    if (n === state.stage1CellN && state.samples.length) return;
+    pause();
+    state.stage1CellN = n;
+    buildStage1CellUI();
+    try {
+      const root = packRootFor('simulator');
+      const pack = await N5Calibration.loadPack(root);
+      state.packMeta = pack.meta;
+      state.packPlaylist = N5Calibration.playlistFromMeta(pack.meta);
+      state.packError = null;
+      const preferred = N5Calibration.preferredChapterId(state.packPlaylist);
+      state.playlistId = preferred ? preferred.id : null;
+      updateBanner();
+      buildPlaylistUI();
+      await loadScenario(state.playlistId);
+      play();
+    } catch (err) {
+      state.packError = String(err && err.message ? err.message : err);
+      alert('Simulator cell failed to load: ' + state.packError);
+    }
+  }
+
   function updateBanner() {
     const banner = document.getElementById('mode-banner');
-    ['src-cell1', 'src-calibrate', 'src-demo'].forEach(function (id) {
+    ['src-cell1', 'src-calibrate', 'src-simulator', 'src-demo'].forEach(function (id) {
       const btn = document.getElementById(id);
       if (!btn) return;
       const want =
         (id === 'src-cell1' && state.source === 'cell1') ||
         (id === 'src-calibrate' && state.source === 'calibrate') ||
+        (id === 'src-simulator' && state.source === 'simulator') ||
         (id === 'src-demo' && state.source === 'demo');
       btn.classList.toggle('active', want);
     });
 
     if (!banner) return;
-    if (isCell1()) {
+    if (isSimulator()) {
+      const cell = stage1CellByN(state.stage1CellN);
+      banner.className = 'demo-banner sim-banner';
+      banner.textContent =
+        'SIMULATOR · Stage 1 · provisional · shape/DEMO only · not story-sealed · ' +
+        (cell ? cell.label : 'cell?') +
+        ' · ' +
+        (state.packMeta.source_cell || '');
+    } else if (isCell1()) {
       banner.className = 'demo-banner cell1-banner';
       banner.textContent =
         'CELL1 · single · provisional · shape/DEMO only · stage1-single-full · not story-sealed · cell ' +
@@ -173,7 +311,22 @@
 
     const notes = document.getElementById('side-context-notes');
     if (notes) {
-      if (isCell1()) {
+      if (isSimulator()) {
+        const cell = stage1CellByN(state.stage1CellN);
+        notes.innerHTML =
+          'Stage 1 <strong>Simulator</strong> — ' +
+          escapeHtml(cell ? cell.label : 'cell') +
+          ' · pack <code>' +
+          escapeHtml(state.packMeta.source_cell || '') +
+          '</code> — <strong>not story-sealed</strong>. Ceiling <strong>' +
+          escapeHtml(String(state.packMeta.ceiling_gbps)) +
+          ' GB/s</strong> · nActive <strong>' +
+          escapeHtml(String(state.packMeta.nActive)) +
+          '</strong> · primarycache=<strong>' +
+          escapeHtml(String(state.packMeta.primarycache || (cell && cell.primarycache) || '?')) +
+          '</strong>. ' +
+          statusChipHTML();
+      } else if (isCell1()) {
         notes.innerHTML =
           'Shape/DEMO of <strong>stage1-single-full</strong> pack ' +
           escapeHtml(state.packMeta.source_cell || '') +
@@ -212,7 +365,8 @@
       btn.type = 'button';
       btn.dataset.id = p.id;
       let chip = ' <span class="demo-chip">DEMO</span>';
-      if (p.cell1) chip = ' <span class="demo-chip cell1-chip">CELL1</span>';
+      if (p.stage1) chip = ' <span class="demo-chip sim-chip">SIM</span>';
+      else if (p.cell1) chip = ' <span class="demo-chip cell1-chip">CELL1</span>';
       else if (p.calibrate) chip = ' <span class="demo-chip calibrate-chip">CAL</span>';
       btn.innerHTML =
         i +
@@ -237,7 +391,12 @@
     state.accum = 0;
     state.idx = 0;
 
-    if (isPackSource() || state.source === 'cell1' || state.source === 'calibrate') {
+    if (
+      isPackSource() ||
+      state.source === 'cell1' ||
+      state.source === 'calibrate' ||
+      state.source === 'simulator'
+    ) {
       const pack = await N5Calibration.loadPack(packRootFor(state.source));
       state.packMeta = pack.meta;
       const run = N5Calibration.chapterRun(pack, id);
@@ -249,11 +408,11 @@
         n.meta.demo = false;
         n.meta.calibrate = kind === 'calibrate';
         n.meta.cell1 = kind === 'cell1';
+        n.meta.stage1 = kind === 'stage1' || state.source === 'simulator';
         n.meta.provisional = true;
         n.meta.storySealed = false;
         if (!n.meta.playbackBadge) {
-          n.meta.playbackBadge =
-            kind === 'cell1' ? 'CELL1 · single · provisional' : 'CALIBRATE · provisional';
+          n.meta.playbackBadge = N5Calibration.badgeForKind(kind, pack.meta);
         }
         if (n.meta.nActive == null && run.scenario.activeRoles) {
           n.meta.nActive = run.scenario.activeRoles.length;
