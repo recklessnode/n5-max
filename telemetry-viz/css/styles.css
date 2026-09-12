@@ -621,14 +621,11 @@ body {
   text-align: center;
 }
 
-  text-transform: uppercase;
-  text-align: center;
-}
-
 
 /* --- Calibration playback --- */
 :root {
   --calibrate-chip: #34d399;
+  --cell1-chip: #38bdf8;
 }
 .demo-banner.calibrate-banner {
   color: var(--calibrate-chip);
@@ -640,6 +637,17 @@ body {
 .demo-chip.calibrate-chip {
   color: var(--calibrate-chip);
   border-color: color-mix(in srgb, var(--calibrate-chip) 45%, transparent);
+}
+.demo-banner.cell1-banner {
+  color: var(--cell1-chip);
+}
+.demo-banner.cell1-banner::before {
+  background: var(--cell1-chip);
+  box-shadow: 0 0 6px var(--cell1-chip);
+}
+.demo-chip.cell1-chip {
+  color: var(--cell1-chip);
+  border-color: color-mix(in srgb, var(--cell1-chip) 45%, transparent);
 }
 .source-toggle {
   display: flex;
@@ -659,6 +667,11 @@ body {
   cursor: pointer;
 }
 .source-toggle button.active {
+  color: var(--cell1-chip);
+  border-color: color-mix(in srgb, var(--cell1-chip) 55%, transparent);
+  background: color-mix(in srgb, var(--cell1-chip) 12%, transparent);
+}
+.source-toggle #src-calibrate.active {
   color: var(--calibrate-chip);
   border-color: color-mix(in srgb, var(--calibrate-chip) 55%, transparent);
   background: color-mix(in srgb, var(--calibrate-chip) 12%, transparent);
@@ -668,6 +681,7 @@ body {
   border-color: color-mix(in srgb, var(--demo-chip) 55%, transparent);
   background: color-mix(in srgb, var(--demo-chip) 12%, transparent);
 }
+
 
 /* Stale-viewer footer (dark lab) */
 .viewer-stale {

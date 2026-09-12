@@ -1,34 +1,55 @@
 /**
- * calibrationLoader — load calibrate pack (cell seal only; provisional · shape/DEMO).
- * Pack: data/calibration/{meta.json,telemetry.min.json}
+ * Pack loader — calibrate + cell1-single (sealed cells only; provisional · shape/DEMO).
+ * Packs: data/calibration/ and data/cell1-single/ → {meta.json,telemetry.min.json}
  * Public face: SN labels only — no full by-id / serials.
  */
 (function (global) {
   'use strict';
 
-  const PACK_BASE = 'data/calibration';
+  const PACKS = {
+    calibrate: 'data/calibration',
+    cell1: 'data/cell1-single',
+  };
+  const PACK_BASE = PACKS.calibrate; // legacy default
 
-  let cached = null; // { meta, ticks }
+  const cache = {}; // root -> { root, meta, ticks }
 
   async function loadPack(base) {
     const root = base || PACK_BASE;
-    if (cached && cached.root === root) return cached;
+    if (cache[root]) return cache[root];
 
     const [metaRes, tickRes] = await Promise.all([
       fetch(root + '/meta.json'),
       fetch(root + '/telemetry.min.json'),
     ]);
-    if (!metaRes.ok) throw new Error('calibration meta.json HTTP ' + metaRes.status);
-    if (!tickRes.ok) throw new Error('calibration telemetry.min.json HTTP ' + tickRes.status);
+    if (!metaRes.ok) throw new Error('pack meta.json HTTP ' + metaRes.status + ' @ ' + root);
+    if (!tickRes.ok) throw new Error('pack telemetry.min.json HTTP ' + tickRes.status + ' @ ' + root);
 
     const meta = await metaRes.json();
     const ticks = await tickRes.json();
     if (!Array.isArray(ticks) || !ticks.length) {
-      throw new Error('calibration pack empty');
+      throw new Error('pack empty @ ' + root);
     }
 
-    cached = { root: root, meta: meta, ticks: ticks };
-    return cached;
+    cache[root] = { root: root, meta: meta, ticks: ticks };
+    return cache[root];
+  }
+
+  async function probePack(base) {
+    try {
+      const res = await fetch(base + '/meta.json', { method: 'GET' });
+      return res.ok;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function packKind(meta) {
+    const badge = (meta && meta.playback_badge) || '';
+    const layout = (meta && meta.layout) || '';
+    if (/CELL1/i.test(badge) || /single/i.test(layout)) return 'cell1';
+    if (/CALIBRATE/i.test(badge) || /calibrate/i.test(layout)) return 'calibrate';
+    return 'calibrate';
   }
 
   /**
@@ -37,16 +58,26 @@
    */
   function chapterRun(pack, chapterId) {
     const meta = pack.meta;
+    const kind = packKind(meta);
     const chapter =
       (meta.chapters || []).find(function (c) { return c.id === chapterId; }) ||
       (meta.chapters || [])[0];
-    if (!chapter) throw new Error('no calibration chapters');
+    if (!chapter) throw new Error('no pack chapters');
 
     const begin = chapter.begin_ms;
     const end = chapter.end_ms;
     const slice = pack.ticks.filter(function (row) {
       return row.epoch_ms >= begin && row.epoch_ms <= end;
     });
+
+    const activeRoles =
+      chapter.activeRoles ||
+      meta.activeRoles ||
+      ['face3-mid', 'face3-low', 'opp-a', 'opp-b'];
+    const nActive =
+      meta.nActive != null
+        ? meta.nActive
+        : activeRoles.length;
 
     // Re-base t to chapter start for scrubber UX
     const t0 = slice.length ? slice[0].t : 0;
@@ -57,16 +88,17 @@
         pool: row.pool,
         meta: {
           demo: false,
-          calibrate: true,
+          calibrate: kind === 'calibrate',
+          cell1: kind === 'cell1',
           provisional: true,
           storySealed: false,
           testName: chapter.name || chapter.tag,
           layout: meta.layout || chapter.layout,
           headline: chapter.headline,
           playlistId: chapter.id,
-          nActive: 4,
+          nActive: nActive,
           protocol: meta.protocol_label || meta.protocol,
-          playbackBadge: meta.playback_badge || 'CALIBRATE · provisional',
+          playbackBadge: meta.playback_badge || (kind === 'cell1' ? 'CELL1 · single · provisional' : 'CALIBRATE · provisional'),
           sourceCell: meta.source_cell,
         },
       };
@@ -79,16 +111,18 @@
       headline: chapter.headline,
       headlineTarget: chapter.headlineTarget,
       durationS: samples.length ? samples[samples.length - 1].t : 0,
-      activeRoles: chapter.activeRoles || ['face3-mid', 'face3-low', 'opp-a', 'opp-b'],
-      mode: 'calibrate',
+      activeRoles: activeRoles,
+      mode: chapter.mode || kind,
       optional: !!chapter.optional,
-      calibrate: true,
+      calibrate: kind === 'calibrate',
+      cell1: kind === 'cell1',
     };
 
     return { scenario: scenario, samples: samples, meta: meta };
   }
 
   function playlistFromMeta(meta) {
+    const kind = packKind(meta);
     return (meta.chapters || []).map(function (c) {
       return {
         id: c.id,
@@ -97,24 +131,36 @@
         headline: c.headline,
         headlineTarget: c.headlineTarget,
         optional: !!c.optional,
-        calibrate: true,
-        mode: 'calibrate',
+        calibrate: kind === 'calibrate',
+        cell1: kind === 'cell1',
+        mode: c.mode || kind,
       };
     });
   }
 
   function shortName(c) {
-    // STO-01 seq read 1M j4 → compact label
     const tag = c.tag || c.id || '';
     return tag
       .replace(/^STO-0?/, 'STO-')
       .replace(/_/g, ' ');
   }
 
+  function preferredChapterId(playlist) {
+    return (
+      (playlist.find(function (p) { return p.id === 'STO-01_seq_read_1M_j4'; }) ||
+        playlist[0] ||
+        null)
+    );
+  }
+
   global.N5Calibration = {
     loadPack: loadPack,
+    probePack: probePack,
     chapterRun: chapterRun,
     playlistFromMeta: playlistFromMeta,
+    preferredChapterId: preferredChapterId,
+    packKind: packKind,
     PACK_BASE: PACK_BASE,
+    PACKS: PACKS,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

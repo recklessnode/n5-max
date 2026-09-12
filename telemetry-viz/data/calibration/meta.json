@@ -1,14 +1,14 @@
 {
   "schema": "telemetry-viz-calibration-pack/v1",
-  "result_schema": "telemetry-viz-calibration-pack/v1 fields (sanitized)",
-  "result_schema_note": "Pack reverse-mapped from calibrate cell; public pack uses SN labels only (no full disk paths).",
+  "result_schema": "docs/result-schema.md",
+  "result_schema_note": "Pack reverse-mapped from sealed cell + docs/result-schema.md; public pack uses SN labels only (no full disk paths).",
   "playback_role": "shape-demo",
   "source_cell": "2026-09-11-19.41-storage.dendrite-sut",
   "host": "sut",
   "suite": "storage",
   "mode": "calibrate",
   "layout": "stage1-raidz2-calibrate",
-  "protocol": "B-derived-durations",
+  "protocol": "B-derived-durations (docs/protocol-b-derived-durations.md)",
   "protocol_label": "Protocol B calibrate raidz2",
   "playback_badge": "CALIBRATE \u00b7 provisional",
   "story_sealed": false,
@@ -19,6 +19,13 @@
   "usable_tib": 6.48,
   "harness_commit": "redacted",
   "pool_state": "ONLINE",
+  "nActive": 4,
+  "activeRoles": [
+    "face3-mid",
+    "face3-low",
+    "opp-a",
+    "opp-b"
+  ],
   "vdevs": [
     {
       "vdev": "raidz2-0",
@@ -111,7 +118,7 @@
       "SN3": "disk_nvme3n1_{read,write}_bytes_per_s",
       "SN4": "disk_nvme4n1_{read,write}_bytes_per_s"
     },
-    "note": "Controller indices are sparse: members use nvme0,1,3,4; nvme2 is OS. Columns follow controller ids, not dense 0..3."
+    "note": "Controller indices are sparse: members use nvme0,1,3,4; nvme2 is OS. Columns follow controller ids, not dense 0..3. Only activeRoles contribute to pool bw / glow."
   },
   "telemetry": {
     "file": "telemetry.min.json",
@@ -305,7 +312,7 @@
     }
   ],
   "cell2_fields_todo": {
-    "note": "First present in stage-1 cell 2 (afternoon thermal/idle/SMART fields). This calibrate cell predates them.",
+    "note": "Thermal/SMART companion fields \u2014 wire when present in a promoted pack (still not a story promote unless Publisher says so).",
     "tests.<case>.thermal": [
       "baseline_c",
       "pre_min_c",
@@ -318,7 +325,7 @@
       "idle_before_s",
       "idle_after_s"
     ],
-    "telemetry_1hz_smart": "SMART sensors/throttle/data-units per member at 1 Hz (companion CSV cols)",
+    "telemetry_1hz_smart": "SMART sensors/throttle/data-units per member at 1 Hz",
     "companions": [
       "thermal-<case>.json",
       "zpool-1hz.raw"

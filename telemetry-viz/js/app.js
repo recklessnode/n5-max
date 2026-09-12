@@ -1,17 +1,17 @@
 /**
  * N5 MAX board telemetry viz — playback, HUD, side panel, wiring.
- * Modes: DEMO (synthetic) | CALIBRATE (calibrate pack · provisional · shape/DEMO).
+ * Modes: CELL1 single (default when pack present) | CALIBRATE | DEMO (synthetic).
  */
 (function () {
   'use strict';
 
   const state = {
-    source: 'calibrate', // 'calibrate' | 'demo' — prefer calibrate pack when it loads
+    source: 'cell1', // 'cell1' | 'calibrate' | 'demo'
     playlistId: null,
     samples: [], // normalized
     scenario: null,
     packMeta: null,
-    calibratePlaylist: [],
+    packPlaylist: [],
     idx: 0,
     playing: false,
     speed: 10, // default 10×
@@ -25,11 +25,28 @@
 
   let chart;
 
+  function isPackSource() {
+    return (state.source === 'cell1' || state.source === 'calibrate') && state.packMeta;
+  }
+
+  function isCell1() {
+    return state.source === 'cell1' && state.packMeta;
+  }
+
   function isCalibrate() {
     return state.source === 'calibrate' && state.packMeta;
   }
 
+  function packRootFor(src) {
+    if (src === 'cell1') return N5Calibration.PACKS.cell1;
+    if (src === 'calibrate') return N5Calibration.PACKS.calibrate;
+    return null;
+  }
+
   function statusChipHTML() {
+    if (isCell1()) {
+      return '<span class="demo-chip cell1-chip" title="Cell 1 single-drive pack — provisional · shape/DEMO · not story-sealed">CELL1 · single · provisional</span>';
+    }
     if (isCalibrate()) {
       return '<span class="demo-chip calibrate-chip" title="Calibrate pack — Protocol B raidz2 · provisional · shape/DEMO · not story-sealed">CALIBRATE · provisional</span>';
     }
@@ -43,52 +60,55 @@
     bindControls();
     bindSourceToggle();
 
-    // Prefer calibration pack; fall back to DEMO if missing
+    // Prefer cell1 pack; then calibrate; then DEMO
     bootstrap();
   }
 
   async function bootstrap() {
-    try {
-      const pack = await N5Calibration.loadPack();
-      state.packMeta = pack.meta;
-      state.calibratePlaylist = N5Calibration.playlistFromMeta(pack.meta);
-      state.source = 'calibrate';
-      state.packError = null;
-      // Default chapter: STO-01 j4 read (~5 GB/s)
-      const preferred =
-        state.calibratePlaylist.find(function (p) {
-          return p.id === 'STO-01_seq_read_1M_j4';
-        }) || state.calibratePlaylist[0];
-      state.playlistId = preferred ? preferred.id : null;
-      updateBanner();
-      buildPlaylistUI();
-      await loadScenario(state.playlistId);
-      play();
-    } catch (err) {
-      console.warn('calibration pack unavailable — DEMO fallback', err);
-      state.packError = String(err && err.message ? err.message : err);
-      state.source = 'demo';
-      state.playlistId = 'nm790-x1';
-      updateBanner();
-      buildPlaylistUI();
-      loadScenario(state.playlistId);
-      play();
+    const order = ['cell1', 'calibrate'];
+    for (let i = 0; i < order.length; i++) {
+      const src = order[i];
+      const root = packRootFor(src);
+      try {
+        const pack = await N5Calibration.loadPack(root);
+        state.packMeta = pack.meta;
+        state.packPlaylist = N5Calibration.playlistFromMeta(pack.meta);
+        state.source = src;
+        state.packError = null;
+        const preferred = N5Calibration.preferredChapterId(state.packPlaylist);
+        state.playlistId = preferred ? preferred.id : null;
+        updateBanner();
+        buildPlaylistUI();
+        await loadScenario(state.playlistId);
+        play();
+        return;
+      } catch (err) {
+        console.warn(src + ' pack unavailable', err);
+        state.packError = String(err && err.message ? err.message : err);
+      }
     }
+    // DEMO fallback
+    state.source = 'demo';
+    state.playlistId = 'nm790-x1';
+    updateBanner();
+    buildPlaylistUI();
+    loadScenario(state.playlistId);
+    play();
   }
 
   function bindSourceToggle() {
-    const demoBtn = document.getElementById('src-demo');
-    const calBtn = document.getElementById('src-calibrate');
-    if (demoBtn) {
-      demoBtn.addEventListener('click', function () {
-        setSource('demo');
+    const map = {
+      'src-cell1': 'cell1',
+      'src-calibrate': 'calibrate',
+      'src-demo': 'demo',
+    };
+    Object.keys(map).forEach(function (id) {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        setSource(map[id]);
       });
-    }
-    if (calBtn) {
-      calBtn.addEventListener('click', function () {
-        setSource('calibrate');
-      });
-    }
+    });
   }
 
   async function setSource(src) {
@@ -96,23 +116,20 @@
     pause();
     state.source = src;
     updateBanner();
-    if (src === 'calibrate') {
+    if (src === 'cell1' || src === 'calibrate') {
       try {
-        const pack = await N5Calibration.loadPack();
+        const pack = await N5Calibration.loadPack(packRootFor(src));
         state.packMeta = pack.meta;
-        state.calibratePlaylist = N5Calibration.playlistFromMeta(pack.meta);
+        state.packPlaylist = N5Calibration.playlistFromMeta(pack.meta);
         state.packError = null;
-        const preferred =
-          state.calibratePlaylist.find(function (p) {
-            return p.id === 'STO-01_seq_read_1M_j4';
-          }) || state.calibratePlaylist[0];
-        state.playlistId = preferred.id;
+        const preferred = N5Calibration.preferredChapterId(state.packPlaylist);
+        state.playlistId = preferred ? preferred.id : null;
         buildPlaylistUI();
         await loadScenario(state.playlistId);
         play();
       } catch (err) {
         state.packError = String(err && err.message ? err.message : err);
-        alert('Calibration pack failed to load: ' + state.packError);
+        alert((src === 'cell1' ? 'Cell1' : 'Calibration') + ' pack failed to load: ' + state.packError);
         state.source = 'demo';
         updateBanner();
         buildPlaylistUI();
@@ -128,13 +145,23 @@
 
   function updateBanner() {
     const banner = document.getElementById('mode-banner');
-    const demoBtn = document.getElementById('src-demo');
-    const calBtn = document.getElementById('src-calibrate');
-    if (demoBtn) demoBtn.classList.toggle('active', state.source === 'demo');
-    if (calBtn) calBtn.classList.toggle('active', state.source === 'calibrate');
+    ['src-cell1', 'src-calibrate', 'src-demo'].forEach(function (id) {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      const want =
+        (id === 'src-cell1' && state.source === 'cell1') ||
+        (id === 'src-calibrate' && state.source === 'calibrate') ||
+        (id === 'src-demo' && state.source === 'demo');
+      btn.classList.toggle('active', want);
+    });
 
     if (!banner) return;
-    if (isCalibrate()) {
+    if (isCell1()) {
+      banner.className = 'demo-banner cell1-banner';
+      banner.textContent =
+        'CELL1 · single · provisional · shape/DEMO only · stage1-single-full · not story-sealed · cell ' +
+        (state.packMeta.source_cell || '');
+    } else if (isCalibrate()) {
       banner.className = 'demo-banner calibrate-banner';
       banner.textContent =
         'CALIBRATE · provisional · shape/DEMO only · Protocol B raidz2 · not story-sealed · cell ' +
@@ -146,7 +173,15 @@
 
     const notes = document.getElementById('side-context-notes');
     if (notes) {
-      if (isCalibrate()) {
+      if (isCell1()) {
+        notes.innerHTML =
+          'Shape/DEMO of <strong>stage1-single-full</strong> pack ' +
+          escapeHtml(state.packMeta.source_cell || '') +
+          ' — <strong>not story-sealed</strong> (steadiness incomplete). Ceiling <strong>' +
+          escapeHtml(String(state.packMeta.ceiling_gbps)) +
+          ' GB/s</strong> · 1× Gen4×1 (SN1 · face3-mid). ' +
+          '<span class="demo-chip cell1-chip">CELL1 · single · provisional</span>';
+      } else if (isCalibrate()) {
         notes.innerHTML =
           'Shape/DEMO of <strong>stage1-raidz2-calibrate</strong> pack ' +
           escapeHtml(state.packMeta.source_cell || '') +
@@ -168,17 +203,17 @@
     const el = document.getElementById('playlist');
     el.innerHTML = '';
     const list =
-      state.source === 'calibrate' && state.calibratePlaylist.length
-        ? state.calibratePlaylist
+      isPackSource() && state.packPlaylist.length
+        ? state.packPlaylist
         : demoTelemetry.PLAYLIST;
 
     list.forEach(function (p, i) {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.dataset.id = p.id;
-      const chip = p.calibrate
-        ? ' <span class="demo-chip calibrate-chip">CAL</span>'
-        : ' <span class="demo-chip">DEMO</span>';
+      let chip = ' <span class="demo-chip">DEMO</span>';
+      if (p.cell1) chip = ' <span class="demo-chip cell1-chip">CELL1</span>';
+      else if (p.calibrate) chip = ' <span class="demo-chip calibrate-chip">CAL</span>';
       btn.innerHTML =
         i +
         1 +
@@ -202,20 +237,26 @@
     state.accum = 0;
     state.idx = 0;
 
-    if (state.source === 'calibrate' && state.packMeta) {
-      const pack = await N5Calibration.loadPack();
+    if (isPackSource() || state.source === 'cell1' || state.source === 'calibrate') {
+      const pack = await N5Calibration.loadPack(packRootFor(state.source));
+      state.packMeta = pack.meta;
       const run = N5Calibration.chapterRun(pack, id);
       state.playlistId = run.scenario.id;
       state.scenario = run.scenario;
+      const kind = N5Calibration.packKind(pack.meta);
       state.samples = run.samples.map(function (raw) {
         const n = normalizeSample(raw);
-        // Force calibrate meta (normalize defaults demo:true historically)
         n.meta.demo = false;
-        n.meta.calibrate = true;
+        n.meta.calibrate = kind === 'calibrate';
+        n.meta.cell1 = kind === 'cell1';
         n.meta.provisional = true;
         n.meta.storySealed = false;
         if (!n.meta.playbackBadge) {
-          n.meta.playbackBadge = 'CALIBRATE · provisional';
+          n.meta.playbackBadge =
+            kind === 'cell1' ? 'CELL1 · single · provisional' : 'CALIBRATE · provisional';
+        }
+        if (n.meta.nActive == null && run.scenario.activeRoles) {
+          n.meta.nActive = run.scenario.activeRoles.length;
         }
         return n;
       });
