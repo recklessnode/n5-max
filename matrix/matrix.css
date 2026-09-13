@@ -494,11 +494,47 @@
   font-weight: 600;
   font-size: 0.88rem;
 }
-.case-modal-meta dd[data-role="doc-created"] {
+.case-modal-meta dd[data-role="doc-created"],
+.case-modal-meta dd[data-role="doc-updated"] {
   font-family: var(--mono);
   font-weight: 500;
   font-size: 0.82rem;
   color: var(--muted);
+}
+
+.priority-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--code-bg);
+  color: var(--muted);
+  line-height: 1.35;
+}
+.priority-badge.priority-critical {
+  color: var(--st-failed, #c44);
+  border-color: color-mix(in srgb, var(--st-failed, #c44) 35%, var(--line));
+  background: color-mix(in srgb, var(--st-failed, #c44) 12%, var(--surface));
+}
+.priority-badge.priority-high {
+  color: var(--st-running, #c80);
+  border-color: color-mix(in srgb, var(--st-running, #c80) 35%, var(--line));
+  background: color-mix(in srgb, var(--st-running, #c80) 12%, var(--surface));
+}
+.priority-badge.priority-medium {
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--ink) 22%, var(--line));
+  background: color-mix(in srgb, var(--ink) 6%, var(--surface));
+}
+.priority-badge.priority-low {
+  color: var(--faint);
+  border-color: var(--line);
+  background: var(--code-bg);
 }
 
 .case-modal-kicker {

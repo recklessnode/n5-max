@@ -4245,6 +4245,5 @@
         }
       ]
     }
-  ],
-  "note": "stages includes frozen history + live stage"
+  ]
 }
