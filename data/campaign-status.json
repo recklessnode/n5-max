@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-13T12:54:58Z",
+  "updated_at": "2026-09-13T12:56:00Z",
   "harness_commit": null,
-  "git_commit": "fb5185bf",
+  "git_commit": "8781dead",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 1,
@@ -130,113 +130,113 @@
       "layout": "single-x1",
       "mode": "full",
       "primarycache": "none",
-      "status": "passed",
+      "status": "pending",
       "started_at": "2026-09-11T20:54:26Z",
       "finished_at": "2026-09-11T21:56:15Z",
       "failure_class": null,
-      "confidence": 0.25,
+      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-11T21:05:57Z",
-          "finished_at": "2026-09-11T21:10:29Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-11T21:10:35Z",
-          "finished_at": "2026-09-11T21:11:37Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:11:44Z",
-          "finished_at": "2026-09-11T21:16:16Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:16:25Z",
-          "finished_at": "2026-09-11T21:17:26Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:17:33Z",
-          "finished_at": "2026-09-11T21:18:35Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:18:41Z",
-          "finished_at": "2026-09-11T21:23:31Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:23:38Z",
-          "finished_at": "2026-09-11T21:24:40Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:24:46Z",
-          "finished_at": "2026-09-11T21:29:18Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:29:57Z",
-          "finished_at": "2026-09-11T21:30:58Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:31:05Z",
-          "finished_at": "2026-09-11T21:36:20Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-03_mixed_70r30w_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:36:26Z",
-          "finished_at": "2026-09-11T21:41:02Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-04_sync_write_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:41:09Z",
-          "finished_at": "2026-09-11T21:45:41Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-05_rand_write_64k_vbs16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:45:47Z",
-          "finished_at": "2026-09-11T21:50:19Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-05_rand_write_64k_vbs64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-11T21:50:46Z",
-          "finished_at": "2026-09-11T21:55:23Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_copy_1stream",
-          "status": "passed",
-          "started_at": "2026-09-11T21:55:37Z",
-          "finished_at": "2026-09-11T21:55:39Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_read_1stream",
-          "status": "passed",
-          "started_at": "2026-09-11T21:55:46Z",
-          "finished_at": "2026-09-11T21:55:53Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_delete",
-          "status": "passed",
-          "started_at": "2026-09-11T21:56:00Z",
-          "finished_at": "2026-09-11T21:56:03Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     },
@@ -1510,8 +1510,8 @@
     {
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
-      "status": "passed",
-      "captured_at": "2026-09-13T12:54:58Z",
+      "status": "running",
+      "captured_at": "2026-09-13T12:56:00Z",
       "cells": [
         {
           "n": 0,
@@ -1633,113 +1633,113 @@
           "layout": "single-x1",
           "mode": "full",
           "primarycache": "none",
-          "status": "passed",
+          "status": "pending",
           "started_at": "2026-09-11T20:54:26Z",
           "finished_at": "2026-09-11T21:56:15Z",
           "failure_class": null,
-          "confidence": 0.25,
+          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-11T21:05:57Z",
-              "finished_at": "2026-09-11T21:10:29Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-11T21:10:35Z",
-              "finished_at": "2026-09-11T21:11:37Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:11:44Z",
-              "finished_at": "2026-09-11T21:16:16Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:16:25Z",
-              "finished_at": "2026-09-11T21:17:26Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:17:33Z",
-              "finished_at": "2026-09-11T21:18:35Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:18:41Z",
-              "finished_at": "2026-09-11T21:23:31Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:23:38Z",
-              "finished_at": "2026-09-11T21:24:40Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:24:46Z",
-              "finished_at": "2026-09-11T21:29:18Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:29:57Z",
-              "finished_at": "2026-09-11T21:30:58Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:31:05Z",
-              "finished_at": "2026-09-11T21:36:20Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:36:26Z",
-              "finished_at": "2026-09-11T21:41:02Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:41:09Z",
-              "finished_at": "2026-09-11T21:45:41Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-05_rand_write_64k_vbs16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:45:47Z",
-              "finished_at": "2026-09-11T21:50:19Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-05_rand_write_64k_vbs64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-11T21:50:46Z",
-              "finished_at": "2026-09-11T21:55:23Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-11T21:55:37Z",
-              "finished_at": "2026-09-11T21:55:39Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-11T21:55:46Z",
-              "finished_at": "2026-09-11T21:55:53Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-11T21:56:00Z",
-              "finished_at": "2026-09-11T21:56:03Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -3014,7 +3014,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-13T12:54:58Z",
+      "captured_at": "2026-09-13T12:56:00Z",
       "cells": [
         {
           "n": 1,
@@ -4172,14 +4172,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-13T12:54:58Z",
+      "captured_at": "2026-09-13T12:56:00Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-13T12:54:58Z",
+      "captured_at": "2026-09-13T12:56:00Z",
       "cells": [
         {
           "n": 1,
