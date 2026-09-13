@@ -643,16 +643,21 @@
     document.body.style.overflow = "hidden";
     loadCaseIndex().then(function (index) {
       var doc = lookupCaseDoc(index, id);
-      var title = fieldText(doc, ["title", "name"]) || id;
       var caseId = fieldText(doc, ["id", "tcid"]) || id;
-      var objective = fieldText(doc, ["objective", "Objective"]);
+      var title = fieldText(doc, ["title", "name"]) || "";
+      var subtitle = fieldText(doc, ["subtitle"]);
+      var objective = fieldText(doc, ["objective", "description", "Objective"]);
       var reqs = fieldText(doc, ["requirements", "hardware", "requirements_hardware", "Requirements"]);
       var proc = fieldText(doc, ["procedure", "Procedure"]);
       var pf = fieldText(doc, ["pass_fail", "pass/fail", "Pass/Fail"]);
       var comments = fieldText(doc, ["comments", "Comments"]);
       var configs = fieldText(doc, ["configurations", "config", "Configurations"]);
-      var published = !!(doc && (objective || reqs || proc || pf || comments || configs || fieldText(doc, ["title"])));
-      if (titleEl) titleEl.textContent = published ? title + " · " + caseId : id;
+      var published = !!(
+        doc &&
+        (title || objective || reqs || proc || pf || comments || configs || subtitle)
+      );
+      // Modal heading = title verbatim (no id append). Fallback to id only if unpublished.
+      if (titleEl) titleEl.textContent = published && title ? title : caseId;
       if (!published) {
         bodyEl.innerHTML =
           '<p class="doc-empty">Doc not yet published for <code>' +
@@ -661,8 +666,10 @@
         return;
       }
       bodyEl.innerHTML =
-        section("Title", title + " (" + caseId + ")") +
-        section("Objective", objective) +
+        section("Id", caseId) +
+        (title ? section("Title", title) : "") +
+        (subtitle ? section("Subtitle", subtitle) : "") +
+        section("Description", objective) +
         section("Requirements / hardware", reqs) +
         section("Procedure", proc) +
         section("Pass / Fail", pf) +
