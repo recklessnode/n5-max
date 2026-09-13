@@ -8,8 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="matrix.css?v=flow1" />
+  <link rel="stylesheet" href="matrix.css?v=meta1" />
+  <script src="../js/theme.js"></script>
 </head>
 <body class="matrix-page">
   <aside class="provisional-banner" role="status" aria-live="polite">
@@ -28,6 +30,10 @@
         <a href="./" class="active" aria-current="page">Matrix</a>
         <a href="../telemetry-viz/">M.2 lab</a>
         <a href="../#follow">Follow</a>
+      </div>
+      <div class="theme-toggle" data-theme-toggle role="group" aria-label="Color theme">
+        <button type="button" data-theme-value="light">Light</button>
+        <button type="button" data-theme-value="dark">Dark</button>
       </div>
     </div>
   </nav>
@@ -64,8 +70,11 @@
   <div id="case-doc-modal" class="case-modal" hidden aria-modal="true" role="dialog" aria-labelledby="case-doc-title">
     <div class="case-modal-panel">
       <button type="button" class="case-modal-close" aria-label="Close">&times;</button>
-      <p class="case-modal-kicker">Test case</p>
-      <h2 id="case-doc-title" data-role="doc-title">—</h2>
+      <dl class="case-modal-meta" data-role="doc-meta">
+        <div><dt>Test</dt><dd id="case-doc-title" data-role="doc-id">—</dd></div>
+        <div><dt>Title</dt><dd data-role="doc-title-text">—</dd></div>
+        <div data-role="doc-created-row" hidden><dt>Date Created</dt><dd data-role="doc-created">—</dd></div>
+      </dl>
       <div data-role="doc-body"></div>
     </div>
   </div>
