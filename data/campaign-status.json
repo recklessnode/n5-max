@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-13T12:51:10Z",
+  "updated_at": "2026-09-13T12:51:33Z",
   "harness_commit": "193d0eb",
-  "git_commit": "e5dcbb9",
+  "git_commit": "9d4a915",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 2,
@@ -1148,8 +1148,8 @@
         },
         {
           "id": "STO-06_smallfiles_read_1stream",
-          "status": "pending",
-          "started_at": null,
+          "status": "running",
+          "started_at": "2026-09-13T12:51:29Z",
           "finished_at": null
         },
         {
@@ -1166,7 +1166,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-13T12:51:10Z",
+      "captured_at": "2026-09-13T12:51:33Z",
       "cells": [
         {
           "n": 0,
@@ -2669,7 +2669,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "running",
-      "captured_at": "2026-09-13T12:51:10Z",
+      "captured_at": "2026-09-13T12:51:33Z",
       "cells": [
         {
           "n": 1,
@@ -3809,8 +3809,8 @@
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "pending",
-              "started_at": null,
+              "status": "running",
+              "started_at": "2026-09-13T12:51:29Z",
               "finished_at": null
             },
             {
@@ -3827,14 +3827,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-13T12:51:10Z",
+      "captured_at": "2026-09-13T12:51:33Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-13T12:51:10Z",
+      "captured_at": "2026-09-13T12:51:33Z",
       "cells": [
         {
           "n": 1,
