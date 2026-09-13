@@ -1,0 +1,358 @@
+/* N5 MAX — shared light/dark theme tokens + chrome
+ *
+ * LIGHT  = Story/Matrix editorial stone (styles.css heritage)
+ * DARK   = M.2 lab charcoal + teal (telemetry-viz heritage)
+ *
+ * Usage: set <html data-theme="light|dark"> via site/js/theme.js
+ *        (localStorage key: n5-theme). Falls back to prefers-color-scheme.
+ */
+
+:root {
+  /* —— Light (editorial) —— */
+  --bg: #f4f1ec;
+  --bg-elevated: #faf8f5;
+  --surface: #ffffff;
+  --ink: #1a1917;
+  --ink-soft: #3d3a36;
+  --muted: #6b665e;
+  --faint: #9a948a;
+  --line: rgba(26, 25, 23, 0.08);
+  --line-strong: rgba(26, 25, 23, 0.14);
+  --shadow: 0 1px 2px rgba(26, 25, 23, 0.04), 0 8px 24px rgba(26, 25, 23, 0.06);
+  --shadow-card: 0 1px 3px rgba(26, 25, 23, 0.05), 0 12px 32px rgba(26, 25, 23, 0.07);
+
+  /* Brand accents — same family both themes */
+  --raid10: #E86A2B;
+  --raid10-soft: rgba(232, 106, 43, 0.12);
+  --raid10-mid: rgba(232, 106, 43, 0.22);
+  --raidz1: #1FA6A0;
+  --raidz1-soft: rgba(31, 166, 160, 0.12);
+  --raidz1-mid: rgba(31, 166, 160, 0.22);
+
+  /* Hero washes / chrome helpers */
+  --wash-raid10: rgba(232, 106, 43, 0.07);
+  --wash-raidz1: rgba(31, 166, 160, 0.07);
+  --nav-bg: rgba(244, 241, 236, 0.82);
+  --hover-fill: rgba(26, 25, 23, 0.06);
+  --hover-fill-soft: rgba(26, 25, 23, 0.03);
+  --code-bg: rgba(26, 25, 23, 0.06);
+  --overlay: rgba(26, 25, 23, 0.55);
+  --ink-inverse: #f4f1ec;
+
+  /* Matrix status (readable on light) */
+  --st-pending: #9a948a;
+  --st-running: #3b82f6;
+  --st-passed: #16a34a;
+  --st-failed: #dc2626;
+  --st-blocked: #d97706;
+
+  /* Lab aliases → shared (light) */
+  --bg-panel: var(--surface);
+  --border: #d9d4cb;
+  --border-subtle: #e8e4dc;
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --text-dim: var(--faint);
+  --teal: #1FA6A0;
+  --teal-dim: #178a85;
+  --teal-glow: rgba(31, 166, 160, 0.28);
+  --accent-x4: #2bb8b1;
+  --heat-cold: #3b82f6;
+  --heat-mid: #f59e0b;
+  --heat-hot: #ef4444;
+  --demo-chip: #b45309;
+  --demo-bg: rgba(180, 83, 9, 0.1);
+  --rail-read: #1FA6A0;
+  --rail-write: #3b82f6;
+
+  /* Fonts / radii shared (also in styles.css) */
+  --font: "Ubuntu", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--display);
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --max: 1120px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --provisional-h: 0px;
+  color-scheme: light;
+}
+
+/* Dark = M.2 lab charcoal + teal, sitewide */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e1114;
+  --bg-elevated: #1c2329;
+  --surface: #151a1f;
+  --ink: #d6dde3;
+  --ink-soft: #b8c2ca;
+  --muted: #7a8792;
+  --faint: #556069;
+  --line: rgba(214, 221, 227, 0.1);
+  --line-strong: rgba(214, 221, 227, 0.16);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  --raid10: #E86A2B;
+  --raid10-soft: rgba(232, 106, 43, 0.18);
+  --raid10-mid: rgba(232, 106, 43, 0.32);
+  --raidz1: #2dd4bf;
+  --raidz1-soft: rgba(45, 212, 191, 0.14);
+  --raidz1-mid: rgba(45, 212, 191, 0.28);
+
+  --wash-raid10: rgba(232, 106, 43, 0.09);
+  --wash-raidz1: rgba(45, 212, 191, 0.08);
+  --nav-bg: rgba(14, 17, 20, 0.88);
+  --hover-fill: rgba(214, 221, 227, 0.08);
+  --hover-fill-soft: rgba(214, 221, 227, 0.04);
+  --code-bg: rgba(214, 221, 227, 0.08);
+  --overlay: rgba(0, 0, 0, 0.65);
+  --ink-inverse: #0e1114;
+
+  /* Status — brighter on charcoal */
+  --st-pending: #8b95a0;
+  --st-running: #60a5fa;
+  --st-passed: #4ade80;
+  --st-failed: #f87171;
+  --st-blocked: #fbbf24;
+
+  /* Lab palette (canonical dark) */
+  --bg-panel: #151a1f;
+  --border: #2a343c;
+  --border-subtle: #222a31;
+  --text: #d6dde3;
+  --text-muted: #7a8792;
+  --text-dim: #556069;
+  --teal: #2dd4bf;
+  --teal-dim: #1a9e8f;
+  --teal-glow: rgba(45, 212, 191, 0.35);
+  --accent-x4: #5eead4;
+  --heat-cold: #3b82f6;
+  --heat-mid: #f59e0b;
+  --heat-hot: #ef4444;
+  --demo-chip: #fbbf24;
+  --demo-bg: rgba(251, 191, 36, 0.12);
+  --rail-read: #2dd4bf;
+  --rail-write: #60a5fa;
+
+  /* Lab uses tighter radius; keep structural radii from light for Story/Matrix.
+     Lab page overrides --radius locally. */
+}
+
+/* System preference when no stored / explicit theme yet */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]):not([data-theme="dark"]) {
+    --bg: #0e1114;
+    --bg-elevated: #1c2329;
+    --surface: #151a1f;
+    --ink: #d6dde3;
+    --ink-soft: #b8c2ca;
+    --muted: #7a8792;
+    --faint: #556069;
+    --line: rgba(214, 221, 227, 0.1);
+    --line-strong: rgba(214, 221, 227, 0.16);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.45);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.5);
+    --raid10: #E86A2B;
+    --raid10-soft: rgba(232, 106, 43, 0.18);
+    --raid10-mid: rgba(232, 106, 43, 0.32);
+    --raidz1: #2dd4bf;
+    --raidz1-soft: rgba(45, 212, 191, 0.14);
+    --raidz1-mid: rgba(45, 212, 191, 0.28);
+    --wash-raid10: rgba(232, 106, 43, 0.09);
+    --wash-raidz1: rgba(45, 212, 191, 0.08);
+    --nav-bg: rgba(14, 17, 20, 0.88);
+    --hover-fill: rgba(214, 221, 227, 0.08);
+    --hover-fill-soft: rgba(214, 221, 227, 0.04);
+    --code-bg: rgba(214, 221, 227, 0.08);
+    --overlay: rgba(0, 0, 0, 0.65);
+    --ink-inverse: #0e1114;
+    --st-pending: #8b95a0;
+    --st-running: #60a5fa;
+    --st-passed: #4ade80;
+    --st-failed: #f87171;
+    --st-blocked: #fbbf24;
+    --bg-panel: #151a1f;
+    --border: #2a343c;
+    --border-subtle: #222a31;
+    --text: #d6dde3;
+    --text-muted: #7a8792;
+    --text-dim: #556069;
+    --teal: #2dd4bf;
+    --teal-dim: #1a9e8f;
+    --teal-glow: rgba(45, 212, 191, 0.35);
+    --accent-x4: #5eead4;
+    --demo-chip: #fbbf24;
+    --demo-bg: rgba(251, 191, 36, 0.12);
+    --rail-read: #2dd4bf;
+    --rail-write: #60a5fa;
+  }
+}
+
+/* ── Shared chrome: provisional banner + site-nav + theme toggle ── */
+
+.provisional-banner {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: linear-gradient(90deg, #1a1408 0%, #2a1f0a 45%, #1a1408 100%);
+  color: #f5c542;
+  border-bottom: 2px solid #f5a623;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+.provisional-banner-inner {
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
+  padding: 0.55rem 0 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.provisional-title {
+  font-family: var(--display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffcc33;
+  line-height: 1.25;
+}
+
+.provisional-body {
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #f0e6c8;
+  max-width: 78ch;
+}
+
+body:has(.provisional-banner) {
+  --provisional-h: 4.75rem;
+}
+
+.site-nav {
+  position: sticky;
+  top: var(--provisional-h, 0px);
+  z-index: 50;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 52px;
+  width: min(100% - 2.5rem, var(--max));
+  margin-inline: auto;
+}
+
+.nav-brand {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.nav-brand span.r10 { color: var(--raid10); }
+.nav-brand span.rz1 { color: var(--raidz1); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: flex-end;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.nav-links a:hover,
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  background: var(--hover-fill);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  padding: 0.15rem;
+  margin-left: 0.35rem;
+}
+
+.theme-toggle button {
+  font-family: var(--font);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.28rem 0.55rem;
+  cursor: pointer;
+  transition: color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.theme-toggle button[aria-pressed="true"] {
+  color: var(--ink);
+  background: var(--hover-fill);
+}
+
+.theme-toggle button:focus-visible {
+  outline: 2px solid var(--raidz1);
+  outline-offset: 1px;
+}
+
+@media (max-width: 720px) {
+  body:has(.provisional-banner) { --provisional-h: 6.5rem; }
+  .provisional-title { font-size: 0.7rem; letter-spacing: 0.08em; }
+  .provisional-body { font-size: 0.76rem; }
+  .provisional-banner-inner {
+    width: min(100% - 1.25rem, var(--max));
+    padding: 0.45rem 0 0.55rem;
+  }
+  .nav-brand { display: none; }
+  .theme-toggle button { padding: 0.28rem 0.45rem; font-size: 0.6rem; }
+}
+
+html {
+  scroll-padding-top: calc(var(--provisional-h, 0px) + 72px);
+}
+
+@media (max-width: 720px) {
+  html {
+    scroll-padding-top: calc(var(--provisional-h, 0px) + 56px);
+  }
+}

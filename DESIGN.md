@@ -41,3 +41,19 @@ Subtle fade/translate on scroll via `.reveal`. Fully disabled under `prefers-red
 - No invented AI inference benchmarks; “AI” only as Ryzen AI MAX+ platform name.
 - Works at ~1280px; stacks cleanly below 960 / 640.
 - Badge: provisional / under review until Protocol B seal.
+
+
+## Themes (light + dark)
+
+Shared tokens live in `css/theme.css`. Toggle in `js/theme.js` (localStorage key `n5-theme`).
+
+| Mode | Source of truth | Feel |
+|------|-----------------|------|
+| **Light** | Story / Matrix editorial (`:root`) | Stone wash `#f4f1ec`, ink type, white surfaces |
+| **Dark** | M.2 lab charcoal + teal (`[data-theme="dark"]`) | `#0e1114` field, `#151a1f` panels, teal `#2dd4bf` |
+
+- RAID10 orange (`#E86A2B`) and RAIDZ1 teal stay in both modes (teal brightens to lab `#2dd4bf` in dark).
+- Include `theme.css` before page CSS; run `theme.js` early in `<head>` (not deferred) to avoid flash.
+- Lab aliases (`--bg-panel`, `--text`, `--teal`, …) map onto the shared tokens so `telemetry-viz` keeps its look in dark and gains a working light mode.
+- Shared chrome: provisional banner + `.site-nav` + Light/Dark toggle on Story, Matrix, and M.2 lab.
+- Default when unset: `prefers-color-scheme`, then light.

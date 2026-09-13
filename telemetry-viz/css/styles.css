@@ -1,28 +1,10 @@
-/* N5 MAX board telemetry — dark lab charcoal + teal */
+/* N5 MAX board telemetry — maps to shared theme.css tokens.
+ * Dark theme ≈ historical lab charcoal+teal; light uses editorial tokens.
+ */
 :root {
-  --bg: #0e1114;
-  --bg-panel: #151a1f;
-  --bg-elevated: #1c2329;
-  --border: #2a343c;
-  --border-subtle: #222a31;
-  --text: #d6dde3;
-  --text-muted: #7a8792;
-  --text-dim: #556069;
-  --teal: #2dd4bf;
-  --teal-dim: #1a9e8f;
-  --teal-glow: rgba(45, 212, 191, 0.35);
-  --accent-x4: #5eead4;
-  --heat-cold: #3b82f6;
-  --heat-mid: #f59e0b;
-  --heat-hot: #ef4444;
-  --demo-chip: #fbbf24;
-  --demo-bg: rgba(251, 191, 36, 0.12);
-  --rail-read: #2dd4bf;
-  --rail-write: #60a5fa;
-  --font: "Ubuntu", system-ui, -apple-system, sans-serif;
-  --font-display: "Orbitron", system-ui, sans-serif;
-  --mono: "Ubuntu", system-ui, sans-serif;
+  /* Tighter lab radius (theme.css uses 14px for Story/Matrix) */
   --radius: 6px;
+  --mono: "Ubuntu", system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +14,7 @@ html {
   overflow-x: clip;
 }
 
-body {
+body.lab-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -42,12 +24,20 @@ body {
   color: var(--text);
   font-family: var(--font);
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
+body.lab-page .site-nav .inner {
+  width: min(100% - 1.5rem, var(--max, 1120px));
+}
+
+body.lab-page .provisional-banner-inner {
+  width: min(100% - 1.5rem, var(--max, 1120px));
+}
+
 /* —— Header —— */
-.lab-header {
+.lab-toolbar {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -57,7 +47,7 @@ body {
   flex-wrap: wrap;
 }
 
-.lab-title {
+.lab-toolbar .lab-title {
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 600;
@@ -65,12 +55,12 @@ body {
   color: var(--text);
 }
 
-.lab-title span {
+.lab-toolbar .lab-title span {
   color: var(--teal);
   font-weight: 500;
 }
 
-.lab-meta {
+.lab-toolbar .lab-meta {
   color: var(--text-muted);
   font-size: 0.78rem;
   font-family: var(--mono);

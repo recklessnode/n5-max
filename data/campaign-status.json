@@ -1,9 +1,8 @@
 {
-  "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-13T02:23:25Z",
-  "harness_commit": "455376a",
-  "git_commit": "91e6c43",
+  "updated_at": "2026-09-12T15:58:32Z",
+  "harness_commit": null,
+  "git_commit": "ed97d4b",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 2,
@@ -15,113 +14,112 @@
       "layout": "single-x4",
       "mode": "full",
       "primarycache": "none",
-      "status": "passed",
-      "started_at": "2026-09-12T19:42:50Z",
-      "finished_at": "2026-09-12T20:50:27Z",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
       "failure_class": null,
-      "confidence": 0.5,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-12T19:49:42Z",
-          "finished_at": "2026-09-12T19:54:14Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-12T19:54:32Z",
-          "finished_at": "2026-09-12T19:56:33Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T19:56:51Z",
-          "finished_at": "2026-09-12T20:01:22Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:01:40Z",
-          "finished_at": "2026-09-12T20:03:41Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:03:59Z",
-          "finished_at": "2026-09-12T20:06:00Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:06:19Z",
-          "finished_at": "2026-09-12T20:10:50Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:11:09Z",
-          "finished_at": "2026-09-12T20:13:10Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:13:30Z",
-          "finished_at": "2026-09-12T20:18:19Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:18:38Z",
-          "finished_at": "2026-09-12T20:20:39Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:20:59Z",
-          "finished_at": "2026-09-12T20:25:31Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-03_mixed_70r30w_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:25:57Z",
-          "finished_at": "2026-09-12T20:30:28Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-04_sync_write_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:30:47Z",
-          "finished_at": "2026-09-12T20:35:18Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-05_rand_write_64k_vbs16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:35:37Z",
-          "finished_at": "2026-09-12T20:40:09Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-05_rand_write_64k_vbs64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-12T20:40:28Z",
-          "finished_at": "2026-09-12T20:45:01Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_copy_1stream",
-          "status": "passed",
-          "started_at": "2026-09-12T20:45:20Z",
-          "finished_at": "2026-09-12T20:45:51Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_read_1stream",
-          "status": "passed",
-          "started_at": "2026-09-12T20:46:12Z",
-          "finished_at": "2026-09-12T20:49:11Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_delete",
-          "status": "passed",
-          "started_at": "2026-09-12T20:49:32Z",
-          "finished_at": "2026-09-12T20:49:55Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     },
@@ -130,113 +128,112 @@
       "layout": "raid0",
       "mode": "full",
       "primarycache": "none",
-      "status": "passed",
-      "started_at": "2026-09-13T00:42:55Z",
-      "finished_at": "2026-09-12T21:29:20Z",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
       "failure_class": null,
-      "confidence": 0.5,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-13T00:49:47Z",
-          "finished_at": "2026-09-13T00:54:18Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-13T00:54:36Z",
-          "finished_at": "2026-09-13T00:56:38Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T00:56:57Z",
-          "finished_at": "2026-09-13T01:01:28Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:01:46Z",
-          "finished_at": "2026-09-13T01:03:48Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:04:06Z",
-          "finished_at": "2026-09-13T01:06:07Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:06:26Z",
-          "finished_at": "2026-09-13T01:11:15Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:11:34Z",
-          "finished_at": "2026-09-13T01:17:05Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:17:24Z",
-          "finished_at": "2026-09-13T01:22:19Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:22:38Z",
-          "finished_at": "2026-09-13T01:27:39Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-02_rand_write_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:27:57Z",
-          "finished_at": "2026-09-13T01:32:30Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-03_mixed_70r30w_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:32:48Z",
-          "finished_at": "2026-09-13T01:37:19Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-04_sync_write_16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:37:42Z",
-          "finished_at": "2026-09-13T01:42:13Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-05_rand_write_64k_vbs16k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:42:31Z",
-          "finished_at": "2026-09-13T01:47:03Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-05_rand_write_64k_vbs64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T01:47:22Z",
-          "finished_at": "2026-09-13T01:51:55Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_copy_1stream",
-          "status": "passed",
-          "started_at": "2026-09-13T01:52:14Z",
-          "finished_at": "2026-09-13T01:52:43Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_read_1stream",
-          "status": "passed",
-          "started_at": "2026-09-13T01:53:04Z",
-          "finished_at": "2026-09-13T01:56:39Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-06_smallfiles_delete",
-          "status": "passed",
-          "started_at": "2026-09-13T01:57:00Z",
-          "finished_at": "2026-09-13T01:57:36Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     },
@@ -245,34 +242,33 @@
       "layout": "raidz1",
       "mode": "full",
       "primarycache": "none",
-      "status": "running",
-      "started_at": "2026-09-13T02:02:34Z",
+      "status": "pending",
+      "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-13T02:11:07Z",
-          "finished_at": "2026-09-13T02:15:38Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j1",
-          "status": "passed",
-          "started_at": "2026-09-13T02:15:57Z",
-          "finished_at": "2026-09-13T02:17:58Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-13T02:18:16Z",
-          "finished_at": "2026-09-13T02:22:47Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "STO-01_seq_read_1M_j4",
-          "status": "running",
-          "started_at": "2026-09-13T02:23:05Z",
+          "status": "pending",
+          "started_at": null,
           "finished_at": null
         },
         {
@@ -364,7 +360,6 @@
       "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
@@ -479,7 +474,6 @@
       "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
@@ -594,7 +588,6 @@
       "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
@@ -709,7 +702,6 @@
       "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
@@ -824,7 +816,6 @@
       "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
@@ -939,7 +930,6 @@
       "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
@@ -1054,7 +1044,6 @@
       "started_at": null,
       "finished_at": null,
       "failure_class": null,
-      "confidence": null,
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
@@ -1164,9 +1153,10 @@
   "stages": [
     {
       "id": 1,
-      "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
-      "status": "passed",
-      "captured_at": "2026-09-13T02:23:25Z",
+      "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12) \u00b7 historical (soft-finished; reruns pending)",
+      "status": "soft_finished",
+      "captured_at": "2026-09-12T14:07:20Z",
+      "captured_from_git": "349b52a",
       "cells": [
         {
           "n": 0,
@@ -1177,7 +1167,6 @@
           "started_at": "2026-09-11T19:41:32Z",
           "finished_at": "2026-09-11T20:43:11Z",
           "failure_class": null,
-          "confidence": 0.25,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1290,9 +1279,8 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-11T20:54:26Z",
-          "finished_at": "2026-09-11T21:56:15Z",
+          "finished_at": "2026-09-11T21:56:40Z",
           "failure_class": null,
-          "confidence": 0.25,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1405,9 +1393,8 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-11T22:02:03Z",
-          "finished_at": "2026-09-11T23:10:34Z",
+          "finished_at": "2026-09-11T23:07:09Z",
           "failure_class": null,
-          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1520,9 +1507,8 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-11T23:15:02Z",
-          "finished_at": "2026-09-12T00:22:00Z",
+          "finished_at": "2026-09-12T00:22:05Z",
           "failure_class": null,
-          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1635,9 +1621,8 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T00:27:31Z",
-          "finished_at": "2026-09-12T01:31:51Z",
+          "finished_at": "2026-09-12T01:32:06Z",
           "failure_class": null,
-          "confidence": 0.25,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1750,9 +1735,8 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T01:37:34Z",
-          "finished_at": "2026-09-12T05:00:44Z",
+          "finished_at": "2026-09-12T04:18:15Z",
           "failure_class": "run",
-          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1865,9 +1849,8 @@
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T05:05:24Z",
-          "finished_at": "2026-09-12T06:19:05Z",
+          "finished_at": "2026-09-12T06:19:12Z",
           "failure_class": null,
-          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -1980,9 +1963,8 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T06:23:38Z",
-          "finished_at": "2026-09-12T07:40:09Z",
+          "finished_at": "2026-09-12T07:40:19Z",
           "failure_class": null,
-          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -2095,9 +2077,8 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T07:44:47Z",
-          "finished_at": "2026-09-12T08:55:00Z",
+          "finished_at": "2026-09-12T08:55:08Z",
           "failure_class": null,
-          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -2210,9 +2191,8 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T09:00:35Z",
-          "finished_at": "2026-09-12T10:15:42Z",
+          "finished_at": "2026-09-12T10:15:56Z",
           "failure_class": null,
-          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -2325,9 +2305,8 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T10:20:23Z",
-          "finished_at": "2026-09-12T11:28:46Z",
+          "finished_at": "2026-09-12T11:29:06Z",
           "failure_class": null,
-          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -2440,9 +2419,8 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T11:33:32Z",
-          "finished_at": "2026-09-12T12:45:26Z",
+          "finished_at": "2026-09-12T12:45:40Z",
           "failure_class": null,
-          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -2555,9 +2533,8 @@
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T12:50:07Z",
-          "finished_at": "2026-09-12T14:07:17Z",
+          "finished_at": "2026-09-12T14:07:01Z",
           "failure_class": null,
-          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -2668,121 +2645,118 @@
     {
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
-      "status": "running",
-      "captured_at": "2026-09-13T02:23:25Z",
       "cells": [
         {
           "n": 1,
           "layout": "single-x4",
           "mode": "full",
           "primarycache": "none",
-          "status": "passed",
-          "started_at": "2026-09-12T19:42:50Z",
-          "finished_at": "2026-09-12T20:50:27Z",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
           "failure_class": null,
-          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-12T19:49:42Z",
-              "finished_at": "2026-09-12T19:54:14Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-12T19:54:32Z",
-              "finished_at": "2026-09-12T19:56:33Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T19:56:51Z",
-              "finished_at": "2026-09-12T20:01:22Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:01:40Z",
-              "finished_at": "2026-09-12T20:03:41Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:03:59Z",
-              "finished_at": "2026-09-12T20:06:00Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:06:19Z",
-              "finished_at": "2026-09-12T20:10:50Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:11:09Z",
-              "finished_at": "2026-09-12T20:13:10Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:13:30Z",
-              "finished_at": "2026-09-12T20:18:19Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:18:38Z",
-              "finished_at": "2026-09-12T20:20:39Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:20:59Z",
-              "finished_at": "2026-09-12T20:25:31Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:25:57Z",
-              "finished_at": "2026-09-12T20:30:28Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:30:47Z",
-              "finished_at": "2026-09-12T20:35:18Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-05_rand_write_64k_vbs16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:35:37Z",
-              "finished_at": "2026-09-12T20:40:09Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-05_rand_write_64k_vbs64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T20:40:28Z",
-              "finished_at": "2026-09-12T20:45:01Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-12T20:45:20Z",
-              "finished_at": "2026-09-12T20:45:51Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-12T20:46:12Z",
-              "finished_at": "2026-09-12T20:49:11Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-12T20:49:32Z",
-              "finished_at": "2026-09-12T20:49:55Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -2791,113 +2765,112 @@
           "layout": "raid0",
           "mode": "full",
           "primarycache": "none",
-          "status": "passed",
-          "started_at": "2026-09-13T00:42:55Z",
-          "finished_at": "2026-09-12T21:29:20Z",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
           "failure_class": null,
-          "confidence": 0.5,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-13T00:49:47Z",
-              "finished_at": "2026-09-13T00:54:18Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-13T00:54:36Z",
-              "finished_at": "2026-09-13T00:56:38Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T00:56:57Z",
-              "finished_at": "2026-09-13T01:01:28Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:01:46Z",
-              "finished_at": "2026-09-13T01:03:48Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:04:06Z",
-              "finished_at": "2026-09-13T01:06:07Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:06:26Z",
-              "finished_at": "2026-09-13T01:11:15Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:11:34Z",
-              "finished_at": "2026-09-13T01:17:05Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:17:24Z",
-              "finished_at": "2026-09-13T01:22:19Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:22:38Z",
-              "finished_at": "2026-09-13T01:27:39Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:27:57Z",
-              "finished_at": "2026-09-13T01:32:30Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:32:48Z",
-              "finished_at": "2026-09-13T01:37:19Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:37:42Z",
-              "finished_at": "2026-09-13T01:42:13Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-05_rand_write_64k_vbs16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:42:31Z",
-              "finished_at": "2026-09-13T01:47:03Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-05_rand_write_64k_vbs64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T01:47:22Z",
-              "finished_at": "2026-09-13T01:51:55Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-13T01:52:14Z",
-              "finished_at": "2026-09-13T01:52:43Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-13T01:53:04Z",
-              "finished_at": "2026-09-13T01:56:39Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-13T01:57:00Z",
-              "finished_at": "2026-09-13T01:57:36Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -2906,34 +2879,33 @@
           "layout": "raidz1",
           "mode": "full",
           "primarycache": "none",
-          "status": "running",
-          "started_at": "2026-09-13T02:02:34Z",
+          "status": "pending",
+          "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-13T02:11:07Z",
-              "finished_at": "2026-09-13T02:15:38Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-13T02:15:57Z",
-              "finished_at": "2026-09-13T02:17:58Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-13T02:18:16Z",
-              "finished_at": "2026-09-13T02:22:47Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "running",
-              "started_at": "2026-09-13T02:23:05Z",
+              "status": "pending",
+              "started_at": null,
               "finished_at": null
             },
             {
@@ -3025,7 +2997,6 @@
           "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -3140,7 +3111,6 @@
           "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -3255,7 +3225,6 @@
           "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -3370,7 +3339,6 @@
           "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -3485,7 +3453,6 @@
           "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -3600,7 +3567,6 @@
           "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -3715,7 +3681,6 @@
           "started_at": null,
           "finished_at": null,
           "failure_class": null,
-          "confidence": null,
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
@@ -3818,83 +3783,6 @@
               "status": "pending",
               "started_at": null,
               "finished_at": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "AI bat (streamed from the winning pool layout)",
-      "status": "pending",
-      "captured_at": "2026-09-13T02:23:25Z",
-      "cells": []
-    },
-    {
-      "id": 4,
-      "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
-      "status": "passed",
-      "captured_at": "2026-09-13T02:23:25Z",
-      "cells": [
-        {
-          "n": 1,
-          "layout": "raidz1",
-          "mode": "soak",
-          "primarycache": "metadata",
-          "status": "passed",
-          "started_at": "2026-09-12T14:31:29Z",
-          "finished_at": "2026-09-12T15:58:10Z",
-          "failure_class": null,
-          "confidence": 0.998,
-          "cases": [
-            {
-              "id": "SOAK-00_probe_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T14:39:55Z",
-              "finished_at": "2026-09-12T14:40:56Z"
-            },
-            {
-              "id": "SOAK-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T14:41:14Z",
-              "finished_at": "2026-09-12T15:41:15Z"
-            },
-            {
-              "id": "SOAK-02_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T15:41:34Z",
-              "finished_at": "2026-09-12T15:57:58Z"
-            }
-          ]
-        },
-        {
-          "n": 2,
-          "layout": "raid0",
-          "mode": "soak",
-          "primarycache": "metadata",
-          "status": "passed",
-          "started_at": "2026-09-12T17:50:12Z",
-          "finished_at": "2026-09-12T19:13:52Z",
-          "failure_class": null,
-          "confidence": 1.0,
-          "cases": [
-            {
-              "id": "SOAK-00_probe_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T17:56:56Z",
-              "finished_at": "2026-09-12T17:57:57Z"
-            },
-            {
-              "id": "SOAK-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T17:58:15Z",
-              "finished_at": "2026-09-12T18:58:16Z"
-            },
-            {
-              "id": "SOAK-02_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-12T18:58:35Z",
-              "finished_at": "2026-09-12T19:13:40Z"
             }
           ]
         }

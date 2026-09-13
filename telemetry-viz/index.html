@@ -7,15 +7,39 @@
   <meta name="description" content="Self-contained stylized Minisforum N5 MAX motherboard / M.2 telemetry visualization. Cell1 / calibrate / Stage 1 Simulator / provisional shape-DEMO playback + synthetic DEMO fallback." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="../js/theme.js"></script>
 </head>
-<body>
-  <header class="lab-header">
+<body class="lab-page">
+  <aside class="provisional-banner" role="status" aria-live="polite">
+    <div class="provisional-banner-inner">
+      <strong class="provisional-title">RUNNING ANALYSIS — DO NOT DEPEND</strong>
+      <p class="provisional-body">M.2 lab playback is provisional / shape-DEMO. AI and telemetry demos are synthetic. Do not cite as final.</p>
+    </div>
+  </aside>
+
+  <nav class="site-nav" aria-label="Section navigation">
+    <div class="inner">
+      <div class="nav-brand">N5 MAX · <span class="r10">RAID10</span>/<span class="rz1">RAIDZ1</span></div>
+      <div class="nav-links">
+        <a href="../">Story</a>
+        <a href="../matrix/">Matrix</a>
+        <a href="./" class="active" aria-current="page">M.2 lab</a>
+        <a href="../#follow">Follow</a>
+      </div>
+      <div class="theme-toggle" data-theme-toggle role="group" aria-label="Color theme">
+        <button type="button" data-theme-value="light">Light</button>
+        <button type="button" data-theme-value="dark">Dark</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="lab-toolbar">
     <div class="lab-title">Minisforum <span>N5 MAX</span> · M.2 telemetry</div>
     <div class="lab-meta">tiered local-AI NAS · Gen4×1 lane tax · spine = SLOT</div>
     <div class="demo-banner cell1-banner" id="mode-banner">CELL1 · single · provisional · loading…</div>
-    <div class="provisional-compact" role="status">PROVISIONAL · under adversarial review · do not cite as final</div>
     <div class="source-toggle" role="group" aria-label="Playback source">
       <button type="button" id="src-cell1" class="active" title="Cell 1 stage1-single-full · provisional · not story-sealed">CELL1 single</button>
       <button type="button" id="src-calibrate" title="Protocol B calibrate raidz2 cell · provisional · shape/DEMO">Calibration</button>

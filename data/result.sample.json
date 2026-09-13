@@ -8,7 +8,7 @@
     "zfs": "ZFS 2.4.4 · ashift 12 · lz4",
     "bus_ceiling_gbs": 7.88,
     "source": "preliminary result.json (provisional / under review)",
-    "generated_by": "campaign report pipeline (provisional)",
+    "generated_by": "bin/dendrite-report + dendrite-topology",
     "rails": ["fio (logical)", "zpool iostat (physical)", "ARC kstat", "SMART"],
     "status": {
       "done": "four-rail, four-disk RAID10 vs RAIDZ1 campaign",

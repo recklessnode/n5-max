@@ -8,7 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/theme.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
   <script src="js/app.js" defer></script>
   <script src="js/campaign-status.js" defer></script>
@@ -38,6 +40,10 @@
         <a href="#social">Watch / Read</a>
         <a href="#next">Next runs</a>
         <a href="#follow">Follow</a>
+      </div>
+      <div class="theme-toggle" data-theme-toggle role="group" aria-label="Color theme">
+        <button type="button" data-theme-value="light">Light</button>
+        <button type="button" data-theme-value="dark">Dark</button>
       </div>
     </div>
   </nav>
@@ -261,7 +267,7 @@
     <div class="wrap reveal">
       <p class="section-label">Scientific methodology</p>
       <h2>Four rails. Provisional provenance. No hand-typed figures.</h2>
-      <p class="lede">Displayed storage numbers come from preliminary campaign artifacts (under review — not Protocol&nbsp;B sealed). Sub-noise deltas are suppressed from 2-run repeatability.</p>
+      <p class="lede">Displayed storage numbers come from preliminary <code>result.json</code> artifacts via <code>bin/dendrite-report</code> (under review — not Protocol&nbsp;B sealed). Sub-noise deltas are suppressed from 2-run repeatability.</p>
 
       <div class="method-grid">
         <article class="method-card">
@@ -498,11 +504,11 @@
       <p class="section-label">Watch / Read · campaign kits</p>
       <h2>Same provisional facts. Two tracks.</h2>
       <p class="lede">
-        Campaign kits are drafted privately and promoted only when approved. Index:
-        <a href="social-kit.md"><code>social-kit.md</code></a>.
+        Drafts live in repo <code>social/</code> (not served by Pages). Index:
+        <a href="social-kit.md"><code>site/social-kit.md</code></a>.
         Product thesis everywhere: <strong>tiered local-AI NAS</strong> (hot NVMe · unified memory · cold SATA).
         <strong>Lab / vendor</strong> → Minisforum letter. <strong>Public</strong> → local-AI builders on YT / X / LinkedIn —
-        provisional-honest, no invented tok/s.
+        still provisional-honest, no invented tok/s.
       </p>
 
       <div class="social-track-grid">
@@ -537,8 +543,8 @@
   <section id="next">
     <div class="wrap reveal">
       <p class="section-label">Recommended next experiments</p>
-      <h2>Recommended next experiments</h2>
-      <p class="lede">Campaign is barely started. These are labeled <strong>recommendations</strong> — clear next experiments for the storage + AI chapters — not completed results.</p>
+      <h2>Runnable requests for the SUT harness</h2>
+      <p class="lede">Campaign is barely started. These are labeled <strong>recommendations</strong> — clear next experiments for the SUT harness — not completed results.</p>
 
       <h3 class="subhead">Storage — strengthen the layout story</h3>
       <div class="exp-grid">
@@ -592,7 +598,7 @@
         </article>
       </div>
 
-      <h3 class="subhead">AI — destination narrative</h3>
+      <h3 class="subhead">AI — destination narrative (from plan docs)</h3>
       <div class="exp-grid">
         <article class="exp-card">
           <div class="exp-tag ai">AI</div>
@@ -627,7 +633,7 @@
         <article class="exp-card">
           <div class="exp-tag ai">AI</div>
           <h3>GTT / kernel prerequisites</h3>
-          <p>Confirm kernel ≥ 6.18.4, set <code>ttm.pages_limit</code>, pin ROCm; document exact software versions with any future results.</p>
+          <p>Confirm kernel ≥ 6.18.4, set <code>ttm.pages_limit</code>, pin ROCm; document exact versions in result.json.</p>
           <p class="why"><strong>Why:</strong> silent GTT caps look like “disk” problems.</p>
         </article>
       </div>
@@ -639,14 +645,14 @@
     <div class="wrap reveal">
       <p class="section-label">Follow the campaign</p>
       <h2 class="footer-h2">Provisional report. Under adversarial review.</h2>
-      <p class="lede">This is the public story face for the N5 MAX storage + AI-NAS campaign — treat figures as under review.</p>
+      <p class="lede">This is a collaborative lab notebook + public story — not a single-author blog.</p>
 
       <div class="how-made">
         <h3>How this report is made</h3>
         <ol>
-          <li><strong>Measured storage chapter</strong> — four-rail campaign (fio · zpool iostat · ARC · SMART) on the N5 MAX hot-tier array.</li>
-          <li><strong>Provisional figures</strong> — numbers on this page are preliminary / under review, not Protocol&nbsp;B sealed cells.</li>
-          <li><strong>Public story site</strong> — this writeup is the allowlisted narrative layer; AI/telemetry demos stay synthetic until reviewed.</li>
+          <li><strong>Harness on the SUT</strong> — dendrite suites run on the target N5 MAX.</li>
+          <li><strong>Provisional results in git</strong> — figures come from preliminary <code>result.json</code> under <code>results/</code> (fio · iostat · ARC · SMART); not Protocol&nbsp;B sealed.</li>
+          <li><strong>Pages story site</strong> — this companion writeup consumes those artifacts; full live JSON wiring follows when remaining runs complete.</li>
         </ol>
       </div>
 
@@ -661,7 +667,7 @@
         </article>
         <article class="status-card">
           <div class="tag planned">Pages</div>
-          <p>Hosted on GitHub Pages from this public repository. Publisher reviews promote PRs before merge.</p>
+          <p>Pages deploy: use Actions source; workflow template lives at <code>site/pages.workflow.yml</code> (maintainer note).</p>
         </article>
       </div>
 
@@ -672,7 +678,7 @@
       </div>
 
       <div class="provenance">
-        <p>Provisional figures · 4 rails: fio · zpool iostat · ARC kstat · SMART — not Protocol&nbsp;B sealed.</p>
+        <p>Provisional figures via <code>bin/dendrite-report</code> + <code>dendrite-topology</code> · 4 rails: fio · zpool iostat · ARC kstat · SMART — not Protocol&nbsp;B sealed.</p>
         <p>Noise floor from 2-run repeatability; sub-floor deltas suppressed. No hand-typed benchmark numbers. No invented AI inference results.</p>
         <p class="muted-line">Minisforum N5 MAX · Strix Halo · storage + AI-NAS campaign · 2026-09</p>
         <div class="viewer-stale" data-data-root="data" id="viewer-stale">
