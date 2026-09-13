@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-13T07:38:05Z",
+  "updated_at": "2026-09-13T07:42:27Z",
   "harness_commit": "9b8bc1c",
-  "git_commit": "241b34e",
+  "git_commit": "03e9286",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 2,
@@ -713,9 +713,9 @@
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
-          "status": "running",
+          "status": "passed",
           "started_at": "2026-09-13T07:37:52Z",
-          "finished_at": null
+          "finished_at": "2026-09-13T07:42:23Z"
         },
         {
           "id": "STO-01_seq_read_1M_j1",
@@ -1166,7 +1166,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-13T07:38:05Z",
+      "captured_at": "2026-09-13T07:42:27Z",
       "cells": [
         {
           "n": 0,
@@ -2669,7 +2669,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "running",
-      "captured_at": "2026-09-13T07:38:05Z",
+      "captured_at": "2026-09-13T07:42:27Z",
       "cells": [
         {
           "n": 1,
@@ -3374,9 +3374,9 @@
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "running",
+              "status": "passed",
               "started_at": "2026-09-13T07:37:52Z",
-              "finished_at": null
+              "finished_at": "2026-09-13T07:42:23Z"
             },
             {
               "id": "STO-01_seq_read_1M_j1",
@@ -3827,14 +3827,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-13T07:38:05Z",
+      "captured_at": "2026-09-13T07:42:27Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-13T07:38:05Z",
+      "captured_at": "2026-09-13T07:42:27Z",
       "cells": [
         {
           "n": 1,
