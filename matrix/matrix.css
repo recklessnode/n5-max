@@ -155,6 +155,8 @@
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: 0.55rem;
   margin-top: 0.85rem;
+  /* Closed cards stay header-height; don't stretch to the open cell's row */
+  align-items: start;
 }
 
 .matrix-cell {
@@ -170,6 +172,10 @@
 .matrix-cell.st-failed { border-top-color: var(--st-failed); }
 .matrix-cell.st-blocked,
 .matrix-cell.st-skipped { border-top-color: var(--st-blocked); }
+.matrix-cell:not(.is-open) {
+  /* header-only footprint when collapsed */
+  align-self: start;
+}
 .matrix-cell.is-open {
   /* Stay a card — do not stretch across the viewport */
   grid-column: span 2;
@@ -179,7 +185,11 @@
   box-shadow: var(--shadow-card);
 }
 @media (max-width: 640px) {
-  .matrix-cell.is-open {
+  .matrix-cell:not(.is-open) {
+  /* header-only footprint when collapsed */
+  align-self: start;
+}
+.matrix-cell.is-open {
     grid-column: 1 / -1;
     max-width: none;
   }
@@ -577,7 +587,11 @@
     grid-template-columns: 1fr;
     gap: 0.45rem;
   }
-  .matrix-cell.is-open {
+  .matrix-cell:not(.is-open) {
+  /* header-only footprint when collapsed */
+  align-self: start;
+}
+.matrix-cell.is-open {
     grid-column: 1 / -1;
     max-width: none;
     width: 100%;
