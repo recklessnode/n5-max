@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-13T07:02:23Z",
+  "updated_at": "2026-09-13T07:06:44Z",
   "harness_commit": "b64b9f9",
-  "git_commit": "818262e",
+  "git_commit": "b42bdc7",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 2,
@@ -658,9 +658,9 @@
         },
         {
           "id": "STO-03_mixed_70r30w_16k_j4",
-          "status": "running",
+          "status": "passed",
           "started_at": "2026-09-13T07:02:07Z",
-          "finished_at": null
+          "finished_at": "2026-09-13T07:06:43Z"
         },
         {
           "id": "STO-04_sync_write_16k_j4",
@@ -1166,7 +1166,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-13T07:02:23Z",
+      "captured_at": "2026-09-13T07:06:44Z",
       "cells": [
         {
           "n": 0,
@@ -2669,7 +2669,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "running",
-      "captured_at": "2026-09-13T07:02:23Z",
+      "captured_at": "2026-09-13T07:06:44Z",
       "cells": [
         {
           "n": 1,
@@ -3319,9 +3319,9 @@
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "running",
+              "status": "passed",
               "started_at": "2026-09-13T07:02:07Z",
-              "finished_at": null
+              "finished_at": "2026-09-13T07:06:43Z"
             },
             {
               "id": "STO-04_sync_write_16k_j4",
@@ -3827,14 +3827,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-13T07:02:23Z",
+      "captured_at": "2026-09-13T07:06:44Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-13T07:02:23Z",
+      "captured_at": "2026-09-13T07:06:44Z",
       "cells": [
         {
           "n": 1,
