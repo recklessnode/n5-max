@@ -637,12 +637,18 @@
     if (!modal) return;
     var idEl = modal.querySelector("[data-role='doc-id']");
     var titleTextEl = modal.querySelector("[data-role='doc-title-text']");
+    var priorityEl = modal.querySelector("[data-role='doc-priority']");
+    var priorityRow = modal.querySelector("[data-role='doc-priority-row']");
     var createdEl = modal.querySelector("[data-role='doc-created']");
     var createdRow = modal.querySelector("[data-role='doc-created-row']");
+    var updatedEl = modal.querySelector("[data-role='doc-updated']");
+    var updatedRow = modal.querySelector("[data-role='doc-updated-row']");
     var bodyEl = modal.querySelector("[data-role='doc-body']");
     if (idEl) idEl.textContent = id;
     if (titleTextEl) titleTextEl.textContent = "…";
+    if (priorityRow) priorityRow.hidden = true;
     if (createdRow) createdRow.hidden = true;
+    if (updatedRow) updatedRow.hidden = true;
     if (bodyEl) bodyEl.innerHTML = '<p class="doc-empty">Loading case doc…</p>';
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -651,7 +657,9 @@
       var caseId = fieldText(doc, ["id", "tcid"]) || id;
       var title = fieldText(doc, ["title", "name"]) || "";
       var subtitle = fieldText(doc, ["subtitle"]);
+      var priority = (fieldText(doc, ["priority"]) || "").toLowerCase();
       var created = fieldText(doc, ["created", "date_created", "date"]);
+      var updated = fieldText(doc, ["updated", "date_updated"]);
       var objective = fieldText(doc, ["objective", "description", "Objective"]);
       var reqs = fieldText(doc, ["requirements", "hardware", "requirements_hardware", "Requirements"]);
       var proc = fieldText(doc, ["procedure", "Procedure"]);
@@ -664,12 +672,33 @@
       );
       if (idEl) idEl.textContent = caseId;
       if (titleTextEl) titleTextEl.textContent = published && title ? title : "—";
+      if (priorityRow && priorityEl) {
+        if (priority) {
+          priorityEl.innerHTML =
+            '<span class="priority-badge priority-' +
+            esc(priority) +
+            '">' +
+            esc(priority) +
+            "</span>";
+          priorityRow.hidden = false;
+        } else {
+          priorityRow.hidden = true;
+        }
+      }
       if (createdRow && createdEl) {
         if (created) {
           createdEl.textContent = created;
           createdRow.hidden = false;
         } else {
           createdRow.hidden = true;
+        }
+      }
+      if (updatedRow && updatedEl) {
+        if (updated) {
+          updatedEl.textContent = updated;
+          updatedRow.hidden = false;
+        } else {
+          updatedRow.hidden = true;
         }
       }
       if (!published) {
@@ -679,7 +708,7 @@
           "</code>. Waiting on <code>docs/test-cases/</code>.</p>";
         return;
       }
-      // Compact header already has Test/Title/Date — body starts at description.
+      // Compact header already has Test/Title/Priority/Created/Updated — body starts at description.
       bodyEl.innerHTML =
         (subtitle ? section("Subtitle", subtitle) : "") +
         section("Description", objective) +
