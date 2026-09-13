@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-13T20:04:44Z",
+  "updated_at": "2026-09-13T22:22:14Z",
   "harness_commit": null,
-  "git_commit": "315b5252",
+  "git_commit": "e7272c06",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 1,
@@ -594,7 +594,7 @@
       "started_at": "2026-09-12T01:37:34Z",
       "finished_at": "2026-09-12T05:00:44Z",
       "failure_class": "run",
-      "confidence": 0.5,
+      "confidence": 1.0,
       "cases": [
         {
           "id": "STO-01_seq_read_1M_j1",
@@ -1511,7 +1511,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-13T20:04:44Z",
+      "captured_at": "2026-09-13T22:22:14Z",
       "cells": [
         {
           "n": 0,
@@ -2097,7 +2097,7 @@
           "started_at": "2026-09-12T01:37:34Z",
           "finished_at": "2026-09-12T05:00:44Z",
           "failure_class": "run",
-          "confidence": 0.5,
+          "confidence": 1.0,
           "cases": [
             {
               "id": "STO-01_seq_read_1M_j1",
@@ -3014,7 +3014,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-13T20:04:44Z",
+      "captured_at": "2026-09-13T22:22:14Z",
       "cells": [
         {
           "n": 1,
@@ -4172,14 +4172,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-13T20:04:44Z",
+      "captured_at": "2026-09-13T22:22:14Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-13T20:04:44Z",
+      "captured_at": "2026-09-13T22:22:14Z",
       "cells": [
         {
           "n": 1,
