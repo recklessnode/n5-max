@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-12T23:42:42Z",
-  "harness_commit": null,
-  "git_commit": "68dee16",
+  "updated_at": "2026-09-13T00:38:37Z",
+  "harness_commit": "fee69dc",
+  "git_commit": "1e4b404",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 2,
@@ -130,7 +130,7 @@
       "layout": "raid0",
       "mode": "full",
       "primarycache": "none",
-      "status": "pending",
+      "status": "running",
       "started_at": "2026-09-12T20:54:55Z",
       "finished_at": "2026-09-12T21:29:20Z",
       "failure_class": null,
@@ -138,45 +138,45 @@
       "cases": [
         {
           "id": "STO-01_seq_write_1M_j1",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T21:01:54Z",
+          "finished_at": "2026-09-12T21:06:25Z"
         },
         {
           "id": "STO-01_seq_read_1M_j1",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T21:06:43Z",
+          "finished_at": "2026-09-12T21:08:45Z"
         },
         {
           "id": "STO-01_seq_write_1M_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T21:09:03Z",
+          "finished_at": "2026-09-12T21:13:34Z"
         },
         {
           "id": "STO-01_seq_read_1M_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T21:13:52Z",
+          "finished_at": "2026-09-12T21:15:54Z"
         },
         {
           "id": "STO-02_rand_read_4k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T21:16:13Z",
+          "finished_at": "2026-09-12T21:18:14Z"
         },
         {
           "id": "STO-02_rand_write_4k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "passed",
+          "started_at": "2026-09-12T21:18:33Z",
+          "finished_at": "2026-09-12T21:23:18Z"
         },
         {
           "id": "STO-02_rand_read_16k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
+          "status": "failed",
+          "started_at": "2026-09-12T21:23:36Z",
+          "finished_at": "2026-09-12T21:29:07Z"
         },
         {
           "id": "STO-02_rand_write_16k_j4",
@@ -1165,8 +1165,8 @@
     {
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
-      "status": "soft_finished",
-      "captured_at": "2026-09-12T23:42:42Z",
+      "status": "passed",
+      "captured_at": "2026-09-13T00:38:37Z",
       "cells": [
         {
           "n": 0,
@@ -2669,7 +2669,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "running",
-      "captured_at": "2026-09-12T23:42:42Z",
+      "captured_at": "2026-09-13T00:38:37Z",
       "cells": [
         {
           "n": 1,
@@ -2791,7 +2791,7 @@
           "layout": "raid0",
           "mode": "full",
           "primarycache": "none",
-          "status": "pending",
+          "status": "running",
           "started_at": "2026-09-12T20:54:55Z",
           "finished_at": "2026-09-12T21:29:20Z",
           "failure_class": null,
@@ -2799,45 +2799,45 @@
           "cases": [
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-12T21:01:54Z",
+              "finished_at": "2026-09-12T21:06:25Z"
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-12T21:06:43Z",
+              "finished_at": "2026-09-12T21:08:45Z"
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-12T21:09:03Z",
+              "finished_at": "2026-09-12T21:13:34Z"
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-12T21:13:52Z",
+              "finished_at": "2026-09-12T21:15:54Z"
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-12T21:16:13Z",
+              "finished_at": "2026-09-12T21:18:14Z"
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-12T21:18:33Z",
+              "finished_at": "2026-09-12T21:23:18Z"
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "failed",
+              "started_at": "2026-09-12T21:23:36Z",
+              "finished_at": "2026-09-12T21:29:07Z"
             },
             {
               "id": "STO-02_rand_write_16k_j4",
@@ -3827,14 +3827,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-12T23:42:42Z",
+      "captured_at": "2026-09-13T00:38:37Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-12T23:42:42Z",
+      "captured_at": "2026-09-13T00:38:37Z",
       "cells": [
         {
           "n": 1,
