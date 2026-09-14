@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-14T00:45:20Z",
+  "updated_at": "2026-09-14T03:51:19Z",
   "harness_commit": null,
-  "git_commit": "9d1c1f20",
+  "git_commit": "6109b7b8",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 5,
@@ -15,10 +15,10 @@
       "layout": "btrfs-raid10",
       "mode": "full",
       "primarycache": "cold",
-      "status": "failed",
+      "status": "pending",
       "started_at": "2026-09-14T00:34:28Z",
       "finished_at": "2026-09-14T00:45:20Z",
-      "failure_class": "run",
+      "failure_class": null,
       "confidence": null,
       "cases": [
         {
@@ -118,7 +118,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -233,7 +233,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -348,7 +348,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -463,7 +463,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -578,7 +578,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -693,7 +693,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -808,7 +808,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -923,7 +923,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -1038,7 +1038,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -1153,7 +1153,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -1268,7 +1268,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -1383,7 +1383,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-08_vm_mixed_70r30w_16k_j4",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -1396,7 +1396,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-14T00:45:20Z",
+      "captured_at": "2026-09-14T03:51:18Z",
       "cells": [
         {
           "n": 0,
@@ -2899,7 +2899,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-14T00:45:20Z",
+      "captured_at": "2026-09-14T03:51:18Z",
       "cells": [
         {
           "n": 1,
@@ -4057,14 +4057,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-14T00:45:20Z",
+      "captured_at": "2026-09-14T03:51:18Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-14T00:45:20Z",
+      "captured_at": "2026-09-14T03:51:19Z",
       "cells": [
         {
           "n": 1,
@@ -4133,18 +4133,18 @@
     {
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
-      "status": "failed",
-      "captured_at": "2026-09-14T00:45:20Z",
+      "status": "pending",
+      "captured_at": "2026-09-14T03:51:19Z",
       "cells": [
         {
           "n": 1,
           "layout": "btrfs-raid10",
           "mode": "full",
           "primarycache": "cold",
-          "status": "failed",
+          "status": "pending",
           "started_at": "2026-09-14T00:34:28Z",
           "finished_at": "2026-09-14T00:45:20Z",
-          "failure_class": "run",
+          "failure_class": null,
           "confidence": null,
           "cases": [
             {
@@ -4244,7 +4244,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4359,7 +4359,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4474,7 +4474,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4589,7 +4589,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4704,7 +4704,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4819,7 +4819,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4934,7 +4934,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -5049,7 +5049,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -5164,7 +5164,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -5279,7 +5279,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -5394,7 +5394,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -5509,7 +5509,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-08_vm_mixed_70r30w_16k_j4",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
