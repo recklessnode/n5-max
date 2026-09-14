@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-14T03:52:20Z",
-  "harness_commit": "2aafc66f",
-  "git_commit": "729ee20a",
+  "updated_at": "2026-09-14T04:43:22Z",
+  "harness_commit": null,
+  "git_commit": "d0de3575",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 5,
@@ -16,19 +16,13 @@
       "mode": "full",
       "primarycache": "cold",
       "status": "running",
-      "started_at": "2026-09-14T03:41:15Z",
-      "finished_at": "2026-09-14T00:45:20Z",
+      "started_at": "2026-09-14T04:40:25Z",
+      "finished_at": null,
       "failure_class": null,
       "confidence": null,
       "cases": [
         {
-          "id": "STO-01_seq_read_1M_j1",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "STO-01_seq_read_1M_j4",
+          "id": "PRE-00_canary_seq_read_1M_j1",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -40,13 +34,19 @@
           "finished_at": null
         },
         {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
           "id": "STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "STO-02_rand_read_16k_j4",
+          "id": "STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -58,7 +58,13 @@
           "finished_at": null
         },
         {
-          "id": "STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -70,7 +76,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-02_rand_write_4k_j4",
+          "id": "STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -94,19 +100,13 @@
           "finished_at": null
         },
         {
-          "id": "STO-05_rand_write_64k_vbs16k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "STO-05_rand_write_64k_vbs64k_j4",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
           "id": "STO-06_smallfiles_copy_1stream",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -118,7 +118,7 @@
           "finished_at": null
         },
         {
-          "id": "STO-06_smallfiles_read_1stream",
+          "id": "STO-07_vm_mixed_70r30w_16k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -1396,7 +1396,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-14T03:52:20Z",
+      "captured_at": "2026-09-14T04:43:22Z",
       "cells": [
         {
           "n": 0,
@@ -2899,7 +2899,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-14T03:52:20Z",
+      "captured_at": "2026-09-14T04:43:22Z",
       "cells": [
         {
           "n": 1,
@@ -4057,14 +4057,14 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-14T03:52:20Z",
+      "captured_at": "2026-09-14T04:43:22Z",
       "cells": []
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-14T03:52:20Z",
+      "captured_at": "2026-09-14T04:43:22Z",
       "cells": [
         {
           "n": 1,
@@ -4134,7 +4134,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "running",
-      "captured_at": "2026-09-14T03:52:20Z",
+      "captured_at": "2026-09-14T04:43:22Z",
       "cells": [
         {
           "n": 1,
@@ -4142,19 +4142,13 @@
           "mode": "full",
           "primarycache": "cold",
           "status": "running",
-          "started_at": "2026-09-14T03:41:15Z",
-          "finished_at": "2026-09-14T00:45:20Z",
+          "started_at": "2026-09-14T04:40:25Z",
+          "finished_at": null,
           "failure_class": null,
           "confidence": null,
           "cases": [
             {
-              "id": "STO-01_seq_read_1M_j1",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "STO-01_seq_read_1M_j4",
+              "id": "PRE-00_canary_seq_read_1M_j1",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4166,13 +4160,19 @@
               "finished_at": null
             },
             {
+              "id": "STO-01_seq_read_1M_j1",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
               "id": "STO-01_seq_write_1M_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "STO-02_rand_read_16k_j4",
+              "id": "STO-01_seq_read_1M_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4184,7 +4184,13 @@
               "finished_at": null
             },
             {
-              "id": "STO-02_rand_read_64k_j4",
+              "id": "STO-02_rand_write_4k_j4",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-02_rand_read_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4196,7 +4202,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-02_rand_write_4k_j4",
+              "id": "STO-02_rand_read_64k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4220,19 +4226,13 @@
               "finished_at": null
             },
             {
-              "id": "STO-05_rand_write_64k_vbs16k_j4",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "STO-05_rand_write_64k_vbs64k_j4",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
               "id": "STO-06_smallfiles_copy_1stream",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "STO-06_smallfiles_read_1stream",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4244,7 +4244,7 @@
               "finished_at": null
             },
             {
-              "id": "STO-06_smallfiles_read_1stream",
+              "id": "STO-07_vm_mixed_70r30w_16k_j4",
               "status": "pending",
               "started_at": null,
               "finished_at": null
