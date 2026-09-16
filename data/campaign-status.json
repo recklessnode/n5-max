@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-16T21:06:25Z",
+  "updated_at": "2026-09-16T21:33:08Z",
   "harness_commit": null,
-  "git_commit": "bd5db69d",
+  "git_commit": "6b27ecfc",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 3,
@@ -12,12 +12,12 @@
   "cells": [
     {
       "n": 1,
-      "layout": null,
-      "mode": "full",
+      "layout": "btrfs-raid5",
+      "mode": "resident",
       "suite": "ai",
-      "category": "text-to-image",
-      "model": "Qwen-Image BF16 (53G measured)",
-      "primarycache": "none",
+      "category": "llm",
+      "model": "llama2-7b-q4-0",
+      "primarycache": "cold",
       "status": "blocked",
       "started_at": null,
       "finished_at": null,
@@ -31,13 +31,13 @@
           "finished_at": null
         },
         {
-          "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_load",
+          "id": "AI-01_llama2-7b-q4-0_resident_load",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_bench",
+          "id": "AI-01_llama2-7b-q4-0_resident_bench",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -46,108 +46,6 @@
     },
     {
       "n": 2,
-      "layout": null,
-      "mode": "full",
-      "suite": "ai",
-      "category": "llm",
-      "model": "Kimi-K2-Thinking smol-IQ1_KT (213G measured)",
-      "primarycache": "none",
-      "status": "blocked",
-      "started_at": null,
-      "finished_at": null,
-      "failure_class": null,
-      "confidence": null,
-      "cases": [
-        {
-          "id": "AI-00_canary_resident",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_load",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 3,
-      "layout": null,
-      "mode": "full",
-      "suite": "ai",
-      "category": "llm",
-      "model": "DeepSeek-V3.1 UD-Q2_K_XL (232G measured)",
-      "primarycache": "none",
-      "status": "blocked",
-      "started_at": null,
-      "finished_at": null,
-      "failure_class": null,
-      "confidence": null,
-      "cases": [
-        {
-          "id": "AI-00_canary_resident",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_load",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 4,
-      "layout": null,
-      "mode": "full",
-      "suite": "ai",
-      "category": "llm",
-      "model": "vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)",
-      "primarycache": "none",
-      "status": "blocked",
-      "started_at": null,
-      "finished_at": null,
-      "failure_class": null,
-      "confidence": null,
-      "cases": [
-        {
-          "id": "AI-00_canary_resident",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_load",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 5,
       "layout": "btrfs-raid5",
       "mode": "resident",
       "suite": "ai",
@@ -174,6 +72,156 @@
         },
         {
           "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "layout": "btrfs-raid5",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "gemma-4-26b-a4b-q4km",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "layout": "btrfs-raid5",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "gpt-oss-20b-mxfp4",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gpt-oss-20b-mxfp4_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gpt-oss-20b-mxfp4_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "layout": "btrfs-raid5",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "text-to-image",
+      "model": "qwen-image-2512-bf16",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_qwen-image-2512-bf16_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_qwen-image-2512-bf16_resident_bench",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -186,6 +234,108 @@
       "mode": "resident",
       "suite": "ai",
       "category": "llm",
+      "model": "gpt-oss-120b-mxfp4",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gpt-oss-120b-mxfp4_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gpt-oss-120b-mxfp4_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "layout": "btrfs-raid5",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "qwen3.5-122b-a10b-q4km",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "layout": "raidz1",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "smoke-qwen3-0.6b-q8",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "layout": "raidz1",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
       "model": "gemma-4-26b-a4b-q4km",
       "primarycache": "cold",
       "status": "pending",
@@ -263,13 +413,13 @@
       ]
     },
     {
-      "n": 7,
-      "layout": "raidz1",
-      "mode": "resident",
+      "n": 10,
+      "layout": "btrfs-raid5",
+      "mode": "streamed",
       "suite": "ai",
       "category": "llm",
-      "model": "smoke-qwen3-0.6b-q8",
-      "primarycache": "none",
+      "model": "kimi-k2-thinking-smol-iq1kt",
+      "primarycache": "cold",
       "status": "pending",
       "started_at": null,
       "finished_at": null,
@@ -277,19 +427,19 @@
       "confidence": null,
       "cases": [
         {
-          "id": "AI-00_canary_resident",
+          "id": "AI-00_canary_streamed",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -297,13 +447,13 @@
       ]
     },
     {
-      "n": 8,
+      "n": 11,
       "layout": "raidz1",
-      "mode": "resident",
+      "mode": "streamed",
       "suite": "ai",
       "category": "llm",
-      "model": "gemma-4-26b-a4b-q4km",
-      "primarycache": "none",
+      "model": "kimi-k2-thinking-smol-iq1kt",
+      "primarycache": "cold",
       "status": "pending",
       "started_at": null,
       "finished_at": null,
@@ -311,67 +461,53 @@
       "confidence": null,
       "cases": [
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+          "id": "AI-00_canary_streamed",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "layout": "btrfs-raid5",
+      "mode": "streamed",
+      "suite": "ai",
+      "category": "llm",
+      "model": "deepseek-v31-ud-q2kxl",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_streamed",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+          "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+          "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -384,7 +520,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-16T21:06:24Z",
+      "captured_at": "2026-09-16T21:33:08Z",
       "cells": [
         {
           "n": 0,
@@ -1926,7 +2062,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-16T21:06:25Z",
+      "captured_at": "2026-09-16T21:33:08Z",
       "cells": [
         {
           "n": 1,
@@ -3114,16 +3250,16 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-16T21:06:25Z",
+      "captured_at": "2026-09-16T21:33:08Z",
       "cells": [
         {
           "n": 1,
-          "layout": null,
-          "mode": "full",
+          "layout": "btrfs-raid5",
+          "mode": "resident",
           "suite": "ai",
-          "category": "text-to-image",
-          "model": "Qwen-Image BF16 (53G measured)",
-          "primarycache": "none",
+          "category": "llm",
+          "model": "llama2-7b-q4-0",
+          "primarycache": "cold",
           "status": "blocked",
           "started_at": null,
           "finished_at": null,
@@ -3137,13 +3273,13 @@
               "finished_at": null
             },
             {
-              "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_load",
+              "id": "AI-01_llama2-7b-q4-0_resident_load",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_bench",
+              "id": "AI-01_llama2-7b-q4-0_resident_bench",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -3152,108 +3288,6 @@
         },
         {
           "n": 2,
-          "layout": null,
-          "mode": "full",
-          "suite": "ai",
-          "category": "llm",
-          "model": "Kimi-K2-Thinking smol-IQ1_KT (213G measured)",
-          "primarycache": "none",
-          "status": "blocked",
-          "started_at": null,
-          "finished_at": null,
-          "failure_class": null,
-          "confidence": null,
-          "cases": [
-            {
-              "id": "AI-00_canary_resident",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_load",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_bench",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            }
-          ]
-        },
-        {
-          "n": 3,
-          "layout": null,
-          "mode": "full",
-          "suite": "ai",
-          "category": "llm",
-          "model": "DeepSeek-V3.1 UD-Q2_K_XL (232G measured)",
-          "primarycache": "none",
-          "status": "blocked",
-          "started_at": null,
-          "finished_at": null,
-          "failure_class": null,
-          "confidence": null,
-          "cases": [
-            {
-              "id": "AI-00_canary_resident",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_load",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_bench",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            }
-          ]
-        },
-        {
-          "n": 4,
-          "layout": null,
-          "mode": "full",
-          "suite": "ai",
-          "category": "llm",
-          "model": "vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)",
-          "primarycache": "none",
-          "status": "blocked",
-          "started_at": null,
-          "finished_at": null,
-          "failure_class": null,
-          "confidence": null,
-          "cases": [
-            {
-              "id": "AI-00_canary_resident",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_load",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_bench",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            }
-          ]
-        },
-        {
-          "n": 5,
           "layout": "btrfs-raid5",
           "mode": "resident",
           "suite": "ai",
@@ -3280,6 +3314,156 @@
             },
             {
               "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "layout": "btrfs-raid5",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "gemma-4-26b-a4b-q4km",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "layout": "btrfs-raid5",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "gpt-oss-20b-mxfp4",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gpt-oss-20b-mxfp4_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gpt-oss-20b-mxfp4_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "layout": "btrfs-raid5",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "text-to-image",
+          "model": "qwen-image-2512-bf16",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_qwen-image-2512-bf16_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_qwen-image-2512-bf16_resident_bench",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -3292,6 +3476,108 @@
           "mode": "resident",
           "suite": "ai",
           "category": "llm",
+          "model": "gpt-oss-120b-mxfp4",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gpt-oss-120b-mxfp4_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gpt-oss-120b-mxfp4_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 7,
+          "layout": "btrfs-raid5",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "qwen3.5-122b-a10b-q4km",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 8,
+          "layout": "raidz1",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "smoke-qwen3-0.6b-q8",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 9,
+          "layout": "raidz1",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
           "model": "gemma-4-26b-a4b-q4km",
           "primarycache": "cold",
           "status": "pending",
@@ -3369,13 +3655,13 @@
           ]
         },
         {
-          "n": 7,
-          "layout": "raidz1",
-          "mode": "resident",
+          "n": 10,
+          "layout": "btrfs-raid5",
+          "mode": "streamed",
           "suite": "ai",
           "category": "llm",
-          "model": "smoke-qwen3-0.6b-q8",
-          "primarycache": "none",
+          "model": "kimi-k2-thinking-smol-iq1kt",
+          "primarycache": "cold",
           "status": "pending",
           "started_at": null,
           "finished_at": null,
@@ -3383,19 +3669,19 @@
           "confidence": null,
           "cases": [
             {
-              "id": "AI-00_canary_resident",
+              "id": "AI-00_canary_streamed",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+              "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+              "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -3403,13 +3689,13 @@
           ]
         },
         {
-          "n": 8,
+          "n": 11,
           "layout": "raidz1",
-          "mode": "resident",
+          "mode": "streamed",
           "suite": "ai",
           "category": "llm",
-          "model": "gemma-4-26b-a4b-q4km",
-          "primarycache": "none",
+          "model": "kimi-k2-thinking-smol-iq1kt",
+          "primarycache": "cold",
           "status": "pending",
           "started_at": null,
           "finished_at": null,
@@ -3417,67 +3703,53 @@
           "confidence": null,
           "cases": [
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+              "id": "AI-00_canary_streamed",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+              "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+              "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 12,
+          "layout": "btrfs-raid5",
+          "mode": "streamed",
+          "suite": "ai",
+          "category": "llm",
+          "model": "deepseek-v31-ud-q2kxl",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_streamed",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+              "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+              "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -3490,7 +3762,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-16T21:06:25Z",
+      "captured_at": "2026-09-16T21:33:08Z",
       "cells": [
         {
           "n": 1,
@@ -3566,7 +3838,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-16T21:06:25Z",
+      "captured_at": "2026-09-16T21:33:08Z",
       "cells": [
         {
           "n": 1,
