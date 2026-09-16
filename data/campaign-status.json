@@ -1,26 +1,398 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-16T06:19:11Z",
+  "updated_at": "2026-09-16T21:06:25Z",
   "harness_commit": null,
-  "git_commit": "fc5ffe6d",
+  "git_commit": "bd5db69d",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 3,
     "name": "AI bat (streamed from the winning pool layout)"
   },
-  "cells": [],
+  "cells": [
+    {
+      "n": 1,
+      "layout": null,
+      "mode": "full",
+      "suite": "ai",
+      "category": "text-to-image",
+      "model": "Qwen-Image BF16 (53G measured)",
+      "primarycache": "none",
+      "status": "blocked",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "layout": null,
+      "mode": "full",
+      "suite": "ai",
+      "category": "llm",
+      "model": "Kimi-K2-Thinking smol-IQ1_KT (213G measured)",
+      "primarycache": "none",
+      "status": "blocked",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "layout": null,
+      "mode": "full",
+      "suite": "ai",
+      "category": "llm",
+      "model": "DeepSeek-V3.1 UD-Q2_K_XL (232G measured)",
+      "primarycache": "none",
+      "status": "blocked",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "layout": null,
+      "mode": "full",
+      "suite": "ai",
+      "category": "llm",
+      "model": "vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)",
+      "primarycache": "none",
+      "status": "blocked",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "layout": "btrfs-raid5",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "smoke-qwen3-0.6b-q8",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "layout": "btrfs-raid5",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "gemma-4-26b-a4b-q4km",
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "layout": "raidz1",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "smoke-qwen3-0.6b-q8",
+      "primarycache": "none",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-00_canary_resident",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "layout": "raidz1",
+      "mode": "resident",
+      "suite": "ai",
+      "category": "llm",
+      "model": "gemma-4-26b-a4b-q4km",
+      "primarycache": "none",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    }
+  ],
   "stages": [
     {
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-16T06:19:11Z",
+      "captured_at": "2026-09-16T21:06:24Z",
       "cells": [
         {
           "n": 0,
           "layout": "raidz2",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T18:42:41Z",
@@ -136,6 +508,9 @@
           "n": 1,
           "layout": "single-x1",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T13:01:00Z",
@@ -251,6 +626,9 @@
           "n": 2,
           "layout": "raid0",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T14:28:31Z",
@@ -366,6 +744,9 @@
           "n": 3,
           "layout": "raid10",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T15:49:20Z",
@@ -481,6 +862,9 @@
           "n": 4,
           "layout": "raidz1",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T17:14:07Z",
@@ -596,6 +980,9 @@
           "n": 5,
           "layout": "raidz2",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T01:37:34Z",
@@ -711,6 +1098,9 @@
           "n": 6,
           "layout": "mirror2",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T05:05:24Z",
@@ -826,6 +1216,9 @@
           "n": 7,
           "layout": "single-x1",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T06:23:38Z",
@@ -941,6 +1334,9 @@
           "n": 8,
           "layout": "raid0",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T07:44:47Z",
@@ -1056,6 +1452,9 @@
           "n": 9,
           "layout": "raid10",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T09:00:35Z",
@@ -1171,6 +1570,9 @@
           "n": 10,
           "layout": "raidz1",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T10:20:23Z",
@@ -1286,6 +1688,9 @@
           "n": 11,
           "layout": "raidz2",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T11:33:32Z",
@@ -1401,6 +1806,9 @@
           "n": 12,
           "layout": "mirror2",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T12:50:07Z",
@@ -1518,12 +1926,15 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-16T06:19:11Z",
+      "captured_at": "2026-09-16T21:06:25Z",
       "cells": [
         {
           "n": 1,
           "layout": "single-x4",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-12T19:42:50Z",
@@ -1639,6 +2050,9 @@
           "n": 2,
           "layout": "raid0",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T00:42:55Z",
@@ -1754,6 +2168,9 @@
           "n": 3,
           "layout": "raidz1",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T02:02:34Z",
@@ -1869,6 +2286,9 @@
           "n": 4,
           "layout": "raidz2",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T03:23:26Z",
@@ -1984,6 +2404,9 @@
           "n": 5,
           "layout": "raid10+spare",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "none",
           "status": "passed",
           "started_at": "2026-09-13T04:48:08Z",
@@ -2099,6 +2522,9 @@
           "n": 6,
           "layout": "single-x4",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-13T06:11:43Z",
@@ -2214,6 +2640,9 @@
           "n": 7,
           "layout": "raid0",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-13T07:30:09Z",
@@ -2329,6 +2758,9 @@
           "n": 8,
           "layout": "raidz1",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-13T08:50:00Z",
@@ -2444,6 +2876,9 @@
           "n": 9,
           "layout": "raidz2",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-13T10:13:32Z",
@@ -2559,6 +2994,9 @@
           "n": 10,
           "layout": "raid10+spare",
           "mode": "full",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-13T11:37:28Z",
@@ -2676,19 +3114,391 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "pending",
-      "captured_at": "2026-09-16T06:19:11Z",
-      "cells": []
+      "captured_at": "2026-09-16T21:06:25Z",
+      "cells": [
+        {
+          "n": 1,
+          "layout": null,
+          "mode": "full",
+          "suite": "ai",
+          "category": "text-to-image",
+          "model": "Qwen-Image BF16 (53G measured)",
+          "primarycache": "none",
+          "status": "blocked",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_Qwen-Image BF16 (53G measured)_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "layout": null,
+          "mode": "full",
+          "suite": "ai",
+          "category": "llm",
+          "model": "Kimi-K2-Thinking smol-IQ1_KT (213G measured)",
+          "primarycache": "none",
+          "status": "blocked",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_Kimi-K2-Thinking smol-IQ1_KT (213G measured)_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "layout": null,
+          "mode": "full",
+          "suite": "ai",
+          "category": "llm",
+          "model": "DeepSeek-V3.1 UD-Q2_K_XL (232G measured)",
+          "primarycache": "none",
+          "status": "blocked",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_DeepSeek-V3.1 UD-Q2_K_XL (232G measured)_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "layout": null,
+          "mode": "full",
+          "suite": "ai",
+          "category": "llm",
+          "model": "vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)",
+          "primarycache": "none",
+          "status": "blocked",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_vendor-floor set (gpt-oss-120b, Qwen3.5-122B-A10B, gpt-oss-20b, Gemma 4 26B-A4B)_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "layout": "btrfs-raid5",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "smoke-qwen3-0.6b-q8",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "layout": "btrfs-raid5",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "gemma-4-26b-a4b-q4km",
+          "primarycache": "cold",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 7,
+          "layout": "raidz1",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "smoke-qwen3-0.6b-q8",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-00_canary_resident",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        },
+        {
+          "n": 8,
+          "layout": "raidz1",
+          "mode": "resident",
+          "suite": "ai",
+          "category": "llm",
+          "model": "gemma-4-26b-a4b-q4km",
+          "primarycache": "none",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null,
+          "failure_class": null,
+          "confidence": null,
+          "cases": [
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-16T06:19:11Z",
+      "captured_at": "2026-09-16T21:06:25Z",
       "cells": [
         {
           "n": 1,
           "layout": "raidz1",
           "mode": "soak",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T14:31:29Z",
@@ -2720,6 +3530,9 @@
           "n": 2,
           "layout": "raid0",
           "mode": "soak",
+          "suite": "storage",
+          "category": null,
+          "model": null,
           "primarycache": "metadata",
           "status": "passed",
           "started_at": "2026-09-12T17:50:12Z",
@@ -2753,12 +3566,15 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-16T06:19:11Z",
+      "captured_at": "2026-09-16T21:06:25Z",
       "cells": [
         {
           "n": 1,
           "layout": "btrfs-raid10",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "cold",
           "status": "passed",
           "started_at": "2026-09-14T05:18:46Z",
@@ -2874,6 +3690,9 @@
           "n": 2,
           "layout": "btrfs-raid10",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "warm",
           "status": "passed",
           "started_at": "2026-09-14T12:44:06Z",
@@ -2989,6 +3808,9 @@
           "n": 3,
           "layout": "btrfs-raid5",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "cold",
           "status": "passed",
           "started_at": "2026-09-14T13:57:15Z",
@@ -3104,6 +3926,9 @@
           "n": 4,
           "layout": "btrfs-raid5",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "warm",
           "status": "passed",
           "started_at": "2026-09-14T16:40:24Z",
@@ -3219,6 +4044,9 @@
           "n": 5,
           "layout": "btrfs-raid6",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "cold",
           "status": "passed",
           "started_at": "2026-09-14T17:57:01Z",
@@ -3334,6 +4162,9 @@
           "n": 6,
           "layout": "btrfs-raid6",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "warm",
           "status": "passed",
           "started_at": "2026-09-14T19:15:57Z",
@@ -3449,6 +4280,9 @@
           "n": 7,
           "layout": "mdadm-ext4-raid10",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "cold",
           "status": "passed",
           "started_at": "2026-09-14T21:46:33Z",
@@ -3564,6 +4398,9 @@
           "n": 8,
           "layout": "mdadm-ext4-raid10",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "warm",
           "status": "passed",
           "started_at": "2026-09-14T23:18:34Z",
@@ -3679,6 +4516,9 @@
           "n": 9,
           "layout": "mdadm-ext4-raid5",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "cold",
           "status": "passed",
           "started_at": "2026-09-15T00:41:58Z",
@@ -3794,6 +4634,9 @@
           "n": 10,
           "layout": "mdadm-ext4-raid5",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "warm",
           "status": "passed",
           "started_at": "2026-09-15T02:02:53Z",
@@ -3909,6 +4752,9 @@
           "n": 11,
           "layout": "mdadm-ext4-raid6",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "cold",
           "status": "passed",
           "started_at": "2026-09-15T03:24:34Z",
@@ -4024,6 +4870,9 @@
           "n": 12,
           "layout": "mdadm-ext4-raid6",
           "mode": "full",
+          "suite": "fscontrol",
+          "category": null,
+          "model": null,
           "primarycache": "warm",
           "status": "passed",
           "started_at": "2026-09-15T04:51:08Z",
