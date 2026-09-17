@@ -1,7 +1,7 @@
 {
   "schema": "n5-test-cases-index/v1",
   "source": "docs/test-cases/ (public-sanitized)",
-  "generated_at": "2026-09-17T10:57:20Z",
+  "generated_at": "2026-09-17T10:57:24Z",
   "note": "Public-safe slim fields only (id/title/subtitle/created/updated/priority/objective/pass_fail; no tcid). Full docs stay private in lab. Sealed ids aliased to family docs.",
   "cases": {
     "AI-00": {
@@ -435,7 +435,7 @@
       "updated": "2026/09/17",
       "priority": "high"
     },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_creative": {
+    "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
       "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
@@ -443,31 +443,7 @@
       "created": "2026/09/17",
       "updated": "2026/09/17"
     },
-    "AI-01_llama2-7b-q4-0_resident_longctx_needle": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_qwen3.5-122b-a10b-q4km_resident_load": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_bench": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_llama2-7b-q4-0_resident_qa_short": {
+    "AI-01_deepseek-v31-ud-q2kxl_streamed_load": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
       "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
@@ -483,7 +459,7 @@
       "created": "2026/09/17",
       "updated": "2026/09/17"
     },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json": {
+    "AI-01_smoke-qwen3-0.6b-q8_resident_extract_json": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
       "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
@@ -499,174 +475,6 @@
       "created": "2026/09/17",
       "updated": "2026/09/17"
     },
-    "AI-01_gpt-oss-120b-mxfp4_resident_bench": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-00_canary_streamed": {
-      "id": "AI-00",
-      "title": "Stack gate, canary, staging",
-      "objective": "Everything that must be true before a byte of weights is measured, in escalating cost order (imperative 1):\nthe ROCm/llama.cpp stack exists and is the pinned one (seconds), the identical measurement path works on a\n< 4 GiB model (\u2248 2 min), and the weights on the pool are byte-identical to the NFS source of record (the staging\ncopy, railed and sealed as a **staging record** \u2014 a network-bound copy, never a layout number). Physical question:\nis this SUT + image + pool a valid instrument for `AI-01`/`AI-02` today? None of these records carries a\ntiming that the report may chart.",
-      "pass_fail": "### Pass Criteria\n\n- Every G0 item exits 0; the sealed `env` is complete (no `null` where the gate could read a value).\n- Canary: every point yields a valid measurement (`rep_rc == 0` and the affirmative `_GATE_KEYS` gates hold \u2014 a\n (default 50%), its cold/warm records exist, the mode-reality assertion holds, the\n thinking assertion matches the card's expectation, and the case record seals.\n- Staging: every shard's size and sha256 match the manifest; `sha256_verified = shards`.\n\n### Fail Criteria\n\n- Any G0 item non-zero \u2192 **harness failure**, cell `ABORTED:<atom>` (D8), no weights staged, evidence:\n- Canary failure \u2192 cell aborts (the path is broken; nothing after it would be evidence). Streamed canary with pool\n bytes \u2248 0 on both recordsizes \u2192 `--moe-stream-direct` is not an instrument on this pool: cell aborts with the two\n rail records kept.\n- Staging: a size or sha mismatch on any shard \u2192 `die` naming the shard; partial copies are deleted (no test-env reuse).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_deepseek-v31-ud-q2kxl_streamed_load": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_llama2-7b-q4-0_resident_reason_math": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_deepseek-v31-ud-q2kxl_streamed_bench": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_smoke-qwen3-0.6b-q8_resident_load": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_llama2-7b-q4-0_resident_chat_multi": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_summarize": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-00_canary_resident": {
-      "id": "AI-00",
-      "title": "Stack gate, canary, staging",
-      "objective": "Everything that must be true before a byte of weights is measured, in escalating cost order (imperative 1):\nthe ROCm/llama.cpp stack exists and is the pinned one (seconds), the identical measurement path works on a\n< 4 GiB model (\u2248 2 min), and the weights on the pool are byte-identical to the NFS source of record (the staging\ncopy, railed and sealed as a **staging record** \u2014 a network-bound copy, never a layout number). Physical question:\nis this SUT + image + pool a valid instrument for `AI-01`/`AI-02` today? None of these records carries a\ntiming that the report may chart.",
-      "pass_fail": "### Pass Criteria\n\n- Every G0 item exits 0; the sealed `env` is complete (no `null` where the gate could read a value).\n- Canary: every point yields a valid measurement (`rep_rc == 0` and the affirmative `_GATE_KEYS` gates hold \u2014 a\n (default 50%), its cold/warm records exist, the mode-reality assertion holds, the\n thinking assertion matches the card's expectation, and the case record seals.\n- Staging: every shard's size and sha256 match the manifest; `sha256_verified = shards`.\n\n### Fail Criteria\n\n- Any G0 item non-zero \u2192 **harness failure**, cell `ABORTED:<atom>` (D8), no weights staged, evidence:\n- Canary failure \u2192 cell aborts (the path is broken; nothing after it would be evidence). Streamed canary with pool\n bytes \u2248 0 on both recordsizes \u2192 `--moe-stream-direct` is not an instrument on this pool: cell aborts with the two\n rail records kept.\n- Staging: a size or sha mismatch on any shard \u2192 `die` naming the shard; partial copies are deleted (no test-env reuse).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_llama2-7b-q4-0_resident_creative": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_llama2-7b-q4-0_resident_summarize": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_qwen3.5-122b-a10b-q4km_resident_bench": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_llama2-7b-q4-0_resident_agentic_tool": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gpt-oss-20b-mxfp4_resident_bench": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_llama2-7b-q4-0_resident_load": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
     "AI-01_llama2-7b-q4-0_resident_code_gen": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
@@ -675,23 +483,7 @@
       "created": "2026/09/17",
       "updated": "2026/09/17"
     },
-    "AI-01_gpt-oss-120b-mxfp4_resident_load": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_smoke-qwen3-0.6b-q8_resident_bench": {
-      "id": "AI-01",
-      "title": "LLM harness (one family, two placement modes)",
-      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
-      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
-      "created": "2026/09/17",
-      "updated": "2026/09/17"
-    },
-    "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench": {
+    "AI-01_smoke-qwen3-0.6b-q8_resident_qa_short": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
       "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
@@ -707,6 +499,22 @@
       "created": "2026/09/17",
       "updated": "2026/09/17"
     },
+    "AI-01_llama2-7b-q4-0_resident_chat_multi": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_longctx_needle": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
     "AI-01_gemma-4-26b-a4b-q4km_resident_load": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
@@ -715,7 +523,31 @@
       "created": "2026/09/17",
       "updated": "2026/09/17"
     },
-    "AI-01_llama2-7b-q4-0_resident_extract_json": {
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_code_gen": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_reason_math": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_bench": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_bench": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
       "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
@@ -731,11 +563,323 @@
       "created": "2026/09/17",
       "updated": "2026/09/17"
     },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_longctx_needle": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_extract_json": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gpt-oss-20b-mxfp4_resident_bench": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_chat_multi": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_creative": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_reason_math": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-00_canary_resident": {
+      "id": "AI-00",
+      "title": "Stack gate, canary, staging",
+      "objective": "Everything that must be true before a byte of weights is measured, in escalating cost order (imperative 1):\nthe ROCm/llama.cpp stack exists and is the pinned one (seconds), the identical measurement path works on a\n< 4 GiB model (\u2248 2 min), and the weights on the pool are byte-identical to the NFS source of record (the staging\ncopy, railed and sealed as a **staging record** \u2014 a network-bound copy, never a layout number). Physical question:\nis this SUT + image + pool a valid instrument for `AI-01`/`AI-02` today? None of these records carries a\ntiming that the report may chart.",
+      "pass_fail": "### Pass Criteria\n\n- Every G0 item exits 0; the sealed `env` is complete (no `null` where the gate could read a value).\n- Canary: every point yields a valid measurement (`rep_rc == 0` and the affirmative `_GATE_KEYS` gates hold \u2014 a\n (default 50%), its cold/warm records exist, the mode-reality assertion holds, the\n thinking assertion matches the card's expectation, and the case record seals.\n- Staging: every shard's size and sha256 match the manifest; `sha256_verified = shards`.\n\n### Fail Criteria\n\n- Any G0 item non-zero \u2192 **harness failure**, cell `ABORTED:<atom>` (D8), no weights staged, evidence:\n- Canary failure \u2192 cell aborts (the path is broken; nothing after it would be evidence). Streamed canary with pool\n bytes \u2248 0 on both recordsizes \u2192 `--moe-stream-direct` is not an instrument on this pool: cell aborts with the two\n rail records kept.\n- Staging: a size or sha mismatch on any shard \u2192 `die` naming the shard; partial copies are deleted (no test-env reuse).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_summarize": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_agentic_tool": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_load": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_creative": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_creative": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_longctx_needle": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_agentic_tool": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_extract_json": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_creative": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_bench": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
     "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short": {
       "id": "AI-01",
       "title": "LLM harness (one family, two placement modes)",
       "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
       "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_reason_math": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_agentic_tool": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gpt-oss-120b-mxfp4_resident_bench": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gpt-oss-120b-mxfp4_resident_load": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_code_gen": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_deepseek-v31-ud-q2kxl_streamed_bench": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_summarize": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_summarize": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_qa_short": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_smoke-qwen3-0.6b-q8_resident_load": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_llama2-7b-q4-0_resident_qa_short": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_load": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_chat_multi": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-01_qwen3.5-122b-a10b-q4km_resident_summarize": {
+      "id": "AI-01",
+      "title": "LLM harness (one family, two placement modes)",
+      "objective": "One parameterized harness that measures **speed at valid output** for any LLM card over one prewritten, versioned\nprompt set, in two placement modes with different check parameters (Ronald: \"AI all-RAM\" / \"AI Disk-Cached\"):\n- **`resident`** (RAM-resident): how fast does this layout feed a model into RAM (the `load` class \u2014 an array-cold,\n railed read), and is generation then really disk-free (compute-control gate), at what tok/s and tokens/J,\n against the vendor's published floor.\n- **`streamed`** (array-streamed): what does this layout do to every token when the experts (or the n-gram table)\n come off the array \u2014 tok/s **beside** pool bytes per token, with the pool's share of each token measured, not assumed.\u2026",
+      "pass_fail": "### Pass Criteria\n\n- Every point of the case has `status: PASS`: the rep ran (`rep_rc == 0`) and the affirmative platform gates held \u2014 `g3_physical`, `g5_compute_control` (resident) or `g4_streaming_reality` (streamed); functional accuracy is recorded, never gating (`functional_is_gating: false`);\n context-shrink clear, cap not hit; `steady` may be `false` (retained, never promoted).\n- The case's `load_ref`s resolve into `loads[]` and each referenced load passed G2 (resident) or sealed its\n `ttft_incl_load_ms` (streamed).",
+      "created": "2026/09/17",
+      "updated": "2026/09/17"
+    },
+    "AI-00_canary_streamed": {
+      "id": "AI-00",
+      "title": "Stack gate, canary, staging",
+      "objective": "Everything that must be true before a byte of weights is measured, in escalating cost order (imperative 1):\nthe ROCm/llama.cpp stack exists and is the pinned one (seconds), the identical measurement path works on a\n< 4 GiB model (\u2248 2 min), and the weights on the pool are byte-identical to the NFS source of record (the staging\ncopy, railed and sealed as a **staging record** \u2014 a network-bound copy, never a layout number). Physical question:\nis this SUT + image + pool a valid instrument for `AI-01`/`AI-02` today? None of these records carries a\ntiming that the report may chart.",
+      "pass_fail": "### Pass Criteria\n\n- Every G0 item exits 0; the sealed `env` is complete (no `null` where the gate could read a value).\n- Canary: every point yields a valid measurement (`rep_rc == 0` and the affirmative `_GATE_KEYS` gates hold \u2014 a\n (default 50%), its cold/warm records exist, the mode-reality assertion holds, the\n thinking assertion matches the card's expectation, and the case record seals.\n- Staging: every shard's size and sha256 match the manifest; `sha256_verified = shards`.\n\n### Fail Criteria\n\n- Any G0 item non-zero \u2192 **harness failure**, cell `ABORTED:<atom>` (D8), no weights staged, evidence:\n- Canary failure \u2192 cell aborts (the path is broken; nothing after it would be evidence). Streamed canary with pool\n bytes \u2248 0 on both recordsizes \u2192 `--moe-stream-direct` is not an instrument on this pool: cell aborts with the two\n rail records kept.\n- Staging: a size or sha mismatch on any shard \u2192 `die` naming the shard; partial copies are deleted (no test-env reuse).",
       "created": "2026/09/17",
       "updated": "2026/09/17"
     }
