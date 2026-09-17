@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-17T04:26:27Z",
+  "updated_at": "2026-09-17T04:27:31Z",
   "harness_commit": null,
-  "git_commit": "b63a0aed",
+  "git_commit": "6bfad541",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 3,
@@ -18,77 +18,77 @@
       "category": "llm",
       "model": "llama2-7b-q4-0",
       "primarycache": "cold",
-      "status": "failed",
+      "status": "pending",
       "started_at": "2026-09-17T03:48:33Z",
-      "finished_at": "2026-09-17T04:26:27Z",
-      "failure_class": "run",
+      "finished_at": "2026-09-17T04:24:54Z",
+      "failure_class": null,
       "confidence": null,
       "cases": [
         {
           "id": "AI-01_llama2-7b-q4-0_resident_agentic_tool",
-          "status": "failed",
-          "started_at": "2026-09-17T04:19:10Z",
-          "finished_at": "2026-09-17T04:20:12Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_bench",
-          "status": "failed",
-          "started_at": "2026-09-17T03:51:17Z",
-          "finished_at": "2026-09-17T03:51:17Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_chat_multi",
-          "status": "failed",
-          "started_at": "2026-09-17T04:16:26Z",
-          "finished_at": "2026-09-17T04:16:47Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_code_gen",
-          "status": "failed",
-          "started_at": "2026-09-17T04:01:08Z",
-          "finished_at": "2026-09-17T04:05:12Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_creative",
-          "status": "running",
-          "started_at": "2026-09-17T04:22:02Z",
+          "status": "pending",
+          "started_at": null,
           "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_extract_json",
-          "status": "failed",
-          "started_at": "2026-09-17T04:10:37Z",
-          "finished_at": "2026-09-17T04:14:45Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-17T03:50:54Z",
-          "finished_at": "2026-09-17T03:50:57Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_longctx_needle",
-          "status": "unmeasured",
+          "status": "pending",
           "started_at": null,
-          "finished_at": "2026-09-17T04:18:40Z"
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-17T03:51:30Z",
-          "finished_at": "2026-09-17T03:51:53Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_reason_math",
-          "status": "failed",
-          "started_at": "2026-09-17T03:52:24Z",
-          "finished_at": "2026-09-17T03:59:08Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_llama2-7b-q4-0_resident_summarize",
-          "status": "failed",
-          "started_at": "2026-09-17T04:07:12Z",
-          "finished_at": "2026-09-17T04:08:47Z"
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     },
@@ -568,7 +568,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-17T04:26:27Z",
+      "captured_at": "2026-09-17T04:27:30Z",
       "cells": [
         {
           "n": 0,
@@ -2110,7 +2110,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-17T04:26:27Z",
+      "captured_at": "2026-09-17T04:27:31Z",
       "cells": [
         {
           "n": 1,
@@ -3297,8 +3297,8 @@
     {
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
-      "status": "failed",
-      "captured_at": "2026-09-17T04:26:27Z",
+      "status": "pending",
+      "captured_at": "2026-09-17T04:27:31Z",
       "cells": [
         {
           "n": 1,
@@ -3308,77 +3308,77 @@
           "category": "llm",
           "model": "llama2-7b-q4-0",
           "primarycache": "cold",
-          "status": "failed",
+          "status": "pending",
           "started_at": "2026-09-17T03:48:33Z",
-          "finished_at": "2026-09-17T04:26:27Z",
-          "failure_class": "run",
+          "finished_at": "2026-09-17T04:24:54Z",
+          "failure_class": null,
           "confidence": null,
           "cases": [
             {
               "id": "AI-01_llama2-7b-q4-0_resident_agentic_tool",
-              "status": "failed",
-              "started_at": "2026-09-17T04:19:10Z",
-              "finished_at": "2026-09-17T04:20:12Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_bench",
-              "status": "failed",
-              "started_at": "2026-09-17T03:51:17Z",
-              "finished_at": "2026-09-17T03:51:17Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_chat_multi",
-              "status": "failed",
-              "started_at": "2026-09-17T04:16:26Z",
-              "finished_at": "2026-09-17T04:16:47Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_code_gen",
-              "status": "failed",
-              "started_at": "2026-09-17T04:01:08Z",
-              "finished_at": "2026-09-17T04:05:12Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_creative",
-              "status": "running",
-              "started_at": "2026-09-17T04:22:02Z",
+              "status": "pending",
+              "started_at": null,
               "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_extract_json",
-              "status": "failed",
-              "started_at": "2026-09-17T04:10:37Z",
-              "finished_at": "2026-09-17T04:14:45Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_load",
-              "status": "passed",
-              "started_at": "2026-09-17T03:50:54Z",
-              "finished_at": "2026-09-17T03:50:57Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_longctx_needle",
-              "status": "unmeasured",
+              "status": "pending",
               "started_at": null,
-              "finished_at": "2026-09-17T04:18:40Z"
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-17T03:51:30Z",
-              "finished_at": "2026-09-17T03:51:53Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_reason_math",
-              "status": "failed",
-              "started_at": "2026-09-17T03:52:24Z",
-              "finished_at": "2026-09-17T03:59:08Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_llama2-7b-q4-0_resident_summarize",
-              "status": "failed",
-              "started_at": "2026-09-17T04:07:12Z",
-              "finished_at": "2026-09-17T04:08:47Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -3858,7 +3858,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-17T04:26:27Z",
+      "captured_at": "2026-09-17T04:27:31Z",
       "cells": [
         {
           "n": 1,
@@ -3934,7 +3934,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-17T04:26:27Z",
+      "captured_at": "2026-09-17T04:27:31Z",
       "cells": [
         {
           "n": 1,
@@ -5358,7 +5358,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "passed",
-      "captured_at": "2026-09-17T04:26:27Z",
+      "captured_at": "2026-09-17T04:27:31Z",
       "cells": [
         {
           "n": 1,
