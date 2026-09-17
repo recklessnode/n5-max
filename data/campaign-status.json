@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-17T11:17:23Z",
-  "harness_commit": "d66d5fb1",
-  "git_commit": "0de48fd7",
+  "updated_at": "2026-09-17T12:31:09Z",
+  "harness_commit": null,
+  "git_commit": "3997b43c",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 3,
@@ -107,40 +107,10 @@
       "confidence": 0.125,
       "cases": [
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_agentic_tool",
+          "id": "AI-00_canary_resident",
           "status": "passed",
-          "started_at": "2026-09-17T05:41:16Z",
-          "finished_at": "2026-09-17T05:41:24Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-17T05:31:18Z",
-          "finished_at": "2026-09-17T05:32:20Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_chat_multi",
-          "status": "passed",
-          "started_at": "2026-09-17T05:39:20Z",
-          "finished_at": "2026-09-17T05:39:28Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-17T05:36:09Z",
-          "finished_at": "2026-09-17T05:36:21Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_creative",
-          "status": "passed",
-          "started_at": "2026-09-17T05:41:45Z",
-          "finished_at": "2026-09-17T05:41:57Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_extract_json",
-          "status": "passed",
-          "started_at": "2026-09-17T05:38:36Z",
-          "finished_at": "2026-09-17T05:38:49Z"
+          "started_at": "2026-09-17T05:30:18Z",
+          "finished_at": "2026-09-17T05:30:37Z"
         },
         {
           "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
@@ -149,28 +119,10 @@
           "finished_at": "2026-09-17T05:31:08Z"
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_longctx_needle",
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
           "status": "passed",
-          "started_at": "2026-09-17T05:40:18Z",
-          "finished_at": "2026-09-17T05:40:36Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-17T05:33:21Z",
-          "finished_at": "2026-09-17T05:33:41Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-17T05:34:11Z",
-          "finished_at": "2026-09-17T05:34:49Z"
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-17T05:37:02Z",
-          "finished_at": "2026-09-17T05:37:26Z"
+          "started_at": "2026-09-17T05:31:18Z",
+          "finished_at": "2026-09-17T05:32:20Z"
         }
       ]
     },
@@ -298,10 +250,10 @@
       "category": "text-to-image",
       "model": "qwen-image-2512-bf16",
       "primarycache": "cold",
-      "status": "running",
+      "status": "failed",
       "started_at": "2026-09-17T11:16:01Z",
-      "finished_at": null,
-      "failure_class": null,
+      "finished_at": "2026-09-17T12:31:09Z",
+      "failure_class": "run",
       "confidence": null,
       "cases": [
         {
@@ -373,40 +325,10 @@
       "confidence": 0.125,
       "cases": [
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_agentic_tool",
+          "id": "AI-00_canary_resident",
           "status": "passed",
-          "started_at": "2026-09-17T10:21:12Z",
-          "finished_at": "2026-09-17T10:22:23Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-17T09:04:41Z",
-          "finished_at": "2026-09-17T09:25:05Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_chat_multi",
-          "status": "passed",
-          "started_at": "2026-09-17T09:58:00Z",
-          "finished_at": "2026-09-17T09:59:38Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-17T09:39:04Z",
-          "finished_at": "2026-09-17T09:40:22Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_creative",
-          "status": "passed",
-          "started_at": "2026-09-17T10:24:04Z",
-          "finished_at": "2026-09-17T10:27:43Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_extract_json",
-          "status": "passed",
-          "started_at": "2026-09-17T09:54:13Z",
-          "finished_at": "2026-09-17T09:55:59Z"
+          "started_at": "2026-09-17T08:50:48Z",
+          "finished_at": "2026-09-17T08:51:07Z"
         },
         {
           "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_load",
@@ -415,28 +337,10 @@
           "finished_at": "2026-09-17T09:04:20Z"
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_longctx_needle",
+          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_bench",
           "status": "passed",
-          "started_at": "2026-09-17T10:01:59Z",
-          "finished_at": "2026-09-17T10:19:12Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-17T09:27:17Z",
-          "finished_at": "2026-09-17T09:27:52Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-17T09:29:13Z",
-          "finished_at": "2026-09-17T09:37:04Z"
-        },
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-17T09:42:23Z",
-          "finished_at": "2026-09-17T09:52:12Z"
+          "started_at": "2026-09-17T09:04:41Z",
+          "finished_at": "2026-09-17T09:25:05Z"
         }
       ]
     },
@@ -455,37 +359,7 @@
       "confidence": null,
       "cases": [
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_agentic_tool",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_chat_multi",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_code_gen",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_creative",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_extract_json",
+          "id": "AI-00_canary_resident",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -497,25 +371,7 @@
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_longctx_needle",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_qa_short",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_reason_math",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        },
-        {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_summarize",
+          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -712,7 +568,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-17T11:17:23Z",
+      "captured_at": "2026-09-17T12:31:09Z",
       "cells": [
         {
           "n": 0,
@@ -2254,7 +2110,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-17T11:17:23Z",
+      "captured_at": "2026-09-17T12:31:09Z",
       "cells": [
         {
           "n": 1,
@@ -3441,8 +3297,8 @@
     {
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
-      "status": "running",
-      "captured_at": "2026-09-17T11:17:23Z",
+      "status": "failed",
+      "captured_at": "2026-09-17T12:31:09Z",
       "cells": [
         {
           "n": 1,
@@ -3541,40 +3397,10 @@
           "confidence": 0.125,
           "cases": [
             {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_agentic_tool",
+              "id": "AI-00_canary_resident",
               "status": "passed",
-              "started_at": "2026-09-17T05:41:16Z",
-              "finished_at": "2026-09-17T05:41:24Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
-              "status": "passed",
-              "started_at": "2026-09-17T05:31:18Z",
-              "finished_at": "2026-09-17T05:32:20Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_chat_multi",
-              "status": "passed",
-              "started_at": "2026-09-17T05:39:20Z",
-              "finished_at": "2026-09-17T05:39:28Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_code_gen",
-              "status": "passed",
-              "started_at": "2026-09-17T05:36:09Z",
-              "finished_at": "2026-09-17T05:36:21Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_creative",
-              "status": "passed",
-              "started_at": "2026-09-17T05:41:45Z",
-              "finished_at": "2026-09-17T05:41:57Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_extract_json",
-              "status": "passed",
-              "started_at": "2026-09-17T05:38:36Z",
-              "finished_at": "2026-09-17T05:38:49Z"
+              "started_at": "2026-09-17T05:30:18Z",
+              "finished_at": "2026-09-17T05:30:37Z"
             },
             {
               "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
@@ -3583,28 +3409,10 @@
               "finished_at": "2026-09-17T05:31:08Z"
             },
             {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_longctx_needle",
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
               "status": "passed",
-              "started_at": "2026-09-17T05:40:18Z",
-              "finished_at": "2026-09-17T05:40:36Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-17T05:33:21Z",
-              "finished_at": "2026-09-17T05:33:41Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_reason_math",
-              "status": "passed",
-              "started_at": "2026-09-17T05:34:11Z",
-              "finished_at": "2026-09-17T05:34:49Z"
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_summarize",
-              "status": "passed",
-              "started_at": "2026-09-17T05:37:02Z",
-              "finished_at": "2026-09-17T05:37:26Z"
+              "started_at": "2026-09-17T05:31:18Z",
+              "finished_at": "2026-09-17T05:32:20Z"
             }
           ]
         },
@@ -3732,10 +3540,10 @@
           "category": "text-to-image",
           "model": "qwen-image-2512-bf16",
           "primarycache": "cold",
-          "status": "running",
+          "status": "failed",
           "started_at": "2026-09-17T11:16:01Z",
-          "finished_at": null,
-          "failure_class": null,
+          "finished_at": "2026-09-17T12:31:09Z",
+          "failure_class": "run",
           "confidence": null,
           "cases": [
             {
@@ -3807,40 +3615,10 @@
           "confidence": 0.125,
           "cases": [
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_agentic_tool",
+              "id": "AI-00_canary_resident",
               "status": "passed",
-              "started_at": "2026-09-17T10:21:12Z",
-              "finished_at": "2026-09-17T10:22:23Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_bench",
-              "status": "passed",
-              "started_at": "2026-09-17T09:04:41Z",
-              "finished_at": "2026-09-17T09:25:05Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_chat_multi",
-              "status": "passed",
-              "started_at": "2026-09-17T09:58:00Z",
-              "finished_at": "2026-09-17T09:59:38Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_code_gen",
-              "status": "passed",
-              "started_at": "2026-09-17T09:39:04Z",
-              "finished_at": "2026-09-17T09:40:22Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_creative",
-              "status": "passed",
-              "started_at": "2026-09-17T10:24:04Z",
-              "finished_at": "2026-09-17T10:27:43Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_extract_json",
-              "status": "passed",
-              "started_at": "2026-09-17T09:54:13Z",
-              "finished_at": "2026-09-17T09:55:59Z"
+              "started_at": "2026-09-17T08:50:48Z",
+              "finished_at": "2026-09-17T08:51:07Z"
             },
             {
               "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_load",
@@ -3849,28 +3627,10 @@
               "finished_at": "2026-09-17T09:04:20Z"
             },
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_longctx_needle",
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_bench",
               "status": "passed",
-              "started_at": "2026-09-17T10:01:59Z",
-              "finished_at": "2026-09-17T10:19:12Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-17T09:27:17Z",
-              "finished_at": "2026-09-17T09:27:52Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_reason_math",
-              "status": "passed",
-              "started_at": "2026-09-17T09:29:13Z",
-              "finished_at": "2026-09-17T09:37:04Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_summarize",
-              "status": "passed",
-              "started_at": "2026-09-17T09:42:23Z",
-              "finished_at": "2026-09-17T09:52:12Z"
+              "started_at": "2026-09-17T09:04:41Z",
+              "finished_at": "2026-09-17T09:25:05Z"
             }
           ]
         },
@@ -3889,37 +3649,7 @@
           "confidence": null,
           "cases": [
             {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_agentic_tool",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_chat_multi",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_code_gen",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_creative",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_extract_json",
+              "id": "AI-00_canary_resident",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -3931,25 +3661,7 @@
               "finished_at": null
             },
             {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_longctx_needle",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_qa_short",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_reason_math",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
-            },
-            {
-              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_summarize",
+              "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -4146,7 +3858,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-17T11:17:23Z",
+      "captured_at": "2026-09-17T12:31:09Z",
       "cells": [
         {
           "n": 1,
@@ -4222,7 +3934,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-17T11:17:23Z",
+      "captured_at": "2026-09-17T12:31:09Z",
       "cells": [
         {
           "n": 1,
@@ -5646,7 +5358,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "passed",
-      "captured_at": "2026-09-17T11:17:23Z",
+      "captured_at": "2026-09-17T12:31:09Z",
       "cells": [
         {
           "n": 1,
