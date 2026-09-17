@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-17T05:24:27Z",
-  "harness_commit": null,
-  "git_commit": "f1e104d9",
+  "updated_at": "2026-09-17T05:29:28Z",
+  "harness_commit": "23597d5d",
+  "git_commit": "23597d5d",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 3,
@@ -101,7 +101,7 @@
       "model": "smoke-qwen3-0.6b-q8",
       "primarycache": "cold",
       "status": "running",
-      "started_at": "2026-09-17T05:23:56Z",
+      "started_at": "2026-09-17T05:29:22Z",
       "finished_at": null,
       "failure_class": null,
       "confidence": null,
@@ -568,7 +568,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "passed",
-      "captured_at": "2026-09-17T05:24:26Z",
+      "captured_at": "2026-09-17T05:29:28Z",
       "cells": [
         {
           "n": 0,
@@ -2110,7 +2110,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-17T05:24:26Z",
+      "captured_at": "2026-09-17T05:29:28Z",
       "cells": [
         {
           "n": 1,
@@ -3298,7 +3298,7 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "running",
-      "captured_at": "2026-09-17T05:24:26Z",
+      "captured_at": "2026-09-17T05:29:28Z",
       "cells": [
         {
           "n": 1,
@@ -3391,7 +3391,7 @@
           "model": "smoke-qwen3-0.6b-q8",
           "primarycache": "cold",
           "status": "running",
-          "started_at": "2026-09-17T05:23:56Z",
+          "started_at": "2026-09-17T05:29:22Z",
           "finished_at": null,
           "failure_class": null,
           "confidence": null,
@@ -3858,7 +3858,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-17T05:24:26Z",
+      "captured_at": "2026-09-17T05:29:28Z",
       "cells": [
         {
           "n": 1,
@@ -3934,7 +3934,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-17T05:24:27Z",
+      "captured_at": "2026-09-17T05:29:28Z",
       "cells": [
         {
           "n": 1,
@@ -5358,7 +5358,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "passed",
-      "captured_at": "2026-09-17T05:24:27Z",
+      "captured_at": "2026-09-17T05:29:28Z",
       "cells": [
         {
           "n": 1,
