@@ -1,0 +1,150 @@
+/* Sealed-review layout extensions — Ubuntu / Orbitron / Intel One Mono */
+.mono, code.mono, .chip.mono, .pick, .evidence, .data-table .mono, .answer-kicker, .metric .value {
+  font-family: var(--mono, "Intel One Mono", ui-monospace, monospace);
+}
+
+.t-btrfs { color: #6b46c1; }
+.dual-answer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.answer-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: var(--shadow-card);
+}
+.answer-card.btrfs { border-top: 3px solid #6b46c1; }
+.answer-card.raidz1 { border-top: 3px solid var(--raidz1); }
+.answer-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 0.35rem;
+}
+.answer-card h3 {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.35rem;
+  margin: 0 0 0.4rem;
+}
+.answer-card .big { font-size: 1.15rem; margin: 0.25rem 0; }
+.answer-card .fine { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.75rem 0.85rem 1rem;
+  box-shadow: var(--shadow);
+  margin: 0;
+}
+.chart-card.wide { grid-column: 1 / -1; }
+.chart-card figcaption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  font-family: var(--mono, "Intel One Mono", monospace);
+}
+.chart-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background: #f4f1ec;
+}
+
+.live-charts { margin: 2rem 0 1rem; }
+.live-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.chart-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+  min-height: 320px;
+}
+
+.sealed-metrics .metric.btrfs { border-top-color: #6b46c1; }
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.recipe-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow);
+}
+.recipe-card h3 {
+  font-family: Orbitron, sans-serif;
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+}
+.recipe-card .pick {
+  color: var(--raidz1);
+  font-size: 0.85rem;
+  margin: 0 0 0.6rem;
+}
+.recipe-card .evidence {
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  margin: 0.6rem 0 0;
+}
+.callout.caution {
+  border-left: 3px solid var(--raid10);
+  background: var(--raid10-soft);
+  padding: 0.9rem 1rem;
+  border-radius: 0 10px 10px 0;
+  margin-top: 1.25rem;
+}
+.section-label.caution { color: #c53030; }
+
+.method-list { line-height: 1.55; }
+.method-list li { margin-bottom: 0.55rem; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+.data-table th, .data-table td {
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+.data-table th { color: var(--muted); font-weight: 500; }
+
+.obscure-list { line-height: 1.5; }
+.obscure-list li { margin-bottom: 0.9rem; }
+.obscure-list .evidence { font-size: 0.78rem; color: var(--muted); }
+
+.site-footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .dual-answer, .chart-grid, .live-grid { grid-template-columns: 1fr; }
+  .chart-card.wide { grid-column: auto; }
+}

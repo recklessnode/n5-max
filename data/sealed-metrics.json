@@ -1,0 +1,3962 @@
+{
+  "meta": {
+    "generated": "2026-09-18",
+    "rule": "Protocol B + steady==true for publishable; STO-06 steadiness N/A labeled; AI provisional",
+    "story_sealed": false,
+    "fastest_measured": "btrfs-raid5",
+    "recommended_default": "raidz1",
+    "mdadm_anomaly": "HOLD \u2014 do not publish 8\u00d7 claim; parity read path open"
+  },
+  "zfs_stage12_cold": [
+    {
+      "layout": "single-x1",
+      "layout_full": "stage1-single-x1-full",
+      "stage": 1,
+      "cache": "none",
+      "usable_tib": 3.0,
+      "result_dir": "results/2026-09-13-13.00-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 1.8,
+          "iops": 1716,
+          "w_amp": null,
+          "r_amp": 1.003,
+          "p99_ms": 63.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.641,
+          "iops": 610,
+          "w_amp": 1.003,
+          "r_amp": null,
+          "p99_ms": 658.51,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.144,
+          "iops": 35116,
+          "w_amp": null,
+          "r_amp": 9.911,
+          "p99_ms": 5.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.058,
+          "iops": 14114,
+          "w_amp": 12.058,
+          "r_amp": null,
+          "p99_ms": 17.17,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.593,
+          "iops": 9050,
+          "w_amp": null,
+          "r_amp": 1.832,
+          "p99_ms": 20.05,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.422,
+          "iops": 6444,
+          "w_amp": 1.591,
+          "r_amp": null,
+          "p99_ms": 24.77,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.368,
+          "iops": 22478,
+          "w_amp": 5.049,
+          "r_amp": 3.072,
+          "p99_ms": 13.7,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.021,
+          "iops": 1283,
+          "w_amp": 4.023,
+          "r_amp": null,
+          "p99_ms": 50.59,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.461,
+          "iops": 34225,
+          "w_amp": 0.84,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.094,
+          "iops": 6996,
+          "w_amp": null,
+          "r_amp": 1.52,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid0",
+      "layout_full": "stage1-raid0-full",
+      "stage": 1,
+      "cache": "none",
+      "usable_tib": 17.85,
+      "result_dir": "results/2026-09-13-14.28-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.695,
+          "iops": 8291,
+          "w_amp": null,
+          "r_amp": 1.008,
+          "p99_ms": 19.27,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.897,
+          "iops": 1808,
+          "w_amp": 1.006,
+          "r_amp": null,
+          "p99_ms": 193.99,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.496,
+          "iops": 121060,
+          "w_amp": null,
+          "r_amp": 9.514,
+          "p99_ms": 1.47,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.224,
+          "iops": 54612,
+          "w_amp": 8.603,
+          "r_amp": null,
+          "p99_ms": 10.55,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.924,
+          "iops": 29356,
+          "w_amp": null,
+          "r_amp": 1.809,
+          "p99_ms": 22.41,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 1.73,
+          "iops": 26389,
+          "w_amp": 1.664,
+          "r_amp": null,
+          "p99_ms": 11.73,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.764,
+          "iops": 107686,
+          "w_amp": 2.783,
+          "r_amp": 1.536,
+          "p99_ms": 3.03,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.037,
+          "iops": 2267,
+          "w_amp": 3.161,
+          "r_amp": null,
+          "p99_ms": 20.84,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.541,
+          "iops": 40190,
+          "w_amp": 0.787,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.089,
+          "iops": 6631,
+          "w_amp": null,
+          "r_amp": 1.524,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid10",
+      "layout_full": "stage1-raid10-full",
+      "stage": 1,
+      "cache": "none",
+      "usable_tib": 6.71,
+      "result_dir": "results/2026-09-13-15.49-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 7.024,
+          "iops": 6698,
+          "w_amp": null,
+          "r_amp": 1.005,
+          "p99_ms": 18.74,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.894,
+          "iops": 851,
+          "w_amp": 2.006,
+          "r_amp": null,
+          "p99_ms": 346.03,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.475,
+          "iops": 115855,
+          "w_amp": null,
+          "r_amp": 9.41,
+          "p99_ms": 1.45,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.167,
+          "iops": 40740,
+          "w_amp": 18.139,
+          "r_amp": null,
+          "p99_ms": 8.45,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.979,
+          "iops": 30198,
+          "w_amp": null,
+          "r_amp": 1.802,
+          "p99_ms": 14.35,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.817,
+          "iops": 12461,
+          "w_amp": 3.242,
+          "r_amp": null,
+          "p99_ms": 13.17,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.712,
+          "iops": 104485,
+          "w_amp": 5.087,
+          "r_amp": 1.305,
+          "p99_ms": 2.87,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.027,
+          "iops": 1675,
+          "w_amp": 7.016,
+          "r_amp": null,
+          "p99_ms": 128.45,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.521,
+          "iops": 38677,
+          "w_amp": 1.604,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.094,
+          "iops": 6949,
+          "w_amp": null,
+          "r_amp": 1.519,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz1",
+      "layout_full": "stage1-raidz1-full",
+      "stage": 1,
+      "cache": "none",
+      "usable_tib": 14.11,
+      "result_dir": "results/2026-09-13-17.14-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 7.83,
+          "iops": 7467,
+          "w_amp": null,
+          "r_amp": 1.003,
+          "p99_ms": 15.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.718,
+          "iops": 684,
+          "w_amp": 1.245,
+          "r_amp": null,
+          "p99_ms": 168.82,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.275,
+          "iops": 67044,
+          "w_amp": null,
+          "r_amp": 9.417,
+          "p99_ms": 2.57,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.077,
+          "iops": 18865,
+          "w_amp": 17.064,
+          "r_amp": null,
+          "p99_ms": 18.48,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.476,
+          "iops": 7267,
+          "w_amp": null,
+          "r_amp": 1.844,
+          "p99_ms": 181.4,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.582,
+          "iops": 8882,
+          "w_amp": 2.346,
+          "r_amp": null,
+          "p99_ms": 16.32,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.012,
+          "iops": 757,
+          "w_amp": 8.452,
+          "r_amp": 4.723,
+          "p99_ms": 238.03,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.007,
+          "iops": 415,
+          "w_amp": 8.051,
+          "r_amp": null,
+          "p99_ms": 616.56,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.534,
+          "iops": 39665,
+          "w_amp": 1.36,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.091,
+          "iops": 6731,
+          "w_amp": null,
+          "r_amp": 1.525,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz2",
+      "layout_full": "stage1-raidz2-full",
+      "stage": 1,
+      "cache": "none",
+      "usable_tib": 10.21,
+      "result_dir": "results/2026-09-13-18.42-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.941,
+          "iops": 8526,
+          "w_amp": null,
+          "r_amp": 1.004,
+          "p99_ms": 12.65,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.153,
+          "iops": 1099,
+          "w_amp": 1.683,
+          "r_amp": null,
+          "p99_ms": 492.83,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.342,
+          "iops": 83588,
+          "w_amp": null,
+          "r_amp": 9.41,
+          "p99_ms": 2.04,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.042,
+          "iops": 10357,
+          "w_amp": 20.06,
+          "r_amp": null,
+          "p99_ms": 28.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.773,
+          "iops": 11799,
+          "w_amp": null,
+          "r_amp": 1.913,
+          "p99_ms": 58.98,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.523,
+          "iops": 7985,
+          "w_amp": 3.448,
+          "r_amp": null,
+          "p99_ms": 17.43,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.455,
+          "iops": 27755,
+          "w_amp": 7.13,
+          "r_amp": 1.725,
+          "p99_ms": 17.96,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.007,
+          "iops": 428,
+          "w_amp": 11.48,
+          "r_amp": null,
+          "p99_ms": 650.12,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.532,
+          "iops": 39540,
+          "w_amp": 1.982,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.099,
+          "iops": 7384,
+          "w_amp": null,
+          "r_amp": 1.522,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "mirror2",
+      "layout_full": "stage1-mirror2-full",
+      "stage": 1,
+      "cache": "none",
+      "usable_tib": 3.0,
+      "result_dir": "results/2026-09-12-05.05-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 3.455,
+          "iops": 3294,
+          "w_amp": null,
+          "r_amp": 1.012,
+          "p99_ms": 43.25,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.747,
+          "iops": 712,
+          "w_amp": 2.316,
+          "r_amp": null,
+          "p99_ms": 675.28,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.291,
+          "iops": 71094,
+          "w_amp": null,
+          "r_amp": 9.796,
+          "p99_ms": 2.64,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.072,
+          "iops": 17632,
+          "w_amp": 18.162,
+          "r_amp": null,
+          "p99_ms": 13.43,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.419,
+          "iops": 21650,
+          "w_amp": null,
+          "r_amp": 1.948,
+          "p99_ms": 9.24,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.384,
+          "iops": 5857,
+          "w_amp": 3.341,
+          "r_amp": null,
+          "p99_ms": 65.8,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.85,
+          "iops": 51891,
+          "w_amp": 4.777,
+          "r_amp": 1.139,
+          "p99_ms": 6.0,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.018,
+          "iops": 1094,
+          "w_amp": 2.47,
+          "r_amp": null,
+          "p99_ms": 58.98,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.557,
+          "iops": 41418,
+          "w_amp": 2.08,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.099,
+          "iops": 7355,
+          "w_amp": null,
+          "r_amp": 1.539,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "single-x4",
+      "layout_full": "stage2-single-x4-full",
+      "stage": 2,
+      "cache": "none",
+      "usable_tib": 3.0,
+      "result_dir": "results/2026-09-12-19.42-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 5.888,
+          "iops": 5615,
+          "w_amp": null,
+          "r_amp": 1.018,
+          "p99_ms": 20.32,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.328,
+          "iops": 1265,
+          "w_amp": 0.992,
+          "r_amp": null,
+          "p99_ms": 641.73,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.169,
+          "iops": 41318,
+          "w_amp": null,
+          "r_amp": 9.594,
+          "p99_ms": 4.29,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.084,
+          "iops": 20551,
+          "w_amp": 16.166,
+          "r_amp": null,
+          "p99_ms": 19.53,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.796,
+          "iops": 12149,
+          "w_amp": null,
+          "r_amp": 1.988,
+          "p99_ms": 18.22,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.875,
+          "iops": 13356,
+          "w_amp": 1.982,
+          "r_amp": null,
+          "p99_ms": 24.51,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.486,
+          "iops": 29634,
+          "w_amp": 5.034,
+          "r_amp": 3.823,
+          "p99_ms": 13.17,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.023,
+          "iops": 1398,
+          "w_amp": 1.152,
+          "r_amp": null,
+          "p99_ms": 46.92,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.514,
+          "iops": 38188,
+          "w_amp": 1.237,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.103,
+          "iops": 7651,
+          "w_amp": null,
+          "r_amp": 1.528,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid0",
+      "layout_full": "stage2-raid0-full",
+      "stage": 2,
+      "cache": "none",
+      "usable_tib": 17.85,
+      "result_dir": "results/2026-09-13-00.42-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.6,
+          "iops": 8201,
+          "w_amp": null,
+          "r_amp": 1.007,
+          "p99_ms": 18.48,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 2.334,
+          "iops": 2225,
+          "w_amp": 1.001,
+          "r_amp": null,
+          "p99_ms": 189.79,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.424,
+          "iops": 103436,
+          "w_amp": null,
+          "r_amp": 9.517,
+          "p99_ms": 1.89,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.203,
+          "iops": 49576,
+          "w_amp": 9.337,
+          "r_amp": null,
+          "p99_ms": 11.08,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.424,
+          "iops": 21734,
+          "w_amp": null,
+          "r_amp": 1.913,
+          "p99_ms": 39.58,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 1.409,
+          "iops": 21492,
+          "w_amp": 1.63,
+          "r_amp": null,
+          "p99_ms": 19.79,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.421,
+          "iops": 86756,
+          "w_amp": 3.61,
+          "r_amp": 2.107,
+          "p99_ms": 4.95,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.039,
+          "iops": 2402,
+          "w_amp": 3.133,
+          "r_amp": null,
+          "p99_ms": 22.68,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.568,
+          "iops": 42189,
+          "w_amp": 0.82,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.085,
+          "iops": 6312,
+          "w_amp": null,
+          "r_amp": 1.526,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz1",
+      "layout_full": "stage2-raidz1-full",
+      "stage": 2,
+      "cache": "none",
+      "usable_tib": 14.11,
+      "result_dir": "results/2026-09-13-02.02-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 7.806,
+          "iops": 7444,
+          "w_amp": null,
+          "r_amp": 1.003,
+          "p99_ms": 14.75,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.453,
+          "iops": 431,
+          "w_amp": 1.253,
+          "r_amp": null,
+          "p99_ms": 354.42,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.262,
+          "iops": 64038,
+          "w_amp": null,
+          "r_amp": 9.498,
+          "p99_ms": 2.74,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.075,
+          "iops": 18300,
+          "w_amp": 23.293,
+          "r_amp": null,
+          "p99_ms": 19.53,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.635,
+          "iops": 9686,
+          "w_amp": null,
+          "r_amp": 1.926,
+          "p99_ms": 17.96,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.662,
+          "iops": 10098,
+          "w_amp": 2.37,
+          "r_amp": null,
+          "p99_ms": 14.61,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.239,
+          "iops": 14582,
+          "w_amp": 6.194,
+          "r_amp": 2.574,
+          "p99_ms": 31.59,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.008,
+          "iops": 469,
+          "w_amp": 8.478,
+          "r_amp": null,
+          "p99_ms": 396.36,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.486,
+          "iops": 36078,
+          "w_amp": 1.359,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.099,
+          "iops": 7353,
+          "w_amp": null,
+          "r_amp": 1.53,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz2",
+      "layout_full": "stage2-raidz2-full",
+      "stage": 2,
+      "cache": "none",
+      "usable_tib": 10.21,
+      "result_dir": "results/2026-09-13-03.23-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.922,
+          "iops": 8508,
+          "w_amp": null,
+          "r_amp": 1.004,
+          "p99_ms": 12.65,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.691,
+          "iops": 658,
+          "w_amp": 1.732,
+          "r_amp": null,
+          "p99_ms": 235.93,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.329,
+          "iops": 80257,
+          "w_amp": null,
+          "r_amp": 9.486,
+          "p99_ms": 2.31,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.075,
+          "iops": 18419,
+          "w_amp": 21.164,
+          "r_amp": null,
+          "p99_ms": 15.27,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.924,
+          "iops": 14102,
+          "w_amp": null,
+          "r_amp": 1.909,
+          "p99_ms": 9.76,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.428,
+          "iops": 6524,
+          "w_amp": 3.774,
+          "r_amp": null,
+          "p99_ms": 17.43,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.353,
+          "iops": 21554,
+          "w_amp": 9.652,
+          "r_amp": 3.272,
+          "p99_ms": 28.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.008,
+          "iops": 487,
+          "w_amp": 11.43,
+          "r_amp": null,
+          "p99_ms": 624.95,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.537,
+          "iops": 39877,
+          "w_amp": 1.982,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.101,
+          "iops": 7509,
+          "w_amp": null,
+          "r_amp": 1.526,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid10+spare",
+      "layout_full": "stage2-raid10+spare-full",
+      "stage": 2,
+      "cache": "none",
+      "usable_tib": 6.71,
+      "result_dir": "results/2026-09-13-04.48-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 6.629,
+          "iops": 6321,
+          "w_amp": null,
+          "r_amp": 1.004,
+          "p99_ms": 22.15,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.172,
+          "iops": 1117,
+          "w_amp": 2.003,
+          "r_amp": null,
+          "p99_ms": 358.61,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.457,
+          "iops": 111501,
+          "w_amp": null,
+          "r_amp": 9.473,
+          "p99_ms": 1.78,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.103,
+          "iops": 25048,
+          "w_amp": 18.653,
+          "r_amp": null,
+          "p99_ms": 13.43,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.873,
+          "iops": 28575,
+          "w_amp": null,
+          "r_amp": 1.829,
+          "p99_ms": 23.99,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.595,
+          "iops": 9075,
+          "w_amp": 3.475,
+          "r_amp": null,
+          "p99_ms": 24.25,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.376,
+          "iops": 83997,
+          "w_amp": 5.932,
+          "r_amp": 1.536,
+          "p99_ms": 3.95,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.027,
+          "iops": 1631,
+          "w_amp": 7.125,
+          "r_amp": null,
+          "p99_ms": 32.9,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.54,
+          "iops": 40116,
+          "w_amp": 1.574,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.098,
+          "iops": 7245,
+          "w_amp": null,
+          "r_amp": 1.528,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    }
+  ],
+  "zfs_stage12_metadata": [
+    {
+      "layout": "single-x1",
+      "layout_full": "stage1-single-x1-full",
+      "stage": 1,
+      "cache": "metadata",
+      "usable_tib": 3.0,
+      "result_dir": "results/2026-09-12-06.23-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 1.808,
+          "iops": 1723,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 42.73,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.934,
+          "iops": 889,
+          "w_amp": 1.213,
+          "r_amp": null,
+          "p99_ms": 591.4,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.257,
+          "iops": 62656,
+          "w_amp": null,
+          "r_amp": 4.011,
+          "p99_ms": 2.67,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.094,
+          "iops": 22869,
+          "w_amp": 10.111,
+          "r_amp": null,
+          "p99_ms": 21.89,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.117,
+          "iops": 17050,
+          "w_amp": null,
+          "r_amp": 1.061,
+          "p99_ms": 9.9,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.458,
+          "iops": 6994,
+          "w_amp": 1.917,
+          "r_amp": null,
+          "p99_ms": 42.73,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.589,
+          "iops": 35945,
+          "w_amp": 4.365,
+          "r_amp": 1.013,
+          "p99_ms": 9.9,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.021,
+          "iops": 1279,
+          "w_amp": 3.935,
+          "r_amp": null,
+          "p99_ms": 63.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.572,
+          "iops": 42535,
+          "w_amp": 0.956,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.098,
+          "iops": 7279,
+          "w_amp": null,
+          "r_amp": 1.52,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid0",
+      "layout_full": "stage1-raid0-full",
+      "stage": 1,
+      "cache": "metadata",
+      "usable_tib": 17.85,
+      "result_dir": "results/2026-09-12-07.44-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.946,
+          "iops": 8531,
+          "w_amp": null,
+          "r_amp": 1.001,
+          "p99_ms": 21.63,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 2.073,
+          "iops": 1976,
+          "w_amp": 1.007,
+          "r_amp": null,
+          "p99_ms": 191.89,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.829,
+          "iops": 202476,
+          "w_amp": null,
+          "r_amp": 4.0,
+          "p99_ms": 0.77,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.257,
+          "iops": 62697,
+          "w_amp": 7.594,
+          "r_amp": null,
+          "p99_ms": 10.42,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 4.708,
+          "iops": 71843,
+          "w_amp": null,
+          "r_amp": 1.035,
+          "p99_ms": 2.34,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 1.785,
+          "iops": 27242,
+          "w_amp": 1.76,
+          "r_amp": null,
+          "p99_ms": 9.63,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 2.289,
+          "iops": 139684,
+          "w_amp": 3.593,
+          "r_amp": 1.051,
+          "p99_ms": 2.77,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.039,
+          "iops": 2354,
+          "w_amp": 1.113,
+          "r_amp": null,
+          "p99_ms": 19.79,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.566,
+          "iops": 42063,
+          "w_amp": 1.105,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.089,
+          "iops": 6585,
+          "w_amp": null,
+          "r_amp": 1.516,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid10",
+      "layout_full": "stage1-raid10-full",
+      "stage": 1,
+      "cache": "metadata",
+      "usable_tib": 6.71,
+      "result_dir": "results/2026-09-12-09.00-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 7.221,
+          "iops": 6886,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 18.74,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.879,
+          "iops": 838,
+          "w_amp": 2.41,
+          "r_amp": null,
+          "p99_ms": 375.39,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.753,
+          "iops": 183883,
+          "w_amp": null,
+          "r_amp": 4.002,
+          "p99_ms": 0.88,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.141,
+          "iops": 34483,
+          "w_amp": 18.649,
+          "r_amp": null,
+          "p99_ms": 11.6,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 4.266,
+          "iops": 65097,
+          "w_amp": null,
+          "r_amp": 1.017,
+          "p99_ms": 2.47,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.622,
+          "iops": 9491,
+          "w_amp": 3.67,
+          "r_amp": null,
+          "p99_ms": 12.52,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.178,
+          "iops": 71876,
+          "w_amp": 6.041,
+          "r_amp": 1.045,
+          "p99_ms": 2.38,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.029,
+          "iops": 1792,
+          "w_amp": 2.098,
+          "r_amp": null,
+          "p99_ms": 33.16,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.52,
+          "iops": 38632,
+          "w_amp": 2.39,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.077,
+          "iops": 5703,
+          "w_amp": null,
+          "r_amp": 1.499,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz1",
+      "layout_full": "stage1-raidz1-full",
+      "stage": 1,
+      "cache": "metadata",
+      "usable_tib": 14.11,
+      "result_dir": "results/2026-09-12-10.20-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.106,
+          "iops": 7730,
+          "w_amp": null,
+          "r_amp": 1.003,
+          "p99_ms": 10.55,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.925,
+          "iops": 881,
+          "w_amp": 1.346,
+          "r_amp": null,
+          "p99_ms": 240.12,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.416,
+          "iops": 101618,
+          "w_amp": null,
+          "r_amp": 4.001,
+          "p99_ms": 1.71,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.071,
+          "iops": 17403,
+          "w_amp": 18.742,
+          "r_amp": null,
+          "p99_ms": 29.23,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 2.104,
+          "iops": 32110,
+          "w_amp": null,
+          "r_amp": 1.352,
+          "p99_ms": 6.39,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.601,
+          "iops": 9174,
+          "w_amp": 2.42,
+          "r_amp": null,
+          "p99_ms": 18.22,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.943,
+          "iops": 57550,
+          "w_amp": 5.279,
+          "r_amp": 0.956,
+          "p99_ms": 8.29,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.005,
+          "iops": 324,
+          "w_amp": 1.486,
+          "r_amp": null,
+          "p99_ms": 775.95,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.549,
+          "iops": 40773,
+          "w_amp": 1.86,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.06,
+          "iops": 4491,
+          "w_amp": null,
+          "r_amp": 1.965,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz2",
+      "layout_full": "stage1-raidz2-full",
+      "stage": 1,
+      "cache": "metadata",
+      "usable_tib": 10.21,
+      "result_dir": "results/2026-09-12-11.33-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 9.027,
+          "iops": 8608,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 11.08,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.412,
+          "iops": 1346,
+          "w_amp": 1.606,
+          "r_amp": null,
+          "p99_ms": 358.61,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.508,
+          "iops": 123918,
+          "w_amp": null,
+          "r_amp": 4.0,
+          "p99_ms": 1.38,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.056,
+          "iops": 13599,
+          "w_amp": 21.474,
+          "r_amp": null,
+          "p99_ms": 21.89,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 2.444,
+          "iops": 37296,
+          "w_amp": null,
+          "r_amp": 1.256,
+          "p99_ms": 4.42,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.554,
+          "iops": 8458,
+          "w_amp": 3.332,
+          "r_amp": null,
+          "p99_ms": 17.96,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.738,
+          "iops": 45056,
+          "w_amp": 5.617,
+          "r_amp": 1.177,
+          "p99_ms": 7.11,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.006,
+          "iops": 341,
+          "w_amp": 2.833,
+          "r_amp": null,
+          "p99_ms": 708.84,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.549,
+          "iops": 40823,
+          "w_amp": 2.707,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.051,
+          "iops": 3792,
+          "w_amp": null,
+          "r_amp": 0.917,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "mirror2",
+      "layout_full": "stage1-mirror2-full",
+      "stage": 1,
+      "cache": "metadata",
+      "usable_tib": 3.01,
+      "result_dir": "results/2026-09-12-12.50-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 3.611,
+          "iops": 3443,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 33.16,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.552,
+          "iops": 525,
+          "w_amp": 2.15,
+          "r_amp": null,
+          "p99_ms": 692.06,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.523,
+          "iops": 127647,
+          "w_amp": null,
+          "r_amp": 4.0,
+          "p99_ms": 1.22,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.067,
+          "iops": 16285,
+          "w_amp": 20.809,
+          "r_amp": null,
+          "p99_ms": 14.75,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 2.413,
+          "iops": 36824,
+          "w_amp": null,
+          "r_amp": 1.095,
+          "p99_ms": 4.29,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.337,
+          "iops": 5144,
+          "w_amp": 3.385,
+          "r_amp": null,
+          "p99_ms": 24.77,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.531,
+          "iops": 32438,
+          "w_amp": 5.473,
+          "r_amp": 0.997,
+          "p99_ms": 3.88,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.02,
+          "iops": 1250,
+          "w_amp": 2.513,
+          "r_amp": null,
+          "p99_ms": 45.88,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.554,
+          "iops": 41147,
+          "w_amp": 2.0,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.098,
+          "iops": 7265,
+          "w_amp": null,
+          "r_amp": 1.532,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "single-x4",
+      "layout_full": "stage2-single-x4-full",
+      "stage": 2,
+      "cache": "metadata",
+      "usable_tib": 3.0,
+      "result_dir": "results/2026-09-13-06.11-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 6.201,
+          "iops": 5913,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 16.58,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.44,
+          "iops": 1372,
+          "w_amp": 1.011,
+          "r_amp": null,
+          "p99_ms": 633.34,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.282,
+          "iops": 68879,
+          "w_amp": null,
+          "r_amp": 4.0,
+          "p99_ms": 2.54,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.097,
+          "iops": 23649,
+          "w_amp": 13.579,
+          "r_amp": null,
+          "p99_ms": 17.43,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.122,
+          "iops": 17115,
+          "w_amp": null,
+          "r_amp": 1.031,
+          "p99_ms": 12.91,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.717,
+          "iops": 10938,
+          "w_amp": 1.681,
+          "r_amp": null,
+          "p99_ms": 26.08,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.674,
+          "iops": 41130,
+          "w_amp": 4.652,
+          "r_amp": 1.001,
+          "p99_ms": 11.6,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.022,
+          "iops": 1337,
+          "w_amp": 3.88,
+          "r_amp": null,
+          "p99_ms": 53.74,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.552,
+          "iops": 41002,
+          "w_amp": 0.833,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.102,
+          "iops": 7603,
+          "w_amp": null,
+          "r_amp": 1.505,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid0",
+      "layout_full": "stage2-raid0-full",
+      "stage": 2,
+      "cache": "metadata",
+      "usable_tib": 17.85,
+      "result_dir": "results/2026-09-13-07.30-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.979,
+          "iops": 8563,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 19.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 2.002,
+          "iops": 1908,
+          "w_amp": 1.002,
+          "r_amp": null,
+          "p99_ms": 254.8,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.76,
+          "iops": 185497,
+          "w_amp": null,
+          "r_amp": 4.0,
+          "p99_ms": 0.99,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.214,
+          "iops": 52320,
+          "w_amp": 9.576,
+          "r_amp": null,
+          "p99_ms": 10.29,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 4.301,
+          "iops": 65630,
+          "w_amp": null,
+          "r_amp": 1.005,
+          "p99_ms": 3.56,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 1.599,
+          "iops": 24396,
+          "w_amp": 1.673,
+          "r_amp": null,
+          "p99_ms": 13.17,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.68,
+          "iops": 102521,
+          "w_amp": 2.853,
+          "r_amp": 1.002,
+          "p99_ms": 4.29,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.037,
+          "iops": 2243,
+          "w_amp": 3.238,
+          "r_amp": null,
+          "p99_ms": 32.9,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.576,
+          "iops": 42783,
+          "w_amp": 0.832,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.09,
+          "iops": 6681,
+          "w_amp": null,
+          "r_amp": 1.504,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz1",
+      "layout_full": "stage2-raidz1-full",
+      "stage": 2,
+      "cache": "metadata",
+      "usable_tib": 14.11,
+      "result_dir": "results/2026-09-13-08.49-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 8.215,
+          "iops": 7834,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 10.55,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.664,
+          "iops": 633,
+          "w_amp": 1.24,
+          "r_amp": null,
+          "p99_ms": 283.12,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.412,
+          "iops": 100690,
+          "w_amp": null,
+          "r_amp": 4.0,
+          "p99_ms": 1.56,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.108,
+          "iops": 26464,
+          "w_amp": 19.021,
+          "r_amp": null,
+          "p99_ms": 14.61,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.647,
+          "iops": 9879,
+          "w_amp": null,
+          "r_amp": 1.54,
+          "p99_ms": 133.69,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.699,
+          "iops": 10666,
+          "w_amp": 2.369,
+          "r_amp": null,
+          "p99_ms": 12.78,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.578,
+          "iops": 35254,
+          "w_amp": 5.459,
+          "r_amp": 0.994,
+          "p99_ms": 19.53,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.004,
+          "iops": 256,
+          "w_amp": 9.091,
+          "r_amp": null,
+          "p99_ms": 985.66,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.558,
+          "iops": 41473,
+          "w_amp": 1.282,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.051,
+          "iops": 3766,
+          "w_amp": null,
+          "r_amp": 1.508,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raidz2",
+      "layout_full": "stage2-raidz2-full",
+      "stage": 2,
+      "cache": "metadata",
+      "usable_tib": 10.21,
+      "result_dir": "results/2026-09-13-10.13-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 9.028,
+          "iops": 8609,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 11.21,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.943,
+          "iops": 899,
+          "w_amp": 1.678,
+          "r_amp": null,
+          "p99_ms": 248.51,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.5,
+          "iops": 122097,
+          "w_amp": null,
+          "r_amp": 4.0,
+          "p99_ms": 1.45,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.103,
+          "iops": 25213,
+          "w_amp": 21.978,
+          "r_amp": null,
+          "p99_ms": 14.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 3.288,
+          "iops": 50177,
+          "w_amp": null,
+          "r_amp": 1.577,
+          "p99_ms": 3.46,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.395,
+          "iops": 6029,
+          "w_amp": 3.462,
+          "r_amp": null,
+          "p99_ms": 23.46,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.298,
+          "iops": 18157,
+          "w_amp": 5.961,
+          "r_amp": 0.957,
+          "p99_ms": 21.63,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.006,
+          "iops": 368,
+          "w_amp": 12.278,
+          "r_amp": null,
+          "p99_ms": 717.23,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.562,
+          "iops": 41769,
+          "w_amp": 1.831,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.099,
+          "iops": 7337,
+          "w_amp": null,
+          "r_amp": 1.506,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "layout": "raid10+spare",
+      "layout_full": "stage2-raid10+spare-full",
+      "stage": 2,
+      "cache": "metadata",
+      "usable_tib": 6.71,
+      "result_dir": "results/2026-09-13-11.37-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 7.222,
+          "iops": 6887,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 17.96,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.14,
+          "iops": 1086,
+          "w_amp": 2.024,
+          "r_amp": null,
+          "p99_ms": 362.81,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.681,
+          "iops": 166324,
+          "w_amp": null,
+          "r_amp": 3.999,
+          "p99_ms": 1.12,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.135,
+          "iops": 32942,
+          "w_amp": 19.234,
+          "r_amp": null,
+          "p99_ms": 8.16,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 3.627,
+          "iops": 55341,
+          "w_amp": null,
+          "r_amp": 1.027,
+          "p99_ms": 4.23,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.624,
+          "iops": 9521,
+          "w_amp": 3.461,
+          "r_amp": null,
+          "p99_ms": 20.05,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.133,
+          "iops": 69147,
+          "w_amp": 5.642,
+          "r_amp": 0.995,
+          "p99_ms": 2.87,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.028,
+          "iops": 1699,
+          "w_amp": 6.966,
+          "r_amp": null,
+          "p99_ms": 124.26,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.514,
+          "iops": 38165,
+          "w_amp": 1.578,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.096,
+          "iops": 7143,
+          "w_amp": null,
+          "r_amp": 1.499,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    }
+  ],
+  "fs_controls_cold": [
+    {
+      "layout": "btrfs-raid10",
+      "layout_full": "stage5-btrfs-raid10-full",
+      "cache": "cold",
+      "usable_tib": 6.99,
+      "result_dir": "results/2026-09-14-05.18-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 3.615,
+          "iops": 3447,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 23.99,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 2.372,
+          "iops": 2261,
+          "w_amp": 2.002,
+          "r_amp": null,
+          "p99_ms": 65.8,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 2.275,
+          "iops": 555448,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 0.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.373,
+          "iops": 91074,
+          "w_amp": 3.414,
+          "r_amp": null,
+          "p99_ms": 2.9,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 4.973,
+          "iops": 75880,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 1.66,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.677,
+          "iops": 10322,
+          "w_amp": 2.172,
+          "r_amp": null,
+          "p99_ms": 51.64,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.443,
+          "iops": 88085,
+          "w_amp": 2.838,
+          "r_amp": 1.024,
+          "p99_ms": 2.7,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.035,
+          "iops": 2153,
+          "w_amp": 10.933,
+          "r_amp": null,
+          "p99_ms": 47.97,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.519,
+          "iops": 38576,
+          "w_amp": 2.375,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.212,
+          "iops": 15752,
+          "w_amp": null,
+          "r_amp": 1.12,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "btrfs"
+    },
+    {
+      "layout": "btrfs-raid5",
+      "layout_full": "stage5-btrfs-raid5-full",
+      "cache": "cold",
+      "usable_tib": 14.43,
+      "result_dir": "results/2026-09-14-13.57-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 9.034,
+          "iops": 8615,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 12.65,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 4.066,
+          "iops": 3877,
+          "w_amp": 1.255,
+          "r_amp": null,
+          "p99_ms": 44.83,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 2.348,
+          "iops": 573194,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 0.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.227,
+          "iops": 55450,
+          "w_amp": 4.556,
+          "r_amp": null,
+          "p99_ms": 5.54,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 4.714,
+          "iops": 71925,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 1.88,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.696,
+          "iops": 10620,
+          "w_amp": 2.336,
+          "r_amp": null,
+          "p99_ms": 28.7,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.794,
+          "iops": 48472,
+          "w_amp": 3.553,
+          "r_amp": 5.449,
+          "p99_ms": 0.48,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.022,
+          "iops": 1365,
+          "w_amp": 17.364,
+          "r_amp": null,
+          "p99_ms": 90.7,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.44,
+          "iops": 32690,
+          "w_amp": 2.232,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.198,
+          "iops": 14723,
+          "w_amp": null,
+          "r_amp": 1.11,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "btrfs"
+    },
+    {
+      "layout": "btrfs-raid6",
+      "layout_full": "stage5-btrfs-raid6-full",
+      "cache": "cold",
+      "usable_tib": 10.71,
+      "result_dir": "results/2026-09-14-17.56-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 9.026,
+          "iops": 8608,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 12.65,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 2.72,
+          "iops": 2593,
+          "w_amp": 1.764,
+          "r_amp": null,
+          "p99_ms": 51.12,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 2.351,
+          "iops": 573937,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 0.17,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.177,
+          "iops": 43316,
+          "w_amp": 5.333,
+          "r_amp": null,
+          "p99_ms": 6.26,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 5.045,
+          "iops": 76974,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 1.76,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.614,
+          "iops": 9373,
+          "w_amp": 3.229,
+          "r_amp": null,
+          "p99_ms": 25.82,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.723,
+          "iops": 44116,
+          "w_amp": 4.618,
+          "r_amp": 4.62,
+          "p99_ms": 0.51,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.019,
+          "iops": 1183,
+          "w_amp": 18.793,
+          "r_amp": null,
+          "p99_ms": 99.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.418,
+          "iops": 31083,
+          "w_amp": 2.879,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.206,
+          "iops": 15308,
+          "w_amp": null,
+          "r_amp": 1.134,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "btrfs"
+    },
+    {
+      "layout": "mdadm-ext4-raid10",
+      "layout_full": "stage5-mdadm-ext4-raid10-full",
+      "cache": "cold",
+      "usable_tib": 7.02,
+      "result_dir": "results/2026-09-14-21.46-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 4.068,
+          "iops": 3879,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 88.6,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.441,
+          "iops": 419,
+          "w_amp": 1.995,
+          "r_amp": null,
+          "p99_ms": 162.53,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 1.722,
+          "iops": 420521,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 0.93,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.118,
+          "iops": 28763,
+          "w_amp": 2.008,
+          "r_amp": null,
+          "p99_ms": 15.93,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 3.921,
+          "iops": 59833,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 12.39,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.407,
+          "iops": 6212,
+          "w_amp": 2.002,
+          "r_amp": null,
+          "p99_ms": 39.58,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 1.071,
+          "iops": 65385,
+          "w_amp": 1.987,
+          "r_amp": 0.994,
+          "p99_ms": 2.87,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.008,
+          "iops": 514,
+          "w_amp": 2.034,
+          "r_amp": null,
+          "p99_ms": 341.84,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.285,
+          "iops": 21160,
+          "w_amp": 2.39,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.158,
+          "iops": 11746,
+          "w_amp": null,
+          "r_amp": 1.136,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "mdadm"
+    },
+    {
+      "layout": "mdadm-ext4-raid5",
+      "layout_full": "stage5-mdadm-ext4-raid5-full",
+      "cache": "cold",
+      "usable_tib": 14.41,
+      "result_dir": "results/2026-09-15-00.41-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 1.14,
+          "iops": 1087,
+          "w_amp": null,
+          "r_amp": 0.999,
+          "p99_ms": 99.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.881,
+          "iops": 840,
+          "w_amp": 1.248,
+          "r_amp": null,
+          "p99_ms": 82.31,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.693,
+          "iops": 169287,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 2.74,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.212,
+          "iops": 51653,
+          "w_amp": 1.999,
+          "r_amp": null,
+          "p99_ms": 6.32,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.1,
+          "iops": 16779,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 34.34,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.477,
+          "iops": 7271,
+          "w_amp": 2.002,
+          "r_amp": null,
+          "p99_ms": 30.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.697,
+          "iops": 42534,
+          "w_amp": 2.001,
+          "r_amp": 1.857,
+          "p99_ms": 9.11,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.023,
+          "iops": 1415,
+          "w_amp": 2.068,
+          "r_amp": null,
+          "p99_ms": 111.67,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.386,
+          "iops": 28697,
+          "w_amp": 1.54,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.203,
+          "iops": 15075,
+          "w_amp": null,
+          "r_amp": 1.128,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "mdadm"
+    },
+    {
+      "layout": "mdadm-ext4-raid6",
+      "layout_full": "stage5-mdadm-ext4-raid6-full",
+      "cache": "cold",
+      "usable_tib": 10.71,
+      "result_dir": "results/2026-09-15-03.24-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 1.14,
+          "iops": 1086,
+          "w_amp": null,
+          "r_amp": 0.999,
+          "p99_ms": 100.14,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.627,
+          "iops": 597,
+          "w_amp": 1.736,
+          "r_amp": null,
+          "p99_ms": 179.31,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.69,
+          "iops": 168489,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 2.61,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.122,
+          "iops": 29669,
+          "w_amp": 2.992,
+          "r_amp": null,
+          "p99_ms": 8.29,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 1.099,
+          "iops": 16768,
+          "w_amp": null,
+          "r_amp": 1.0,
+          "p99_ms": 37.49,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.316,
+          "iops": 4815,
+          "w_amp": 2.999,
+          "r_amp": null,
+          "p99_ms": 43.25,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.601,
+          "iops": 36678,
+          "w_amp": 2.999,
+          "r_amp": 1.854,
+          "p99_ms": 10.16,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.092,
+          "iops": 5601,
+          "w_amp": 3.007,
+          "r_amp": null,
+          "p99_ms": 8.72,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.337,
+          "iops": 25020,
+          "w_amp": 2.032,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.199,
+          "iops": 14811,
+          "w_amp": null,
+          "r_amp": 1.123,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "mdadm"
+    }
+  ],
+  "fs_controls_warm": [
+    {
+      "layout": "btrfs-raid10",
+      "layout_full": "stage5-btrfs-raid10-full",
+      "cache": "warm",
+      "usable_tib": 7.42,
+      "result_dir": "results/2026-09-14-12.44-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 35.685,
+          "iops": 34031,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 2.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 12.109,
+          "iops": 11547,
+          "w_amp": 0.395,
+          "r_amp": null,
+          "p99_ms": 27.13,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 17.907,
+          "iops": 4371901,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.668,
+          "iops": 163146,
+          "w_amp": 2.164,
+          "r_amp": null,
+          "p99_ms": 4.88,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 48.052,
+          "iops": 733217,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 3.138,
+          "iops": 47883,
+          "w_amp": 1.465,
+          "r_amp": null,
+          "p99_ms": 23.46,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 8.803,
+          "iops": 537308,
+          "w_amp": 1.619,
+          "r_amp": 0.0,
+          "p99_ms": 0.03,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.057,
+          "iops": 3507,
+          "w_amp": 7.472,
+          "r_amp": null,
+          "p99_ms": 19.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.588,
+          "iops": 43695,
+          "w_amp": 2.179,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 1.505,
+          "iops": 111819,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "btrfs"
+    },
+    {
+      "layout": "btrfs-raid5",
+      "layout_full": "stage5-btrfs-raid5-full",
+      "cache": "warm",
+      "usable_tib": 14.87,
+      "result_dir": "results/2026-09-14-16.40-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 36.272,
+          "iops": 34591,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 2.04,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 3.265,
+          "iops": 3113,
+          "w_amp": 1.235,
+          "r_amp": null,
+          "p99_ms": 115.87,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 17.692,
+          "iops": 4319328,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.305,
+          "iops": 74417,
+          "w_amp": 2.98,
+          "r_amp": null,
+          "p99_ms": 5.08,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 48.166,
+          "iops": 734955,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 2.373,
+          "iops": 36205,
+          "w_amp": 1.253,
+          "r_amp": null,
+          "p99_ms": 4.15,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 3.192,
+          "iops": 194837,
+          "w_amp": 2.024,
+          "r_amp": 1.364,
+          "p99_ms": 0.04,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.051,
+          "iops": 3112,
+          "w_amp": 10.766,
+          "r_amp": null,
+          "p99_ms": 28.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.494,
+          "iops": 36676,
+          "w_amp": 2.245,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 1.46,
+          "iops": 108507,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "btrfs"
+    },
+    {
+      "layout": "btrfs-raid6",
+      "layout_full": "stage5-btrfs-raid6-full",
+      "cache": "warm",
+      "usable_tib": 11.15,
+      "result_dir": "results/2026-09-14-19.15-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 35.706,
+          "iops": 34051,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 2.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 2.767,
+          "iops": 2638,
+          "w_amp": 1.432,
+          "r_amp": null,
+          "p99_ms": 429.92,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 17.869,
+          "iops": 4362546,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.036,
+          "iops": 8744,
+          "w_amp": 8.847,
+          "r_amp": null,
+          "p99_ms": 3.46,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 48.117,
+          "iops": 734200,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.52,
+          "iops": 7933,
+          "w_amp": 1.668,
+          "r_amp": null,
+          "p99_ms": 4.75,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.459,
+          "iops": 28002,
+          "w_amp": 2.939,
+          "r_amp": 2.732,
+          "p99_ms": 0.04,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.026,
+          "iops": 1607,
+          "w_amp": 12.015,
+          "r_amp": null,
+          "p99_ms": 54.26,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.19,
+          "iops": 14124,
+          "w_amp": 3.088,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 1.546,
+          "iops": 114890,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "btrfs"
+    },
+    {
+      "layout": "mdadm-ext4-raid10",
+      "layout_full": "stage5-mdadm-ext4-raid10-full",
+      "cache": "warm",
+      "usable_tib": 7.37,
+      "result_dir": "results/2026-09-14-23.18-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 36.295,
+          "iops": 34613,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 2.04,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 11.323,
+          "iops": 10798,
+          "w_amp": 0.078,
+          "r_amp": null,
+          "p99_ms": 13.96,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 17.675,
+          "iops": 4315166,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.273,
+          "iops": 66756,
+          "w_amp": 1.999,
+          "r_amp": null,
+          "p99_ms": 5.87,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 48.053,
+          "iops": 733231,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 3.299,
+          "iops": 50340,
+          "w_amp": 0.269,
+          "r_amp": null,
+          "p99_ms": 6.13,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 2.178,
+          "iops": 132961,
+          "w_amp": 1.344,
+          "r_amp": 0.0,
+          "p99_ms": 0.0,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.006,
+          "iops": 340,
+          "w_amp": 2.052,
+          "r_amp": null,
+          "p99_ms": 13.3,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.284,
+          "iops": 21103,
+          "w_amp": 2.395,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 1.504,
+          "iops": 111719,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "mdadm"
+    },
+    {
+      "layout": "mdadm-ext4-raid5",
+      "layout_full": "stage5-mdadm-ext4-raid5-full",
+      "cache": "warm",
+      "usable_tib": 14.76,
+      "result_dir": "results/2026-09-15-02.02-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 36.536,
+          "iops": 34843,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 2.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 10.827,
+          "iops": 10324,
+          "w_amp": 0.094,
+          "r_amp": null,
+          "p99_ms": 15.66,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 17.752,
+          "iops": 4333918,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.297,
+          "iops": 72557,
+          "w_amp": 1.358,
+          "r_amp": null,
+          "p99_ms": 5.54,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 48.304,
+          "iops": 737054,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 4.791,
+          "iops": 73108,
+          "w_amp": 0.223,
+          "r_amp": null,
+          "p99_ms": 5.67,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 4.057,
+          "iops": 247590,
+          "w_amp": 0.696,
+          "r_amp": 0.042,
+          "p99_ms": 0.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.014,
+          "iops": 835,
+          "w_amp": 2.014,
+          "r_amp": null,
+          "p99_ms": 12.52,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.422,
+          "iops": 31349,
+          "w_amp": 1.534,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 1.569,
+          "iops": 116550,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "mdadm"
+    },
+    {
+      "layout": "mdadm-ext4-raid6",
+      "layout_full": "stage5-mdadm-ext4-raid6-full",
+      "cache": "warm",
+      "usable_tib": 11.07,
+      "result_dir": "results/2026-09-15-04.51-fscontrol.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 36.659,
+          "iops": 34960,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 2.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 8.672,
+          "iops": 8269,
+          "w_amp": 0.117,
+          "r_amp": null,
+          "p99_ms": 100.14,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 17.452,
+          "iops": 4260755,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.02,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.535,
+          "iops": 130609,
+          "w_amp": 1.551,
+          "r_amp": null,
+          "p99_ms": 4.18,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 48.149,
+          "iops": 734702,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": 0.09,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 7.652,
+          "iops": 116764,
+          "w_amp": 0.14,
+          "r_amp": null,
+          "p99_ms": 4.42,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 6.072,
+          "iops": 370620,
+          "w_amp": 0.554,
+          "r_amp": 0.005,
+          "p99_ms": 0.03,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.021,
+          "iops": 1288,
+          "w_amp": 3.036,
+          "r_amp": null,
+          "p99_ms": 12.12,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.339,
+          "iops": 25211,
+          "w_amp": 2.151,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 1.457,
+          "iops": 108237,
+          "w_amp": null,
+          "r_amp": 0.0,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      },
+      "fs": "mdadm"
+    }
+  ],
+  "x1_vs_x4": [
+    {
+      "lane": "x1",
+      "layout": "stage1-single-x1-full",
+      "usable_tib": 3.0,
+      "result_dir": "results/2026-09-13-13.00-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 1.8,
+          "iops": 1716,
+          "w_amp": null,
+          "r_amp": 1.003,
+          "p99_ms": 63.18,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 0.641,
+          "iops": 610,
+          "w_amp": 1.003,
+          "r_amp": null,
+          "p99_ms": 658.51,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.144,
+          "iops": 35116,
+          "w_amp": null,
+          "r_amp": 9.911,
+          "p99_ms": 5.01,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.058,
+          "iops": 14114,
+          "w_amp": 12.058,
+          "r_amp": null,
+          "p99_ms": 17.17,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.593,
+          "iops": 9050,
+          "w_amp": null,
+          "r_amp": 1.832,
+          "p99_ms": 20.05,
+          "steady": false,
+          "publishable": false
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.422,
+          "iops": 6444,
+          "w_amp": 1.591,
+          "r_amp": null,
+          "p99_ms": 24.77,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.368,
+          "iops": 22478,
+          "w_amp": 5.049,
+          "r_amp": 3.072,
+          "p99_ms": 13.7,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.021,
+          "iops": 1283,
+          "w_amp": 4.023,
+          "r_amp": null,
+          "p99_ms": 50.59,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.461,
+          "iops": 34225,
+          "w_amp": 0.84,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.094,
+          "iops": 6996,
+          "w_amp": null,
+          "r_amp": 1.52,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    },
+    {
+      "lane": "x4",
+      "layout": "stage2-single-x4-full",
+      "usable_tib": 3.0,
+      "result_dir": "results/2026-09-12-19.42-storage.dendrite-sut",
+      "tests": {
+        "STO-01_seq_read_1M_j4": {
+          "bw_gbps": 5.888,
+          "iops": 5615,
+          "w_amp": null,
+          "r_amp": 1.018,
+          "p99_ms": 20.32,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-01_seq_write_1M_j4": {
+          "bw_gbps": 1.328,
+          "iops": 1265,
+          "w_amp": 0.992,
+          "r_amp": null,
+          "p99_ms": 641.73,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_4k_j4": {
+          "bw_gbps": 0.169,
+          "iops": 41318,
+          "w_amp": null,
+          "r_amp": 9.594,
+          "p99_ms": 4.29,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_4k_j4": {
+          "bw_gbps": 0.084,
+          "iops": 20551,
+          "w_amp": 16.166,
+          "r_amp": null,
+          "p99_ms": 19.53,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_read_64k_j4": {
+          "bw_gbps": 0.796,
+          "iops": 12149,
+          "w_amp": null,
+          "r_amp": 1.988,
+          "p99_ms": 18.22,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-02_rand_write_64k_j4": {
+          "bw_gbps": 0.875,
+          "iops": 13356,
+          "w_amp": 1.982,
+          "r_amp": null,
+          "p99_ms": 24.51,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-03_mixed_70r30w_16k_j4": {
+          "bw_gbps": 0.486,
+          "iops": 29634,
+          "w_amp": 5.034,
+          "r_amp": 3.823,
+          "p99_ms": 13.17,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-04_sync_write_16k_j4": {
+          "bw_gbps": 0.023,
+          "iops": 1398,
+          "w_amp": 1.152,
+          "r_amp": null,
+          "p99_ms": 46.92,
+          "steady": true,
+          "publishable": true
+        },
+        "STO-06_smallfiles_copy_1stream": {
+          "bw_gbps": 0.514,
+          "iops": 38188,
+          "w_amp": 1.237,
+          "r_amp": null,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        },
+        "STO-06_smallfiles_read_1stream": {
+          "bw_gbps": 0.103,
+          "iops": 7651,
+          "w_amp": null,
+          "r_amp": 1.528,
+          "p99_ms": null,
+          "steady": null,
+          "publishable": true
+        }
+      }
+    }
+  ],
+  "scatter_capacity_rnd4kw": [
+    {
+      "layout": "btrfs-raid10",
+      "usable_tib": 6.99,
+      "rnd4k_write_gbps": 0.373,
+      "steady": true,
+      "result_dir": "results/2026-09-14-05.18-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "btrfs-raid5",
+      "usable_tib": 14.43,
+      "rnd4k_write_gbps": 0.227,
+      "steady": true,
+      "result_dir": "results/2026-09-14-13.57-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "btrfs-raid6",
+      "usable_tib": 10.71,
+      "rnd4k_write_gbps": 0.177,
+      "steady": true,
+      "result_dir": "results/2026-09-14-17.56-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "mdadm-ext4-raid10",
+      "usable_tib": 7.02,
+      "rnd4k_write_gbps": 0.118,
+      "steady": true,
+      "result_dir": "results/2026-09-14-21.46-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "mdadm-ext4-raid5",
+      "usable_tib": 14.41,
+      "rnd4k_write_gbps": 0.212,
+      "steady": true,
+      "result_dir": "results/2026-09-15-00.41-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "mdadm-ext4-raid6",
+      "usable_tib": 10.71,
+      "rnd4k_write_gbps": 0.122,
+      "steady": true,
+      "result_dir": "results/2026-09-15-03.24-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "raid10",
+      "usable_tib": 6.71,
+      "rnd4k_write_gbps": 0.167,
+      "steady": true,
+      "result_dir": "results/2026-09-13-15.49-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz1",
+      "usable_tib": 14.11,
+      "rnd4k_write_gbps": 0.077,
+      "steady": true,
+      "result_dir": "results/2026-09-13-17.14-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz2",
+      "usable_tib": 10.21,
+      "rnd4k_write_gbps": 0.042,
+      "steady": true,
+      "result_dir": "results/2026-09-13-18.42-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz1",
+      "usable_tib": 14.11,
+      "rnd4k_write_gbps": 0.075,
+      "steady": true,
+      "result_dir": "results/2026-09-13-02.02-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz2",
+      "usable_tib": 10.21,
+      "rnd4k_write_gbps": 0.075,
+      "steady": true,
+      "result_dir": "results/2026-09-13-03.23-storage.dendrite-sut"
+    },
+    {
+      "layout": "raid10+spare",
+      "usable_tib": 6.71,
+      "rnd4k_write_gbps": 0.103,
+      "steady": true,
+      "result_dir": "results/2026-09-13-04.48-storage.dendrite-sut"
+    }
+  ],
+  "write_amp_vs_seqw": [
+    {
+      "layout": "btrfs-raid10",
+      "w_amp": 2.002,
+      "seq_write_gbps": 2.372,
+      "result_dir": "results/2026-09-14-05.18-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "btrfs-raid5",
+      "w_amp": 1.255,
+      "seq_write_gbps": 4.066,
+      "result_dir": "results/2026-09-14-13.57-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "btrfs-raid6",
+      "w_amp": 1.764,
+      "seq_write_gbps": 2.72,
+      "result_dir": "results/2026-09-14-17.56-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "mdadm-ext4-raid10",
+      "w_amp": 1.995,
+      "seq_write_gbps": 0.441,
+      "result_dir": "results/2026-09-14-21.46-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "mdadm-ext4-raid5",
+      "w_amp": 1.248,
+      "seq_write_gbps": 0.881,
+      "result_dir": "results/2026-09-15-00.41-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "mdadm-ext4-raid6",
+      "w_amp": 1.736,
+      "seq_write_gbps": 0.627,
+      "result_dir": "results/2026-09-15-03.24-fscontrol.dendrite-sut"
+    },
+    {
+      "layout": "raid10",
+      "w_amp": 2.006,
+      "seq_write_gbps": 0.894,
+      "result_dir": "results/2026-09-13-15.49-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz1",
+      "w_amp": 1.245,
+      "seq_write_gbps": 0.718,
+      "result_dir": "results/2026-09-13-17.14-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz2",
+      "w_amp": 1.683,
+      "seq_write_gbps": 1.153,
+      "result_dir": "results/2026-09-13-18.42-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz1",
+      "w_amp": 1.253,
+      "seq_write_gbps": 0.453,
+      "result_dir": "results/2026-09-13-02.02-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz2",
+      "w_amp": 1.732,
+      "seq_write_gbps": 0.691,
+      "result_dir": "results/2026-09-13-03.23-storage.dendrite-sut"
+    },
+    {
+      "layout": "raid10+spare",
+      "w_amp": 2.003,
+      "seq_write_gbps": 1.172,
+      "result_dir": "results/2026-09-13-04.48-storage.dendrite-sut"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "vm-disks",
+      "title": "VM disks / databases",
+      "pick": "raid10 (ZFS) or btrfs-raid10",
+      "why": "Mirror random-write path; cold rnd4kW and mixed beat raidz on ZFS stage1",
+      "evidence": [
+        "stage1-raid10-full STO-02_rand_write_4k_j4 0.167 GB/s steady",
+        "stage1-raidz1-full STO-02_rand_write_4k_j4 0.077 GB/s steady",
+        "stage5-btrfs-raid10-full cold seqWR 1.95 / rnd4k context"
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Media / sequential archive read",
+      "pick": "raidz1 (recommended) or btrfs-raid5 (fastest)",
+      "why": "Near line-rate seq read + capacity; raidz1 14.11 TiB @ 7.83 GB/s; btrfs-raid5 14.43 TiB @ 9.03",
+      "evidence": [
+        "stage1-raidz1-full STO-01_seq_read_1M_j4 7.83 steady",
+        "stage5-btrfs-raid5-full cold STO-01_seq_read_1M_j4 9.033 steady"
+      ]
+    },
+    {
+      "id": "local-ai",
+      "title": "Local-AI weight streaming",
+      "pick": "btrfs-raid5 (bat) / raidz1 (default ecosystem)",
+      "why": "AI bat stresses sequential read of multi-hundred-GB trees; capacity-first Pareto",
+      "evidence": [
+        "docs/winner-selection.md",
+        "AI provisional llama2-7b tg128\u224853.7 tok/s resident on btrfs-raid5"
+      ]
+    },
+    {
+      "id": "archive",
+      "title": "Cold archive / dual parity",
+      "pick": "raidz2 or btrfs-raid6",
+      "why": "Dual parity; seq read still near ceiling; capacity trade 10.2\u201310.7 TiB",
+      "evidence": [
+        "stage1-raidz2-full 18.42 STO-01_seq_read_1M_j4 8.941 steady",
+        "stage5-btrfs-raid6-full cold seqRD 9.03"
+      ]
+    },
+    {
+      "id": "sync-heavy",
+      "title": "Sync-write heavy (NFS/DB commit)",
+      "pick": "raid10 today; raidz1+SLOG deferred",
+      "why": "ZFS raidz sync ~0.007 GB/s vs raid10 0.027; SLOG on x4 predicted ~2.9\u00d7 on STO-04 only",
+      "evidence": [
+        "stage1-raidz1-full STO-04 0.007 steady",
+        "stage1-raid10-full STO-04 0.027 steady",
+        "docs/followup-raid-pass.md"
+      ]
+    }
+  ],
+  "ai_provisional": [
+    {
+      "model": "llama2-7b-q4-0",
+      "layout": "btrfs-raid5",
+      "pp512": 1319.706149,
+      "tg128": 53.710502,
+      "result_dir": "results/2026-09-17-04.38-ai.dendrite-sut",
+      "provisional": true
+    },
+    {
+      "model": "smoke-qwen3-0.6b-q8",
+      "layout": "btrfs-raid5",
+      "pp512": 11374.331817,
+      "tg128": 229.73932,
+      "result_dir": "results/2026-09-17-05.29-ai.dendrite-sut",
+      "provisional": true
+    },
+    {
+      "model": "gemma-4-26b-a4b-q4km",
+      "layout": "btrfs-raid5",
+      "pp512": 1108.509337,
+      "tg128": 50.020815,
+      "result_dir": "results/2026-09-17-05.48-ai.dendrite-sut",
+      "provisional": true
+    },
+    {
+      "model": "qwen3.5-122b-a10b-q4km",
+      "layout": "btrfs-raid5",
+      "pp512": 299.507968,
+      "tg128": 23.015838,
+      "result_dir": "results/2026-09-17-08.49-ai.dendrite-sut",
+      "provisional": true
+    }
+  ],
+  "soak": [
+    {
+      "layout": "raidz1",
+      "test_id": "SOAK-00_probe_seq_write_1M_j4",
+      "bw_gbps": 0.626,
+      "steady": false,
+      "temp_c": 38.25,
+      "power_w": 13.714,
+      "result_dir": "results/2026-09-12-14.31-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz1",
+      "test_id": "SOAK-01_seq_write_1M_j4",
+      "bw_gbps": 1.178,
+      "steady": false,
+      "temp_c": 40.0,
+      "power_w": 11.83,
+      "result_dir": "results/2026-09-12-14.31-storage.dendrite-sut"
+    },
+    {
+      "layout": "raidz1",
+      "test_id": "SOAK-02_mixed_70r30w_16k_j4",
+      "bw_gbps": 0.886,
+      "steady": true,
+      "temp_c": 52.0,
+      "power_w": 31.594,
+      "result_dir": "results/2026-09-12-14.31-storage.dendrite-sut"
+    },
+    {
+      "layout": "raid0",
+      "test_id": "SOAK-00_probe_seq_write_1M_j4",
+      "bw_gbps": 1.15,
+      "steady": true,
+      "temp_c": 38.62,
+      "power_w": 14.78,
+      "result_dir": "results/2026-09-12-17.50-storage.dendrite-sut"
+    },
+    {
+      "layout": "raid0",
+      "test_id": "SOAK-01_seq_write_1M_j4",
+      "bw_gbps": 1.473,
+      "steady": false,
+      "temp_c": 40.38,
+      "power_w": 13.26,
+      "result_dir": "results/2026-09-12-17.50-storage.dendrite-sut"
+    },
+    {
+      "layout": "raid0",
+      "test_id": "SOAK-02_mixed_70r30w_16k_j4",
+      "bw_gbps": 1.616,
+      "steady": true,
+      "temp_c": 54.5,
+      "power_w": 34.838,
+      "result_dir": "results/2026-09-12-17.50-storage.dendrite-sut"
+    }
+  ],
+  "obscure": [
+    {
+      "id": "sto06-converges",
+      "claim": "STO-06 smallfiles copy converges ~0.46\u20130.57 GB/s across ZFS layouts cold \u2014 fio seq/rand do not",
+      "evidence": "stage1 none STO-06_smallfiles_copy_1stream across single/raid0/raid10/raidz1/raidz2"
+    },
+    {
+      "id": "cold-read-amp",
+      "claim": "Cold primarycache=none forces ~9.4\u20139.9\u00d7 read amplification on rnd4k \u2014 measuring pool not ARC",
+      "evidence": "stage1 *-full STO-02_rand_read_4k_j4 r_amp\u22489.4"
+    },
+    {
+      "id": "raidz2-beats-raidz1-seqrd",
+      "claim": "raidz2 cold seq read (8.94) exceeds raidz1 (7.83) on same 4-wide x1 \u2014 parity width vs stripe efficiency",
+      "evidence": "2026-09-13-18.42 vs 2026-09-13-17.14 STO-01_seq_read_1M_j4 steady"
+    },
+    {
+      "id": "x4-tax-asymmetry",
+      "claim": "x4 vs x1 seq read ~3.3\u00d7 (5.89/1.80) but sync write only ~1.1\u00d7 (0.023/0.021) \u2014 sync is flush-bound not link-bound",
+      "evidence": "stage2-single-x4-full vs stage1-single-x1-full"
+    },
+    {
+      "id": "mdadm-parity-cap",
+      "claim": "mdadm raid5/6 cold seqRD and rnd64kR pin at ~1.14/1.10 while raid10 reads 4.07 \u2014 parity read-path anomaly not FS-wide",
+      "evidence": "stage5 mdadm cold; docs/followup-raid-pass.md HOLD"
+    },
+    {
+      "id": "warm-dram-ceiling",
+      "claim": "Warm/metadata seq read collapses to ~36 GB/s DRAM path across FS \u2014 layout identity erased",
+      "evidence": "stage5 warm STO-01_seq_read_1M_j4 ~36.3\u201336.7 all layouts"
+    },
+    {
+      "id": "btrfs-write-champ",
+      "claim": "btrfs-raid5 cold seq write 1.91 GB/s >> raidz1 0.72 \u2014 write amp / COW path difference dominates capacity-matched race",
+      "evidence": "stage5-btrfs-raid5 vs stage1-raidz1"
+    },
+    {
+      "id": "soak-thermal-headroom",
+      "claim": "1h soak mixed peaks ~52\u201354\u00b0C soc \u2014 no thermal cliff in sealed soak windows",
+      "evidence": "stage4 SOAK-02 thermal max_during"
+    }
+  ]
+}

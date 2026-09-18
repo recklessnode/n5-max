@@ -57,3 +57,11 @@ Shared tokens live in `css/theme.css`. Toggle in `js/theme.js` (localStorage key
 - Lab aliases (`--bg-panel`, `--text`, `--teal`, …) map onto the shared tokens so `telemetry-viz` keeps its look in dark and gains a working light mode.
 - Shared chrome: provisional banner + `.site-nav` + Light/Dark toggle on Story, Matrix, and M.2 lab.
 - Default when unset: `prefers-color-scheme`, then light.
+
+## 2026-09-18 sealed rearrange
+
+- IA: Overview / Compare / Recipes / Method / Matrix / AI provisional.
+- Charts: static SVG under `media/charts/` + Chart.js radar/small-multiples from `data/sealed-metrics.json`.
+- Dual answer: btrfs-raid5 fastest measured · raidz1 recommended default.
+- HOLD mdadm 8× claim; `story_sealed` remains false; provisional banner stays.
+- Design Exploration: composition pass welcome on the PR branch.

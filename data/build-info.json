@@ -1,5 +1,10 @@
 {
   "git_commit": "de98ea0",
   "built_at": "2026-09-11T21:51:43Z",
-  "repo": "lab"
+  "repo": "lab",
+  "sealed_review": "2026-09-18",
+  "story_sealed": false,
+  "fastest_measured": "btrfs-raid5",
+  "recommended_default": "raidz1",
+  "note": "Protocol B sealed figures wired; AI provisional; running analysis banner"
 }
