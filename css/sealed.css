@@ -1,0 +1,204 @@
+/* Sealed-review layout — Ubuntu / Orbitron / Intel One Mono */
+.mono,
+code.mono,
+.chip.mono,
+.pick,
+.evidence,
+.data-table .mono,
+.answer-kicker,
+.metric .value {
+  font-family: var(--mono, "Intel One Mono", ui-monospace, monospace);
+}
+
+.t-btrfs { color: #6b46c1; }
+
+.dual-answer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.answer-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem 1.35rem;
+  box-shadow: var(--shadow-card, var(--shadow));
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-height: 100%;
+}
+.answer-card.btrfs { border-top: 3px solid #6b46c1; }
+.answer-card.raidz1 { border-top: 3px solid var(--raidz1, #1fa6a0); }
+.answer-kicker {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.2rem;
+}
+.answer-card h3 {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.28rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.35rem;
+}
+.answer-card .big {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0.15rem 0 0.35rem;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.answer-card .fine {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem 1.25rem;
+  margin: 1.35rem 0 0.5rem;
+  align-items: start;
+}
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.85rem 0.95rem 1rem;
+  box-shadow: var(--shadow);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.chart-card.wide { grid-column: 1 / -1; }
+.chart-card figcaption {
+  font-family: Ubuntu, var(--font, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink, var(--text, #1a1917));
+  margin: 0;
+  line-height: 1.35;
+}
+.chart-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background: var(--chart-well, #f4f1ec);
+  border: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
+}
+html[data-theme="dark"] .chart-card img {
+  background: var(--chart-well, #14181c);
+  filter: brightness(0.92) contrast(1.04);
+}
+
+.live-charts {
+  margin: 2rem 0 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--line);
+}
+.live-charts h3 {
+  font-family: Ubuntu, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.85rem;
+}
+.live-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.chart-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1rem 0.75rem;
+  min-height: 300px;
+}
+
+.sealed-metrics .metric.btrfs { border-top-color: #6b46c1; }
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.recipe-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow);
+}
+.recipe-card h3 {
+  font-family: Orbitron, sans-serif;
+  font-size: 0.98rem;
+  margin: 0 0 0.4rem;
+}
+.recipe-card .pick {
+  color: var(--raidz1, #1fa6a0);
+  font-size: 0.82rem;
+  margin: 0 0 0.6rem;
+}
+.recipe-card .evidence {
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  margin: 0.6rem 0 0;
+}
+.callout.caution {
+  border-left: 3px solid var(--raid10, #e86a2b);
+  background: var(--raid10-soft, color-mix(in srgb, #e86a2b 12%, transparent));
+  padding: 0.9rem 1rem;
+  border-radius: 0 10px 10px 0;
+  margin-top: 1.25rem;
+}
+.section-label.caution { color: #c53030; }
+
+.method-list { line-height: 1.55; }
+.method-list li { margin-bottom: 0.55rem; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.92rem;
+}
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+.data-table th { color: var(--muted); font-weight: 500; }
+.data-table .mono { font-variant-numeric: tabular-nums; }
+
+.obscure-list { line-height: 1.5; }
+.obscure-list li { margin-bottom: 0.9rem; }
+.obscure-list .evidence { font-size: 0.78rem; color: var(--muted); }
+
+.site-footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .dual-answer,
+  .chart-grid,
+  .live-grid { grid-template-columns: 1fr; }
+  .chart-card.wide { grid-column: auto; }
+  .answer-card .big { font-size: 0.98rem; }
+}

@@ -57,3 +57,19 @@ Shared tokens live in `css/theme.css`. Toggle in `js/theme.js` (localStorage key
 - Lab aliases (`--bg-panel`, `--text`, `--teal`, …) map onto the shared tokens so `telemetry-viz` keeps its look in dark and gains a working light mode.
 - Shared chrome: provisional banner + `.site-nav` + Light/Dark toggle on Story, Matrix, and M.2 lab.
 - Default when unset: `prefers-color-scheme`, then light.
+
+## 2026-09-18 sealed rearrange
+
+- IA: Overview / Compare / Recipes / Method / Matrix / AI provisional.
+- Charts: static SVG under `media/charts/` + Chart.js radar/small-multiples from `data/sealed-metrics.json`.
+- Dual answer: btrfs-raid5 fastest measured · raidz1 recommended default.
+- HOLD mdadm 8× claim; `story_sealed` remains false; provisional banner stays.
+- Design Exploration: composition pass welcome on the PR branch.
+
+## Composition pass (Design Exploration, 2026-09-18)
+
+- Figcaptions stay **Ubuntu** (editorial); measured digits / IDs / axis ticks use **Intel One Mono**.
+- Dual-answer cards: equal visual weight; tabular nums on the big metrics.
+- Chart mosaic: consistent card chrome; dark theme dims matplotlib SVG wells (light fills) instead of flashing white.
+- Chart.js defaults pointed at self-hosted `"Intel One Mono"` for ticks; titles remain Ubuntu.
+- No number changes — sealed JSON / SVG payloads untouched.

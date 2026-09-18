@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>N5 MAX Storage + AI-NAS — RAID10 vs RAIDZ1 story</title>
-  <meta name="description" content="N5 MAX as tiered local-AI NAS: hot NVMe array + 128GB unified memory + cold SATA. Preliminary RAID10 vs RAIDZ1 under Gen4 ×1 (under review); AI-from-pool next. For llama.cpp / Comfy / RAG builders. No invented tok/s." />
+  <title>N5 MAX — Sealed storage review (running analysis)</title>
+  <meta name="description" content="Minisforum N5 MAX hot-tier NVMe layouts from Protocol B sealed cells. Fastest measured btrfs-raid5; recommended default raidz1. AI provisional. story_sealed=false." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/sealed.css" />
   <script src="js/theme.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
-  <script src="js/app.js" defer></script>
+  <script src="js/sealed-charts.js" defer></script>
   <script src="js/campaign-status.js" defer></script>
   <script src="js/viewer-footer.js" defer></script>
 </head>
@@ -20,25 +21,25 @@
   <aside class="provisional-banner" role="status" aria-live="polite">
     <div class="provisional-banner-inner">
       <strong class="provisional-title">RUNNING ANALYSIS — DO NOT DEPEND</strong>
-      <p class="provisional-body">This public face is a live report under adversarial review. Storage chapter figures are preliminary / provisional — not Protocol&nbsp;B sealed. AI/telemetry demos are synthetic. Do not cite as final.</p>
+      <p class="provisional-body">
+        Live report under adversarial review. Storage figures below are from <strong>Protocol&nbsp;B sealed</strong> cells with steadiness rails —
+        still <strong>not</strong> <code class="mono">story_sealed</code>. Warm/metadata ≠ layout story. AI chapter is <strong>provisional</strong> (partial stage&nbsp;3).
+        Do not cite as final.
+      </p>
     </div>
   </aside>
 
   <nav class="site-nav" aria-label="Section navigation">
     <div class="inner">
-      <div class="nav-brand">N5 MAX · <span class="r10">RAID10</span>/<span class="rz1">RAIDZ1</span></div>
+      <div class="nav-brand">N5 MAX · sealed review</div>
       <div class="nav-links">
-        <a href="#choose">Choose</a>
-        <a href="#media">Media</a>
-        <a href="#results">Results</a>
-        <a href="#platform">Topology</a>
+        <a href="#overview">Overview</a>
+        <a href="#compare">Compare</a>
+        <a href="#recipes">Recipes</a>
         <a href="#method">Method</a>
-        <a href="#throughput">Charts</a>
-        <a href="telemetry-viz/">M.2 lab</a>
         <a href="matrix/">Matrix</a>
-        <a href="#ai">AI destination</a>
-        <a href="#social">Watch / Read</a>
-        <a href="#next">Next runs</a>
+        <a href="#ai">AI provisional</a>
+        <a href="telemetry-viz/">M.2 lab</a>
         <a href="#follow">Follow</a>
       </div>
       <div class="theme-toggle" data-theme-toggle role="group" aria-label="Color theme">
@@ -47,653 +48,236 @@
       </div>
     </div>
   </nav>
-
-  <header class="hero">
+  <header class="hero" id="overview">
     <div class="wrap">
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Tiered local-AI NAS · Minisforum N5 MAX · 2026-09</p>
-      <h1>Hot NVMe. Unified memory.<br /><span class="t-muted">Cold SATA. Models from the pool.</span></h1>
+      <h1>Two answers. One box.<br /><span class="t-muted">Fastest measured ≠ recommended default.</span></h1>
       <p class="hero-sub">
-        The N5 MAX as a <strong>tiered local-AI NAS / appliance</strong> — not a generic NAS:
-        <strong>hot tier</strong> multi-NVMe array (4 now → 5-wide) for VMs, model weights, RAG indexes;
-        <strong>128&nbsp;GB unified memory</strong> (CPU+iGPU shared — not discrete VRAM);
-        <strong>cold tier</strong> SATA/HDD bays for bulk archive.
-        Array NVMe is Gen4 <strong>×1</strong>, so ZFS layout + lane tax shape cold model load and MoE streaming off the hot pool.
-        Working chapter (provisional): how to choose the <em>hot-tier</em> layout — four-disk
-        <span class="t-raid10">RAID10</span> vs <span class="t-raidz1">RAIDZ1</span>. Figures below are from preliminary storage runs — <strong>not</strong> Protocol&nbsp;B sealed cells. No invented tok/s; treat as under review.
+        Hot-tier multi-NVMe (Gen4 <strong>×1</strong> array lanes + one ×4) + <strong>128&nbsp;GB</strong> unified memory + cold SATA.
+        From sealed Protocol&nbsp;B cells: <strong class="t-btrfs">btrfs-raid5</strong> is the Pareto winner on capacity∩sequential read;
+        <strong class="t-raidz1">raidz1</strong> is the recommended default for Proxmox/ZFS users.
+        Cold control = <span class="mono">primarycache=none</span>. Calibrate mode is not the story.
       </p>
       <div class="chips" role="list">
-        <span class="chip" role="listitem">Hot · multi-NVMe array</span>
-        <span class="chip" role="listitem">128 GB unified memory</span>
-        <span class="chip" role="listitem">Cold · SATA/HDD bays</span>
-        <span class="chip" role="listitem">4× NM790 4TB · Gen4 ×1</span>
-        <span class="chip" role="listitem">ZFS · bus ceiling 7.88 GB/s</span>
+        <span class="chip mono" role="listitem">story_sealed=false</span>
+        <span class="chip" role="listitem">Protocol B · steady rails</span>
+        <span class="chip" role="listitem">5× NM790 4TB</span>
+        <span class="chip" role="listitem">SN labels only</span>
+        <span class="chip" role="listitem">HOLD mdadm 8× claim</span>
       </div>
       <div class="hero-actions">
-        <a class="btn btn-raid10" href="#choose">Pick a layout</a>
-        <a class="btn btn-raidz1" href="#results">See results</a>
-        <a class="btn btn-ghost" href="#next">Recommended next experiments</a>
+        <a class="btn btn-raidz1" href="#compare">Compare layouts</a>
+        <a class="btn btn-raid10" href="#recipes">NAS recipes</a>
+        <a class="btn btn-ghost" href="#ai">AI provisional</a>
       </div>
-      <div class="badge-row">
-        <div class="badge-pending">
-          Storage chapter · provisional (pre–Protocol B)
-        </div>
-        <div class="badge-pending">AI inference · in progress / next</div>
+      <div class="dual-answer" aria-label="Dual winner stance">
+        <article class="answer-card btrfs">
+          <p class="answer-kicker mono">FASTEST MEASURED</p>
+          <h3>btrfs-raid5</h3>
+          <p class="mono big">14.43 TiB · 9.03 GB/s seqRD</p>
+          <p class="fine">Cold FS-control · <span class="mono">stage5-btrfs-raid5 · STO-01_seq_read_1M_j4</span></p>
+        </article>
+        <article class="answer-card raidz1">
+          <p class="answer-kicker mono">RECOMMENDED DEFAULT</p>
+          <h3>raidz1</h3>
+          <p class="mono big">14.11 TiB · 7.83 GB/s seqRD</p>
+          <p class="fine">Cold ZFS stage1 · <span class="mono">stage1-raidz1-full · STO-01_seq_read_1M_j4</span></p>
+        </article>
       </div>
     </div>
   </header>
-
-  <!-- CHOOSE / CTAs -->
-  <section id="choose" class="cta-section">
+  <section id="compare" class="compare-section">
     <div class="wrap reveal">
-      <p class="section-label">Recommendations · storage layouts</p>
-      <h2>Choose by workload — not by reflex.</h2>
-      <p class="lede">Preliminary four-disk storage chapter only — under review. Use these cards to compare layouts, not as a final seal.</p>
-
-      <div class="verdict-grid">
-        <article class="verdict-card raid10">
-          <h3>Choose RAID10 if…</h3>
-          <div class="choose">Best when IOPS and sync matter</div>
-          <ul class="verdict-list">
-            <li><span class="stat">1.8×</span><span class="text">Small random writes (39.0K vs 21.3K IOPS) — VM disks, DB volumes</span></li>
-            <li><span class="stat">1.9×</span><span class="text">Sync-write / fsync latency — transactional workloads</span></li>
-            <li><span class="stat">·</span><span class="text">Simpler rebuilds; one failure per mirror pair</span></li>
+      <p class="section-label">Compare · sealed Protocol B</p>
+      <h2>Cross-joins, not spreadsheet dumps.</h2>
+      <p class="lede">
+        Every plotted point is Protocol&nbsp;B with <span class="mono">steady=true</span> (STO-06 wall-clock labeled N/A).
+        Hatch / amber marks non-steady. mdadm parity seq-read is shown but <strong>not</strong> framed as an 8× filesystem finding — open anomaly.
+      </p>
+      <div class="chart-grid">
+        <figure class="chart-card wide">
+          <figcaption>Tradeoff compass · bubble ∝ rnd4k write</figcaption>
+          <img src="media/charts/tradeoff-compass.svg" alt="Usable TiB vs sequential read; bubble size random 4k write" loading="lazy" />
+        </figure>
+        <figure class="chart-card">
+          <figcaption>ZFS stage1 · cold vs metadata ARC</figcaption>
+          <img src="media/charts/sto-zfs-stage1-cold-metadata.svg" alt="STO suite bars across ZFS layouts cold and metadata" loading="lazy" />
+        </figure>
+        <figure class="chart-card">
+          <figcaption>FS controls cold · btrfs / mdadm / ZFS refs</figcaption>
+          <img src="media/charts/fs-controls-cross-cold.svg" alt="Sequential read and write across filesystem controls" loading="lazy" />
+        </figure>
+        <figure class="chart-card">
+          <figcaption>Capacity vs rnd4k write</figcaption>
+          <img src="media/charts/scatter-capacity-rnd4kw.svg" alt="Scatter usable TiB versus random 4k write" loading="lazy" />
+        </figure>
+        <figure class="chart-card">
+          <figcaption>Write amp vs seq write</figcaption>
+          <img src="media/charts/scatter-wamp-seqw.svg" alt="Write amplification versus sequential write" loading="lazy" />
+        </figure>
+        <figure class="chart-card">
+          <figcaption>Lane tax · Gen4 ×1 vs ×4</figcaption>
+          <img src="media/charts/x1-vs-x4-lane-tax.svg" alt="Single drive x1 versus x4 throughput comparison" loading="lazy" />
+        </figure>
+      </div>
+      <div class="live-charts">
+        <h3>Interactive · from <span class="mono">sealed-metrics.json</span></h3>
+        <div class="live-grid">
+          <div class="chart-panel"><canvas id="chart-radar" aria-label="Layout radar"></canvas></div>
+          <div class="chart-panel"><canvas id="chart-smallmultiples" aria-label="Small multiples"></canvas></div>
+        </div>
+      </div>
+      <div class="metrics sealed-metrics" aria-label="Headline sealed metrics">
+        <div class="metric raidz1">
+          <div class="label">raidz1 usable</div>
+          <div class="value mono">14.11 <span class="unit">TiB</span></div>
+          <div class="detail">seqRD 7.83 · rnd4kW 0.08 · sync 0.007</div>
+        </div>
+        <div class="metric raid10">
+          <div class="label">raid10 usable</div>
+          <div class="value mono">6.71 <span class="unit">TiB</span></div>
+          <div class="detail">seqRD 7.02 · rnd4kW 0.17 · sync 0.027</div>
+        </div>
+        <div class="metric btrfs">
+          <div class="label">btrfs-raid5 usable</div>
+          <div class="value mono">14.43 <span class="unit">TiB</span></div>
+          <div class="detail">seqRD 9.03 · seqWR 4.07 · fastest measured</div>
+        </div>
+        <div class="metric">
+          <div class="label">×4 / ×1 seqRD</div>
+          <div class="value mono">3.27×</div>
+          <div class="detail">1.80 → 5.89 GB/s · sync ≈ flat</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="recipes" class="recipes-section">
+    <div class="wrap reveal">
+      <p class="section-label">Recipes · real-world N5 NAS</p>
+      <h2>Pick by workload.</h2>
+      <figure class="chart-card wide">
+        <img src="media/charts/recipes-n5-nas.svg" alt="N5 NAS recipe cards visual" loading="lazy" />
+      </figure>
+      <div class="recipe-grid">
+        <article class="recipe-card">
+          <h3>VM disks / databases</h3>
+          <p class="pick mono">raid10 (ZFS) or btrfs-raid10</p>
+          <p>Mirror random-write path; cold rnd4kW and mixed beat raidz on ZFS stage1</p>
+          <ul class="evidence mono">
+            <li>stage1-raid10-full STO-02_rand_write_4k_j4 0.167 GB/s steady</li>
+            <li>stage1-raidz1-full STO-02_rand_write_4k_j4 0.077 GB/s steady</li>
+            <li>stage5-btrfs-raid10-full cold STO-01_seq_write_1M_j4 2.372 / rnd4k context</li>
           </ul>
-          <a class="card-cta" href="#next">Request: expand fsync CDFs →</a>
         </article>
-        <article class="verdict-card raidz1">
-          <h3>Choose RAIDZ1 if…</h3>
-          <div class="choose">Best when capacity and seq serve matter</div>
-          <ul class="verdict-list">
-            <li><span class="stat">+50%</span><span class="text">Usable capacity — 10.08 TiB vs 6.71 TiB</span></li>
-            <li><span class="stat">1.375×</span><span class="text">Lower write amplification — less NAND wear per byte</span></li>
-            <li><span class="stat">6.02</span><span class="text">GB/s sequential read — large-file / media serve</span></li>
+        <article class="recipe-card">
+          <h3>Media / sequential archive read</h3>
+          <p class="pick mono">raidz1 (recommended) or btrfs-raid5 (fastest)</p>
+          <p>Near line-rate seq read + capacity; raidz1 14.11 TiB @ 7.83 GB/s; btrfs-raid5 14.43 TiB @ 9.03</p>
+          <ul class="evidence mono">
+            <li>stage1-raidz1-full STO-01_seq_read_1M_j4 7.83 steady</li>
+            <li>stage5-btrfs-raid5-full cold STO-01_seq_read_1M_j4 9.033 steady</li>
           </ul>
-          <a class="card-cta" href="#next">Request: RAIDZ1 5-wide + resilver →</a>
+        </article>
+        <article class="recipe-card">
+          <h3>Local-AI weight streaming</h3>
+          <p class="pick mono">btrfs-raid5 (bat) / raidz1 (default ecosystem)</p>
+          <p>AI bat stresses sequential read of multi-hundred-GB trees; capacity-first Pareto</p>
+          <ul class="evidence mono">
+            <li>docs/winner-selection.md</li>
+            <li>AI provisional llama2-7b tg128≈53.7 tok/s resident on btrfs-raid5</li>
+          </ul>
+        </article>
+        <article class="recipe-card">
+          <h3>Cold archive / dual parity</h3>
+          <p class="pick mono">raidz2 or btrfs-raid6</p>
+          <p>Dual parity; seq read still near ceiling; capacity trade 10.2–10.7 TiB</p>
+          <ul class="evidence mono">
+            <li>stage1-raidz2-full 18.42 STO-01_seq_read_1M_j4 8.941 steady</li>
+            <li>stage5-btrfs-raid6-full cold seqRD 9.03</li>
+          </ul>
+        </article>
+        <article class="recipe-card">
+          <h3>Sync-write heavy (NFS/DB commit)</h3>
+          <p class="pick mono">raid10 today; raidz1+SLOG deferred</p>
+          <p>ZFS raidz sync ~0.007 GB/s vs raid10 0.027; SLOG on x4 predicted ~2.9× on STO-04 only</p>
+          <ul class="evidence mono">
+            <li>stage1-raidz1-full STO-04 0.007 steady</li>
+            <li>stage1-raid10-full STO-04 0.027 steady</li>
+            <li>docs/followup-raid-pass.md</li>
+          </ul>
         </article>
       </div>
-
-      <div class="cta-strip">
-        <a class="btn btn-raid10" href="#throughput">Scan charts</a>
-        <a class="btn btn-raidz1" href="#ai">AI destination narrative</a>
-        <a class="btn btn-ghost" href="#follow">Follow the campaign</a>
-      </div>
+      <p class="callout caution">Sync-heavy today → raid10. raidz1+SLOG on the Gen4 ×4 is deferred (predicted ~2.9× on STO-04 only; falsifier if reads move). NM790 has no PLP — durability caveat stays in the writeup.</p>
     </div>
   </section>
-
-
-  <!-- MEDIA STRIP -->
-  <section id="media" class="media-section">
-    <div class="wrap reveal">
-      <p class="section-label">Hardware · media kit</p>
-      <h2>See the box before the charts.</h2>
-            <p class="lede">Build photos from the hot-tier kit — 4× Lexar NM790 4TB and the open N5 MAX chassis. A clean full-chassis exterior still helps as the true hero shot.</p>
-
-      <div class="media-strip" aria-label="Hardware photos">
-        <figure class="media-card">
-          <button type="button" class="media-zoom" data-full="media/photos/01-kit-nm790-boxes-open-chassis.jpg" aria-label="Enlarge kit photo">
-            <img src="media/photos/01-kit-nm790-boxes-open-chassis.jpg" alt="Four Lexar NM790 4TB boxes with open N5 MAX chassis" width="640" height="853" loading="lazy" />
-          </button>
-          <figcaption>Hot-tier kit · 4× NM790 4TB + open chassis</figcaption>
-        </figure>
-        <figure class="media-card">
-          <button type="button" class="media-zoom" data-full="media/photos/02-rear-io-dual-10gbe-fans.jpg" aria-label="Enlarge rear I/O photo">
-            <img src="media/photos/02-rear-io-dual-10gbe-fans.jpg" alt="N5 MAX rear I/O with dual Ethernet and blower fans" width="640" height="480" loading="lazy" />
-          </button>
-          <figcaption>Rear I/O · dual 10GbE + dual blowers</figcaption>
-        </figure>
-        <figure class="media-card">
-          <button type="button" class="media-zoom" data-full="media/photos/03-nvme-install-lexar-stack.jpg" aria-label="Enlarge NVMe install photo">
-            <img src="media/photos/03-nvme-install-lexar-stack.jpg" alt="Installing stacked Lexar NM790 NVMe drives in the N5 MAX" width="640" height="480" loading="lazy" />
-          </button>
-          <figcaption>NVMe install · Lexar stack on the array slots</figcaption>
-        </figure>
-        <figure class="media-card">
-          <button type="button" class="media-zoom" data-full="media/photos/04-board-detail-power-section.jpg" aria-label="Enlarge board detail photo">
-            <img src="media/photos/04-board-detail-power-section.jpg" alt="Close-up of N5 MAX board power section" width="640" height="480" loading="lazy" />
-          </button>
-          <figcaption>Board detail · power section B-roll</figcaption>
-        </figure>
-      </div>
-
-      <div class="diagram-grid" style="margin-top:1.75rem">
-        <figure class="diagram-card" data-lightbox>
-          <img src="media/diagrams/topo-pcie-fanout.png" alt="PCIe fan-out topology: Ryzen AI Max+ 395 to Gen4 ×1 NVMe array slots, OS NVMe, SATA, dual 10GbE, dual USB4" width="1280" height="720" loading="lazy" />
-          <figcaption>PCIe fan-out · Gen4 ×1 array slots (the lane tax)</figcaption>
-        </figure>
-        <figure class="diagram-card" data-lightbox>
-          <img src="media/diagrams/tradeoff-compass.png" alt="Tradeoff compass: RAIDZ1 favors capacity and write amp; RAID10 favors random write and sync latency" width="1280" height="720" loading="lazy" />
-          <figcaption>Tradeoff compass · preliminary four-disk chapter</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESULTS (PROVISIONAL) -->
-  <section id="results">
-    <div class="wrap reveal">
-      <p class="section-label">What’s measured so far · provisional</p>
-      <h2>Four-disk <span class="t-raid10">RAID10</span> vs <span class="t-raidz1">RAIDZ1</span></h2>
-      <p class="lede">More capacity, or more random-write throughput. RAIDZ1 wins usable space and sequential reads; RAID10 wins small random writes and sync latency. The physical rail shows why: RAIDZ1 simply moves less data per write.</p>
-
-      <div class="metrics" aria-label="Headline provisional metrics">
-        <article class="metric-card win-raidz1">
-          <div class="label">Usable capacity</div>
-          <div class="value">10.08 TiB</div>
-          <div class="detail">RAIDZ1 · +50% vs RAID10's 6.71 TiB</div>
-        </article>
-        <article class="metric-card win-raidz1">
-          <div class="label">Write amplification</div>
-          <div class="value">1.375×</div>
-          <div class="detail">RAIDZ1 parity · vs RAID10's 1.97× mirror</div>
-        </article>
-        <article class="metric-card win-raid10">
-          <div class="label">Random 4K write</div>
-          <div class="value">39.0 K IOPS</div>
-          <div class="detail">RAID10 · ~1.8× RAIDZ1's 21.3K</div>
-        </article>
-        <article class="metric-card win-raidz1">
-          <div class="label">Sequential read 1M</div>
-          <div class="value">6.02 GB/s</div>
-          <div class="detail">RAIDZ1 · vs RAID10's 5.58 GB/s</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PLATFORM / TOPOLOGY -->
-  <section id="platform">
-    <div class="wrap reveal">
-      <p class="section-label">Hardware topology · Strix Halo PCIe fan-out</p>
-      <h2>One 16-lane SoC, fanned out to ten drives + dual 10GbE</h2>
-      <p class="lede">16 Zen 5 cores, <strong>128 GB</strong> unified LPDDR5X, 16 general-purpose PCIe Gen4 lanes plus a dedicated USB4 rail. A Gen4 lane carries 1.97 GB/s — allocated as read from the live links:</p>
-
-      <div class="table-scroll">
-        <table class="data">
-          <thead>
-            <tr>
-              <th>Function</th>
-              <th>Controller</th>
-              <th>Link</th>
-              <th class="num">Throughput</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>4× NVMe (array under test)</td>
-              <td>Lexar NM790 4TB</td>
-              <td>Gen4 ×1 ea</td>
-              <td class="num">1.97 GB/s ea</td>
-            </tr>
-            <tr>
-              <td>1× NVMe (OS)</td>
-              <td>Intel 760p</td>
-              <td>Gen3 ×4</td>
-              <td class="num">3.94 GB/s</td>
-            </tr>
-            <tr>
-              <td>5× SATA bays</td>
-              <td>JMicron JMB58x</td>
-              <td>Gen3 ×2 shared</td>
-              <td class="num">1.97 GB/s</td>
-            </tr>
-            <tr>
-              <td>2× Ethernet</td>
-              <td>Realtek RTL8127</td>
-              <td>Gen4 ×1 ea</td>
-              <td class="num">10 GbE ea</td>
-            </tr>
-            <tr>
-              <td>2× USB4 / TB5</td>
-              <td>Intel JHL9580</td>
-              <td>Gen4 ×4 ea</td>
-              <td class="num">7.88 GB/s ea</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="callout">Each array NVMe negotiates one Gen4 lane — the drives are ×4-capable, the slots present ×1 — so every array figure here is bounded to 1.97 GB/s per drive, 7.88 GB/s across four. The lane, not the SSD, is the bottleneck.</div>
-
-      <div class="plan-chips">
-        <span class="chip chip-pending">Planned: 5th SSD → RAIDZ1 5-wide</span>
-        <span class="chip chip-pending">Planned: internal NM790 ×4-slot vs ×1-slot control</span>
-        <span class="chip chip-pending">Pending: dual-10GbE saturation (needs 2.5/10G switch)</span>
-        <span class="chip chip-pending">Planned: RAIDZ2 if lanes allow</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- METHODOLOGY -->
   <section id="method">
     <div class="wrap reveal">
-      <p class="section-label">Scientific methodology</p>
-      <h2>Four rails. Provisional provenance. No hand-typed figures.</h2>
-      <p class="lede">Displayed storage numbers come from preliminary <code>result.json</code> artifacts via <code>bin/dendrite-report</code> (under review — not Protocol&nbsp;B sealed). Sub-noise deltas are suppressed from 2-run repeatability.</p>
-
-      <div class="method-grid">
-        <article class="method-card">
-          <div class="m-label">Rail 1</div>
-          <h3>fio · logical</h3>
-          <p>Sequential / random / sync throughput &amp; IOPS under <code>primarycache=none</code> as the cold-pool control.</p>
-        </article>
-        <article class="method-card">
-          <div class="m-label">Rail 2</div>
-          <h3>zpool iostat · physical</h3>
-          <p>Independent byte counters. Physical ÷ logical on write <em>is</em> write amplification — a finding, not a check.</p>
-        </article>
-        <article class="method-card">
-          <div class="m-label">Rail 3</div>
-          <h3>ARC kstat</h3>
-          <p>Confirms reads hit the pool, not cache. Ablation: <code>primarycache=none</code> vs <code>=metadata</code>.</p>
-        </article>
-        <article class="method-card">
-          <div class="m-label">Rail 4</div>
-          <h3>SMART</h3>
-          <p>Drive health / wear context alongside the layout comparison.</p>
-        </article>
-      </div>
-
-      <div class="ablation-grid" style="margin-top:1.5rem">
-        <article class="ablation-card">
-          <div class="test">RAID10 · 16K rand read</div>
-          <div class="flow">68.9K → 190.7K</div>
-          <div class="delta up">+177%</div>
-          <div class="note">none → metadata cache</div>
-        </article>
-        <article class="ablation-card">
-          <div class="test">RAIDZ1 · 16K rand read</div>
-          <div class="flow">35.0K → 65.2K</div>
-          <div class="delta up">+86%</div>
-          <div class="note">none → metadata cache</div>
-        </article>
-        <article class="ablation-card">
-          <div class="test">Random writes</div>
-          <div class="flow">≈ flat</div>
-          <div class="delta flat">—</div>
-          <div class="note">writes don't read metadata</div>
-        </article>
-      </div>
-      <div class="callout">Headline charts below use <code>primarycache=none</code> so the layout comparison stays free of cache assistance. Metadata caching is the production knob — report both.</div>
+      <p class="section-label">Methodology</p>
+      <h2>How a number earns the page.</h2>
+      <ul class="method-list">
+        <li><strong>Protocol B</strong> — <span class="mono">params.protocol</span> starts with <span class="mono">B-</span>; derived ramps; working set past SLC.</li>
+        <li><strong>Steadiness</strong> — <span class="mono">rails.steadiness.steady==true</span> for publishable fio windows; non-steady hatched/labeled.</li>
+        <li><strong>Cold control</strong> — <span class="mono">primarycache=none</span> / <span class="mono">cache_state=cold</span>. Warm ~36 GB/s is DRAM, not the array.</li>
+        <li><strong>Calibrate ≠ story</strong> — <span class="mono">2026-09-11-19.41</span> invalidated for story; superseded by <span class="mono">2026-09-13-18.42</span>.</li>
+        <li><strong>mdadm HOLD</strong> — parity seqRD pins at 1.14 GB/s; raid10 reads normally; do not publish “8× slower than btrfs.”</li>
+        <li><strong>Public-safe</strong> — SN labels only; no serials, by-id, or SUT IPs.</li>
+      </ul>
+      <figure class="chart-card wide">
+        <figcaption>Steadiness heatmap — ZFS stage1 cold</figcaption>
+        <img src="media/charts/steadiness-heatmap-stage1.svg" alt="Steadiness heatmap across tests and layouts" loading="lazy" />
+      </figure>
+      <p class="lede fine">Matrix live status → <a href="matrix/">matrix/</a></p>
     </div>
   </section>
-
-  <!-- THROUGHPUT -->
-  <section id="throughput">
-    <div class="wrap">
-      <div class="reveal">
-        <p class="section-label">Preliminary charts · primarycache=none</p>
-        <h2>What each layout moves</h2>
-        <p class="lede">Legend: RAID10 (2×2 mirror); RAIDZ1 (4-wide). Absolute figures are slot-limited (Gen4 ×1), not drive-rated ×4.</p>
-      </div>
-
-      <div class="panel reveal">
-        <div class="panel-title">Sequential throughput</div>
-        <div class="panel-note">Unit: GB/s · higher is better.</div>
-        <div class="legend-row">
-          <span class="legend-item"><span class="legend-swatch r10"></span> RAID10</span>
-          <span class="legend-item"><span class="legend-swatch rz1"></span> RAIDZ1</span>
-        </div>
-        <div class="chart-wrap">
-          <canvas id="chart-seq" aria-label="Sequential throughput bar chart"></canvas>
-        </div>
-      </div>
-
-      <div class="panel reveal" style="margin-top:1rem">
-        <div class="panel-title">Random IOPS</div>
-        <div class="panel-note">Unit: thousand IOPS · higher is better.</div>
-        <div class="legend-row">
-          <span class="legend-item"><span class="legend-swatch r10"></span> RAID10</span>
-          <span class="legend-item"><span class="legend-swatch rz1"></span> RAIDZ1</span>
-        </div>
-        <div class="chart-wrap tall">
-          <canvas id="chart-iops" aria-label="Random IOPS bar chart"></canvas>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHYSICAL -->
-  <section id="physical">
-    <div class="wrap reveal">
-      <p class="section-label">Physical rail · fio vs zpool iostat</p>
-      <h2>Write amplification — the deciding number</h2>
-      <p class="lede">For a write, physical ÷ logical is the amplification the layout imposes.</p>
-
-      <div class="panel">
-        <div class="panel-title">Physical bytes written per logical byte</div>
-        <div class="panel-note">Sequential write 1M ×4 · lower is better.</div>
-        <div class="amp-bars">
-          <div class="amp-row">
-            <div class="amp-label">RAID10 · mirror</div>
-            <div class="amp-track">
-              <div class="ref" title="1× = no amplification"></div>
-              <div class="amp-fill r10" data-amp="1.97" style="width:0%">1.97×</div>
-            </div>
-            <div class="amp-value r10">1.97×</div>
-          </div>
-          <div class="amp-row">
-            <div class="amp-label">RAIDZ1 · parity</div>
-            <div class="amp-track">
-              <div class="ref" title="1× = no amplification"></div>
-              <div class="amp-fill rz1" data-amp="1.375" style="width:0%">1.375×</div>
-            </div>
-            <div class="amp-value rz1">1.375×</div>
-          </div>
-        </div>
-        <div class="amp-ref-note">1× = no amplification · axis max 2.2× · headline tile rounds RAIDZ1 to 1.375×</div>
-        <div class="callout">RAID10 writes both mirror copies (~2×). RAIDZ1 writes data + parity (~1.375×) — why it keeps up on write throughput despite parity compute. Read amplification ≈1.0 on both.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPRESSION -->
-  <section id="compression">
-    <div class="wrap reveal">
-      <p class="section-label">Real-world data · realdata / STO-07</p>
-      <h2>Compression on payloads fio can’t represent</h2>
-      <p class="lede">Bluray, raw VM disk, qcow2 streamed from RAM so ingest is pool-bound. Ratio is layout-independent; these are RAID10’s.</p>
-      <div class="panel">
-        <div class="panel-title">Compression ratio by payload &amp; algorithm</div>
-        <div class="panel-note">Unit: logical ÷ physical · higher saves more.</div>
-        <div class="chart-wrap tall">
-          <canvas id="chart-compression" aria-label="Compression ratio chart"></canvas>
-        </div>
-        <div class="callout">lz4 is nearly free (~1.5–1.8× on disk images); zstd-3 adds a little more at higher CPU. Bluray gains nothing.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BASELINE -->
-  <section id="baseline">
-    <div class="wrap reveal">
-      <p class="section-label">Single-device baseline · ext4</p>
-      <h2>What one drive does — the floor the array builds on</h2>
-      <p class="lede">One NM790 alone in an array Gen4 ×1 slot. Same fio battery, plain ext4, 64 GiB verbatim.</p>
-
-      <div class="baseline-tiles">
-        <article class="baseline-tile">
-          <div class="label">NM790 @ ×1 · seq read</div>
-          <div class="value">1.81 GB/s</div>
-          <div class="detail">92% of the 1.97 GB/s ×1 ceiling — the slot is the wall</div>
-        </article>
-        <article class="baseline-tile">
-          <div class="label">Array recovers the aggregate</div>
-          <div class="value">3.33×</div>
-          <div class="detail">RAIDZ1 6.02 GB/s ÷ one drive</div>
-        </article>
-        <article class="baseline-tile">
-          <div class="label">RAID barely helps 4K writes</div>
-          <div class="value">1.07×</div>
-          <div class="detail">RAID10 39.0K vs lone NM790 36.5K</div>
-        </article>
-      </div>
-
-      <div class="table-scroll">
-        <table class="data">
-          <thead>
-            <tr>
-              <th>Single device · ext4 · 64 GiB</th>
-              <th class="num">NM790 @ ×1</th>
-              <th class="num">760p 512G @ ×4</th>
-              <th class="num">760p 2TB @ ×4</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Sequential read 1M ×4 (GB/s)</td><td class="num hl-rz1">1.81</td><td class="num">2.97</td><td class="num">1.14</td></tr>
-            <tr><td>Sequential write 1M ×4 (GB/s)</td><td class="num hl-rz1">1.27</td><td class="num">0.51</td><td class="num">0.44</td></tr>
-            <tr><td>Random read 4K (K IOPS)</td><td class="num hl-rz1">242</td><td class="num">136</td><td class="num">152</td></tr>
-            <tr><td>Random write 4K (K IOPS)</td><td class="num">36</td><td class="num">38</td><td class="num">101</td></tr>
-            <tr><td>Sync write 16K (K IOPS)</td><td class="num">1.0</td><td class="num">2.1</td><td class="num">15.8</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI DESTINATION -->
   <section id="ai" class="ai-section">
     <div class="wrap reveal">
-      <p class="section-label">AI destination · not yet measured</p>
-      <h2>Stream the models from the hot tier.</h2>
-      <p class="lede">
-        Tiered appliance thesis: keep <strong>weights + RAG indexes on hot NVMe</strong>, run inference in
-        <strong>128&nbsp;GB unified memory</strong> (CPU+iGPU shared; GTT mappable toward ~100&nbsp;GB+ when tuned — not discrete VRAM),
-        park bulk corpora on <strong>cold SATA</strong>.
-        Cold image load (Comfy / Qwen-Image) and MoE with <code>--moe-stream-direct</code> (llama.cpp) hit the hot pool —
-        but <strong>unified memory hides the disk unless you force cold</strong>. Drop caches, cap ARC,
-        verify with <code>zpool iostat</code>. mmap can lie; O_DIRECT + <code>zfs set direct=always</code> is the honest path.
-        RAID10 vs RAIDZ1 above is how you choose that hot-tier layout under the ×1 tax.
-        <strong>No inference numbers invented here.</strong>
-      </p>
-
-      <div class="pending-banner">Status: planned / in progress · ~multi-day runs remaining · no inference numbers invented here</div>
-
-      <div class="ai-grid">
-        <article class="ai-card">
-          <div class="ai-tag">Role 1 · load-time</div>
-          <h3>Dense image cold load</h3>
-          <p>Primary: <strong>Qwen-Image 20B BF16</strong> (~40–54 GB). Cold (cache-dropped) vs warm separately — cold is the layout signal. Exclude VAE decode from the load metric.</p>
-        </article>
-        <article class="ai-card">
-          <div class="ai-tag">Role 2 · marquee</div>
-          <h3>MoE streamed decode</h3>
-          <p><strong>DeepSeek-V3.1</strong> with <code>--moe-stream-direct</code> across layouts; <strong>Kimi K2 Thinking</strong> as the cleanest active-param instrument.</p>
-        </article>
-        <article class="ai-card">
-          <div class="ai-tag">Control</div>
-          <h3>In-RAM ceiling</h3>
-          <p><strong>DeepSeek-V4 Flash</strong> fits in 128 GB — establishes the no-paging tok/s ceiling before any streamed giant.</p>
-        </article>
-        <article class="ai-card">
-          <div class="ai-tag">Counter-example</div>
-          <h3>Dense must fail loudly</h3>
-          <p><strong>Llama 3.1 405B</strong> dense — proves streamed speed tracks active-param sparsity, not total bytes.</p>
-        </article>
-      </div>
-
-      <div class="callout">
-        Prerequisites on the N5 MAX under test: kernel ≥ 6.18.4, raise <code>ttm.pages_limit</code> for GTT, pin ROCm, force cold via drop_caches + <code>zfs set direct=always</code> + capped <code>zfs_arc_max</code>, verify with <code>zpool iostat</code> before timing.
-        Functional gates (code/HTML/needle) + disk rail during decode will accompany any future AI chapter.
-      </div>
+      <p class="section-label caution">AI · PROVISIONAL</p>
+      <h2>Partial stage&nbsp;3 — resident bat on btrfs-raid5.</h2>
+      <p class="lede">Four passed cells so far; several failed/geometry mismatches. Treat tok/s as directional only. Bannered until the bat completes and seals.</p>
+      <figure class="chart-card">
+        <img src="media/charts/ai-provisional-bench.svg" alt="Provisional AI bench pp512 and tg128" loading="lazy" />
+      </figure>
+      <table class="data-table">
+        <thead><tr><th>model</th><th class="mono">pp512</th><th class="mono">tg128</th></tr></thead>
+        <tbody>
+        <tr><td>llama2-7b-q4-0</td><td class="mono">1319.7</td><td class="mono">53.71</td></tr>
+        <tr><td>smoke-qwen3-0.6b-q8</td><td class="mono">11374.3</td><td class="mono">229.74</td></tr>
+        <tr><td>gemma-4-26b-a4b-q4km</td><td class="mono">1108.5</td><td class="mono">50.02</td></tr>
+        <tr><td>qwen3.5-122b-a10b-q4km</td><td class="mono">299.5</td><td class="mono">23.02</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="obscure" class="obscure-section">
+    <div class="wrap reveal">
+      <p class="section-label">Non-obvious joins</p>
+      <h2>What the matrix whispers.</h2>
+      <ol class="obscure-list">
+        <li><strong>STO-06 smallfiles copy converges ~0.46–0.57 GB/s across ZFS layouts cold — fio seq/rand do not</strong><br /><span class="evidence mono">stage1 none STO-06_smallfiles_copy_1stream across single/raid0/raid10/raidz1/raidz2</span></li>
+        <li><strong>Cold primarycache=none forces ~9.4–9.9× read amplification on rnd4k — measuring pool not ARC</strong><br /><span class="evidence mono">stage1 *-full STO-02_rand_read_4k_j4 r_amp≈9.4</span></li>
+        <li><strong>raidz2 cold seq read (8.94) exceeds raidz1 (7.83) on same 4-wide x1 — parity width vs stripe efficiency</strong><br /><span class="evidence mono">2026-09-13-18.42 vs 2026-09-13-17.14 STO-01_seq_read_1M_j4 steady</span></li>
+        <li><strong>x4 vs x1 seq read ~3.3× (5.89/1.80) but sync write only ~1.1× (0.023/0.021) — sync is flush-bound not link-bound</strong><br /><span class="evidence mono">stage2-single-x4-full vs stage1-single-x1-full</span></li>
+        <li><strong>mdadm raid5/6 cold seqRD and rnd64kR pin at ~1.14/1.10 while raid10 reads 4.07 — parity read-path anomaly not FS-wide</strong><br /><span class="evidence mono">stage5 mdadm cold; docs/followup-raid-pass.md HOLD</span></li>
+        <li><strong>Warm/metadata seq read collapses to ~36 GB/s DRAM path across FS — layout identity erased</strong><br /><span class="evidence mono">stage5 warm STO-01_seq_read_1M_j4 ~36.3–36.7 all layouts</span></li>
+        <li><strong>btrfs-raid5 cold seq write 4.07 GB/s >> raidz1 0.72 — write amp / COW path difference dominates capacity-matched race</strong><br /><span class="evidence mono">stage5-btrfs-raid5 · STO-01_seq_write_1M_j4 vs stage1-raidz1</span></li>
+        <li><strong>1h soak mixed peaks ~52–54°C soc — no thermal cliff in sealed soak windows</strong><br /><span class="evidence mono">stage4 SOAK-02 thermal max_during</span></li>
+      </ol>
     </div>
   </section>
 
-
-  <!-- WATCH / READ · SOCIAL -->
-  <section id="social" class="social-cta-section">
+  <section id="follow">
     <div class="wrap reveal">
-      <p class="section-label">Watch / Read · campaign kits</p>
-      <h2>Same provisional facts. Two tracks.</h2>
-      <p class="lede">
-        Drafts live in repo <code>social/</code> (not served by Pages). Index:
-        <a href="social-kit.md"><code>site/social-kit.md</code></a>.
-        Product thesis everywhere: <strong>tiered local-AI NAS</strong> (hot NVMe · unified memory · cold SATA).
-        <strong>Lab / vendor</strong> → Minisforum letter. <strong>Public</strong> → local-AI builders on YT / X / LinkedIn —
-        still provisional-honest, no invented tok/s.
-      </p>
-
-      <div class="social-track-grid">
-        <article class="social-track lab">
-          <div class="track-badge">Lab / vendor</div>
-          <h3>Methodology-credible outreach</h3>
-          <p>For emailing Minisforum and peers who want rails, seals, and exact amp — not hooks.</p>
-          <ul>
-            <li><span class="t-muted">Lab / vendor outreach drafts</span> · private lab only (not published here)</li>
-            <li><span class="t-muted">Social kit map</span> · promoted when approved</li>
-          </ul>
-        </article>
-        <article class="social-track public">
-          <div class="track-badge">Public / accessible</div>
-          <h3>YouTube · X · LinkedIn</h3>
-          <p>For local-AI / RAG / llama.cpp audiences — cold load, mmap lies, MoE-from-pool. [PROVISIONAL] / [PENDING] on every beat.</p>
-          <ul>
-            <li><span class="t-muted">YouTube / X / LinkedIn drafts</span> · private until approved promote</li>
-          </ul>
-        </article>
-      </div>
-
+      <p class="section-label">Follow</p>
+      <h2>Campaign continues.</h2>
+      <p class="lede">Matrix UI tracks cell status. M.2 lab visualizes seats. Design Exploration owns a composition pass after this PR.</p>
       <div class="cta-strip">
-        <a class="btn btn-raid10" href="#choose">Choose RAID10 / RAIDZ1</a>
-        <a class="btn btn-raidz1" href="#next">Next experiments</a>
-        <a class="btn btn-ghost" href="https://github.com/recklessnode/n5-max">Public face repo</a>
+        <a class="btn btn-raidz1" href="matrix/">Open matrix</a>
+        <a class="btn btn-ghost" href="telemetry-viz/">M.2 lab</a>
       </div>
+      <footer class="site-footer">
+        <p>Figures from sealed <span class="mono">result.json</span> only · <span class="mono">story_sealed=false</span> · N5 Lab</p>
+      </footer>
     </div>
   </section>
-
-  <!-- NEXT EXPERIMENTS -->
-  <section id="next">
-    <div class="wrap reveal">
-      <p class="section-label">Recommended next experiments</p>
-      <h2>Runnable requests for the SUT harness</h2>
-      <p class="lede">Campaign is barely started. These are labeled <strong>recommendations</strong> — clear next experiments for the SUT harness — not completed results.</p>
-
-      <h3 class="subhead">Storage — strengthen the layout story</h3>
-      <div class="exp-grid">
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>RAIDZ1 5-wide (+ RAIDZ2 if lanes allow)</h3>
-          <p>Install 5th SSD, rebuild as RAIDZ1 5-wide, re-run four-rail matrix, add third chart column. Probe RAIDZ2 if PCIe budget allows.</p>
-          <p class="why"><strong>Why:</strong> turns today’s two-way into the planned three-way capacity story.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>Resilver / rebuild under load</h3>
-          <p>Time pool rebuild with and without concurrent fio / NAS ingest; report availability and amp during resilver.</p>
-          <p class="why"><strong>Why:</strong> operators care about failure recovery as much as steady-state IOPS.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>Expand sync / fsync latency CDFs</h3>
-          <p>Extend partial sync matrices; publish p50/p99 CDFs for 4K/16K fsync across layouts.</p>
-          <p class="why"><strong>Why:</strong> RAID10’s sync win needs full distribution, not a single point.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>Dual 10GbE multi-client saturation</h3>
-          <p><strong>Gated:</strong> both RTL8127 currently negotiate ~1 GbE — needs a 2.5/10G switch first. Then drive both ports with concurrent clients; compare pool layout vs NIC ceiling.</p>
-          <p class="why"><strong>Why:</strong> proves whether the array or the network is the NAS bottleneck.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>ARC sizing sweeps · 128 GB UMA</h3>
-          <p>Cap <code>zfs_arc_max</code> vs leave large; re-run random-read battery; record arcstat hit rates.</p>
-          <p class="why"><strong>Why:</strong> 128 GB changes the “cold pool” story for both storage and AI.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>recordsize · VM vs media</h3>
-          <p>Sweep 16K–1M recordsize for VM (qcow2) vs large media ingest; report amp + IOPS.</p>
-          <p class="why"><strong>Why:</strong> recordsize couples tightly to later MoE expert-slab reads.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>Power &amp; thermals</h3>
-          <p>Log package power / NVMe temps during sustained seq + random; compare layouts at equal logical work.</p>
-          <p class="why"><strong>Why:</strong> amplification should show up as watts and heat, not just GB/s.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag storage">Storage</div>
-          <h3>Internal NM790 ×4 vs ×1 control</h3>
-          <p>Same Lexar NM790 silicon on the N5: compare an unconstrained ×4-capable slot vs the array’s Gen4 ×1 presentation — pure lane-ceiling delta (ROG Z13 path dropped).</p>
-          <p class="why"><strong>Why:</strong> closes the “is it the drive or the slot?” argument without a second machine.</p>
-        </article>
-      </div>
-
-      <h3 class="subhead">AI — destination narrative (from plan docs)</h3>
-      <div class="exp-grid">
-        <article class="exp-card">
-          <div class="exp-tag ai">AI</div>
-          <h3>Cold vs warm image load</h3>
-          <p>Qwen-Image BF16: drop caches, cap ARC, time cold load; compare warm. Cold is the layout signal.</p>
-          <p class="why"><strong>Why:</strong> 128 GB will hide the pool after first load unless cold is forced.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag ai">AI</div>
-          <h3>MoE marquee across layouts</h3>
-          <p>DeepSeek-V3.1 with <code>--moe-stream-direct</code>; Kimi K2 Thinking as cleanest instrument; verify iostat hits disk.</p>
-          <p class="why"><strong>Why:</strong> this is the dependent variable of the whole AI-NAS thesis.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag ai">AI</div>
-          <h3>In-RAM control first</h3>
-          <p>DeepSeek-V4 Flash (~fits 128 GB) as no-paging ceiling — fail-fast before multi-hundred-GB runs.</p>
-          <p class="why"><strong>Why:</strong> cheapest disqualifying check for the ROCm stack.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag ai">AI</div>
-          <h3>Dense counter-example</h3>
-          <p>Llama 3.1 405B dense — expect loud failure; prove active-param sparsity thesis.</p>
-          <p class="why"><strong>Why:</strong> writeup needs the anti-cherry, not only the marquee.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag ai">AI</div>
-          <h3>Functional gates + disk rail</h3>
-          <p>Code/HTML/needle prompts with pass/fail; parallel zpool iostat / read GB/s during decode.</p>
-          <p class="why"><strong>Why:</strong> a fast wrong answer is a fail; tangible artifacts beat raw tok/s.</p>
-        </article>
-        <article class="exp-card">
-          <div class="exp-tag ai">AI</div>
-          <h3>GTT / kernel prerequisites</h3>
-          <p>Confirm kernel ≥ 6.18.4, set <code>ttm.pages_limit</code>, pin ROCm; document exact versions in result.json.</p>
-          <p class="why"><strong>Why:</strong> silent GTT caps look like “disk” problems.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOLLOW / FOOTER -->
-  <footer class="site-footer" id="follow">
-    <div class="wrap reveal">
-      <p class="section-label">Follow the campaign</p>
-      <h2 class="footer-h2">Provisional report. Under adversarial review.</h2>
-      <p class="lede">This is a collaborative lab notebook + public story — not a single-author blog.</p>
-
-      <div class="how-made">
-        <h3>How this report is made</h3>
-        <ol>
-          <li><strong>Harness on the SUT</strong> — dendrite suites run on the target N5 MAX.</li>
-          <li><strong>Provisional results in git</strong> — figures come from preliminary <code>result.json</code> under <code>results/</code> (fio · iostat · ARC · SMART); not Protocol&nbsp;B sealed.</li>
-          <li><strong>Pages story site</strong> — this companion writeup consumes those artifacts; full live JSON wiring follows when remaining runs complete.</li>
-        </ol>
-      </div>
-
-      <div class="footer-status">
-        <article class="status-card">
-          <div class="tag done">Done</div>
-          <p>Four-rail, four-disk RAID10 vs RAIDZ1 campaign — figures on this page are preliminary / provisional (not Protocol&nbsp;B sealed).</p>
-        </article>
-        <article class="status-card">
-          <div class="tag pending">In progress / next</div>
-          <p>5th SSD → RAIDZ1 5-wide; internal NM790 ×4-vs-×1 control; dual-10GbE after switch; AI cold-load + MoE stream matrix.</p>
-        </article>
-        <article class="status-card">
-          <div class="tag planned">Pages</div>
-          <p>Pages deploy: use Actions source; workflow template lives at <code>site/pages.workflow.yml</code> (maintainer note).</p>
-        </article>
-      </div>
-
-      <div class="cta-strip">
-        <a class="btn btn-raid10" href="#choose">Back to recommendations</a>
-        <a class="btn btn-raidz1" href="#next">Next experiments</a>
-        <a class="btn btn-ghost" href="#results">Results</a>
-      </div>
-
-      <div class="provenance">
-        <p>Provisional figures via <code>bin/dendrite-report</code> + <code>dendrite-topology</code> · 4 rails: fio · zpool iostat · ARC kstat · SMART — not Protocol&nbsp;B sealed.</p>
-        <p>Noise floor from 2-run repeatability; sub-floor deltas suppressed. No hand-typed benchmark numbers. No invented AI inference results.</p>
-        <p class="muted-line">Minisforum N5 MAX · Strix Halo · storage + AI-NAS campaign · 2026-09</p>
-        <div class="viewer-stale" data-data-root="data" id="viewer-stale">
-          <p class="viewer-line" data-role="build">Site build · …</p>
-          <p class="viewer-line" data-role="status">Status updated · …</p>
-          <p class="viewer-line" data-role="stale">Viewer may be stale if status older than 15 minutes.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <div id="lightbox" class="lightbox" hidden aria-modal="true" role="dialog" aria-label="Image preview">
-    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
-    <img src="" alt="" />
-    <p class="lightbox-caption"></p>
-  </div>
 </body>
 </html>
