@@ -18,7 +18,7 @@
   Chart.defaults.animation = reduceMotion ? false : { duration: 900, easing: "easeOutQuart" };
 
   const monoTick = {
-    font: { family: '"JetBrains Mono", ui-monospace, monospace', size: 11, weight: "500" },
+    font: { family: '"Intel One Mono", ui-monospace, monospace', size: 11, weight: "500" },
     color: TICK,
   };
 
@@ -52,7 +52,7 @@
         tooltip: {
           backgroundColor: "#1a1917",
           titleFont: { family: 'Ubuntu, sans-serif', weight: "600" },
-          bodyFont: { family: '"JetBrains Mono", monospace', size: 12 },
+          bodyFont: { family: '"Intel One Mono", monospace', size: 12 },
           padding: 10,
           cornerRadius: 8,
           displayColors: true,
@@ -165,7 +165,7 @@
             boxHeight: 12,
             borderRadius: 3,
             useBorderRadius: true,
-            font: { family: '"JetBrains Mono", monospace', size: 11 },
+            font: { family: '"Intel One Mono", monospace', size: 11 },
             color: TICK,
             padding: 14,
           },

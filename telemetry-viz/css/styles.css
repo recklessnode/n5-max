@@ -2,9 +2,9 @@
  * Dark theme ≈ historical lab charcoal+teal; light uses editorial tokens.
  */
 :root {
-  /* Tighter lab radius (theme.css uses 14px for Story/Matrix) */
+  /* Tighter lab radius (theme.css uses 14px for Story/Matrix).
+   * --mono comes from theme.css (Intel One Mono). */
   --radius: 6px;
-  --mono: "Ubuntu", system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

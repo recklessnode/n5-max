@@ -21,7 +21,7 @@ Soft radial washes of orange and teal sit behind the hero so the tradeoff is fel
 
 - **Ubuntu** — body / UI / captions (site go-to sans).
 - **Orbitron** — display / tech: hero titles, section heads, eyebrows where a board-lab tone helps (don’t paint everything Orbitron).
-- **JetBrains Mono** — measured / provisional numerals, chips, axis ticks, amplification bars. Numbers never share the UI sans.
+- **Intel One Mono** — measured / provisional numerals, chips, axis ticks, amplification bars, `code`/`pre`/`kbd`, case IDs, SN/seat labels, Matrix timestamps, telemetry readouts. Self-hosted woff2 under `fonts/intel-one-mono/` (SIL Open Font License; see `OFL.txt` there). Numbers never share the UI sans.
 
 ## Structure
 

@@ -14,7 +14,7 @@
   };
 
   const FONT_UI = 'Ubuntu, system-ui, sans-serif';
-  const FONT_MONO = 'Ubuntu, system-ui, sans-serif';
+  const FONT_MONO = '"Intel One Mono", ui-monospace, SFMono-Regular, Menlo, monospace';
 
   function Chart(canvas) {
     this.canvas = canvas;
