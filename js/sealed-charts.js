@@ -128,7 +128,7 @@
                 afterBody(items) {
                   const i = items[0].dataIndex;
                   const e = rows[i];
-                  return `usable ${e.usable_tib} TiB · ${e.result_dir.split("/").pop()}`;
+                  return `usable ${e.usable_tib} TiB · ${e.layout}`;
                 },
               },
             },

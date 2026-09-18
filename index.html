@@ -75,13 +75,13 @@
           <p class="answer-kicker mono">FASTEST MEASURED</p>
           <h3>btrfs-raid5</h3>
           <p class="mono big">14.43 TiB · 9.03 GB/s seqRD</p>
-          <p class="fine">Cold FS-control · <span class="mono">2026-09-14-13.57-fscontrol.dendrite-sut</span></p>
+          <p class="fine">Cold FS-control · <span class="mono">stage5-btrfs-raid5 · STO-01_seq_read_1M_j4</span></p>
         </article>
         <article class="answer-card raidz1">
           <p class="answer-kicker mono">RECOMMENDED DEFAULT</p>
           <h3>raidz1</h3>
           <p class="mono big">14.11 TiB · 7.83 GB/s seqRD</p>
-          <p class="fine">Cold ZFS stage1 · <span class="mono">2026-09-13-17.14-storage.dendrite-sut</span></p>
+          <p class="fine">Cold ZFS stage1 · <span class="mono">stage1-raidz1-full · STO-01_seq_read_1M_j4</span></p>
         </article>
       </div>
     </div>
@@ -166,7 +166,7 @@
           <ul class="evidence mono">
             <li>stage1-raid10-full STO-02_rand_write_4k_j4 0.167 GB/s steady</li>
             <li>stage1-raidz1-full STO-02_rand_write_4k_j4 0.077 GB/s steady</li>
-            <li>stage5-btrfs-raid10-full cold seqWR 1.95 / rnd4k context</li>
+            <li>stage5-btrfs-raid10-full cold STO-01_seq_write_1M_j4 2.372 / rnd4k context</li>
           </ul>
         </article>
         <article class="recipe-card">
@@ -259,7 +259,7 @@
         <li><strong>x4 vs x1 seq read ~3.3× (5.89/1.80) but sync write only ~1.1× (0.023/0.021) — sync is flush-bound not link-bound</strong><br /><span class="evidence mono">stage2-single-x4-full vs stage1-single-x1-full</span></li>
         <li><strong>mdadm raid5/6 cold seqRD and rnd64kR pin at ~1.14/1.10 while raid10 reads 4.07 — parity read-path anomaly not FS-wide</strong><br /><span class="evidence mono">stage5 mdadm cold; docs/followup-raid-pass.md HOLD</span></li>
         <li><strong>Warm/metadata seq read collapses to ~36 GB/s DRAM path across FS — layout identity erased</strong><br /><span class="evidence mono">stage5 warm STO-01_seq_read_1M_j4 ~36.3–36.7 all layouts</span></li>
-        <li><strong>btrfs-raid5 cold seq write 1.91 GB/s >> raidz1 0.72 — write amp / COW path difference dominates capacity-matched race</strong><br /><span class="evidence mono">stage5-btrfs-raid5 vs stage1-raidz1</span></li>
+        <li><strong>btrfs-raid5 cold seq write 4.07 GB/s >> raidz1 0.72 — write amp / COW path difference dominates capacity-matched race</strong><br /><span class="evidence mono">stage5-btrfs-raid5 · STO-01_seq_write_1M_j4 vs stage1-raidz1</span></li>
         <li><strong>1h soak mixed peaks ~52–54°C soc — no thermal cliff in sealed soak windows</strong><br /><span class="evidence mono">stage4 SOAK-02 thermal max_during</span></li>
       </ol>
     </div>

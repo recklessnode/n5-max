@@ -14,7 +14,6 @@
       "stage": 1,
       "cache": "none",
       "usable_tib": 3.0,
-      "result_dir": "results/2026-09-13-13.00-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 1.8,
@@ -114,7 +113,6 @@
       "stage": 1,
       "cache": "none",
       "usable_tib": 17.85,
-      "result_dir": "results/2026-09-13-14.28-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.695,
@@ -214,7 +212,6 @@
       "stage": 1,
       "cache": "none",
       "usable_tib": 6.71,
-      "result_dir": "results/2026-09-13-15.49-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 7.024,
@@ -314,7 +311,6 @@
       "stage": 1,
       "cache": "none",
       "usable_tib": 14.11,
-      "result_dir": "results/2026-09-13-17.14-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 7.83,
@@ -414,7 +410,6 @@
       "stage": 1,
       "cache": "none",
       "usable_tib": 10.21,
-      "result_dir": "results/2026-09-13-18.42-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.941,
@@ -514,7 +509,6 @@
       "stage": 1,
       "cache": "none",
       "usable_tib": 3.0,
-      "result_dir": "results/2026-09-12-05.05-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 3.455,
@@ -614,7 +608,6 @@
       "stage": 2,
       "cache": "none",
       "usable_tib": 3.0,
-      "result_dir": "results/2026-09-12-19.42-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 5.888,
@@ -714,7 +707,6 @@
       "stage": 2,
       "cache": "none",
       "usable_tib": 17.85,
-      "result_dir": "results/2026-09-13-00.42-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.6,
@@ -814,7 +806,6 @@
       "stage": 2,
       "cache": "none",
       "usable_tib": 14.11,
-      "result_dir": "results/2026-09-13-02.02-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 7.806,
@@ -914,7 +905,6 @@
       "stage": 2,
       "cache": "none",
       "usable_tib": 10.21,
-      "result_dir": "results/2026-09-13-03.23-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.922,
@@ -1014,7 +1004,6 @@
       "stage": 2,
       "cache": "none",
       "usable_tib": 6.71,
-      "result_dir": "results/2026-09-13-04.48-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 6.629,
@@ -1116,7 +1105,6 @@
       "stage": 1,
       "cache": "metadata",
       "usable_tib": 3.0,
-      "result_dir": "results/2026-09-12-06.23-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 1.808,
@@ -1216,7 +1204,6 @@
       "stage": 1,
       "cache": "metadata",
       "usable_tib": 17.85,
-      "result_dir": "results/2026-09-12-07.44-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.946,
@@ -1316,7 +1303,6 @@
       "stage": 1,
       "cache": "metadata",
       "usable_tib": 6.71,
-      "result_dir": "results/2026-09-12-09.00-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 7.221,
@@ -1416,7 +1402,6 @@
       "stage": 1,
       "cache": "metadata",
       "usable_tib": 14.11,
-      "result_dir": "results/2026-09-12-10.20-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.106,
@@ -1516,7 +1501,6 @@
       "stage": 1,
       "cache": "metadata",
       "usable_tib": 10.21,
-      "result_dir": "results/2026-09-12-11.33-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 9.027,
@@ -1616,7 +1600,6 @@
       "stage": 1,
       "cache": "metadata",
       "usable_tib": 3.01,
-      "result_dir": "results/2026-09-12-12.50-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 3.611,
@@ -1716,7 +1699,6 @@
       "stage": 2,
       "cache": "metadata",
       "usable_tib": 3.0,
-      "result_dir": "results/2026-09-13-06.11-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 6.201,
@@ -1816,7 +1798,6 @@
       "stage": 2,
       "cache": "metadata",
       "usable_tib": 17.85,
-      "result_dir": "results/2026-09-13-07.30-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.979,
@@ -1916,7 +1897,6 @@
       "stage": 2,
       "cache": "metadata",
       "usable_tib": 14.11,
-      "result_dir": "results/2026-09-13-08.49-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.215,
@@ -2016,7 +1996,6 @@
       "stage": 2,
       "cache": "metadata",
       "usable_tib": 10.21,
-      "result_dir": "results/2026-09-13-10.13-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 9.028,
@@ -2116,7 +2095,6 @@
       "stage": 2,
       "cache": "metadata",
       "usable_tib": 6.71,
-      "result_dir": "results/2026-09-13-11.37-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 7.222,
@@ -2217,7 +2195,6 @@
       "layout_full": "stage5-btrfs-raid10-full",
       "cache": "cold",
       "usable_tib": 6.99,
-      "result_dir": "results/2026-09-14-05.18-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 3.615,
@@ -2317,7 +2294,6 @@
       "layout_full": "stage5-btrfs-raid5-full",
       "cache": "cold",
       "usable_tib": 14.43,
-      "result_dir": "results/2026-09-14-13.57-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 9.034,
@@ -2417,7 +2393,6 @@
       "layout_full": "stage5-btrfs-raid6-full",
       "cache": "cold",
       "usable_tib": 10.71,
-      "result_dir": "results/2026-09-14-17.56-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 9.026,
@@ -2517,7 +2492,6 @@
       "layout_full": "stage5-mdadm-ext4-raid10-full",
       "cache": "cold",
       "usable_tib": 7.02,
-      "result_dir": "results/2026-09-14-21.46-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 4.068,
@@ -2617,7 +2591,6 @@
       "layout_full": "stage5-mdadm-ext4-raid5-full",
       "cache": "cold",
       "usable_tib": 14.41,
-      "result_dir": "results/2026-09-15-00.41-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 1.14,
@@ -2717,7 +2690,6 @@
       "layout_full": "stage5-mdadm-ext4-raid6-full",
       "cache": "cold",
       "usable_tib": 10.71,
-      "result_dir": "results/2026-09-15-03.24-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 1.14,
@@ -2819,7 +2791,6 @@
       "layout_full": "stage5-btrfs-raid10-full",
       "cache": "warm",
       "usable_tib": 7.42,
-      "result_dir": "results/2026-09-14-12.44-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 35.685,
@@ -2919,7 +2890,6 @@
       "layout_full": "stage5-btrfs-raid5-full",
       "cache": "warm",
       "usable_tib": 14.87,
-      "result_dir": "results/2026-09-14-16.40-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 36.272,
@@ -3019,7 +2989,6 @@
       "layout_full": "stage5-btrfs-raid6-full",
       "cache": "warm",
       "usable_tib": 11.15,
-      "result_dir": "results/2026-09-14-19.15-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 35.706,
@@ -3119,7 +3088,6 @@
       "layout_full": "stage5-mdadm-ext4-raid10-full",
       "cache": "warm",
       "usable_tib": 7.37,
-      "result_dir": "results/2026-09-14-23.18-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 36.295,
@@ -3219,7 +3187,6 @@
       "layout_full": "stage5-mdadm-ext4-raid5-full",
       "cache": "warm",
       "usable_tib": 14.76,
-      "result_dir": "results/2026-09-15-02.02-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 36.536,
@@ -3319,7 +3286,6 @@
       "layout_full": "stage5-mdadm-ext4-raid6-full",
       "cache": "warm",
       "usable_tib": 11.07,
-      "result_dir": "results/2026-09-15-04.51-fscontrol.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 36.659,
@@ -3420,7 +3386,6 @@
       "lane": "x1",
       "layout": "stage1-single-x1-full",
       "usable_tib": 3.0,
-      "result_dir": "results/2026-09-13-13.00-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 1.8,
@@ -3518,7 +3483,6 @@
       "lane": "x4",
       "layout": "stage2-single-x4-full",
       "usable_tib": 3.0,
-      "result_dir": "results/2026-09-12-19.42-storage.dendrite-sut",
       "tests": {
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 5.888,
@@ -3618,159 +3582,135 @@
       "layout": "btrfs-raid10",
       "usable_tib": 6.99,
       "rnd4k_write_gbps": 0.373,
-      "steady": true,
-      "result_dir": "results/2026-09-14-05.18-fscontrol.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "btrfs-raid5",
       "usable_tib": 14.43,
       "rnd4k_write_gbps": 0.227,
-      "steady": true,
-      "result_dir": "results/2026-09-14-13.57-fscontrol.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "btrfs-raid6",
       "usable_tib": 10.71,
       "rnd4k_write_gbps": 0.177,
-      "steady": true,
-      "result_dir": "results/2026-09-14-17.56-fscontrol.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "mdadm-ext4-raid10",
       "usable_tib": 7.02,
       "rnd4k_write_gbps": 0.118,
-      "steady": true,
-      "result_dir": "results/2026-09-14-21.46-fscontrol.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "mdadm-ext4-raid5",
       "usable_tib": 14.41,
       "rnd4k_write_gbps": 0.212,
-      "steady": true,
-      "result_dir": "results/2026-09-15-00.41-fscontrol.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "mdadm-ext4-raid6",
       "usable_tib": 10.71,
       "rnd4k_write_gbps": 0.122,
-      "steady": true,
-      "result_dir": "results/2026-09-15-03.24-fscontrol.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "raid10",
       "usable_tib": 6.71,
       "rnd4k_write_gbps": 0.167,
-      "steady": true,
-      "result_dir": "results/2026-09-13-15.49-storage.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "raidz1",
       "usable_tib": 14.11,
       "rnd4k_write_gbps": 0.077,
-      "steady": true,
-      "result_dir": "results/2026-09-13-17.14-storage.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "raidz2",
       "usable_tib": 10.21,
       "rnd4k_write_gbps": 0.042,
-      "steady": true,
-      "result_dir": "results/2026-09-13-18.42-storage.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "raidz1",
       "usable_tib": 14.11,
       "rnd4k_write_gbps": 0.075,
-      "steady": true,
-      "result_dir": "results/2026-09-13-02.02-storage.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "raidz2",
       "usable_tib": 10.21,
       "rnd4k_write_gbps": 0.075,
-      "steady": true,
-      "result_dir": "results/2026-09-13-03.23-storage.dendrite-sut"
+      "steady": true
     },
     {
       "layout": "raid10+spare",
       "usable_tib": 6.71,
       "rnd4k_write_gbps": 0.103,
-      "steady": true,
-      "result_dir": "results/2026-09-13-04.48-storage.dendrite-sut"
+      "steady": true
     }
   ],
   "write_amp_vs_seqw": [
     {
       "layout": "btrfs-raid10",
       "w_amp": 2.002,
-      "seq_write_gbps": 2.372,
-      "result_dir": "results/2026-09-14-05.18-fscontrol.dendrite-sut"
+      "seq_write_gbps": 2.372
     },
     {
       "layout": "btrfs-raid5",
       "w_amp": 1.255,
-      "seq_write_gbps": 4.066,
-      "result_dir": "results/2026-09-14-13.57-fscontrol.dendrite-sut"
+      "seq_write_gbps": 4.066
     },
     {
       "layout": "btrfs-raid6",
       "w_amp": 1.764,
-      "seq_write_gbps": 2.72,
-      "result_dir": "results/2026-09-14-17.56-fscontrol.dendrite-sut"
+      "seq_write_gbps": 2.72
     },
     {
       "layout": "mdadm-ext4-raid10",
       "w_amp": 1.995,
-      "seq_write_gbps": 0.441,
-      "result_dir": "results/2026-09-14-21.46-fscontrol.dendrite-sut"
+      "seq_write_gbps": 0.441
     },
     {
       "layout": "mdadm-ext4-raid5",
       "w_amp": 1.248,
-      "seq_write_gbps": 0.881,
-      "result_dir": "results/2026-09-15-00.41-fscontrol.dendrite-sut"
+      "seq_write_gbps": 0.881
     },
     {
       "layout": "mdadm-ext4-raid6",
       "w_amp": 1.736,
-      "seq_write_gbps": 0.627,
-      "result_dir": "results/2026-09-15-03.24-fscontrol.dendrite-sut"
+      "seq_write_gbps": 0.627
     },
     {
       "layout": "raid10",
       "w_amp": 2.006,
-      "seq_write_gbps": 0.894,
-      "result_dir": "results/2026-09-13-15.49-storage.dendrite-sut"
+      "seq_write_gbps": 0.894
     },
     {
       "layout": "raidz1",
       "w_amp": 1.245,
-      "seq_write_gbps": 0.718,
-      "result_dir": "results/2026-09-13-17.14-storage.dendrite-sut"
+      "seq_write_gbps": 0.718
     },
     {
       "layout": "raidz2",
       "w_amp": 1.683,
-      "seq_write_gbps": 1.153,
-      "result_dir": "results/2026-09-13-18.42-storage.dendrite-sut"
+      "seq_write_gbps": 1.153
     },
     {
       "layout": "raidz1",
       "w_amp": 1.253,
-      "seq_write_gbps": 0.453,
-      "result_dir": "results/2026-09-13-02.02-storage.dendrite-sut"
+      "seq_write_gbps": 0.453
     },
     {
       "layout": "raidz2",
       "w_amp": 1.732,
-      "seq_write_gbps": 0.691,
-      "result_dir": "results/2026-09-13-03.23-storage.dendrite-sut"
+      "seq_write_gbps": 0.691
     },
     {
       "layout": "raid10+spare",
       "w_amp": 2.003,
-      "seq_write_gbps": 1.172,
-      "result_dir": "results/2026-09-13-04.48-storage.dendrite-sut"
+      "seq_write_gbps": 1.172
     }
   ],
   "recipes": [
@@ -3782,7 +3722,7 @@
       "evidence": [
         "stage1-raid10-full STO-02_rand_write_4k_j4 0.167 GB/s steady",
         "stage1-raidz1-full STO-02_rand_write_4k_j4 0.077 GB/s steady",
-        "stage5-btrfs-raid10-full cold seqWR 1.95 / rnd4k context"
+        "stage5-btrfs-raid10-full cold STO-01_seq_write_1M_j4 2.372 / rnd4k context"
       ]
     },
     {
@@ -3833,7 +3773,6 @@
       "layout": "btrfs-raid5",
       "pp512": 1319.706149,
       "tg128": 53.710502,
-      "result_dir": "results/2026-09-17-04.38-ai.dendrite-sut",
       "provisional": true
     },
     {
@@ -3841,7 +3780,6 @@
       "layout": "btrfs-raid5",
       "pp512": 11374.331817,
       "tg128": 229.73932,
-      "result_dir": "results/2026-09-17-05.29-ai.dendrite-sut",
       "provisional": true
     },
     {
@@ -3849,7 +3787,6 @@
       "layout": "btrfs-raid5",
       "pp512": 1108.509337,
       "tg128": 50.020815,
-      "result_dir": "results/2026-09-17-05.48-ai.dendrite-sut",
       "provisional": true
     },
     {
@@ -3857,7 +3794,6 @@
       "layout": "btrfs-raid5",
       "pp512": 299.507968,
       "tg128": 23.015838,
-      "result_dir": "results/2026-09-17-08.49-ai.dendrite-sut",
       "provisional": true
     }
   ],
@@ -3868,8 +3804,7 @@
       "bw_gbps": 0.626,
       "steady": false,
       "temp_c": 38.25,
-      "power_w": 13.714,
-      "result_dir": "results/2026-09-12-14.31-storage.dendrite-sut"
+      "power_w": 13.714
     },
     {
       "layout": "raidz1",
@@ -3877,8 +3812,7 @@
       "bw_gbps": 1.178,
       "steady": false,
       "temp_c": 40.0,
-      "power_w": 11.83,
-      "result_dir": "results/2026-09-12-14.31-storage.dendrite-sut"
+      "power_w": 11.83
     },
     {
       "layout": "raidz1",
@@ -3886,8 +3820,7 @@
       "bw_gbps": 0.886,
       "steady": true,
       "temp_c": 52.0,
-      "power_w": 31.594,
-      "result_dir": "results/2026-09-12-14.31-storage.dendrite-sut"
+      "power_w": 31.594
     },
     {
       "layout": "raid0",
@@ -3895,8 +3828,7 @@
       "bw_gbps": 1.15,
       "steady": true,
       "temp_c": 38.62,
-      "power_w": 14.78,
-      "result_dir": "results/2026-09-12-17.50-storage.dendrite-sut"
+      "power_w": 14.78
     },
     {
       "layout": "raid0",
@@ -3904,8 +3836,7 @@
       "bw_gbps": 1.473,
       "steady": false,
       "temp_c": 40.38,
-      "power_w": 13.26,
-      "result_dir": "results/2026-09-12-17.50-storage.dendrite-sut"
+      "power_w": 13.26
     },
     {
       "layout": "raid0",
@@ -3913,8 +3844,7 @@
       "bw_gbps": 1.616,
       "steady": true,
       "temp_c": 54.5,
-      "power_w": 34.838,
-      "result_dir": "results/2026-09-12-17.50-storage.dendrite-sut"
+      "power_w": 34.838
     }
   ],
   "obscure": [
@@ -3950,8 +3880,8 @@
     },
     {
       "id": "btrfs-write-champ",
-      "claim": "btrfs-raid5 cold seq write 1.91 GB/s >> raidz1 0.72 \u2014 write amp / COW path difference dominates capacity-matched race",
-      "evidence": "stage5-btrfs-raid5 vs stage1-raidz1"
+      "claim": "btrfs-raid5 cold seq write 4.07 GB/s >> raidz1 0.72 \u2014 write amp / COW path difference dominates capacity-matched race",
+      "evidence": "stage5-btrfs-raid5 \u00b7 STO-01_seq_write_1M_j4 vs stage1-raidz1"
     },
     {
       "id": "soak-thermal-headroom",
