@@ -65,3 +65,11 @@ Shared tokens live in `css/theme.css`. Toggle in `js/theme.js` (localStorage key
 - Dual answer: btrfs-raid5 fastest measured · raidz1 recommended default.
 - HOLD mdadm 8× claim; `story_sealed` remains false; provisional banner stays.
 - Design Exploration: composition pass welcome on the PR branch.
+
+## Composition pass (Design Exploration, 2026-09-18)
+
+- Figcaptions stay **Ubuntu** (editorial); measured digits / IDs / axis ticks use **Intel One Mono**.
+- Dual-answer cards: equal visual weight; tabular nums on the big metrics.
+- Chart mosaic: consistent card chrome; dark theme dims matplotlib SVG wells (light fills) instead of flashing white.
+- Chart.js defaults pointed at self-hosted `"Intel One Mono"` for ticks; titles remain Ubuntu.
+- No number changes — sealed JSON / SVG payloads untouched.
