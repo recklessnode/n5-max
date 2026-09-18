@@ -7,6 +7,38 @@
  *        (localStorage key: n5-theme). Falls back to prefers-color-scheme.
  */
 
+
+
+/* Self-hosted Intel One Mono (SIL OFL) — measured / fixed-width face */
+@font-face {
+  font-family: "Intel One Mono";
+  src: url("../fonts/intel-one-mono/IntelOneMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Intel One Mono";
+  src: url("../fonts/intel-one-mono/IntelOneMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Intel One Mono";
+  src: url("../fonts/intel-one-mono/IntelOneMono-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Intel One Mono";
+  src: url("../fonts/intel-one-mono/IntelOneMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* —— Light (editorial) —— */
   --bg: #f4f1ec;
@@ -69,7 +101,7 @@
   --font: "Ubuntu", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--display);
-  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --mono: "Intel One Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --radius: 14px;
   --radius-sm: 10px;
   --radius-pill: 999px;
@@ -188,6 +220,12 @@ html[data-theme="dark"] {
     --rail-read: #2dd4bf;
     --rail-write: #60a5fa;
   }
+}
+
+
+/* Measured text surfaces — never body prose / Orbitron headlines */
+code, kbd, samp, pre {
+  font-family: var(--mono);
 }
 
 /* ── Shared chrome: provisional banner + site-nav + theme toggle ── */
