@@ -524,3 +524,173 @@ html[data-theme="dark"] .chart-card img {
   .ix-scoreboard { grid-template-columns: 1fr; }
   .recipe-card.featured { grid-column: auto; }
 }
+
+/* —— Chart lightbox (sealed index) —— */
+.chart-lightbox-trigger {
+  cursor: zoom-in;
+  transition: box-shadow 0.15s ease, outline-color 0.15s ease, filter 0.15s ease;
+}
+figure.chart-card img.chart-lightbox-trigger:hover,
+figure.chart-card img.chart-lightbox-trigger:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--raidz1, #1fa6a0) 55%, transparent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--raidz1, #1fa6a0) 25%, transparent);
+}
+.chart-panel canvas.chart-lightbox-trigger:hover,
+.chart-panel canvas.chart-lightbox-trigger:focus-visible,
+canvas.chart-lightbox-trigger:hover,
+canvas.chart-lightbox-trigger:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--raidz1, #1fa6a0) 55%, transparent);
+  outline-offset: 4px;
+}
+.chart-panel:has(canvas.chart-lightbox-trigger) {
+  position: relative;
+}
+.chart-panel:has(canvas.chart-lightbox-trigger)::after {
+  content: "click to enlarge";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.55rem;
+  font-family: Ubuntu, var(--font, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.chart-panel:has(canvas.chart-lightbox-trigger):hover::after,
+.chart-panel:has(canvas.chart-lightbox-trigger):focus-within::after {
+  opacity: 0.9;
+}
+figure.chart-card {
+  position: relative;
+}
+figure.chart-card:has(img.chart-lightbox-trigger)::after {
+  content: "⤢";
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  line-height: 1;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+figure.chart-card:has(img.chart-lightbox-trigger):hover::after,
+figure.chart-card:has(img.chart-lightbox-trigger):focus-within::after {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .chart-lightbox-trigger,
+  .chart-panel:has(canvas.chart-lightbox-trigger)::after,
+  figure.chart-card:has(img.chart-lightbox-trigger)::after {
+    transition: none;
+  }
+}
+
+html.chart-lightbox-open,
+html.chart-lightbox-open body {
+  overflow: hidden;
+}
+
+.chart-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+.chart-lightbox[hidden] {
+  display: none !important;
+}
+.chart-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, #0e1114 72%, transparent);
+  cursor: zoom-out;
+}
+html:not([data-theme="dark"]) .chart-lightbox-backdrop {
+  background: color-mix(in srgb, #1a1917 62%, transparent);
+}
+.chart-lightbox-panel {
+  position: relative;
+  z-index: 1;
+  width: min(96vw, 1280px);
+  max-height: min(94vh, 960px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem 1.1rem 1.1rem;
+  background: var(--surface);
+  color: var(--ink, var(--text));
+  border: 1px solid var(--line-strong, var(--line));
+  border-radius: 16px;
+  box-shadow: var(--shadow, 0 18px 48px rgba(0, 0, 0, 0.28));
+}
+.chart-lightbox-title {
+  margin: 0 2.25rem 0 0;
+  font-family: Ubuntu, var(--font, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink, var(--text));
+}
+.chart-lightbox-close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.7rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink, var(--text));
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--mono, "Intel One Mono", monospace);
+}
+.chart-lightbox-close:hover,
+.chart-lightbox-close:focus-visible {
+  border-color: var(--raidz1, #1fa6a0);
+  outline: 2px solid color-mix(in srgb, var(--raidz1, #1fa6a0) 45%, transparent);
+  outline-offset: 1px;
+}
+.chart-lightbox-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--chart-well, #f4f1ec);
+  border: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
+  padding: 0.75rem;
+}
+html[data-theme="dark"] .chart-lightbox-body {
+  background: var(--chart-well, #14181c);
+}
+.chart-lightbox-img {
+  max-width: 100%;
+  max-height: min(82vh, 860px);
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+html[data-theme="dark"] .chart-lightbox-img[src$=".svg"],
+html[data-theme="dark"] .chart-lightbox-img[src*=".svg"] {
+  filter: brightness(0.92) contrast(1.04);
+}

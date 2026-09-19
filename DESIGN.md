@@ -81,3 +81,9 @@ Shared tokens live in `css/theme.css`. Toggle in `js/theme.js` (localStorage key
 - Compare: dual picker + metric weight sliders + cold-default filter from `sealed-metrics.json` (`js/interactive-compare.js`).
 - Recipes: RAG + AI/VM(+unmeasured cold SATA) + By OS/NAS stack; write-hole flagged not crash-injected.
 - SuperGrok second-pass prompt stays lab-only (not linked from public Follow; Pages would ship the whole tree).
+
+## Chart lightbox (2026-09-18)
+
+- Sealed index: click Chart.js canvases (`chart-radar`, `chart-smallmultiples`, `ix-radar`, `.chart-panel canvas`) or SVG/PNG inside `.chart-card` to open a near-fullscreen lightbox.
+- Implementation: `js/chart-lightbox.js` + rules in `css/sealed.css`. Canvas snapshots via Chart.js `toBase64Image` / `canvas.toDataURL` (original chart untouched). Static figures reuse `src` + figcaption title.
+- Dismiss: ESC or backdrop click; `role=dialog` / `aria-modal` with focus restore. Theme tokens follow `theme.css` / `data-theme`.
