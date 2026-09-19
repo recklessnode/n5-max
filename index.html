@@ -14,6 +14,7 @@
   <script src="js/theme.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
   <script src="js/sealed-charts.js" defer></script>
+  <script src="js/interactive-compare.js" defer></script>
   <script src="js/campaign-status.js" defer></script>
   <script src="js/viewer-footer.js" defer></script>
 </head>
@@ -37,6 +38,7 @@
         <a href="#compare">Compare</a>
         <a href="#recipes">Recipes</a>
         <a href="#method">Method</a>
+        <a href="#analysis">Analysis</a>
         <a href="matrix/">Matrix</a>
         <a href="#ai">AI provisional</a>
         <a href="telemetry-viz/">M.2 lab</a>
@@ -63,7 +65,7 @@
         <span class="chip" role="listitem">Protocol B · steady rails</span>
         <span class="chip" role="listitem">5× NM790 4TB</span>
         <span class="chip" role="listitem">SN labels only</span>
-        <span class="chip" role="listitem">HOLD mdadm 8× claim</span>
+        <span class="chip" role="listitem">HOLD mdadm 8×</span>
       </div>
       <div class="hero-actions">
         <a class="btn btn-raidz1" href="#compare">Compare layouts</a>
@@ -94,6 +96,114 @@
         Every plotted point is Protocol&nbsp;B with <span class="mono">steady=true</span> (STO-06 wall-clock labeled N/A).
         Hatch / amber marks non-steady. mdadm parity seq-read is shown but <strong>not</strong> framed as an 8× filesystem finding — open anomaly.
       </p>
+
+      <div class="ix-panel" id="ix-compare" aria-label="Interactive layout compare">
+        <h3>Interactive · dual pick + weighted score</h3>
+        <p class="fine" style="margin:0 0 0.75rem;color:var(--muted);font-size:0.85rem;line-height:1.45">
+          Driven offline from <span class="mono">data/sealed-metrics.json</span>. Scores are normalized A↔B under your weights —
+          not a sealed verdict. Default filter = <strong>cold only</strong>.
+        </p>
+        <div class="ix-toolbar">
+          <div class="ix-field">
+            <label for="ix-layout-a">Layout A</label>
+            <select id="ix-layout-a"></select>
+          </div>
+          <div class="ix-field">
+            <label for="ix-layout-b">Layout B</label>
+            <select id="ix-layout-b"></select>
+          </div>
+          <div class="ix-field">
+            <label for="ix-preset">Workload preset</label>
+            <select id="ix-preset">
+              <option value="balanced">Balanced</option>
+              <option value="rag">AI / RAG (cap + seqRD)</option>
+              <option value="vm">AI+VM (rnd4kW + sync)</option>
+              <option value="sync">Sync-heavy</option>
+            </select>
+          </div>
+        </div>
+        <div class="ix-toggle-row" role="group" aria-label="Cache filter">
+          <label class="ix-toggle"><input type="radio" name="ix-mode" id="ix-mode-cold" value="cold" checked /> Cold only (default)</label>
+          <label class="ix-toggle"><input type="radio" name="ix-mode" id="ix-mode-metadata" value="metadata" /> + ZFS metadata ARC</label>
+          <label class="ix-toggle"><input type="radio" name="ix-mode" id="ix-mode-warm" value="warm" /> + FS warm</label>
+        </div>
+        <div id="ix-mode-warn" class="ix-warn" role="alert"></div>
+        <div class="ix-sliders" aria-label="Metric weights">
+          <div class="ix-slider">
+            <div class="row"><span>capacity</span><span class="wval" id="ix-wv-capacity">30</span></div>
+            <input type="range" id="ix-w-capacity" min="0" max="100" value="30" />
+          </div>
+          <div class="ix-slider">
+            <div class="row"><span>seqRD</span><span class="wval" id="ix-wv-seqRD">35</span></div>
+            <input type="range" id="ix-w-seqRD" min="0" max="100" value="35" />
+          </div>
+          <div class="ix-slider">
+            <div class="row"><span>seqWR</span><span class="wval" id="ix-wv-seqWR">15</span></div>
+            <input type="range" id="ix-w-seqWR" min="0" max="100" value="15" />
+          </div>
+          <div class="ix-slider">
+            <div class="row"><span>rnd4kW</span><span class="wval" id="ix-wv-rnd4kW">15</span></div>
+            <input type="range" id="ix-w-rnd4kW" min="0" max="100" value="15" />
+          </div>
+          <div class="ix-slider">
+            <div class="row"><span>sync</span><span class="wval" id="ix-wv-sync">5</span></div>
+            <input type="range" id="ix-w-sync" min="0" max="100" value="5" />
+          </div>
+        </div>
+        <div class="ix-scoreboard">
+          <div class="ix-score pick-a" id="ix-score-a">
+            <p class="name">—</p>
+            <p class="score mono">0.0</p>
+            <p class="detail"></p>
+          </div>
+          <div class="ix-score pick-b" id="ix-score-b">
+            <p class="name">—</p>
+            <p class="score mono">0.0</p>
+            <p class="detail"></p>
+          </div>
+          <div class="ix-recommend" id="ix-recommend">
+            <p class="kicker">Recommended pick</p>
+            <p class="winner">—</p>
+            <p class="why">Set weights and pick two layouts.</p>
+          </div>
+        </div>
+        <div class="live-grid" style="margin-top:1.1rem">
+          <div class="chart-panel"><canvas id="ix-radar" aria-label="A vs B radar"></canvas></div>
+          <div>
+            <p class="fine mono" style="margin:0 0 0.4rem;font-size:0.72rem;color:var(--muted)">Paired bars · A (top) / B (bottom) · normalized</p>
+            <div class="ix-bars" id="ix-bars"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ix-callouts" aria-label="Non-obvious joins">
+        <article class="ix-callout">
+          <h4>Lane tax is asymmetric</h4>
+          <p>×4 vs ×1 seqRD ~3.3× (5.89/1.80) but sync only ~1.1× — flush-bound, not link-bound.</p>
+          <span class="ev">stage2-single-x4 vs stage1-single-x1 · STO-01 / STO-04</span>
+        </article>
+        <article class="ix-callout">
+          <h4>Cold read-amp</h4>
+          <p>Cold <span class="mono">primarycache=none</span> forces ~9.4–9.9× rnd4k read amp — measuring the pool, not ARC.</p>
+          <span class="ev">stage1 *-full STO-02_rand_read_4k_j4 r_amp≈9.4</span>
+        </article>
+        <article class="ix-callout">
+          <h4>STO-06 converges</h4>
+          <p>Smallfiles copy lands ~0.46–0.57 GB/s across ZFS layouts while fio seq/rand spreads widely.</p>
+          <span class="ev">stage1 none STO-06_smallfiles_copy_1stream</span>
+        </article>
+        <article class="ix-callout">
+          <h4>Warm DRAM ceiling</h4>
+          <p>Warm FS seqRD collapses to ~36.3–36.7 GB/s — layout identity erased. Never sell warm as the array.</p>
+          <span class="ev">stage5 warm STO-01_seq_read_1M_j4</span>
+        </article>
+        <article class="ix-callout">
+          <h4>mdadm HOLD</h4>
+          <p>Parity seqRD pins ~1.14 GB/s while raid10 reads 4.07 — anomaly, not an 8× filesystem claim.</p>
+          <span class="ev">stage5 mdadm cold · open lab #55</span>
+        </article>
+      </div>
+
       <div class="chart-grid">
         <figure class="chart-card wide">
           <figcaption>Tradeoff compass · bubble ∝ rnd4k write</figcaption>
@@ -121,7 +231,7 @@
         </figure>
       </div>
       <div class="live-charts">
-        <h3>Interactive · from <span class="mono">sealed-metrics.json</span></h3>
+        <h3>Baseline charts · from <span class="mono">sealed-metrics.json</span></h3>
         <div class="live-grid">
           <div class="chart-panel"><canvas id="chart-radar" aria-label="Layout radar"></canvas></div>
           <div class="chart-panel"><canvas id="chart-smallmultiples" aria-label="Small multiples"></canvas></div>
@@ -154,11 +264,107 @@
   <section id="recipes" class="recipes-section">
     <div class="wrap reveal">
       <p class="section-label">Recipes · real-world N5 NAS</p>
-      <h2>Pick by workload.</h2>
+      <h2>Pick by workload — then by OS.</h2>
       <figure class="chart-card wide">
         <img src="media/charts/recipes-n5-nas.svg" alt="N5 NAS recipe cards visual" loading="lazy" />
       </figure>
+
       <div class="recipe-grid">
+        <article class="recipe-card featured ai-rag">
+          <h3>AI-first box (RAG-like)</h3>
+          <p class="pick mono">Hot NVMe: btrfs-raid5 (bat) / raidz1 (Proxmox default)</p>
+          <p class="body">
+            Weight + embedding/vector IO streams off a hot NVMe pool. Prefer <strong>seqRD</strong> and <strong>capacity</strong>
+            (Pareto on capacity∩sequential read). AI bat is <strong>provisional</strong> on btrfs-raid5 — directional tok/s only.
+            Vector upsert/index rebuilds also care about seqWR; rnd4kW matters less than for VMs unless your store is write-amplified.
+          </p>
+          <div class="chip-row" aria-label="Sealed evidence">
+            <span class="ev-chip">stage5-btrfs-raid5 · STO-01_seq_read_1M_j4 · 9.034 GB/s</span>
+            <span class="ev-chip">stage1-raidz1-full · STO-01_seq_read_1M_j4 · 7.83 GB/s</span>
+            <span class="ev-chip">stage5-btrfs-raid5 · usable · 14.43 TiB</span>
+            <span class="ev-chip">AI provisional · llama2-7b tg128≈53.7 · btrfs-raid5</span>
+          </div>
+          <p class="thesis">
+            <strong>Thesis / gap:</strong> cold 5×3.5″ SATA is not in this recipe’s critical path for RAG hot weights.
+            If embeddings spill to cold tier, that path is <em>unmeasured</em> — do not invent HDD numbers.
+          </p>
+        </article>
+
+        <article class="recipe-card featured ai-vm">
+          <h3>AI + VM server (+ cold SATA)</h3>
+          <p class="pick mono">Hot: raid10 (ZFS) or btrfs-raid10 for VMs/DB · AI weights on capacity layout beside it</p>
+          <p class="body">
+            Split the story: VM disks / databases want <strong>rnd4kW + sync</strong> (mirrors win on ZFS stage1 cold);
+            the AI weight tree still wants capacity∩seqRD. One box can host both — do not collapse them into a single “best RAID.”
+          </p>
+          <div class="chip-row" aria-label="Sealed evidence">
+            <span class="ev-chip">stage1-raid10-full · STO-02_rand_write_4k_j4 · 0.167 GB/s</span>
+            <span class="ev-chip">stage1-raidz1-full · STO-02_rand_write_4k_j4 · 0.077 GB/s</span>
+            <span class="ev-chip">stage1-raid10-full · STO-04 · 0.027 GB/s</span>
+            <span class="ev-chip">stage1-raidz1-full · STO-04 · 0.007 GB/s</span>
+            <span class="ev-chip gap-chip">5×3.5″ SATA cold tier · UNMEASURED</span>
+          </div>
+          <p class="thesis">
+            <strong>Cold SATA (explicit gap):</strong> the N5’s unbenchmarked 5×3.5″ SATA bay is a <em>thesis</em> for cold datasets,
+            backups, and model archives — <strong>no sealed fio cells</strong>. Hypotheses only: sequential archive reads may be
+            spindle-bound; random 4k from HDD will not resemble NVMe rnd4kW; do not paste hot-tier GB/s onto the cold bay.
+            Optional follow-up: open a lab issue for a cold-tier Protocol&nbsp;B arm before any recipe cites HDD numbers.
+          </p>
+        </article>
+      </div>
+
+      <p class="section-label" style="margin-top:2rem">By OS / NAS stack</p>
+      <h2 style="font-size:1.35rem">Recommended layout follows the ecosystem — not only the slider.</h2>
+      <div class="recipe-grid">
+        <article class="recipe-card">
+          <h3>Proxmox / ZFS-first</h3>
+          <p class="pick mono">raidz1 recommended default</p>
+          <p class="body">
+            Stay in the ZFS/Proxmox toolchain. raidz1 is the sealed capacity∩seqRD default (14.11&nbsp;TiB · 7.83&nbsp;GB/s cold).
+            btrfs-raid5 remains <em>fastest measured</em> if someone deliberately leaves that ecosystem and owns RAID5 rebuild + write-hole risk.
+          </p>
+          <div class="chip-row">
+            <span class="ev-chip">stage1-raidz1-full · STO-01 · 7.83</span>
+            <span class="ev-chip">winner-selection · recommended default = raidz1</span>
+          </div>
+        </article>
+        <article class="recipe-card">
+          <h3>Fedora / Ubuntu (btrfs-accessible)</h3>
+          <p class="pick mono">Hypothesis: btrfs-raid5 can win outright on measured speed</p>
+          <p class="body">
+            Outside Proxmox, newer distro kernels make btrfs operationally easy — and cold sealed numbers favor
+            <strong>btrfs-raid5</strong> on capacity∩seqRD (14.43&nbsp;TiB · 9.03&nbsp;GB/s). That is a <em>speed</em> argument, not a
+            “Fedora fixed the write-hole” claim.
+          </p>
+          <p class="thesis">
+            <strong>Write-hole honesty:</strong> upstream Status still rates RAID56 <strong>unstable</strong>
+            (btrfs.readthedocs.io Status, kernel 7.2 table). Lab cells flag <span class="mono">FSB-BTRFS-12</span>
+            (<span class="mono">write_hole_exposed: true</span> for <em>data</em> parity. Metadata is mitigated with
+            <span class="mono">-m raid1c3</span> (<span class="mono">FSB-BTRFS-04</span>) — that does <strong>not</strong> close the data write-hole.
+            Raid-stripe-tree RAID5 remains experimental / RFC — not a distro “it’s fixed” story. We documented the caveat;
+            we did <strong>not</strong> crash-inject unclean shutdown. Prefer btrfs-raid10 if you need btrfs without parity write-hole exposure.
+          </p>
+          <div class="chip-row">
+            <span class="ev-chip">stage5-btrfs-raid5 · STO-01 · 9.034</span>
+            <span class="ev-chip">FSB-BTRFS-04 · -m raid1c3</span>
+            <span class="ev-chip gap-chip">FSB-BTRFS-12 · no crash-inject arm</span>
+          </div>
+        </article>
+        <article class="recipe-card">
+          <h3>TrueNAS / FreeNAS</h3>
+          <p class="pick mono">raidz1 (ZFS-native) — btrfs is not the platform path</p>
+          <p class="body">
+            TrueNAS is a ZFS appliance. Use raidz1 as the sealed default; raid10 when VM/DB sync+rnd4kW dominate.
+            Do not import the btrfs-raid5 “fastest measured” row as a TrueNAS recommendation.
+          </p>
+          <div class="chip-row">
+            <span class="ev-chip">stage1-raidz1-full · 14.11 TiB · 7.83</span>
+            <span class="ev-chip">stage1-raid10-full · rnd4kW 0.167 · sync 0.027</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="recipe-grid" style="margin-top:1rem">
         <article class="recipe-card">
           <h3>VM disks / databases</h3>
           <p class="pick mono">raid10 (ZFS) or btrfs-raid10</p>
@@ -179,20 +385,11 @@
           </ul>
         </article>
         <article class="recipe-card">
-          <h3>Local-AI weight streaming</h3>
-          <p class="pick mono">btrfs-raid5 (bat) / raidz1 (default ecosystem)</p>
-          <p>AI bat stresses sequential read of multi-hundred-GB trees; capacity-first Pareto</p>
-          <ul class="evidence mono">
-            <li>docs/winner-selection.md</li>
-            <li>AI provisional llama2-7b tg128≈53.7 tok/s resident on btrfs-raid5</li>
-          </ul>
-        </article>
-        <article class="recipe-card">
           <h3>Cold archive / dual parity</h3>
           <p class="pick mono">raidz2 or btrfs-raid6</p>
-          <p>Dual parity; seq read still near ceiling; capacity trade 10.2–10.7 TiB</p>
+          <p>Dual parity; seq read still near ceiling; capacity trade 10.2–10.7 TiB. Same write-hole caveat on btrfs-raid6 data.</p>
           <ul class="evidence mono">
-            <li>stage1-raidz2-full 18.42 STO-01_seq_read_1M_j4 8.941 steady</li>
+            <li>stage1-raidz2-full STO-01_seq_read_1M_j4 8.941 steady</li>
             <li>stage5-btrfs-raid6-full cold seqRD 9.03</li>
           </ul>
         </article>
@@ -203,32 +400,99 @@
           <ul class="evidence mono">
             <li>stage1-raidz1-full STO-04 0.007 steady</li>
             <li>stage1-raid10-full STO-04 0.027 steady</li>
-            <li>docs/followup-raid-pass.md</li>
+            <li>lab follow-up #57 · SLOG A/B</li>
           </ul>
         </article>
       </div>
-      <p class="callout caution">Sync-heavy today → raid10. raidz1+SLOG on the Gen4 ×4 is deferred (predicted ~2.9× on STO-04 only; falsifier if reads move). NM790 has no PLP — durability caveat stays in the writeup.</p>
+      <p class="callout caution">Sync-heavy today → raid10. raidz1+SLOG on the Gen4 ×4 is deferred (predicted ~2.9× on STO-04 only; falsifier if reads move). NM790 has no PLP — durability caveat stays in the writeup. btrfs-raid5 speed ≠ write-hole closure.</p>
     </div>
   </section>
   <section id="method">
     <div class="wrap reveal">
-      <p class="section-label">Methodology</p>
+      <p class="section-label">Methodology · N5 Lab</p>
       <h2>How a number earns the page.</h2>
       <ul class="method-list">
-        <li><strong>Protocol B</strong> — <span class="mono">params.protocol</span> starts with <span class="mono">B-</span>; derived ramps; working set past SLC.</li>
-        <li><strong>Steadiness</strong> — <span class="mono">rails.steadiness.steady==true</span> for publishable fio windows; non-steady hatched/labeled.</li>
-        <li><strong>Cold control</strong> — <span class="mono">primarycache=none</span> / <span class="mono">cache_state=cold</span>. Warm ~36 GB/s is DRAM, not the array.</li>
-        <li><strong>Calibrate ≠ story</strong> — <span class="mono">2026-09-11-19.41</span> invalidated for story; superseded by <span class="mono">2026-09-13-18.42</span>.</li>
-        <li><strong>mdadm HOLD</strong> — parity seqRD pins at 1.14 GB/s; raid10 reads normally; do not publish “8× slower than btrfs.”</li>
-        <li><strong>Public-safe</strong> — SN labels only; no serials, by-id, or SUT IPs.</li>
+        <li><strong>Protocol B</strong> — <span class="mono">params.protocol</span> starts with <span class="mono">B-</span>; derived ramps; working set past SLC. Publishable fio windows require steadiness rails.</li>
+        <li><strong>Steadiness</strong> — <span class="mono">rails.steadiness.steady==true</span> for publishable fio; non-steady hatched/labeled. STO-06 is wall-clock — steadiness N/A, labeled.</li>
+        <li><strong>Cold vs metadata vs warm</strong> — cold = <span class="mono">primarycache=none</span> / <span class="mono">cache_state=cold</span> (layout story). Metadata ARC lifts some ZFS reads but is not the array. Warm FS seqRD ~36&nbsp;GB/s is DRAM — layout identity erased.</li>
+        <li><strong>Excluded from story</strong> — calibrate cell <span class="mono">2026-09-11-19.41</span> (invalidated; superseded by <span class="mono">2026-09-13-18.42</span>); <span class="mono">deprecated-fixed60</span>; <span class="mono">preliminary-omega</span>; non-steady figures without label; warm/metadata as layout proof.</li>
+        <li><strong>mdadm HOLD</strong> — parity seqRD pins at 1.14&nbsp;GB/s; raid10 reads normally; do not publish “8× slower than btrfs.” Open lab issue <span class="mono open-issue">#55</span>.</li>
+        <li><strong>btrfs write-hole — flagged, not crash-tested</strong> —
+          Cells carry <span class="mono">FSB-BTRFS-12</span> / <span class="mono">write_hole_exposed: true</span> for raid5/6 <em>data</em>.
+          Metadata kept off parity via <span class="mono">-m raid1c3</span> (<span class="mono">FSB-BTRFS-04</span>).
+          Upstream Status still lists RAID56 as <strong>unstable</strong>; RST RAID5 is experimental/RFC — not enabled here.
+          <strong>We did not run an unclean-shutdown / crash-inject arm</strong> that would quantify integrity impact beyond the throughput/redundancy story.
+          Speed + rebuild exposure are measured or reasoned; write-hole <em>impact</em> remains a documented caveat pending a dedicated arm (parent may file).
+          Same honesty standard as mdadm (<span class="mono">FSB-MD-08</span>) — one class of exposure, no double standard. ZFS raidz is not in that class (COW full-stripe).
+        </li>
+        <li><strong>Open lab follow-ups</strong> —
+          <span class="mono open-issue">#55</span> mdadm parity read-path pin;
+          <span class="mono open-issue">#56</span> STO-09 degraded-mode + rebuild toll;
+          <span class="mono open-issue">#57</span> raidz1 + SLOG on Gen4×4 sync A/B;
+          <span class="mono open-issue">#58</span> Stage&nbsp;6 USB/NVMe seal hygiene.
+          Plus: unmeasured 5×3.5″ SATA cold tier; optional write-hole / unclean-shutdown arm.
+        </li>
+        <li><strong>Public-safe</strong> — SN labels only; no serials, by-id, or SUT IPs. Interactive UI reads scrubbed <span class="mono">sealed-metrics.json</span> only.</li>
       </ul>
       <figure class="chart-card wide">
         <figcaption>Steadiness heatmap — ZFS stage1 cold</figcaption>
         <img src="media/charts/steadiness-heatmap-stage1.svg" alt="Steadiness heatmap across tests and layouts" loading="lazy" />
       </figure>
-      <p class="lede fine">Matrix live status → <a href="matrix/">matrix/</a></p>
+      <p class="lede fine">Matrix live status → <a href="matrix/">matrix/</a> · Issues live on the private lab tracker.</p>
     </div>
   </section>
+
+  <section id="analysis">
+    <div class="wrap reveal">
+      <p class="section-label">N5 Lab analysis · first pass</p>
+      <h2>Joins from sealed metrics — not only the dual-answer slogan.</h2>
+      <div class="analysis-prose">
+        <p>
+          Claude’s winner stance is the right dual headline: <strong>btrfs-raid5</strong> is fastest measured on the
+          cold capacity∩seqRD Pareto; <strong>raidz1</strong> is the recommended default when the operator’s world is
+          Proxmox/ZFS. N5 Lab’s interactive pass keeps that stance and then asks what the matrix implies once you
+          stop treating “recommended” as a single scalar.
+        </p>
+        <h3>Capacity-matched race is a write-path story</h3>
+        <p>
+          At ~14&nbsp;TiB usable, btrfs-raid5 cold seqWR (~4.07&nbsp;GB/s) far outruns raidz1 (~0.72&nbsp;GB/s) while seqRD
+          stays near line rate on both (9.03 vs 7.83). The capacity∩seqRD Pareto therefore understates how much the
+          <em>write</em> stack differs. For RAG weight staging and embedding bulk load, that seqWR gap is operationally
+          louder than the ~1.2&nbsp;GB/s seqRD delta — still without promoting warm DRAM numbers as proof.
+          <span class="cite">stage5-btrfs-raid5 · STO-01_seq_write_1M_j4 · stage1-raidz1-full</span>
+        </p>
+        <h3>VM co-tenancy flips the axis set</h3>
+        <p>
+          Once the box also runs VMs/DB, rnd4kW and sync dominate. ZFS raid10 cold rnd4kW 0.167 vs raidz1 0.077, sync
+          0.027 vs 0.007 — mirrors earn their keep. An “AI+VM” recipe that picks raidz1 for everything is optimizing
+          the weight tree and neglecting the guest disk path. Split pools or accept raid10’s capacity tax on the hot tier.
+          <span class="cite">stage1-raid10-full vs stage1-raidz1-full · STO-02 / STO-04</span>
+        </p>
+        <h3>Lane tax ≠ sync tax</h3>
+        <p>
+          Gen4 ×4 vs ×1 delivers ~3.27× seqRD but barely moves sync (~1.1×). Putting a SLOG on the ×4 (lab #57) is a
+          sync-shaped bet; it will not “unlock” sequential read the way a wider data stripe would. Flush-bound paths
+          need a different lever than PCIe width.
+          <span class="cite">x1_vs_x4 · STO-01 / STO-04</span>
+        </p>
+        <h3>What we did not measure (and must not invent)</h3>
+        <p>
+          The 5×3.5″ SATA cold bay has <strong>zero</strong> sealed Protocol&nbsp;B cells in the public scrub.
+          Any cold-tier GB/s, rebuild toll on spindles, or “archive is fine on HDD RAIDZ” claim is hypothesis pending seal.
+          Separately: btrfs write-hole is <strong>labeled</strong> (<span class="mono">FSB-BTRFS-12</span>) but
+          <strong>not crash-injected</strong> — integrity impact beyond speed/redundancy is an open measurement gap,
+          not a resolved “mitigated by raid1c3 metadata” story for <em>data</em>.
+        </p>
+        <h3>OS recipes are risk-shaped, not chart-shaped</h3>
+        <p>
+          TrueNAS → ZFS path (raidz1 default). Proxmox → same. Fedora/Ubuntu → btrfs may win on sealed speed, but
+          upstream RAID56 remains unstable and our lab did not close the write-hole with a fault arm. The interactive
+          sliders help explore weights; they do not absolve write-hole or unmeasured cold SATA.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="ai" class="ai-section">
     <div class="wrap reveal">
       <p class="section-label caution">AI · PROVISIONAL</p>
@@ -257,7 +521,7 @@
         <li><strong>Cold primarycache=none forces ~9.4–9.9× read amplification on rnd4k — measuring pool not ARC</strong><br /><span class="evidence mono">stage1 *-full STO-02_rand_read_4k_j4 r_amp≈9.4</span></li>
         <li><strong>raidz2 cold seq read (8.94) exceeds raidz1 (7.83) on same 4-wide x1 — parity width vs stripe efficiency</strong><br /><span class="evidence mono">2026-09-13-18.42 vs 2026-09-13-17.14 STO-01_seq_read_1M_j4 steady</span></li>
         <li><strong>x4 vs x1 seq read ~3.3× (5.89/1.80) but sync write only ~1.1× (0.023/0.021) — sync is flush-bound not link-bound</strong><br /><span class="evidence mono">stage2-single-x4-full vs stage1-single-x1-full</span></li>
-        <li><strong>mdadm raid5/6 cold seqRD and rnd64kR pin at ~1.14/1.10 while raid10 reads 4.07 — parity read-path anomaly not FS-wide</strong><br /><span class="evidence mono">stage5 mdadm cold; docs/followup-raid-pass.md HOLD</span></li>
+        <li><strong>mdadm raid5/6 cold seqRD and rnd64kR pin at ~1.14/1.10 while raid10 reads 4.07 — parity read-path anomaly not FS-wide</strong><br /><span class="evidence mono">stage5 mdadm cold; HOLD · lab #55</span></li>
         <li><strong>Warm/metadata seq read collapses to ~36 GB/s DRAM path across FS — layout identity erased</strong><br /><span class="evidence mono">stage5 warm STO-01_seq_read_1M_j4 ~36.3–36.7 all layouts</span></li>
         <li><strong>btrfs-raid5 cold seq write 4.07 GB/s >> raidz1 0.72 — write amp / COW path difference dominates capacity-matched race</strong><br /><span class="evidence mono">stage5-btrfs-raid5 · STO-01_seq_write_1M_j4 vs stage1-raidz1</span></li>
         <li><strong>1h soak mixed peaks ~52–54°C soc — no thermal cliff in sealed soak windows</strong><br /><span class="evidence mono">stage4 SOAK-02 thermal max_during</span></li>
@@ -269,13 +533,13 @@
     <div class="wrap reveal">
       <p class="section-label">Follow</p>
       <h2>Campaign continues.</h2>
-      <p class="lede">Matrix UI tracks cell status. M.2 lab visualizes seats. Design Exploration owns a composition pass after this PR.</p>
+      <p class="lede">Matrix UI tracks cell status. M.2 lab visualizes seats. Design Exploration owns composition after this PR.</p>
       <div class="cta-strip">
         <a class="btn btn-raidz1" href="matrix/">Open matrix</a>
         <a class="btn btn-ghost" href="telemetry-viz/">M.2 lab</a>
       </div>
       <footer class="site-footer">
-        <p>Figures from sealed <span class="mono">result.json</span> only · <span class="mono">story_sealed=false</span> · N5 Lab</p>
+        <p>Figures from sealed Protocol B cells only · <span class="mono">story_sealed=false</span> · N5 Lab interactive pass</p>
       </footer>
     </div>
   </section>

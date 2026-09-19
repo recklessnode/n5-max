@@ -73,3 +73,11 @@ Shared tokens live in `css/theme.css`. Toggle in `js/theme.js` (localStorage key
 - Chart mosaic: consistent card chrome; dark theme dims matplotlib SVG wells (light fills) instead of flashing white.
 - Chart.js defaults pointed at self-hosted `"Intel One Mono"` for ticks; titles remain Ubuntu.
 - No number changes — sealed JSON / SVG payloads untouched.
+
+
+## Interactive compare v2 (2026-09-18)
+
+- Sealed pages do not load `app.js`; `sealed.css` overrides `.reveal` to visible so sections are not blank.
+- Compare: dual picker + metric weight sliders + cold-default filter from `sealed-metrics.json` (`js/interactive-compare.js`).
+- Recipes: RAG + AI/VM(+unmeasured cold SATA) + By OS/NAS stack; write-hole flagged not crash-injected.
+- SuperGrok second-pass prompt stays lab-only (not linked from public Follow; Pages would ship the whole tree).
