@@ -415,7 +415,7 @@
         <li><strong>Protocol B</strong> — <span class="mono">params.protocol</span> starts with <span class="mono">B-</span>; derived ramps; working set past SLC. Publishable fio windows require steadiness rails.</li>
         <li><strong>Steadiness</strong> — <span class="mono">rails.steadiness.steady==true</span> for publishable fio; non-steady hatched/labeled. STO-06 is wall-clock — steadiness N/A, labeled.</li>
         <li><strong>Cold vs metadata vs warm</strong> — cold = <span class="mono">primarycache=none</span> / <span class="mono">cache_state=cold</span> (layout story). Metadata ARC lifts some ZFS reads but is not the array. Warm FS seqRD ~36&nbsp;GB/s is DRAM — layout identity erased.</li>
-        <li><strong>Excluded from story</strong> — calibrate cell <span class="mono">2026-09-11-19.41</span> (invalidated; superseded by <span class="mono">2026-09-13-18.42</span>); <span class="mono">results/deprecated-fixed60</span>; <span class="mono">results/preliminary-omega</span>; non-steady figures without label; warm/metadata as layout proof.</li>
+        <li><strong>Excluded from story</strong> — calibrate cell <span class="mono">2026-09-11-19.41</span> (invalidated; superseded by <span class="mono">2026-09-13-18.42</span>); <span class="mono">deprecated-fixed60</span>; <span class="mono">preliminary-omega</span>; non-steady figures without label; warm/metadata as layout proof.</li>
         <li><strong>mdadm HOLD</strong> — parity seqRD pins at 1.14&nbsp;GB/s; raid10 reads normally; do not publish “8× slower than btrfs.” Open lab issue <span class="mono open-issue">#55</span>.</li>
         <li><strong>btrfs write-hole — flagged, not crash-tested</strong> —
           Cells carry <span class="mono">FSB-BTRFS-12</span> / <span class="mono">write_hole_exposed: true</span> for raid5/6 <em>data</em>.
@@ -438,7 +438,7 @@
         <figcaption>Steadiness heatmap — ZFS stage1 cold</figcaption>
         <img src="media/charts/steadiness-heatmap-stage1.svg" alt="Steadiness heatmap across tests and layouts" loading="lazy" />
       </figure>
-      <p class="lede fine">Matrix live status → <a href="matrix/">matrix/</a> · Issues live on the private lab tracker (recklessnode/minisforum-n5-max-benchmark).</p>
+      <p class="lede fine">Matrix live status → <a href="matrix/">matrix/</a> · Issues live on the private lab tracker.</p>
     </div>
   </section>
 
@@ -533,11 +533,10 @@
     <div class="wrap reveal">
       <p class="section-label">Follow</p>
       <h2>Campaign continues.</h2>
-      <p class="lede">Matrix UI tracks cell status. M.2 lab visualizes seats. Design Exploration owns a composition pass after this PR. SuperGrok second-pass prompt ships under <span class="mono">docs/</span>.</p>
+      <p class="lede">Matrix UI tracks cell status. M.2 lab visualizes seats. Design Exploration owns composition after this PR.</p>
       <div class="cta-strip">
         <a class="btn btn-raidz1" href="matrix/">Open matrix</a>
         <a class="btn btn-ghost" href="telemetry-viz/">M.2 lab</a>
-        <a class="btn btn-ghost" href="docs/supergrok-second-pass-prompt.md">SuperGrok prompt</a>
       </div>
       <footer class="site-footer">
         <p>Figures from sealed Protocol B cells only · <span class="mono">story_sealed=false</span> · N5 Lab interactive pass</p>
