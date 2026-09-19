@@ -202,3 +202,325 @@ html[data-theme="dark"] .chart-card img {
   .chart-card.wide { grid-column: auto; }
   .answer-card .big { font-size: 0.98rem; }
 }
+
+
+/* ── Reveal polyfill for sealed pages (no app.js) ──
+   styles.css keeps .reveal { opacity:0 } until .in; sealed index
+   does not load app.js, so Compare/Recipes/Method stayed invisible.
+   Prefer CSS override over reintroducing app.js side effects. */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Interactive compare v2 ── */
+.ix-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem 1.25rem;
+  box-shadow: var(--shadow);
+  margin: 1.25rem 0;
+}
+.ix-panel h3 {
+  font-family: Ubuntu, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+.ix-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+.ix-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 140px;
+}
+.ix-field label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: var(--mono, "Intel One Mono", monospace);
+}
+.ix-field select,
+.ix-field input[type="range"] {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 0.85rem;
+}
+.ix-field select {
+  background: var(--surface);
+  color: var(--ink, var(--text));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.4rem 0.55rem;
+}
+.ix-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 0.5rem 0 0.85rem;
+}
+.ix-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+}
+.ix-toggle input { accent-color: var(--raidz1, #1fa6a0); }
+.ix-warn {
+  display: none;
+  border-left: 3px solid #c53030;
+  background: color-mix(in srgb, #c53030 12%, transparent);
+  padding: 0.75rem 0.95rem;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0.5rem 0 1rem;
+}
+.ix-warn.visible { display: block; }
+.ix-warn strong { color: #c53030; }
+
+.ix-sliders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.85rem 1.1rem;
+  margin: 0.75rem 0 1rem;
+}
+.ix-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.ix-slider .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.78rem;
+}
+.ix-slider .row .wval {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.ix-slider input[type="range"] {
+  width: 100%;
+  accent-color: var(--raidz1, #1fa6a0);
+}
+
+.ix-scoreboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.85rem;
+  align-items: stretch;
+  margin-top: 0.5rem;
+}
+.ix-score {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--surface) 92%, var(--wash-raidz1, #1fa6a0) 8%);
+}
+.ix-score.pick-a { border-top: 3px solid var(--raid10, #e86a2b); }
+.ix-score.pick-b { border-top: 3px solid var(--raidz1, #1fa6a0); }
+.ix-score .name {
+  font-family: Orbitron, sans-serif;
+  font-size: 0.95rem;
+  margin: 0 0 0.25rem;
+}
+.ix-score .score {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 1.45rem;
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+.ix-score .detail {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0.35rem 0 0;
+  line-height: 1.35;
+}
+.ix-recommend {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.ix-recommend .kicker {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+.ix-recommend .winner {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.05rem;
+  margin: 0;
+}
+.ix-recommend .why {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.ix-bars {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+.ix-bar-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 64px;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.78rem;
+}
+.ix-bar-row .metric-label {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  color: var(--muted);
+}
+.ix-bar-track {
+  position: relative;
+  height: 18px;
+  background: color-mix(in srgb, var(--line) 55%, transparent);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.ix-bar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 6px;
+  opacity: 0.9;
+  transition: width 0.25s ease;
+}
+.ix-bar-fill.a { background: var(--raid10, #e86a2b); }
+.ix-bar-fill.b { background: var(--raidz1, #1fa6a0); top: 50%; height: 50%; }
+.ix-bar-row .metric-val {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.ix-callouts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 0.5rem;
+}
+.ix-callout {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.ix-callout h4 {
+  font-family: Ubuntu, sans-serif;
+  font-size: 0.88rem;
+  margin: 0 0 0.35rem;
+}
+.ix-callout p {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.4;
+}
+.ix-callout .ev {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+/* Recipe detail cards */
+.recipe-card.featured {
+  grid-column: 1 / -1;
+  border-top: 3px solid var(--raidz1, #1fa6a0);
+}
+.recipe-card.featured.ai-rag { border-top-color: #6b46c1; }
+.recipe-card.featured.ai-vm { border-top-color: var(--raid10, #e86a2b); }
+.recipe-card .chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.65rem 0 0.35rem;
+}
+.recipe-card .ev-chip {
+  display: inline-block;
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 0.68rem;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 80%, var(--line));
+  color: var(--ink, var(--text));
+  line-height: 1.3;
+}
+.recipe-card .gap-chip {
+  border-color: color-mix(in srgb, #c53030 45%, var(--line));
+  background: color-mix(in srgb, #c53030 10%, transparent);
+  color: #c53030;
+}
+.recipe-card .body {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.35rem 0;
+}
+.recipe-card .thesis {
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-left: 3px solid var(--line);
+  padding-left: 0.75rem;
+  margin: 0.75rem 0 0;
+  line-height: 1.45;
+}
+
+.analysis-prose {
+  max-width: 72ch;
+  line-height: 1.6;
+}
+.analysis-prose h3 {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.5rem;
+}
+.analysis-prose p { margin: 0 0 0.85rem; }
+.analysis-prose .cite {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.method-list .open-issue {
+  font-family: var(--mono, "Intel One Mono", monospace);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 900px) {
+  .ix-scoreboard { grid-template-columns: 1fr; }
+  .recipe-card.featured { grid-column: auto; }
+}
