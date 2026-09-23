@@ -1,337 +1,569 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-23T05:52:36Z",
-  "harness_commit": "66d89e5c0",
-  "git_commit": "e65c3199b",
+  "updated_at": "2026-09-23T06:06:46Z",
+  "harness_commit": null,
+  "git_commit": "ca1941c67",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
-    "id": 3,
-    "name": "AI bat (streamed from the winning pool layout)"
+    "id": 7,
+    "name": "Degraded-mode cost and rebuild toll (STO-09)"
   },
   "cells": [
     {
-      "n": 1,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "llama2-7b-q4-0",
+      "n": 0,
+      "layout": "probe0-btrfs-raid5",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "passed",
-      "started_at": "2026-09-22T04:51:55Z",
-      "finished_at": "2026-09-22T05:36:49Z",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
       "failure_class": null,
-      "confidence": 0.125,
+      "confidence": null,
       "cases": [
         {
-          "id": "AI-01_llama2-7b-q4-0_resident_agentic_tool",
-          "status": "passed",
-          "started_at": "2026-09-22T05:31:11Z",
-          "finished_at": "2026-09-22T05:32:15Z"
-        },
-        {
-          "id": "AI-01_llama2-7b-q4-0_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-22T04:54:21Z",
-          "finished_at": "2026-09-22T05:00:34Z"
-        },
-        {
-          "id": "AI-01_llama2-7b-q4-0_resident_chat_multi",
-          "status": "passed",
-          "started_at": "2026-09-22T05:28:27Z",
-          "finished_at": "2026-09-22T05:28:49Z"
-        },
-        {
-          "id": "AI-01_llama2-7b-q4-0_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-22T05:12:33Z",
-          "finished_at": "2026-09-22T05:16:39Z"
-        },
-        {
-          "id": "AI-01_llama2-7b-q4-0_resident_creative",
-          "status": "passed",
-          "started_at": "2026-09-22T05:34:05Z",
-          "finished_at": "2026-09-22T05:36:47Z"
-        },
-        {
-          "id": "AI-01_llama2-7b-q4-0_resident_extract_json",
-          "status": "passed",
-          "started_at": "2026-09-22T05:22:16Z",
-          "finished_at": "2026-09-22T05:26:26Z"
-        },
-        {
-          "id": "AI-01_llama2-7b-q4-0_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-22T04:54:08Z",
-          "finished_at": "2026-09-22T04:54:10Z"
-        },
-        {
-          "id": "AI-01_llama2-7b-q4-0_resident_longctx_needle",
-          "status": "unmeasured",
+          "id": "PHASE-01_fill",
+          "status": "pending",
           "started_at": null,
-          "finished_at": "2026-09-22T05:30:41Z"
+          "finished_at": null
         },
         {
-          "id": "AI-01_llama2-7b-q4-0_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-22T05:02:37Z",
-          "finished_at": "2026-09-22T05:03:04Z"
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_llama2-7b-q4-0_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-22T05:03:45Z",
-          "finished_at": "2026-09-22T05:10:32Z"
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_llama2-7b-q4-0_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-22T05:18:40Z",
-          "finished_at": "2026-09-22T05:20:15Z"
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-02_inject",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        }
+      ]
+    },
+    {
+      "n": 1,
+      "layout": "btrfs-raid10",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
+      "primarycache": "cold",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "failure_class": null,
+      "confidence": null,
+      "cases": [
+        {
+          "id": "PHASE-01_fill",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-02_inject",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     },
     {
       "n": 2,
       "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "smoke-qwen3-0.6b-q8",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "passed",
-      "started_at": "2026-09-22T05:43:46Z",
-      "finished_at": "2026-09-22T05:55:58Z",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
       "failure_class": null,
-      "confidence": 0.125,
+      "confidence": null,
       "cases": [
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_agentic_tool",
-          "status": "passed",
-          "started_at": "2026-09-22T05:55:14Z",
-          "finished_at": "2026-09-22T05:55:23Z"
+          "id": "PHASE-01_fill",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-22T05:45:25Z",
-          "finished_at": "2026-09-22T05:46:26Z"
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_chat_multi",
-          "status": "passed",
-          "started_at": "2026-09-22T05:53:46Z",
-          "finished_at": "2026-09-22T05:53:55Z"
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-22T05:50:41Z",
-          "finished_at": "2026-09-22T05:50:55Z"
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_creative",
-          "status": "passed",
-          "started_at": "2026-09-22T05:55:44Z",
-          "finished_at": "2026-09-22T05:55:57Z"
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_extract_json",
-          "status": "passed",
-          "started_at": "2026-09-22T05:52:51Z",
-          "finished_at": "2026-09-22T05:53:05Z"
+          "id": "PHASE-02_inject",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-22T05:45:22Z",
-          "finished_at": "2026-09-22T05:45:25Z"
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_longctx_needle",
-          "status": "passed",
-          "started_at": "2026-09-22T05:54:25Z",
-          "finished_at": "2026-09-22T05:54:43Z"
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-22T05:47:58Z",
-          "finished_at": "2026-09-22T05:48:20Z"
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-22T05:49:01Z",
-          "finished_at": "2026-09-22T05:49:41Z"
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-22T05:51:45Z",
-          "finished_at": "2026-09-22T05:52:10Z"
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     },
     {
       "n": 3,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "gemma-4-26b-a4b-q4km",
+      "layout": "btrfs-raid6",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "passed",
-      "started_at": "2026-09-22T06:02:57Z",
-      "finished_at": "2026-09-22T06:49:16Z",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
       "failure_class": null,
-      "confidence": 0.125,
+      "confidence": null,
       "cases": [
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
-          "status": "passed",
-          "started_at": "2026-09-22T06:45:24Z",
-          "finished_at": "2026-09-22T06:45:54Z"
+          "id": "PHASE-01_fill",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-22T06:07:44Z",
-          "finished_at": "2026-09-22T06:15:13Z"
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
-          "status": "passed",
-          "started_at": "2026-09-22T06:35:49Z",
-          "finished_at": "2026-09-22T06:36:29Z"
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-22T06:25:15Z",
-          "finished_at": "2026-09-22T06:26:00Z"
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
-          "status": "passed",
-          "started_at": "2026-09-22T06:47:34Z",
-          "finished_at": "2026-09-22T06:49:13Z"
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
-          "status": "passed",
-          "started_at": "2026-09-22T06:33:13Z",
-          "finished_at": "2026-09-22T06:34:08Z"
+          "id": "PHASE-02_inject",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-22T06:07:17Z",
-          "finished_at": "2026-09-22T06:07:23Z"
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
-          "status": "passed",
-          "started_at": "2026-09-22T06:37:52Z",
-          "finished_at": "2026-09-22T06:43:24Z"
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-22T06:17:18Z",
-          "finished_at": "2026-09-22T06:18:07Z"
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-22T06:19:38Z",
-          "finished_at": "2026-09-22T06:23:15Z"
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-22T06:27:30Z",
-          "finished_at": "2026-09-22T06:31:13Z"
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     },
     {
       "n": 4,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "gpt-oss-20b-mxfp4",
+      "layout": "zfs-raidz1",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "failed",
+      "status": "pending",
       "started_at": null,
       "finished_at": null,
-      "failure_class": "run",
+      "failure_class": null,
       "confidence": null,
       "cases": [
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_agentic_tool",
+          "id": "PHASE-01_fill",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_bench",
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_chat_multi",
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_code_gen",
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_creative",
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_extract_json",
+          "id": "PHASE-02_inject",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_load",
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_longctx_needle",
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_qa_short",
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_reason_math",
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4_resident_summarize",
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -340,26 +572,110 @@
     },
     {
       "n": 5,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "text-to-image",
-      "model": "qwen-image-2512-bf16",
+      "layout": "zfs-raidz2",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "failed",
+      "status": "pending",
       "started_at": null,
       "finished_at": null,
-      "failure_class": "run",
+      "failure_class": null,
       "confidence": null,
       "cases": [
         {
-          "id": "AI-02_qwen-image-2512-bf16_resident_generate",
+          "id": "PHASE-01_fill",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-02_qwen-image-2512-bf16_resident_load",
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-02_inject",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -368,80 +684,134 @@
     },
     {
       "n": 6,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "gpt-oss-120b-mxfp4",
+      "layout": "btrfs-raid5-loaded",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "failed",
+      "status": "pending",
       "started_at": null,
       "finished_at": null,
-      "failure_class": "run",
+      "failure_class": null,
       "confidence": null,
       "cases": [
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_agentic_tool",
+          "id": "PHASE-01_fill",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_bench",
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_chat_multi",
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_code_gen",
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_creative",
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_extract_json",
+          "id": "PHASE-02_inject",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_load",
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_longctx_needle",
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_qa_short",
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_reason_math",
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4_resident_summarize",
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -450,50 +820,134 @@
     },
     {
       "n": 7,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "qwen3.5-122b-a10b-q4km",
+      "layout": "zfs-raidz1-loaded",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "passed",
-      "started_at": "2026-09-22T10:11:58Z",
-      "finished_at": "2026-09-22T11:48:56Z",
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
       "failure_class": null,
-      "confidence": 0.125,
+      "confidence": null,
       "cases": [
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_bench",
+          "id": "PHASE-01_fill",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_code_gen",
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_load",
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_qa_short",
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_reason_math",
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_summarize",
+          "id": "PHASE-02_inject",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S3_degraded_rebuilding__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -502,80 +956,110 @@
     },
     {
       "n": 8,
-      "layout": "raidz1",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "smoke-qwen3-0.6b-q8",
-      "primarycache": "all",
-      "status": "failed",
+      "layout": "btrfs-raid5-victim-x4",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
+      "primarycache": "cold",
+      "status": "pending",
       "started_at": null,
       "finished_at": null,
-      "failure_class": "run",
+      "failure_class": null,
       "confidence": null,
       "cases": [
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_agentic_tool",
+          "id": "PHASE-01_fill",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_bench",
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_chat_multi",
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_code_gen",
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_creative",
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_extract_json",
+          "id": "PHASE-02_inject",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_load",
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_longctx_needle",
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_qa_short",
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_reason_math",
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_smoke-qwen3-0.6b-q8_resident_summarize",
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -584,387 +1068,113 @@
     },
     {
       "n": 9,
-      "layout": "raidz1",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "gemma-4-26b-a4b-q4km",
-      "primarycache": "all",
-      "status": "passed",
-      "started_at": "2026-09-23T04:57:38Z",
-      "finished_at": "2026-09-23T05:41:39Z",
-      "failure_class": null,
-      "confidence": 0.125,
-      "cases": [
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
-          "status": "passed",
-          "started_at": "2026-09-23T05:38:18Z",
-          "finished_at": "2026-09-23T05:38:47Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-23T05:00:02Z",
-          "finished_at": "2026-09-23T05:07:43Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
-          "status": "passed",
-          "started_at": "2026-09-23T05:28:02Z",
-          "finished_at": "2026-09-23T05:28:42Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-23T05:17:37Z",
-          "finished_at": "2026-09-23T05:18:22Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
-          "status": "passed",
-          "started_at": "2026-09-23T05:39:58Z",
-          "finished_at": "2026-09-23T05:41:37Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
-          "status": "passed",
-          "started_at": "2026-09-23T05:25:36Z",
-          "finished_at": "2026-09-23T05:26:31Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-23T04:59:44Z",
-          "finished_at": "2026-09-23T04:59:52Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
-          "status": "passed",
-          "started_at": "2026-09-23T05:30:45Z",
-          "finished_at": "2026-09-23T05:36:17Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-23T05:09:49Z",
-          "finished_at": "2026-09-23T05:10:38Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-23T05:11:59Z",
-          "finished_at": "2026-09-23T05:15:36Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-23T05:19:53Z",
-          "finished_at": "2026-09-23T05:23:35Z"
-        }
-      ]
-    },
-    {
-      "n": 10,
-      "layout": "btrfs-raid5",
-      "mode": "streamed",
-      "suite": "ai",
-      "category": "llm",
-      "model": "kimi-k2-thinking-smol-iq1kt",
+      "layout": "btrfs-raid5-victim-noheatsink",
+      "mode": "full",
+      "suite": "degraded",
+      "category": null,
+      "model": null,
       "primarycache": "cold",
-      "status": "running",
-      "started_at": "2026-09-23T05:51:44Z",
+      "status": "pending",
+      "started_at": null,
       "finished_at": null,
       "failure_class": null,
       "confidence": null,
       "cases": [
         {
-          "id": "AI-00_canary_streamed",
-          "status": "failed",
-          "started_at": "2026-09-23T05:52:17Z",
-          "finished_at": "2026-09-23T05:52:24Z"
-        },
-        {
-          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
+          "id": "PHASE-01_fill",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 11,
-      "layout": "raidz1",
-      "mode": "streamed",
-      "suite": "ai",
-      "category": "llm",
-      "model": "kimi-k2-thinking-smol-iq1kt",
-      "primarycache": "all",
-      "status": "failed",
-      "started_at": null,
-      "finished_at": null,
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "AI-00_canary_streamed",
+          "id": "S1_healthy__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
+          "id": "S1_healthy__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 12,
-      "layout": "btrfs-raid5",
-      "mode": "streamed",
-      "suite": "ai",
-      "category": "llm",
-      "model": "deepseek-v31-ud-q2kxl",
-      "primarycache": "cold",
-      "status": "failed",
-      "started_at": null,
-      "finished_at": null,
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "AI-00_canary_streamed",
+          "id": "S1_healthy__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
+          "id": "S1_healthy__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 13,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "gemma-4-26b-a4b-q4km-vk",
-      "primarycache": "cold",
-      "status": "passed",
-      "started_at": "2026-09-22T15:58:20Z",
-      "finished_at": "2026-09-22T17:44:58Z",
-      "failure_class": null,
-      "confidence": 0.125,
-      "cases": [
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_agentic_tool",
-          "status": "passed",
-          "started_at": "2026-09-22T17:29:27Z",
-          "finished_at": "2026-09-22T17:32:44Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-22T16:00:28Z",
-          "finished_at": "2026-09-22T16:09:03Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_chat_multi",
-          "status": "passed",
-          "started_at": "2026-09-22T17:13:33Z",
-          "finished_at": "2026-09-22T17:16:42Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-22T16:41:10Z",
-          "finished_at": "2026-09-22T16:45:44Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_creative",
-          "status": "passed",
-          "started_at": "2026-09-22T17:34:35Z",
-          "finished_at": "2026-09-22T17:44:56Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_extract_json",
-          "status": "passed",
-          "started_at": "2026-09-22T17:05:34Z",
-          "finished_at": "2026-09-22T17:11:32Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-22T15:59:57Z",
-          "finished_at": "2026-09-22T16:00:08Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_longctx_needle",
-          "status": "passed",
-          "started_at": "2026-09-22T17:18:41Z",
-          "finished_at": "2026-09-22T17:27:26Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-22T16:11:13Z",
-          "finished_at": "2026-09-22T16:15:33Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-22T16:17:03Z",
-          "finished_at": "2026-09-22T16:39:09Z"
-        },
-        {
-          "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-22T16:47:45Z",
-          "finished_at": "2026-09-22T17:03:43Z"
-        }
-      ]
-    },
-    {
-      "n": 14,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "gpt-oss-20b-mxfp4-vk",
-      "primarycache": "cold",
-      "status": "failed",
-      "started_at": null,
-      "finished_at": null,
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "AI-00_canary_resident",
+          "id": "PHASE-02_inject",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4-vk_resident_load",
+          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-20b-mxfp4-vk_resident_bench",
-          "status": "pending",
-          "started_at": null,
-          "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 15,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "gpt-oss-120b-mxfp4-vk",
-      "primarycache": "cold",
-      "status": "failed",
-      "started_at": null,
-      "finished_at": null,
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "AI-00_canary_resident",
+          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4-vk_resident_load",
+          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_gpt-oss-120b-mxfp4-vk_resident_bench",
+          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
           "status": "pending",
           "started_at": null,
           "finished_at": null
-        }
-      ]
-    },
-    {
-      "n": 16,
-      "layout": "btrfs-raid5",
-      "mode": "resident",
-      "suite": "ai",
-      "category": "llm",
-      "model": "qwen3.5-122b-a10b-q4km-vk",
-      "primarycache": "cold",
-      "status": "passed",
-      "started_at": "2026-09-23T00:06:42Z",
-      "finished_at": "2026-09-23T04:48:07Z",
-      "failure_class": null,
-      "confidence": 0.125,
-      "cases": [
-        {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-23T00:14:37Z",
-          "finished_at": "2026-09-23T00:37:33Z"
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_code_gen",
-          "status": "passed",
-          "started_at": "2026-09-23T03:00:29Z",
-          "finished_at": "2026-09-23T03:20:08Z"
+          "id": "PHASE-03_rebuild",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-23T00:12:23Z",
-          "finished_at": "2026-09-23T00:13:27Z"
+          "id": "PHASE-04_verify",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-23T00:40:36Z",
-          "finished_at": "2026-09-23T00:49:45Z"
+          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_reason_math",
-          "status": "passed",
-          "started_at": "2026-09-23T00:51:46Z",
-          "finished_at": "2026-09-23T02:58:58Z"
+          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_summarize",
-          "status": "passed",
-          "started_at": "2026-09-23T03:22:10Z",
-          "finished_at": "2026-09-23T04:48:05Z"
+          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "status": "pending",
+          "started_at": null,
+          "finished_at": null
         }
       ]
     }
@@ -974,7 +1184,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "captured_at": "2026-09-23T06:06:45Z",
       "cells": [
         {
           "n": 0,
@@ -2516,7 +2726,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "passed",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "captured_at": "2026-09-23T06:06:45Z",
       "cells": [
         {
           "n": 1,
@@ -3703,8 +3913,8 @@
     {
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
-      "status": "running",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "status": "failed",
+      "captured_at": "2026-09-23T06:06:46Z",
       "cells": [
         {
           "n": 1,
@@ -3885,70 +4095,70 @@
           "confidence": 0.125,
           "cases": [
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
-              "status": "passed",
-              "started_at": "2026-09-22T06:45:24Z",
-              "finished_at": "2026-09-22T06:45:54Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_agentic_tool",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
-              "status": "passed",
-              "started_at": "2026-09-22T06:07:44Z",
-              "finished_at": "2026-09-22T06:15:13Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
-              "status": "passed",
-              "started_at": "2026-09-22T06:35:49Z",
-              "finished_at": "2026-09-22T06:36:29Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_chat_multi",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
-              "status": "passed",
-              "started_at": "2026-09-22T06:25:15Z",
-              "finished_at": "2026-09-22T06:26:00Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_code_gen",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
-              "status": "passed",
-              "started_at": "2026-09-22T06:47:34Z",
-              "finished_at": "2026-09-22T06:49:13Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_creative",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
-              "status": "passed",
-              "started_at": "2026-09-22T06:33:13Z",
-              "finished_at": "2026-09-22T06:34:08Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_extract_json",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
-              "status": "passed",
-              "started_at": "2026-09-22T06:07:17Z",
-              "finished_at": "2026-09-22T06:07:23Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
-              "status": "passed",
-              "started_at": "2026-09-22T06:37:52Z",
-              "finished_at": "2026-09-22T06:43:24Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_longctx_needle",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-22T06:17:18Z",
-              "finished_at": "2026-09-22T06:18:07Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_qa_short",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
-              "status": "passed",
-              "started_at": "2026-09-22T06:19:38Z",
-              "finished_at": "2026-09-22T06:23:15Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_reason_math",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
-              "status": "passed",
-              "started_at": "2026-09-22T06:27:30Z",
-              "finished_at": "2026-09-22T06:31:13Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_summarize",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -4159,40 +4369,70 @@
           "confidence": 0.125,
           "cases": [
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_bench",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_agentic_tool",
+              "status": "passed",
+              "started_at": "2026-09-22T11:42:29Z",
+              "finished_at": "2026-09-22T11:43:41Z"
             },
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_code_gen",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_bench",
+              "status": "passed",
+              "started_at": "2026-09-22T10:25:30Z",
+              "finished_at": "2026-09-22T10:45:41Z"
             },
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_load",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_chat_multi",
+              "status": "passed",
+              "started_at": "2026-09-22T11:19:10Z",
+              "finished_at": "2026-09-22T11:20:47Z"
             },
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_qa_short",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_code_gen",
+              "status": "passed",
+              "started_at": "2026-09-22T11:00:18Z",
+              "finished_at": "2026-09-22T11:01:38Z"
             },
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_reason_math",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_creative",
+              "status": "passed",
+              "started_at": "2026-09-22T11:45:12Z",
+              "finished_at": "2026-09-22T11:48:54Z"
             },
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_summarize",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_extract_json",
+              "status": "passed",
+              "started_at": "2026-09-22T11:15:21Z",
+              "finished_at": "2026-09-22T11:17:09Z"
+            },
+            {
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_load",
+              "status": "passed",
+              "started_at": "2026-09-22T10:25:07Z",
+              "finished_at": "2026-09-22T10:25:20Z"
+            },
+            {
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_longctx_needle",
+              "status": "passed",
+              "started_at": "2026-09-22T11:23:09Z",
+              "finished_at": "2026-09-22T11:40:28Z"
+            },
+            {
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_qa_short",
+              "status": "passed",
+              "started_at": "2026-09-22T10:47:53Z",
+              "finished_at": "2026-09-22T10:48:32Z"
+            },
+            {
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_reason_math",
+              "status": "passed",
+              "started_at": "2026-09-22T10:50:23Z",
+              "finished_at": "2026-09-22T10:58:17Z"
+            },
+            {
+              "id": "AI-01_qwen3.5-122b-a10b-q4km_resident_summarize",
+              "status": "passed",
+              "started_at": "2026-09-22T11:03:38Z",
+              "finished_at": "2026-09-22T11:13:21Z"
             }
           ]
         },
@@ -4293,70 +4533,70 @@
           "confidence": 0.125,
           "cases": [
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_agentic_tool",
-              "status": "passed",
-              "started_at": "2026-09-23T05:38:18Z",
-              "finished_at": "2026-09-23T05:38:47Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_agentic_tool",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_bench",
-              "status": "passed",
-              "started_at": "2026-09-23T05:00:02Z",
-              "finished_at": "2026-09-23T05:07:43Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_bench",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_chat_multi",
-              "status": "passed",
-              "started_at": "2026-09-23T05:28:02Z",
-              "finished_at": "2026-09-23T05:28:42Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_chat_multi",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_code_gen",
-              "status": "passed",
-              "started_at": "2026-09-23T05:17:37Z",
-              "finished_at": "2026-09-23T05:18:22Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_code_gen",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_creative",
-              "status": "passed",
-              "started_at": "2026-09-23T05:39:58Z",
-              "finished_at": "2026-09-23T05:41:37Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_creative",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_extract_json",
-              "status": "passed",
-              "started_at": "2026-09-23T05:25:36Z",
-              "finished_at": "2026-09-23T05:26:31Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_extract_json",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_load",
-              "status": "passed",
-              "started_at": "2026-09-23T04:59:44Z",
-              "finished_at": "2026-09-23T04:59:52Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_load",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_longctx_needle",
-              "status": "passed",
-              "started_at": "2026-09-23T05:30:45Z",
-              "finished_at": "2026-09-23T05:36:17Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_longctx_needle",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-23T05:09:49Z",
-              "finished_at": "2026-09-23T05:10:38Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_qa_short",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_reason_math",
-              "status": "passed",
-              "started_at": "2026-09-23T05:11:59Z",
-              "finished_at": "2026-09-23T05:15:36Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_reason_math",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_gemma-4-26b-a4b-q4km_resident_summarize",
-              "status": "passed",
-              "started_at": "2026-09-23T05:19:53Z",
-              "finished_at": "2026-09-23T05:23:35Z"
+              "id": "AI-01_gemma-4-26b-a4b-q4km-vk_resident_summarize",
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -4368,17 +4608,17 @@
           "category": "llm",
           "model": "kimi-k2-thinking-smol-iq1kt",
           "primarycache": "cold",
-          "status": "running",
-          "started_at": "2026-09-23T05:51:44Z",
+          "status": "failed",
+          "started_at": null,
           "finished_at": null,
-          "failure_class": null,
+          "failure_class": "run",
           "confidence": null,
           "cases": [
             {
               "id": "AI-00_canary_streamed",
-              "status": "failed",
-              "started_at": "2026-09-23T05:52:17Z",
-              "finished_at": "2026-09-23T05:52:24Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
@@ -4627,16 +4867,10 @@
           "confidence": 0.125,
           "cases": [
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_bench",
+              "id": "AI-00_canary_resident",
               "status": "passed",
-              "started_at": "2026-09-23T00:14:37Z",
-              "finished_at": "2026-09-23T00:37:33Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_code_gen",
-              "status": "passed",
-              "started_at": "2026-09-23T03:00:29Z",
-              "finished_at": "2026-09-23T03:20:08Z"
+              "started_at": "2026-09-23T00:07:13Z",
+              "finished_at": "2026-09-23T00:07:36Z"
             },
             {
               "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_load",
@@ -4645,22 +4879,10 @@
               "finished_at": "2026-09-23T00:13:27Z"
             },
             {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_qa_short",
+              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_bench",
               "status": "passed",
-              "started_at": "2026-09-23T00:40:36Z",
-              "finished_at": "2026-09-23T00:49:45Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_reason_math",
-              "status": "passed",
-              "started_at": "2026-09-23T00:51:46Z",
-              "finished_at": "2026-09-23T02:58:58Z"
-            },
-            {
-              "id": "AI-01_qwen3.5-122b-a10b-q4km-vk_resident_summarize",
-              "status": "passed",
-              "started_at": "2026-09-23T03:22:10Z",
-              "finished_at": "2026-09-23T04:48:05Z"
+              "started_at": "2026-09-23T00:14:37Z",
+              "finished_at": "2026-09-23T00:37:33Z"
             }
           ]
         }
@@ -4670,7 +4892,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "captured_at": "2026-09-23T06:06:46Z",
       "cells": [
         {
           "n": 1,
@@ -4746,7 +4968,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "captured_at": "2026-09-23T06:06:46Z",
       "cells": [
         {
           "n": 1,
@@ -6170,7 +6392,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "passed",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "captured_at": "2026-09-23T06:06:46Z",
       "cells": [
         {
           "n": 1,
@@ -6206,7 +6428,7 @@
       "id": 7,
       "name": "Degraded-mode cost and rebuild toll (STO-09)",
       "status": "pending",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "captured_at": "2026-09-23T06:06:46Z",
       "cells": [
         {
           "n": 0,
@@ -7382,7 +7604,7 @@
       "id": 8,
       "name": "RAID5/6 write-hole trip under unclean shutdown (STO-WH)",
       "status": "pending",
-      "captured_at": "2026-09-23T05:52:36Z",
+      "captured_at": "2026-09-23T06:06:46Z",
       "cells": [
         {
           "n": 1,
