@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-25T07:36:26Z",
+  "updated_at": "2026-09-25T07:37:28Z",
   "harness_commit": null,
-  "git_commit": "ace39680e",
+  "git_commit": "708138ede",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 7,
@@ -697,25 +697,29 @@
           "id": "S1_healthy__STO-01_seq_read_1M_j4",
           "status": "passed",
           "started_at": "2026-09-24T22:52:26Z",
-          "finished_at": "2026-09-24T22:53:27Z"
+          "finished_at": "2026-09-24T22:53:27Z",
+          "confidence": 0.999
         },
         {
           "id": "S1_healthy__STO-01_seq_write_1M_j4",
           "status": "passed",
           "started_at": "2026-09-24T22:53:44Z",
-          "finished_at": "2026-09-24T22:57:45Z"
+          "finished_at": "2026-09-24T22:57:45Z",
+          "confidence": 0.999
         },
         {
           "id": "S1_healthy__STO-02_rand_read_4k_j4",
           "status": "passed",
           "started_at": "2026-09-24T22:58:02Z",
-          "finished_at": "2026-09-24T22:59:03Z"
+          "finished_at": "2026-09-24T22:59:03Z",
+          "confidence": 0.999
         },
         {
           "id": "S1_healthy__STO-02_rand_read_64k_j4",
           "status": "passed",
           "started_at": "2026-09-24T22:59:19Z",
-          "finished_at": "2026-09-24T23:00:20Z"
+          "finished_at": "2026-09-24T23:00:20Z",
+          "confidence": 0.999
         },
         {
           "id": "PHASE-02_inject",
@@ -727,25 +731,29 @@
           "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:00:37Z",
-          "finished_at": "2026-09-24T23:01:38Z"
+          "finished_at": "2026-09-24T23:01:38Z",
+          "confidence": 0.999
         },
         {
           "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:01:55Z",
-          "finished_at": "2026-09-24T23:05:56Z"
+          "finished_at": "2026-09-24T23:05:56Z",
+          "confidence": 0.999
         },
         {
           "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:06:14Z",
-          "finished_at": "2026-09-24T23:07:15Z"
+          "finished_at": "2026-09-24T23:07:15Z",
+          "confidence": 0.999
         },
         {
           "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:07:33Z",
-          "finished_at": "2026-09-24T23:08:34Z"
+          "finished_at": "2026-09-24T23:08:34Z",
+          "confidence": 0.999
         },
         {
           "id": "PHASE-03_rebuild",
@@ -757,25 +765,29 @@
           "id": "S3_degraded_rebuilding__STO-01_seq_read_1M_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:09:34Z",
-          "finished_at": "2026-09-24T23:10:45Z"
+          "finished_at": "2026-09-24T23:10:45Z",
+          "confidence": 0.999
         },
         {
           "id": "S3_degraded_rebuilding__STO-01_seq_write_1M_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:11:08Z",
-          "finished_at": "2026-09-24T23:15:22Z"
+          "finished_at": "2026-09-24T23:15:22Z",
+          "confidence": 0.999
         },
         {
           "id": "S3_degraded_rebuilding__STO-02_rand_read_4k_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:15:46Z",
-          "finished_at": "2026-09-24T23:16:57Z"
+          "finished_at": "2026-09-24T23:16:57Z",
+          "confidence": 0.999
         },
         {
           "id": "S3_degraded_rebuilding__STO-02_rand_read_64k_j4",
           "status": "passed",
           "started_at": "2026-09-24T23:17:20Z",
-          "finished_at": "2026-09-24T23:18:32Z"
+          "finished_at": "2026-09-24T23:18:32Z",
+          "confidence": 0.999
         },
         {
           "id": "PHASE-04_verify",
@@ -787,25 +799,29 @@
           "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T00:21:38Z",
-          "finished_at": "2026-09-25T00:22:39Z"
+          "finished_at": "2026-09-25T00:22:39Z",
+          "confidence": 0.999
         },
         {
           "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T00:22:56Z",
-          "finished_at": "2026-09-25T00:26:57Z"
+          "finished_at": "2026-09-25T00:26:57Z",
+          "confidence": 0.999
         },
         {
           "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
           "status": "passed",
           "started_at": "2026-09-25T00:27:16Z",
-          "finished_at": "2026-09-25T00:28:17Z"
+          "finished_at": "2026-09-25T00:28:17Z",
+          "confidence": 0.999
         },
         {
           "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
           "status": "passed",
           "started_at": "2026-09-25T00:28:34Z",
-          "finished_at": "2026-09-25T00:29:35Z"
+          "finished_at": "2026-09-25T00:29:35Z",
+          "confidence": 0.999
         }
       ]
     },
@@ -834,25 +850,29 @@
           "id": "S1_healthy__STO-01_seq_read_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:26:47Z",
-          "finished_at": "2026-09-25T01:27:48Z"
+          "finished_at": "2026-09-25T01:27:48Z",
+          "confidence": 1.0
         },
         {
           "id": "S1_healthy__STO-01_seq_write_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:28:05Z",
-          "finished_at": "2026-09-25T01:32:06Z"
+          "finished_at": "2026-09-25T01:32:06Z",
+          "confidence": 1.0
         },
         {
           "id": "S1_healthy__STO-02_rand_read_4k_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:32:24Z",
-          "finished_at": "2026-09-25T01:33:25Z"
+          "finished_at": "2026-09-25T01:33:25Z",
+          "confidence": 1.0
         },
         {
           "id": "S1_healthy__STO-02_rand_read_64k_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:33:42Z",
-          "finished_at": "2026-09-25T01:34:43Z"
+          "finished_at": "2026-09-25T01:34:43Z",
+          "confidence": 1.0
         },
         {
           "id": "PHASE-02_inject",
@@ -864,25 +884,29 @@
           "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:35:00Z",
-          "finished_at": "2026-09-25T01:36:01Z"
+          "finished_at": "2026-09-25T01:36:01Z",
+          "confidence": 1.0
         },
         {
           "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:36:18Z",
-          "finished_at": "2026-09-25T01:40:19Z"
+          "finished_at": "2026-09-25T01:40:19Z",
+          "confidence": 1.0
         },
         {
           "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:40:37Z",
-          "finished_at": "2026-09-25T01:41:38Z"
+          "finished_at": "2026-09-25T01:41:38Z",
+          "confidence": 1.0
         },
         {
           "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
           "status": "passed",
           "started_at": "2026-09-25T01:41:55Z",
-          "finished_at": "2026-09-25T01:42:56Z"
+          "finished_at": "2026-09-25T01:42:56Z",
+          "confidence": 1.0
         },
         {
           "id": "PHASE-03_rebuild",
@@ -900,25 +924,29 @@
           "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T05:14:13Z",
-          "finished_at": "2026-09-25T05:15:15Z"
+          "finished_at": "2026-09-25T05:15:15Z",
+          "confidence": 1.0
         },
         {
           "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
           "status": "passed",
           "started_at": "2026-09-25T05:15:31Z",
-          "finished_at": "2026-09-25T05:19:33Z"
+          "finished_at": "2026-09-25T05:19:33Z",
+          "confidence": 0.5
         },
         {
           "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
           "status": "passed",
           "started_at": "2026-09-25T05:19:51Z",
-          "finished_at": "2026-09-25T05:20:52Z"
+          "finished_at": "2026-09-25T05:20:52Z",
+          "confidence": 1.0
         },
         {
           "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
           "status": "passed",
           "started_at": "2026-09-25T05:21:09Z",
-          "finished_at": "2026-09-25T05:22:10Z"
+          "finished_at": "2026-09-25T05:22:11Z",
+          "confidence": 1.0
         }
       ]
     },
@@ -1023,8 +1051,8 @@
         },
         {
           "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-          "status": "pending",
-          "started_at": null,
+          "status": "running",
+          "started_at": "2026-09-25T07:36:43Z",
           "finished_at": null
         },
         {
@@ -1154,7 +1182,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T07:36:25Z",
+      "captured_at": "2026-09-25T07:37:26Z",
       "confidence": null,
       "confidence_subjects": 221,
       "confidence_unmeasured": 3,
@@ -3397,7 +3425,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T07:36:25Z",
+      "captured_at": "2026-09-25T07:37:26Z",
       "confidence": 0.5,
       "confidence_subjects": 170,
       "confidence_unmeasured": 0,
@@ -5184,7 +5212,7 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "failed",
-      "captured_at": "2026-09-25T07:36:26Z",
+      "captured_at": "2026-09-25T07:37:27Z",
       "confidence": null,
       "confidence_subjects": 136,
       "confidence_unmeasured": 6,
@@ -6475,7 +6503,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-25T07:36:26Z",
+      "captured_at": "2026-09-25T07:37:27Z",
       "confidence": 0.998,
       "confidence_subjects": 6,
       "confidence_unmeasured": 0,
@@ -6569,7 +6597,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T07:36:26Z",
+      "captured_at": "2026-09-25T07:37:28Z",
       "confidence": 0.5,
       "confidence_subjects": 192,
       "confidence_unmeasured": 0,
@@ -8242,7 +8270,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T07:36:26Z",
+      "captured_at": "2026-09-25T07:37:28Z",
       "confidence": null,
       "confidence_subjects": 2,
       "confidence_unmeasured": 2,
@@ -8286,11 +8314,11 @@
       "id": 7,
       "name": "Degraded-mode cost and rebuild toll (STO-09)",
       "status": "running",
-      "captured_at": "2026-09-25T07:36:26Z",
+      "captured_at": "2026-09-25T07:37:28Z",
       "confidence": null,
       "confidence_subjects": 116,
-      "confidence_unmeasured": 52,
-      "confidence_measured_min": 0.997,
+      "confidence_unmeasured": 24,
+      "confidence_measured_min": 0.5,
       "cells": [
         {
           "n": 0,
@@ -8979,25 +9007,29 @@
               "id": "S1_healthy__STO-01_seq_read_1M_j4",
               "status": "passed",
               "started_at": "2026-09-24T22:52:26Z",
-              "finished_at": "2026-09-24T22:53:27Z"
+              "finished_at": "2026-09-24T22:53:27Z",
+              "confidence": 0.999
             },
             {
               "id": "S1_healthy__STO-01_seq_write_1M_j4",
               "status": "passed",
               "started_at": "2026-09-24T22:53:44Z",
-              "finished_at": "2026-09-24T22:57:45Z"
+              "finished_at": "2026-09-24T22:57:45Z",
+              "confidence": 0.999
             },
             {
               "id": "S1_healthy__STO-02_rand_read_4k_j4",
               "status": "passed",
               "started_at": "2026-09-24T22:58:02Z",
-              "finished_at": "2026-09-24T22:59:03Z"
+              "finished_at": "2026-09-24T22:59:03Z",
+              "confidence": 0.999
             },
             {
               "id": "S1_healthy__STO-02_rand_read_64k_j4",
               "status": "passed",
               "started_at": "2026-09-24T22:59:19Z",
-              "finished_at": "2026-09-24T23:00:20Z"
+              "finished_at": "2026-09-24T23:00:20Z",
+              "confidence": 0.999
             },
             {
               "id": "PHASE-02_inject",
@@ -9009,25 +9041,29 @@
               "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:00:37Z",
-              "finished_at": "2026-09-24T23:01:38Z"
+              "finished_at": "2026-09-24T23:01:38Z",
+              "confidence": 0.999
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:01:55Z",
-              "finished_at": "2026-09-24T23:05:56Z"
+              "finished_at": "2026-09-24T23:05:56Z",
+              "confidence": 0.999
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:06:14Z",
-              "finished_at": "2026-09-24T23:07:15Z"
+              "finished_at": "2026-09-24T23:07:15Z",
+              "confidence": 0.999
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:07:33Z",
-              "finished_at": "2026-09-24T23:08:34Z"
+              "finished_at": "2026-09-24T23:08:34Z",
+              "confidence": 0.999
             },
             {
               "id": "PHASE-03_rebuild",
@@ -9039,25 +9075,29 @@
               "id": "S3_degraded_rebuilding__STO-01_seq_read_1M_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:09:34Z",
-              "finished_at": "2026-09-24T23:10:45Z"
+              "finished_at": "2026-09-24T23:10:45Z",
+              "confidence": 0.999
             },
             {
               "id": "S3_degraded_rebuilding__STO-01_seq_write_1M_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:11:08Z",
-              "finished_at": "2026-09-24T23:15:22Z"
+              "finished_at": "2026-09-24T23:15:22Z",
+              "confidence": 0.999
             },
             {
               "id": "S3_degraded_rebuilding__STO-02_rand_read_4k_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:15:46Z",
-              "finished_at": "2026-09-24T23:16:57Z"
+              "finished_at": "2026-09-24T23:16:57Z",
+              "confidence": 0.999
             },
             {
               "id": "S3_degraded_rebuilding__STO-02_rand_read_64k_j4",
               "status": "passed",
               "started_at": "2026-09-24T23:17:20Z",
-              "finished_at": "2026-09-24T23:18:32Z"
+              "finished_at": "2026-09-24T23:18:32Z",
+              "confidence": 0.999
             },
             {
               "id": "PHASE-04_verify",
@@ -9069,25 +9109,29 @@
               "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T00:21:38Z",
-              "finished_at": "2026-09-25T00:22:39Z"
+              "finished_at": "2026-09-25T00:22:39Z",
+              "confidence": 0.999
             },
             {
               "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T00:22:56Z",
-              "finished_at": "2026-09-25T00:26:57Z"
+              "finished_at": "2026-09-25T00:26:57Z",
+              "confidence": 0.999
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
               "status": "passed",
               "started_at": "2026-09-25T00:27:16Z",
-              "finished_at": "2026-09-25T00:28:17Z"
+              "finished_at": "2026-09-25T00:28:17Z",
+              "confidence": 0.999
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
               "status": "passed",
               "started_at": "2026-09-25T00:28:34Z",
-              "finished_at": "2026-09-25T00:29:35Z"
+              "finished_at": "2026-09-25T00:29:35Z",
+              "confidence": 0.999
             }
           ]
         },
@@ -9116,25 +9160,29 @@
               "id": "S1_healthy__STO-01_seq_read_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:26:47Z",
-              "finished_at": "2026-09-25T01:27:48Z"
+              "finished_at": "2026-09-25T01:27:48Z",
+              "confidence": 1.0
             },
             {
               "id": "S1_healthy__STO-01_seq_write_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:28:05Z",
-              "finished_at": "2026-09-25T01:32:06Z"
+              "finished_at": "2026-09-25T01:32:06Z",
+              "confidence": 1.0
             },
             {
               "id": "S1_healthy__STO-02_rand_read_4k_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:32:24Z",
-              "finished_at": "2026-09-25T01:33:25Z"
+              "finished_at": "2026-09-25T01:33:25Z",
+              "confidence": 1.0
             },
             {
               "id": "S1_healthy__STO-02_rand_read_64k_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:33:42Z",
-              "finished_at": "2026-09-25T01:34:43Z"
+              "finished_at": "2026-09-25T01:34:43Z",
+              "confidence": 1.0
             },
             {
               "id": "PHASE-02_inject",
@@ -9146,25 +9194,29 @@
               "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:35:00Z",
-              "finished_at": "2026-09-25T01:36:01Z"
+              "finished_at": "2026-09-25T01:36:01Z",
+              "confidence": 1.0
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:36:18Z",
-              "finished_at": "2026-09-25T01:40:19Z"
+              "finished_at": "2026-09-25T01:40:19Z",
+              "confidence": 1.0
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:40:37Z",
-              "finished_at": "2026-09-25T01:41:38Z"
+              "finished_at": "2026-09-25T01:41:38Z",
+              "confidence": 1.0
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
               "status": "passed",
               "started_at": "2026-09-25T01:41:55Z",
-              "finished_at": "2026-09-25T01:42:56Z"
+              "finished_at": "2026-09-25T01:42:56Z",
+              "confidence": 1.0
             },
             {
               "id": "PHASE-03_rebuild",
@@ -9182,25 +9234,29 @@
               "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T05:14:13Z",
-              "finished_at": "2026-09-25T05:15:15Z"
+              "finished_at": "2026-09-25T05:15:15Z",
+              "confidence": 1.0
             },
             {
               "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
               "status": "passed",
               "started_at": "2026-09-25T05:15:31Z",
-              "finished_at": "2026-09-25T05:19:33Z"
+              "finished_at": "2026-09-25T05:19:33Z",
+              "confidence": 0.5
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
               "status": "passed",
               "started_at": "2026-09-25T05:19:51Z",
-              "finished_at": "2026-09-25T05:20:52Z"
+              "finished_at": "2026-09-25T05:20:52Z",
+              "confidence": 1.0
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
               "status": "passed",
               "started_at": "2026-09-25T05:21:09Z",
-              "finished_at": "2026-09-25T05:22:10Z"
+              "finished_at": "2026-09-25T05:22:11Z",
+              "confidence": 1.0
             }
           ]
         },
@@ -9305,8 +9361,8 @@
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-              "status": "pending",
-              "started_at": null,
+              "status": "running",
+              "started_at": "2026-09-25T07:36:43Z",
               "finished_at": null
             },
             {
@@ -9436,7 +9492,7 @@
       "id": 8,
       "name": "RAID5/6 write-hole trip under unclean shutdown (STO-WH)",
       "status": "pending",
-      "captured_at": "2026-09-25T07:36:26Z",
+      "captured_at": "2026-09-25T07:37:28Z",
       "confidence": null,
       "confidence_subjects": 0,
       "confidence_unmeasured": 0,
