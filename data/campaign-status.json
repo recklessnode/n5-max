@@ -1,1192 +1,2245 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-25T10:47:03Z",
+  "updated_at": "2026-09-25T10:47:29Z",
   "harness_commit": null,
-  "git_commit": "d06485546",
+  "git_commit": "4026822e6",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
-    "id": 7,
-    "name": "Degraded-mode cost and rebuild toll (STO-09)"
+    "id": 1,
+    "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)"
   },
   "cells": [
     {
       "n": 0,
-      "layout": "probe0-btrfs-raid5",
+      "layout": "raidz2",
       "mode": "full",
-      "suite": "degraded",
+      "suite": "storage",
       "category": null,
       "model": null,
-      "primarycache": "cold",
+      "primarycache": "none",
       "status": "passed",
       "runner_status": "passed",
-      "started_at": "2026-09-24T04:26:00Z",
-      "finished_at": "2026-09-24T04:59:01Z",
+      "started_at": "2026-09-13T18:42:41Z",
+      "finished_at": "2026-09-13T20:04:34Z",
+      "failure_class": null,
+      "confidence": 0.5,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-13T19:01:44Z",
+          "finished_at": "2026-09-13T19:03:46Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n5"
+            ],
+            "started_at": "2026-09-13T22:10:17Z",
+            "finished_at": "2026-09-13T22:12:19Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_read_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:08:54Z",
+          "finished_at": "2026-09-13T19:10:55Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n5"
+            ],
+            "started_at": "2026-09-13T22:17:27Z",
+            "finished_at": "2026-09-13T22:19:29Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-13T18:56:54Z",
+          "finished_at": "2026-09-13T19:01:25Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n5"
+            ],
+            "started_at": "2026-09-13T22:05:27Z",
+            "finished_at": "2026-09-13T22:09:59Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:04:04Z",
+          "finished_at": "2026-09-13T19:08:35Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n5"
+            ],
+            "started_at": "2026-09-13T22:12:37Z",
+            "finished_at": "2026-09-13T22:17:08Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:18:28Z",
+          "finished_at": "2026-09-13T19:23:59Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:11:13Z",
+          "finished_at": "2026-09-13T19:13:15Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n5"
+            ],
+            "started_at": "2026-09-13T22:19:50Z",
+            "finished_at": "2026-09-13T22:21:51Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:29:11Z",
+          "finished_at": "2026-09-13T19:34:13Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:24:18Z",
+          "finished_at": "2026-09-13T19:28:53Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:13:33Z",
+          "finished_at": "2026-09-13T19:18:10Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:34:31Z",
+          "finished_at": "2026-09-13T19:39:04Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:39:22Z",
+          "finished_at": "2026-09-13T19:43:54Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:44:17Z",
+          "finished_at": "2026-09-13T19:48:49Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:49:07Z",
+          "finished_at": "2026-09-13T19:54:00Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T19:54:18Z",
+          "finished_at": "2026-09-13T19:58:56Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T19:59:15Z",
+          "finished_at": "2026-09-13T19:59:45Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-13T20:03:35Z",
+          "finished_at": "2026-09-13T20:04:23Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T20:00:06Z",
+          "finished_at": "2026-09-13T20:03:15Z",
+          "confidence": 1.0
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 0.5
+    },
+    {
+      "n": 1,
+      "layout": "single-x1",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "none",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-13T13:01:00Z",
+      "finished_at": "2026-09-13T14:23:48Z",
       "failure_class": null,
       "confidence": 1.0,
       "cases": [
         {
-          "id": "PHASE-01_fill",
+          "id": "STO-01_seq_read_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-24T04:27:32Z",
-          "finished_at": "2026-09-24T04:28:23Z"
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T04:28:40Z",
-          "finished_at": "2026-09-24T04:29:40Z",
+          "started_at": "2026-09-13T13:20:52Z",
+          "finished_at": "2026-09-13T13:22:54Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "id": "STO-01_seq_read_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:29:57Z",
-          "finished_at": "2026-09-24T04:33:58Z",
+          "started_at": "2026-09-13T13:28:01Z",
+          "finished_at": "2026-09-13T13:30:03Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "id": "STO-01_seq_write_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-24T04:34:16Z",
-          "finished_at": "2026-09-24T04:35:17Z",
+          "started_at": "2026-09-13T13:16:00Z",
+          "finished_at": "2026-09-13T13:20:31Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "id": "STO-01_seq_write_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:35:34Z",
-          "finished_at": "2026-09-24T04:36:35Z",
+          "started_at": "2026-09-13T13:23:12Z",
+          "finished_at": "2026-09-13T13:27:43Z",
           "confidence": 1.0
         },
         {
-          "id": "PHASE-02_inject",
+          "id": "STO-02_rand_read_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:36:35Z",
-          "finished_at": "2026-09-24T04:36:35Z"
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T04:36:52Z",
-          "finished_at": "2026-09-24T04:37:53Z",
+          "started_at": "2026-09-13T13:37:51Z",
+          "finished_at": "2026-09-13T13:43:22Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "id": "STO-02_rand_read_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:38:09Z",
-          "finished_at": "2026-09-24T04:42:10Z",
+          "started_at": "2026-09-13T13:30:21Z",
+          "finished_at": "2026-09-13T13:32:22Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "id": "STO-02_rand_read_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:42:28Z",
-          "finished_at": "2026-09-24T04:43:29Z",
+          "started_at": "2026-09-13T13:48:36Z",
+          "finished_at": "2026-09-13T13:53:37Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:43:46Z",
-          "finished_at": "2026-09-24T04:44:47Z",
+          "started_at": "2026-09-13T13:43:41Z",
+          "finished_at": "2026-09-13T13:48:18Z",
           "confidence": 1.0
         },
         {
-          "id": "PHASE-03_rebuild",
+          "id": "STO-02_rand_write_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:44:47Z",
-          "finished_at": "2026-09-24T04:47:46Z"
-        },
-        {
-          "id": "PHASE-04_verify",
-          "status": "passed",
-          "started_at": "2026-09-24T04:47:46Z",
-          "finished_at": "2026-09-24T04:50:46Z"
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T04:51:03Z",
-          "finished_at": "2026-09-24T04:52:04Z",
+          "started_at": "2026-09-13T13:32:42Z",
+          "finished_at": "2026-09-13T13:37:33Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "id": "STO-02_rand_write_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:52:21Z",
-          "finished_at": "2026-09-24T04:56:22Z",
+          "started_at": "2026-09-13T13:53:56Z",
+          "finished_at": "2026-09-13T13:58:31Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "id": "STO-03_mixed_70r30w_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:56:40Z",
-          "finished_at": "2026-09-24T04:57:40Z",
+          "started_at": "2026-09-13T13:59:09Z",
+          "finished_at": "2026-09-13T14:03:41Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "id": "STO-04_sync_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T04:57:57Z",
-          "finished_at": "2026-09-24T04:58:58Z",
+          "started_at": "2026-09-13T14:04:03Z",
+          "finished_at": "2026-09-13T14:08:35Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T14:08:53Z",
+          "finished_at": "2026-09-13T14:13:26Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T14:13:44Z",
+          "finished_at": "2026-09-13T14:18:21Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T14:18:40Z",
+          "finished_at": "2026-09-13T14:19:15Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-13T14:23:12Z",
+          "finished_at": "2026-09-13T14:23:36Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T14:19:36Z",
+          "finished_at": "2026-09-13T14:22:51Z",
           "confidence": 1.0
         }
       ],
-      "confidence_subjects": 12,
+      "confidence_subjects": 17,
       "confidence_unmeasured": 0,
       "confidence_measured_min": 1.0
     },
     {
       "n": 2,
-      "layout": "btrfs-raid5",
+      "layout": "raid0",
       "mode": "full",
-      "suite": "degraded",
+      "suite": "storage",
       "category": null,
       "model": null,
-      "primarycache": "cold",
+      "primarycache": "none",
       "status": "passed",
       "runner_status": "passed",
-      "started_at": "2026-09-24T05:07:22Z",
-      "finished_at": "2026-09-24T08:18:08Z",
+      "started_at": "2026-09-13T14:28:31Z",
+      "finished_at": "2026-09-13T15:44:40Z",
+      "failure_class": null,
+      "confidence": 0.5,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-13T14:40:16Z",
+          "finished_at": "2026-09-13T14:42:17Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_read_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T14:47:24Z",
+          "finished_at": "2026-09-13T14:49:26Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-13T14:35:27Z",
+          "finished_at": "2026-09-13T14:39:58Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T14:42:35Z",
+          "finished_at": "2026-09-13T14:47:06Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T14:57:11Z",
+          "finished_at": "2026-09-13T15:02:42Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T14:49:44Z",
+          "finished_at": "2026-09-13T14:51:45Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T15:08:14Z",
+          "finished_at": "2026-09-13T15:13:16Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T15:03:01Z",
+          "finished_at": "2026-09-13T15:07:56Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T14:52:04Z",
+          "finished_at": "2026-09-13T14:56:53Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T15:13:34Z",
+          "finished_at": "2026-09-13T15:18:05Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T15:18:44Z",
+          "finished_at": "2026-09-13T15:23:16Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T15:23:51Z",
+          "finished_at": "2026-09-13T15:28:23Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T15:28:41Z",
+          "finished_at": "2026-09-13T15:33:54Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T15:34:13Z",
+          "finished_at": "2026-09-13T15:38:46Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T15:39:05Z",
+          "finished_at": "2026-09-13T15:39:35Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-13T15:43:43Z",
+          "finished_at": "2026-09-13T15:44:24Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T15:39:56Z",
+          "finished_at": "2026-09-13T15:43:22Z",
+          "confidence": 0.5
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 0.5
+    },
+    {
+      "n": 3,
+      "layout": "raid10",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "none",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-13T15:49:20Z",
+      "finished_at": "2026-09-13T17:08:29Z",
       "failure_class": null,
       "confidence": 1.0,
       "cases": [
         {
-          "id": "PHASE-01_fill",
+          "id": "STO-01_seq_read_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-24T05:08:54Z",
-          "finished_at": "2026-09-24T05:44:05Z"
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T05:44:22Z",
-          "finished_at": "2026-09-24T05:45:23Z",
+          "started_at": "2026-09-13T16:05:10Z",
+          "finished_at": "2026-09-13T16:07:11Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "id": "STO-01_seq_read_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-24T05:45:40Z",
-          "finished_at": "2026-09-24T05:49:41Z",
+          "started_at": "2026-09-13T16:12:20Z",
+          "finished_at": "2026-09-13T16:14:22Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "id": "STO-01_seq_write_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-24T05:49:59Z",
-          "finished_at": "2026-09-24T05:50:59Z",
+          "started_at": "2026-09-13T16:00:21Z",
+          "finished_at": "2026-09-13T16:04:52Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "id": "STO-01_seq_write_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-24T05:51:16Z",
-          "finished_at": "2026-09-24T05:52:17Z",
+          "started_at": "2026-09-13T16:07:29Z",
+          "finished_at": "2026-09-13T16:12:01Z",
           "confidence": 1.0
         },
         {
-          "id": "PHASE-02_inject",
+          "id": "STO-02_rand_read_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T05:52:17Z",
-          "finished_at": "2026-09-24T05:52:17Z"
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T05:52:34Z",
-          "finished_at": "2026-09-24T05:53:35Z",
+          "started_at": "2026-09-13T16:21:55Z",
+          "finished_at": "2026-09-13T16:27:27Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "id": "STO-02_rand_read_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T05:53:52Z",
-          "finished_at": "2026-09-24T05:57:53Z",
+          "started_at": "2026-09-13T16:14:40Z",
+          "finished_at": "2026-09-13T16:16:41Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "id": "STO-02_rand_read_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T05:58:11Z",
-          "finished_at": "2026-09-24T05:59:12Z",
+          "started_at": "2026-09-13T16:33:09Z",
+          "finished_at": "2026-09-13T16:38:10Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T05:59:29Z",
-          "finished_at": "2026-09-24T06:00:29Z",
+          "started_at": "2026-09-13T16:27:45Z",
+          "finished_at": "2026-09-13T16:32:51Z",
           "confidence": 1.0
         },
         {
-          "id": "PHASE-03_rebuild",
+          "id": "STO-02_rand_write_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T06:00:29Z",
-          "finished_at": "2026-09-24T07:02:52Z"
-        },
-        {
-          "id": "PHASE-04_verify",
-          "status": "passed",
-          "started_at": "2026-09-24T07:02:52Z",
-          "finished_at": "2026-09-24T08:09:51Z"
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T08:10:08Z",
-          "finished_at": "2026-09-24T08:11:10Z",
+          "started_at": "2026-09-13T16:17:01Z",
+          "finished_at": "2026-09-13T16:21:33Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "id": "STO-02_rand_write_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T08:11:27Z",
-          "finished_at": "2026-09-24T08:15:28Z",
+          "started_at": "2026-09-13T16:38:28Z",
+          "finished_at": "2026-09-13T16:43:02Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "id": "STO-03_mixed_70r30w_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T08:15:46Z",
-          "finished_at": "2026-09-24T08:16:47Z",
+          "started_at": "2026-09-13T16:43:20Z",
+          "finished_at": "2026-09-13T16:47:52Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "id": "STO-04_sync_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T08:17:04Z",
-          "finished_at": "2026-09-24T08:18:05Z",
+          "started_at": "2026-09-13T16:48:18Z",
+          "finished_at": "2026-09-13T16:52:49Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T16:53:08Z",
+          "finished_at": "2026-09-13T16:57:40Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-13T16:57:58Z",
+          "finished_at": "2026-09-13T17:02:44Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T17:03:03Z",
+          "finished_at": "2026-09-13T17:03:34Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-13T17:07:34Z",
+          "finished_at": "2026-09-13T17:08:14Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T17:03:55Z",
+          "finished_at": "2026-09-13T17:07:13Z",
           "confidence": 1.0
         }
       ],
-      "confidence_subjects": 12,
+      "confidence_subjects": 17,
       "confidence_unmeasured": 0,
       "confidence_measured_min": 1.0
     },
     {
       "n": 4,
-      "layout": "zfs-raidz1",
+      "layout": "raidz1",
       "mode": "full",
-      "suite": "degraded",
+      "suite": "storage",
       "category": null,
       "model": null,
-      "primarycache": "cold",
-      "status": "failed",
-      "runner_status": "failed",
-      "started_at": "2026-09-24T19:59:00Z",
-      "finished_at": "2026-09-24T22:05:23Z",
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "PHASE-01_fill",
-          "status": "passed",
-          "started_at": "2026-09-24T20:00:38Z",
-          "finished_at": "2026-09-24T20:34:01Z"
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:34:17Z",
-          "finished_at": "2026-09-24T20:35:18Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:35:35Z",
-          "finished_at": "2026-09-24T20:39:36Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:39:53Z",
-          "finished_at": "2026-09-24T20:40:54Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:41:11Z",
-          "finished_at": "2026-09-24T20:42:12Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "PHASE-02_inject",
-          "status": "passed",
-          "started_at": "2026-09-24T20:42:12Z",
-          "finished_at": "2026-09-24T20:42:12Z"
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:42:29Z",
-          "finished_at": "2026-09-24T20:43:30Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:43:47Z",
-          "finished_at": "2026-09-24T20:47:48Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:48:06Z",
-          "finished_at": "2026-09-24T20:49:07Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T20:49:24Z",
-          "finished_at": "2026-09-24T20:50:25Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "PHASE-03_rebuild",
-          "status": "passed",
-          "started_at": "2026-09-24T20:50:25Z",
-          "finished_at": "2026-09-24T21:19:54Z"
-        },
-        {
-          "id": "PHASE-04_verify",
-          "status": "passed",
-          "started_at": "2026-09-24T21:19:54Z",
-          "finished_at": "2026-09-24T21:56:53Z"
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T21:57:10Z",
-          "finished_at": "2026-09-24T21:58:12Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T21:58:28Z",
-          "finished_at": "2026-09-24T22:02:30Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T22:02:49Z",
-          "finished_at": "2026-09-24T22:03:51Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T22:04:08Z",
-          "finished_at": "2026-09-24T22:05:10Z",
-          "confidence": 1.0
-        }
-      ]
-    },
-    {
-      "n": 1,
-      "layout": "btrfs-raid10",
-      "mode": "full",
-      "suite": "degraded",
-      "category": null,
-      "model": null,
-      "primarycache": "cold",
+      "primarycache": "none",
       "status": "passed",
       "runner_status": "passed",
-      "started_at": "2026-09-24T09:28:35Z",
-      "finished_at": "2026-09-24T11:52:45Z",
+      "started_at": "2026-09-13T17:14:07Z",
+      "finished_at": "2026-09-13T18:33:38Z",
       "failure_class": null,
-      "confidence": 0.997,
+      "confidence": 1.0,
       "cases": [
         {
-          "id": "PHASE-01_fill",
+          "id": "STO-01_seq_read_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-24T09:30:21Z",
-          "finished_at": "2026-09-24T09:59:47Z"
+          "started_at": "2026-09-13T17:29:08Z",
+          "finished_at": "2026-09-13T17:31:09Z",
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "id": "STO-01_seq_read_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:00:04Z",
-          "finished_at": "2026-09-24T10:01:05Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T17:36:17Z",
+          "finished_at": "2026-09-13T17:38:18Z",
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "id": "STO-01_seq_write_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-24T10:01:22Z",
-          "finished_at": "2026-09-24T10:05:22Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T17:24:19Z",
+          "finished_at": "2026-09-13T17:28:50Z",
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "id": "STO-01_seq_write_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:05:40Z",
-          "finished_at": "2026-09-24T10:06:41Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T17:31:27Z",
+          "finished_at": "2026-09-13T17:35:59Z",
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_read_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:06:58Z",
-          "finished_at": "2026-09-24T10:07:58Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T17:45:55Z",
+          "finished_at": "2026-09-13T17:51:27Z",
+          "confidence": 1.0
         },
         {
-          "id": "PHASE-02_inject",
+          "id": "STO-02_rand_read_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:07:58Z",
-          "finished_at": "2026-09-24T10:07:59Z"
+          "started_at": "2026-09-13T17:38:36Z",
+          "finished_at": "2026-09-13T17:40:38Z",
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "id": "STO-02_rand_read_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:08:15Z",
-          "finished_at": "2026-09-24T10:09:16Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T17:57:15Z",
+          "finished_at": "2026-09-13T18:02:17Z",
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "id": "STO-02_rand_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:09:33Z",
-          "finished_at": "2026-09-24T10:13:34Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T17:51:45Z",
+          "finished_at": "2026-09-13T17:56:17Z",
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "id": "STO-02_rand_write_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:13:52Z",
-          "finished_at": "2026-09-24T10:14:52Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T17:40:56Z",
+          "finished_at": "2026-09-13T17:45:36Z",
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_write_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:15:09Z",
-          "finished_at": "2026-09-24T10:16:10Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T18:02:35Z",
+          "finished_at": "2026-09-13T18:07:27Z",
+          "confidence": 1.0
         },
         {
-          "id": "PHASE-03_rebuild",
+          "id": "STO-03_mixed_70r30w_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T10:16:10Z",
-          "finished_at": "2026-09-24T11:03:02Z"
+          "started_at": "2026-09-13T18:07:45Z",
+          "finished_at": "2026-09-13T18:12:18Z",
+          "confidence": 1.0
         },
         {
-          "id": "PHASE-04_verify",
+          "id": "STO-04_sync_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T11:03:03Z",
-          "finished_at": "2026-09-24T11:44:30Z"
+          "started_at": "2026-09-13T18:12:40Z",
+          "finished_at": "2026-09-13T18:17:12Z",
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T11:44:47Z",
-          "finished_at": "2026-09-24T11:45:48Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T18:17:32Z",
+          "finished_at": "2026-09-13T18:22:06Z",
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
           "status": "passed",
-          "started_at": "2026-09-24T11:46:04Z",
-          "finished_at": "2026-09-24T11:50:06Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T18:22:25Z",
+          "finished_at": "2026-09-13T18:27:04Z",
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "id": "STO-06_smallfiles_copy_1stream",
           "status": "passed",
-          "started_at": "2026-09-24T11:50:23Z",
-          "finished_at": "2026-09-24T11:51:24Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T18:27:23Z",
+          "finished_at": "2026-09-13T18:27:53Z",
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "id": "STO-06_smallfiles_delete",
           "status": "passed",
-          "started_at": "2026-09-24T11:51:41Z",
-          "finished_at": "2026-09-24T11:52:42Z",
-          "confidence": 0.997
+          "started_at": "2026-09-13T18:32:11Z",
+          "finished_at": "2026-09-13T18:33:23Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-13T18:28:14Z",
+          "finished_at": "2026-09-13T18:31:50Z",
+          "confidence": 1.0
         }
       ],
-      "confidence_subjects": 12,
+      "confidence_subjects": 17,
       "confidence_unmeasured": 0,
-      "confidence_measured_min": 0.997
-    },
-    {
-      "n": 6,
-      "layout": "btrfs-raid5-loaded",
-      "mode": "full",
-      "suite": "degraded",
-      "category": null,
-      "model": null,
-      "primarycache": "cold",
-      "status": "failed",
-      "runner_status": "failed",
-      "started_at": "2026-09-24T12:02:18Z",
-      "finished_at": "2026-09-24T15:18:55Z",
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "PHASE-01_fill",
-          "status": "passed",
-          "started_at": "2026-09-24T12:03:50Z",
-          "finished_at": "2026-09-24T12:39:08Z"
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:39:26Z",
-          "finished_at": "2026-09-24T12:40:26Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:40:43Z",
-          "finished_at": "2026-09-24T12:44:44Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:45:02Z",
-          "finished_at": "2026-09-24T12:46:03Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:46:20Z",
-          "finished_at": "2026-09-24T12:47:21Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "PHASE-02_inject",
-          "status": "passed",
-          "started_at": "2026-09-24T12:47:21Z",
-          "finished_at": "2026-09-24T12:47:21Z"
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:47:38Z",
-          "finished_at": "2026-09-24T12:48:39Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:48:55Z",
-          "finished_at": "2026-09-24T12:52:56Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:53:15Z",
-          "finished_at": "2026-09-24T12:54:16Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:54:33Z",
-          "finished_at": "2026-09-24T12:55:33Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "PHASE-03_rebuild",
-          "status": "passed",
-          "started_at": "2026-09-24T12:55:33Z",
-          "finished_at": "2026-09-24T14:03:28Z"
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:56:30Z",
-          "finished_at": "2026-09-24T12:57:41Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T12:58:05Z",
-          "finished_at": "2026-09-24T13:02:17Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T13:02:41Z",
-          "finished_at": "2026-09-24T13:03:52Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T13:04:15Z",
-          "finished_at": "2026-09-24T13:05:27Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "PHASE-04_verify",
-          "status": "passed",
-          "started_at": "2026-09-24T14:03:28Z",
-          "finished_at": "2026-09-24T15:10:37Z"
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T15:10:55Z",
-          "finished_at": "2026-09-24T15:11:56Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T15:12:13Z",
-          "finished_at": "2026-09-24T15:16:14Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T15:16:32Z",
-          "finished_at": "2026-09-24T15:17:33Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T15:17:50Z",
-          "finished_at": "2026-09-24T15:18:52Z",
-          "confidence": 1.0
-        }
-      ]
-    },
-    {
-      "n": 7,
-      "layout": "zfs-raidz1-loaded",
-      "mode": "full",
-      "suite": "degraded",
-      "category": null,
-      "model": null,
-      "primarycache": "cold",
-      "status": "failed",
-      "runner_status": "failed",
-      "started_at": "2026-09-24T22:17:06Z",
-      "finished_at": "2026-09-25T00:30:15Z",
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "PHASE-01_fill",
-          "status": "passed",
-          "started_at": "2026-09-24T22:18:44Z",
-          "finished_at": "2026-09-24T22:52:09Z"
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T22:52:26Z",
-          "finished_at": "2026-09-24T22:53:27Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T22:53:44Z",
-          "finished_at": "2026-09-24T22:57:45Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T22:58:02Z",
-          "finished_at": "2026-09-24T22:59:03Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T22:59:19Z",
-          "finished_at": "2026-09-24T23:00:20Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "PHASE-02_inject",
-          "status": "passed",
-          "started_at": "2026-09-24T23:00:20Z",
-          "finished_at": "2026-09-24T23:00:21Z"
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:00:37Z",
-          "finished_at": "2026-09-24T23:01:38Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:01:55Z",
-          "finished_at": "2026-09-24T23:05:56Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:06:14Z",
-          "finished_at": "2026-09-24T23:07:15Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:07:33Z",
-          "finished_at": "2026-09-24T23:08:34Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "PHASE-03_rebuild",
-          "status": "passed",
-          "started_at": "2026-09-24T23:08:34Z",
-          "finished_at": "2026-09-24T23:44:25Z"
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:09:34Z",
-          "finished_at": "2026-09-24T23:10:45Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:11:08Z",
-          "finished_at": "2026-09-24T23:15:22Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:15:46Z",
-          "finished_at": "2026-09-24T23:16:57Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S3_degraded_rebuilding__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-24T23:17:20Z",
-          "finished_at": "2026-09-24T23:18:32Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "PHASE-04_verify",
-          "status": "passed",
-          "started_at": "2026-09-24T23:44:25Z",
-          "finished_at": "2026-09-25T00:21:21Z"
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T00:21:38Z",
-          "finished_at": "2026-09-25T00:22:39Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T00:22:56Z",
-          "finished_at": "2026-09-25T00:26:57Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T00:27:16Z",
-          "finished_at": "2026-09-25T00:28:17Z",
-          "confidence": 0.999
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T00:28:34Z",
-          "finished_at": "2026-09-25T00:29:35Z",
-          "confidence": 0.999
-        }
-      ]
-    },
-    {
-      "n": 3,
-      "layout": "btrfs-raid6",
-      "mode": "full",
-      "suite": "degraded",
-      "category": null,
-      "model": null,
-      "primarycache": "cold",
-      "status": "failed",
-      "runner_status": "failed",
-      "started_at": "2026-09-25T00:46:13Z",
-      "finished_at": "2026-09-25T05:22:38Z",
-      "failure_class": "run",
-      "confidence": null,
-      "cases": [
-        {
-          "id": "PHASE-01_fill",
-          "status": "passed",
-          "started_at": "2026-09-25T00:48:09Z",
-          "finished_at": "2026-09-25T01:26:30Z"
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:26:47Z",
-          "finished_at": "2026-09-25T01:27:48Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:28:05Z",
-          "finished_at": "2026-09-25T01:32:06Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:32:24Z",
-          "finished_at": "2026-09-25T01:33:25Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:33:42Z",
-          "finished_at": "2026-09-25T01:34:43Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "PHASE-02_inject",
-          "status": "passed",
-          "started_at": "2026-09-25T01:34:43Z",
-          "finished_at": "2026-09-25T01:34:43Z"
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:35:00Z",
-          "finished_at": "2026-09-25T01:36:01Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:36:18Z",
-          "finished_at": "2026-09-25T01:40:19Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:40:37Z",
-          "finished_at": "2026-09-25T01:41:38Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T01:41:55Z",
-          "finished_at": "2026-09-25T01:42:56Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "PHASE-03_rebuild",
-          "status": "passed",
-          "started_at": "2026-09-25T01:42:56Z",
-          "finished_at": "2026-09-25T03:29:44Z"
-        },
-        {
-          "id": "PHASE-04_verify",
-          "status": "passed",
-          "started_at": "2026-09-25T03:29:44Z",
-          "finished_at": "2026-09-25T05:13:55Z"
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T05:14:13Z",
-          "finished_at": "2026-09-25T05:15:15Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T05:15:31Z",
-          "finished_at": "2026-09-25T05:19:33Z",
-          "confidence": 0.5
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T05:19:51Z",
-          "finished_at": "2026-09-25T05:20:52Z",
-          "confidence": 1.0
-        },
-        {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T05:21:09Z",
-          "finished_at": "2026-09-25T05:22:11Z",
-          "confidence": 1.0
-        }
-      ]
+      "confidence_measured_min": 1.0
     },
     {
       "n": 5,
-      "layout": "zfs-raidz2",
+      "layout": "raidz2",
       "mode": "full",
-      "suite": "degraded",
+      "suite": "storage",
       "category": null,
       "model": null,
-      "primarycache": "cold",
-      "status": "failed",
-      "runner_status": "failed",
-      "started_at": "2026-09-25T05:41:02Z",
-      "finished_at": "2026-09-25T07:39:59Z",
+      "primarycache": "none",
+      "status": "unmeasured",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T01:37:34Z",
+      "finished_at": "2026-09-12T05:00:44Z",
       "failure_class": "run",
       "confidence": null,
       "cases": [
         {
-          "id": "PHASE-01_fill",
+          "id": "STO-01_seq_read_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-25T05:43:16Z",
-          "finished_at": "2026-09-25T06:15:26Z"
+          "started_at": "2026-09-12T01:52:09Z",
+          "finished_at": "2026-09-12T01:54:10Z",
+          "confidence": 0.5
         },
         {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "id": "STO-01_seq_read_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:15:43Z",
-          "finished_at": "2026-09-25T06:16:43Z",
+          "started_at": "2026-09-12T01:59:16Z",
+          "finished_at": "2026-09-12T02:01:17Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T01:47:20Z",
+          "finished_at": "2026-09-12T01:51:51Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T01:54:27Z",
+          "finished_at": "2026-09-12T01:58:58Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T02:08:59Z",
+          "finished_at": "2026-09-12T02:11:00Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T02:01:34Z",
+          "finished_at": "2026-09-12T02:03:35Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T04:31:27Z",
+          "finished_at": "2026-09-12T04:33:28Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "id": "STO-02_rand_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:17:00Z",
-          "finished_at": "2026-09-25T06:21:01Z",
+          "started_at": "2026-09-12T04:26:02Z",
+          "finished_at": "2026-09-12T04:30:33Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "id": "STO-02_rand_write_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:21:18Z",
-          "finished_at": "2026-09-25T06:22:19Z",
+          "started_at": "2026-09-12T02:03:53Z",
+          "finished_at": "2026-09-12T02:08:42Z",
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T04:33:45Z",
+          "finished_at": "2026-09-12T04:38:58Z",
           "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "id": "STO-03_mixed_70r30w_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:22:36Z",
-          "finished_at": "2026-09-25T06:23:37Z",
+          "started_at": "2026-09-12T04:39:16Z",
+          "finished_at": "2026-09-12T04:43:48Z",
           "confidence": 1.0
         },
         {
-          "id": "PHASE-02_inject",
+          "id": "STO-04_sync_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:23:37Z",
-          "finished_at": "2026-09-25T06:23:37Z"
-        },
-        {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T06:23:54Z",
-          "finished_at": "2026-09-25T06:24:55Z",
+          "started_at": "2026-09-12T04:44:30Z",
+          "finished_at": "2026-09-12T04:49:01Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:25:12Z",
-          "finished_at": "2026-09-25T06:29:13Z",
+          "started_at": "2026-09-12T04:49:19Z",
+          "finished_at": "2026-09-12T04:53:50Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:29:31Z",
-          "finished_at": "2026-09-25T06:30:32Z",
+          "started_at": "2026-09-12T04:54:37Z",
+          "finished_at": "2026-09-12T04:59:12Z",
           "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "failed",
+          "started_at": "2026-09-12T04:59:36Z",
+          "finished_at": "2026-09-12T04:59:39Z"
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "failed",
+          "started_at": "2026-09-12T05:00:24Z",
+          "finished_at": "2026-09-12T05:00:28Z"
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "failed",
+          "started_at": "2026-09-12T04:59:59Z",
+          "finished_at": "2026-09-12T05:00:06Z"
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 3,
+      "confidence_measured_min": 0.5
+    },
+    {
+      "n": 6,
+      "layout": "mirror2",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "none",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T05:05:24Z",
+      "finished_at": "2026-09-12T06:19:05Z",
+      "failure_class": null,
+      "confidence": 1.0,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-25T06:30:49Z",
-          "finished_at": "2026-09-25T06:31:50Z",
+          "started_at": "2026-09-12T05:25:47Z",
+          "finished_at": "2026-09-12T05:27:49Z",
           "confidence": 1.0
         },
         {
-          "id": "PHASE-03_rebuild",
+          "id": "STO-01_seq_read_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-25T06:31:50Z",
-          "finished_at": "2026-09-25T07:00:27Z"
-        },
-        {
-          "id": "PHASE-04_verify",
-          "status": "passed",
-          "started_at": "2026-09-25T07:00:32Z",
-          "finished_at": "2026-09-25T07:30:49Z"
-        },
-        {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-          "status": "passed",
-          "started_at": "2026-09-25T07:31:05Z",
-          "finished_at": "2026-09-25T07:32:07Z",
+          "started_at": "2026-09-12T05:32:55Z",
+          "finished_at": "2026-09-12T05:34:56Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "id": "STO-01_seq_write_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-25T07:32:24Z",
-          "finished_at": "2026-09-25T07:36:25Z",
+          "started_at": "2026-09-12T05:20:59Z",
+          "finished_at": "2026-09-12T05:25:30Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "id": "STO-01_seq_write_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-25T07:36:43Z",
-          "finished_at": "2026-09-25T07:37:44Z",
+          "started_at": "2026-09-12T05:28:06Z",
+          "finished_at": "2026-09-12T05:32:37Z",
           "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_read_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T07:38:01Z",
-          "finished_at": "2026-09-25T07:39:03Z",
+          "started_at": "2026-09-12T05:42:39Z",
+          "finished_at": "2026-09-12T05:44:41Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n6"
+            ],
+            "started_at": "2026-09-12T22:24:41Z",
+            "finished_at": "2026-09-12T22:30:12Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T05:35:13Z",
+          "finished_at": "2026-09-12T05:37:14Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T05:50:15Z",
+          "finished_at": "2026-09-12T05:52:17Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T05:44:58Z",
+          "finished_at": "2026-09-12T05:49:30Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T05:37:32Z",
+          "finished_at": "2026-09-12T05:42:22Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n6"
+            ],
+            "started_at": "2026-09-12T22:19:43Z",
+            "finished_at": "2026-09-12T22:24:23Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T05:52:38Z",
+          "finished_at": "2026-09-12T05:57:30Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T05:57:47Z",
+          "finished_at": "2026-09-12T06:02:18Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:02:51Z",
+          "finished_at": "2026-09-12T06:07:23Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:07:40Z",
+          "finished_at": "2026-09-12T06:12:41Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:12:58Z",
+          "finished_at": "2026-09-12T06:17:37Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T06:18:01Z",
+          "finished_at": "2026-09-12T06:18:04Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n6"
+            ],
+            "started_at": "2026-09-12T17:40:38Z",
+            "finished_at": "2026-09-12T17:41:07Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-12T06:18:46Z",
+          "finished_at": "2026-09-12T06:18:49Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n6"
+            ],
+            "started_at": "2026-09-12T17:44:56Z",
+            "finished_at": "2026-09-12T17:45:19Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T06:18:21Z",
+          "finished_at": "2026-09-12T06:18:29Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n6"
+            ],
+            "started_at": "2026-09-12T17:41:27Z",
+            "finished_at": "2026-09-12T17:44:36Z"
+          },
           "confidence": 1.0
         }
-      ]
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 1.0
+    },
+    {
+      "n": 7,
+      "layout": "single-x1",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "metadata",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T06:23:38Z",
+      "finished_at": "2026-09-12T07:40:09Z",
+      "failure_class": null,
+      "confidence": 1.0,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T06:41:56Z",
+          "finished_at": "2026-09-12T06:43:57Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_read_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:49:03Z",
+          "finished_at": "2026-09-12T06:51:04Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T06:37:08Z",
+          "finished_at": "2026-09-12T06:41:39Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:44:15Z",
+          "finished_at": "2026-09-12T06:48:46Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:58:41Z",
+          "finished_at": "2026-09-12T07:00:42Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:51:21Z",
+          "finished_at": "2026-09-12T06:53:23Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T07:06:08Z",
+          "finished_at": "2026-09-12T07:08:09Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T07:01:00Z",
+          "finished_at": "2026-09-12T07:05:51Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T06:53:40Z",
+          "finished_at": "2026-09-12T06:58:24Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T07:08:29Z",
+          "finished_at": "2026-09-12T07:13:06Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T07:13:23Z",
+          "finished_at": "2026-09-12T07:17:55Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T07:18:24Z",
+          "finished_at": "2026-09-12T07:22:56Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T07:23:14Z",
+          "finished_at": "2026-09-12T07:27:51Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T07:28:08Z",
+          "finished_at": "2026-09-12T07:32:40Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T07:36:09Z",
+          "finished_at": "2026-09-12T07:36:35Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-12T07:39:40Z",
+          "finished_at": "2026-09-12T07:39:53Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T07:36:57Z",
+          "finished_at": "2026-09-12T07:39:19Z",
+          "confidence": 1.0
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 1.0
     },
     {
       "n": 8,
-      "layout": "btrfs-raid5-victim-x4",
+      "layout": "raid0",
       "mode": "full",
-      "suite": "degraded",
+      "suite": "storage",
       "category": null,
       "model": null,
-      "primarycache": "cold",
-      "status": "running",
-      "runner_status": "running",
-      "started_at": "2026-09-25T07:54:51Z",
-      "finished_at": null,
+      "primarycache": "metadata",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T07:44:47Z",
+      "finished_at": "2026-09-12T08:55:00Z",
       "failure_class": null,
-      "confidence": null,
+      "confidence": 1.0,
       "cases": [
         {
-          "id": "PHASE-01_fill",
+          "id": "STO-01_seq_read_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-25T07:56:23Z",
-          "finished_at": "2026-09-25T08:31:37Z"
+          "started_at": "2026-09-12T07:56:55Z",
+          "finished_at": "2026-09-12T07:58:57Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T07:42:41Z",
+            "finished_at": "2026-09-13T07:44:43Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-01_seq_read_1M_j4",
+          "id": "STO-01_seq_read_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:31:55Z",
-          "finished_at": "2026-09-25T08:32:56Z"
+          "started_at": "2026-09-12T08:04:04Z",
+          "finished_at": "2026-09-12T08:06:05Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T07:49:55Z",
+            "finished_at": "2026-09-13T07:51:56Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-01_seq_write_1M_j4",
+          "id": "STO-01_seq_write_1M_j1",
           "status": "passed",
-          "started_at": "2026-09-25T08:33:13Z",
-          "finished_at": "2026-09-25T08:37:14Z"
+          "started_at": "2026-09-12T07:52:06Z",
+          "finished_at": "2026-09-12T07:56:38Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T07:37:52Z",
+            "finished_at": "2026-09-13T07:42:23Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_4k_j4",
+          "id": "STO-01_seq_write_1M_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:37:31Z",
-          "finished_at": "2026-09-25T08:38:32Z"
+          "started_at": "2026-09-12T07:59:16Z",
+          "finished_at": "2026-09-12T08:03:47Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T07:45:05Z",
+            "finished_at": "2026-09-13T07:49:36Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S1_healthy__STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_read_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:38:49Z",
-          "finished_at": "2026-09-25T08:39:50Z"
+          "started_at": "2026-09-12T08:13:41Z",
+          "finished_at": "2026-09-12T08:15:43Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T07:59:40Z",
+            "finished_at": "2026-09-13T08:05:12Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "PHASE-02_inject",
+          "id": "STO-02_rand_read_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:39:50Z",
-          "finished_at": "2026-09-25T08:39:50Z"
+          "started_at": "2026-09-12T08:06:22Z",
+          "finished_at": "2026-09-12T08:08:24Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T07:52:14Z",
+            "finished_at": "2026-09-13T07:54:16Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
+          "id": "STO-02_rand_read_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:40:07Z",
-          "finished_at": "2026-09-25T08:41:08Z"
+          "started_at": "2026-09-12T08:21:00Z",
+          "finished_at": "2026-09-12T08:23:02Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:10:21Z",
+            "finished_at": "2026-09-13T08:15:22Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
+          "id": "STO-02_rand_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:41:25Z",
-          "finished_at": "2026-09-25T08:45:26Z"
+          "started_at": "2026-09-12T08:16:00Z",
+          "finished_at": "2026-09-12T08:20:43Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:05:30Z",
+            "finished_at": "2026-09-13T08:10:03Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
+          "id": "STO-02_rand_write_4k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:45:43Z",
-          "finished_at": "2026-09-25T08:46:44Z"
+          "started_at": "2026-09-12T08:08:41Z",
+          "finished_at": "2026-09-12T08:13:12Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T07:54:35Z",
+            "finished_at": "2026-09-13T07:59:20Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
+          "id": "STO-02_rand_write_64k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:47:01Z",
-          "finished_at": "2026-09-25T08:48:02Z"
+          "started_at": "2026-09-12T08:23:19Z",
+          "finished_at": "2026-09-12T08:27:51Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:15:41Z",
+            "finished_at": "2026-09-13T08:20:14Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "PHASE-03_rebuild",
+          "id": "STO-03_mixed_70r30w_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T08:48:02Z",
-          "finished_at": "2026-09-25T09:31:37Z"
+          "started_at": "2026-09-12T08:28:08Z",
+          "finished_at": "2026-09-12T08:32:39Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:20:32Z",
+            "finished_at": "2026-09-13T08:25:03Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "PHASE-04_verify",
+          "id": "STO-04_sync_write_16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T09:31:38Z",
-          "finished_at": "2026-09-25T10:38:43Z"
+          "started_at": "2026-09-12T08:33:00Z",
+          "finished_at": "2026-09-12T08:37:32Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:25:33Z",
+            "finished_at": "2026-09-13T08:30:05Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T10:39:01Z",
-          "finished_at": "2026-09-25T10:40:02Z"
+          "started_at": "2026-09-12T08:37:49Z",
+          "finished_at": "2026-09-12T08:42:22Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:30:23Z",
+            "finished_at": "2026-09-13T08:34:56Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
           "status": "passed",
-          "started_at": "2026-09-25T10:40:19Z",
-          "finished_at": "2026-09-25T10:44:20Z"
+          "started_at": "2026-09-12T08:42:39Z",
+          "finished_at": "2026-09-12T08:47:12Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:35:14Z",
+            "finished_at": "2026-09-13T08:39:47Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
+          "id": "STO-06_smallfiles_copy_1stream",
           "status": "passed",
-          "started_at": "2026-09-25T10:44:38Z",
-          "finished_at": "2026-09-25T10:45:40Z"
+          "started_at": "2026-09-12T08:50:34Z",
+          "finished_at": "2026-09-12T08:51:01Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:40:06Z",
+            "finished_at": "2026-09-13T08:40:32Z"
+          },
+          "confidence": 1.0
         },
         {
-          "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
+          "id": "STO-06_smallfiles_delete",
           "status": "passed",
-          "started_at": "2026-09-25T10:45:56Z",
-          "finished_at": "2026-09-25T10:46:58Z"
+          "started_at": "2026-09-12T08:54:18Z",
+          "finished_at": "2026-09-12T08:54:33Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:43:49Z",
+            "finished_at": "2026-09-13T08:44:02Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T08:51:21Z",
+          "finished_at": "2026-09-12T08:53:58Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n7"
+            ],
+            "started_at": "2026-09-13T08:40:53Z",
+            "finished_at": "2026-09-13T08:43:29Z"
+          },
+          "confidence": 1.0
         }
-      ]
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 1.0
+    },
+    {
+      "n": 9,
+      "layout": "raid10",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "metadata",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T09:00:35Z",
+      "finished_at": "2026-09-12T10:15:42Z",
+      "failure_class": null,
+      "confidence": 1.0,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T09:17:13Z",
+          "finished_at": "2026-09-12T09:19:18Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_read_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:24:23Z",
+          "finished_at": "2026-09-12T09:26:24Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T09:12:25Z",
+          "finished_at": "2026-09-12T09:16:56Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:19:35Z",
+          "finished_at": "2026-09-12T09:24:06Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:33:52Z",
+          "finished_at": "2026-09-12T09:35:53Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:26:42Z",
+          "finished_at": "2026-09-12T09:28:43Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:41:20Z",
+          "finished_at": "2026-09-12T09:43:22Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:36:11Z",
+          "finished_at": "2026-09-12T09:40:43Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:29:00Z",
+          "finished_at": "2026-09-12T09:33:34Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:43:39Z",
+          "finished_at": "2026-09-12T09:48:10Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:48:31Z",
+          "finished_at": "2026-09-12T09:53:03Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:53:20Z",
+          "finished_at": "2026-09-12T09:57:51Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T09:58:08Z",
+          "finished_at": "2026-09-12T10:02:42Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:03:03Z",
+          "finished_at": "2026-09-12T10:07:41Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T10:11:03Z",
+          "finished_at": "2026-09-12T10:11:32Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-12T10:15:13Z",
+          "finished_at": "2026-09-12T10:15:26Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T10:11:52Z",
+          "finished_at": "2026-09-12T10:14:52Z",
+          "confidence": 1.0
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 1.0
+    },
+    {
+      "n": 10,
+      "layout": "raidz1",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "metadata",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T10:20:23Z",
+      "finished_at": "2026-09-12T11:28:46Z",
+      "failure_class": null,
+      "confidence": 0.5,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T10:32:39Z",
+          "finished_at": "2026-09-12T10:34:41Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:03:24Z",
+            "finished_at": "2026-09-13T09:05:26Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_read_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:39:48Z",
+          "finished_at": "2026-09-12T10:41:50Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:10:33Z",
+            "finished_at": "2026-09-13T09:12:35Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T10:27:49Z",
+          "finished_at": "2026-09-12T10:32:21Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T08:58:34Z",
+            "finished_at": "2026-09-13T09:03:06Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:34:59Z",
+          "finished_at": "2026-09-12T10:39:30Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:05:44Z",
+            "finished_at": "2026-09-13T09:10:15Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:49:22Z",
+          "finished_at": "2026-09-12T10:51:23Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T22:57:39Z",
+            "finished_at": "2026-09-13T23:03:10Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:42:08Z",
+          "finished_at": "2026-09-12T10:44:13Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:12:53Z",
+            "finished_at": "2026-09-13T09:14:54Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:56:32Z",
+          "finished_at": "2026-09-12T10:58:34Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T23:03:29Z",
+            "finished_at": "2026-09-13T23:08:30Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:51:41Z",
+          "finished_at": "2026-09-12T10:56:14Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:26:04Z",
+            "finished_at": "2026-09-13T09:30:36Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:44:31Z",
+          "finished_at": "2026-09-12T10:49:04Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:15:13Z",
+            "finished_at": "2026-09-13T09:19:55Z"
+          },
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T10:58:52Z",
+          "finished_at": "2026-09-12T11:03:24Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:37:08Z",
+            "finished_at": "2026-09-13T09:41:41Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T11:03:43Z",
+          "finished_at": "2026-09-12T11:08:14Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:41:59Z",
+            "finished_at": "2026-09-13T09:46:31Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T11:08:44Z",
+          "finished_at": "2026-09-12T11:13:16Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:46:53Z",
+            "finished_at": "2026-09-13T09:51:25Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T11:13:34Z",
+          "finished_at": "2026-09-12T11:18:10Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:51:43Z",
+            "finished_at": "2026-09-13T09:56:22Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T11:18:29Z",
+          "finished_at": "2026-09-12T11:23:03Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T09:56:40Z",
+            "finished_at": "2026-09-13T10:01:14Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T11:23:22Z",
+          "finished_at": "2026-09-12T11:23:49Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T10:01:37Z",
+            "finished_at": "2026-09-13T10:02:04Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-12T11:28:18Z",
+          "finished_at": "2026-09-12T11:28:31Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T10:07:16Z",
+            "finished_at": "2026-09-13T10:07:29Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T11:24:10Z",
+          "finished_at": "2026-09-12T11:27:58Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n8"
+            ],
+            "started_at": "2026-09-13T10:02:24Z",
+            "finished_at": "2026-09-13T10:06:55Z"
+          },
+          "confidence": 1.0
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 0.5
+    },
+    {
+      "n": 11,
+      "layout": "raidz2",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "metadata",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T11:33:32Z",
+      "finished_at": "2026-09-12T12:45:26Z",
+      "failure_class": null,
+      "confidence": 0.5,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T11:48:27Z",
+          "finished_at": "2026-09-12T11:50:28Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T10:31:22Z",
+            "finished_at": "2026-09-13T10:33:23Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_read_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T11:55:35Z",
+          "finished_at": "2026-09-12T11:57:37Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T10:38:31Z",
+            "finished_at": "2026-09-13T10:40:33Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T11:43:36Z",
+          "finished_at": "2026-09-12T11:48:07Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T10:26:29Z",
+            "finished_at": "2026-09-13T10:31:00Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T11:50:46Z",
+          "finished_at": "2026-09-12T11:55:17Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T10:33:41Z",
+            "finished_at": "2026-09-13T10:38:13Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:05:09Z",
+          "finished_at": "2026-09-12T12:07:10Z",
+          "measured_in": {
+            "cells": [
+              "stage1/n11"
+            ],
+            "started_at": "2026-09-13T22:39:27Z",
+            "finished_at": "2026-09-13T22:44:58Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T11:57:55Z",
+          "finished_at": "2026-09-12T11:59:56Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T10:40:52Z",
+            "finished_at": "2026-09-13T10:42:53Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:12:34Z",
+          "finished_at": "2026-09-12T12:14:35Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T23:25:36Z",
+            "finished_at": "2026-09-13T23:30:38Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:07:28Z",
+          "finished_at": "2026-09-12T12:12:00Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T10:53:51Z",
+            "finished_at": "2026-09-13T10:58:27Z"
+          },
+          "confidence": 0.5
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:00:14Z",
+          "finished_at": "2026-09-12T12:04:51Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T10:43:11Z",
+            "finished_at": "2026-09-13T10:47:43Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:14:53Z",
+          "finished_at": "2026-09-12T12:19:25Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:04:05Z",
+            "finished_at": "2026-09-13T11:08:44Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:19:43Z",
+          "finished_at": "2026-09-12T12:24:15Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:09:02Z",
+            "finished_at": "2026-09-13T11:13:35Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:24:41Z",
+          "finished_at": "2026-09-12T12:29:13Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:14:10Z",
+            "finished_at": "2026-09-13T11:18:42Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:29:31Z",
+          "finished_at": "2026-09-12T12:34:10Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:19:00Z",
+            "finished_at": "2026-09-13T11:23:36Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T12:34:28Z",
+          "finished_at": "2026-09-12T12:39:02Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:23:54Z",
+            "finished_at": "2026-09-13T11:28:29Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T12:39:21Z",
+          "finished_at": "2026-09-12T12:39:49Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:28:48Z",
+            "finished_at": "2026-09-13T11:29:15Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-12T12:44:58Z",
+          "finished_at": "2026-09-12T12:45:12Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:32:18Z",
+            "finished_at": "2026-09-13T11:32:32Z"
+          },
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T12:40:09Z",
+          "finished_at": "2026-09-12T12:44:38Z",
+          "measured_in": {
+            "cells": [
+              "stage2/n9"
+            ],
+            "started_at": "2026-09-13T11:29:36Z",
+            "finished_at": "2026-09-13T11:31:58Z"
+          },
+          "confidence": 1.0
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 0.5
+    },
+    {
+      "n": 12,
+      "layout": "mirror2",
+      "mode": "full",
+      "suite": "storage",
+      "category": null,
+      "model": null,
+      "primarycache": "metadata",
+      "status": "passed",
+      "runner_status": "passed",
+      "started_at": "2026-09-12T12:50:07Z",
+      "finished_at": "2026-09-12T14:07:17Z",
+      "failure_class": null,
+      "confidence": 1.0,
+      "cases": [
+        {
+          "id": "STO-01_seq_read_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T13:12:27Z",
+          "finished_at": "2026-09-12T13:14:28Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_read_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:19:38Z",
+          "finished_at": "2026-09-12T13:21:40Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j1",
+          "status": "passed",
+          "started_at": "2026-09-12T13:07:38Z",
+          "finished_at": "2026-09-12T13:12:09Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-01_seq_write_1M_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:14:47Z",
+          "finished_at": "2026-09-12T13:19:19Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:29:09Z",
+          "finished_at": "2026-09-12T13:31:10Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:21:58Z",
+          "finished_at": "2026-09-12T13:23:59Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_read_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:36:27Z",
+          "finished_at": "2026-09-12T13:38:29Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:31:28Z",
+          "finished_at": "2026-09-12T13:36:01Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_4k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:24:18Z",
+          "finished_at": "2026-09-12T13:28:51Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-02_rand_write_64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:38:46Z",
+          "finished_at": "2026-09-12T13:43:23Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-03_mixed_70r30w_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:43:41Z",
+          "finished_at": "2026-09-12T13:48:17Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-04_sync_write_16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:48:35Z",
+          "finished_at": "2026-09-12T13:53:08Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs16k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:53:26Z",
+          "finished_at": "2026-09-12T13:58:03Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-05_rand_write_64k_vbs64k_j4",
+          "status": "passed",
+          "started_at": "2026-09-12T13:58:21Z",
+          "finished_at": "2026-09-12T14:02:58Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_copy_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T14:03:17Z",
+          "finished_at": "2026-09-12T14:03:44Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_delete",
+          "status": "passed",
+          "started_at": "2026-09-12T14:06:48Z",
+          "finished_at": "2026-09-12T14:07:01Z",
+          "confidence": 1.0
+        },
+        {
+          "id": "STO-06_smallfiles_read_1stream",
+          "status": "passed",
+          "started_at": "2026-09-12T14:04:05Z",
+          "finished_at": "2026-09-12T14:06:27Z",
+          "confidence": 1.0
+        }
+      ],
+      "confidence_subjects": 17,
+      "confidence_unmeasured": 0,
+      "confidence_measured_min": 1.0
     }
   ],
   "stages": [
@@ -1194,7 +2247,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T10:46:58Z",
+      "captured_at": "2026-09-25T10:47:28Z",
       "confidence": null,
       "confidence_subjects": 221,
       "confidence_unmeasured": 3,
@@ -3437,7 +4490,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T10:46:59Z",
+      "captured_at": "2026-09-25T10:47:28Z",
       "confidence": 0.5,
       "confidence_subjects": 170,
       "confidence_unmeasured": 0,
@@ -5224,7 +6277,7 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "failed",
-      "captured_at": "2026-09-25T10:47:02Z",
+      "captured_at": "2026-09-25T10:47:28Z",
       "confidence": null,
       "confidence_subjects": 136,
       "confidence_unmeasured": 6,
@@ -6515,7 +7568,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-25T10:47:02Z",
+      "captured_at": "2026-09-25T10:47:29Z",
       "confidence": 0.998,
       "confidence_subjects": 6,
       "confidence_unmeasured": 0,
@@ -6609,7 +7662,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T10:47:03Z",
+      "captured_at": "2026-09-25T10:47:29Z",
       "confidence": 0.5,
       "confidence_subjects": 192,
       "confidence_unmeasured": 0,
@@ -8282,7 +9335,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T10:47:03Z",
+      "captured_at": "2026-09-25T10:47:29Z",
       "confidence": null,
       "confidence_subjects": 2,
       "confidence_unmeasured": 2,
@@ -8325,12 +9378,12 @@
     {
       "id": 7,
       "name": "Degraded-mode cost and rebuild toll (STO-09)",
-      "status": "running",
-      "captured_at": "2026-09-25T10:47:03Z",
+      "status": "failed",
+      "captured_at": "2026-09-25T10:47:29Z",
       "confidence": null,
       "confidence_subjects": 116,
-      "confidence_unmeasured": 12,
-      "confidence_measured_min": 0.5,
+      "confidence_unmeasured": 52,
+      "confidence_measured_min": 0.997,
       "cells": [
         {
           "n": 0,
@@ -8599,7 +9652,7 @@
           "status": "failed",
           "runner_status": "failed",
           "started_at": "2026-09-24T19:59:00Z",
-          "finished_at": "2026-09-24T22:05:23Z",
+          "finished_at": "2026-09-24T22:05:12Z",
           "failure_class": "run",
           "confidence": null,
           "cases": [
@@ -9005,145 +10058,129 @@
           "status": "failed",
           "runner_status": "failed",
           "started_at": "2026-09-24T22:17:06Z",
-          "finished_at": "2026-09-25T00:30:15Z",
+          "finished_at": "2026-09-25T00:29:38Z",
           "failure_class": "run",
           "confidence": null,
           "cases": [
             {
               "id": "PHASE-01_fill",
-              "status": "passed",
-              "started_at": "2026-09-24T22:18:44Z",
-              "finished_at": "2026-09-24T22:52:09Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T22:52:26Z",
-              "finished_at": "2026-09-24T22:53:27Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T22:53:44Z",
-              "finished_at": "2026-09-24T22:57:45Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T22:58:02Z",
-              "finished_at": "2026-09-24T22:59:03Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T22:59:19Z",
-              "finished_at": "2026-09-24T23:00:20Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-02_inject",
-              "status": "passed",
-              "started_at": "2026-09-24T23:00:20Z",
-              "finished_at": "2026-09-24T23:00:21Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:00:37Z",
-              "finished_at": "2026-09-24T23:01:38Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:01:55Z",
-              "finished_at": "2026-09-24T23:05:56Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:06:14Z",
-              "finished_at": "2026-09-24T23:07:15Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:07:33Z",
-              "finished_at": "2026-09-24T23:08:34Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-03_rebuild",
-              "status": "passed",
-              "started_at": "2026-09-24T23:08:34Z",
-              "finished_at": "2026-09-24T23:44:25Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S3_degraded_rebuilding__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:09:34Z",
-              "finished_at": "2026-09-24T23:10:45Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S3_degraded_rebuilding__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:11:08Z",
-              "finished_at": "2026-09-24T23:15:22Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S3_degraded_rebuilding__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:15:46Z",
-              "finished_at": "2026-09-24T23:16:57Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S3_degraded_rebuilding__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-24T23:17:20Z",
-              "finished_at": "2026-09-24T23:18:32Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-04_verify",
-              "status": "passed",
-              "started_at": "2026-09-24T23:44:25Z",
-              "finished_at": "2026-09-25T00:21:21Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T00:21:38Z",
-              "finished_at": "2026-09-25T00:22:39Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T00:22:56Z",
-              "finished_at": "2026-09-25T00:26:57Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T00:27:16Z",
-              "finished_at": "2026-09-25T00:28:17Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T00:28:34Z",
-              "finished_at": "2026-09-25T00:29:35Z",
-              "confidence": 0.999
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -9158,117 +10195,105 @@
           "status": "failed",
           "runner_status": "failed",
           "started_at": "2026-09-25T00:46:13Z",
-          "finished_at": "2026-09-25T05:22:38Z",
+          "finished_at": "2026-09-25T05:22:15Z",
           "failure_class": "run",
           "confidence": null,
           "cases": [
             {
               "id": "PHASE-01_fill",
-              "status": "passed",
-              "started_at": "2026-09-25T00:48:09Z",
-              "finished_at": "2026-09-25T01:26:30Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:26:47Z",
-              "finished_at": "2026-09-25T01:27:48Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:28:05Z",
-              "finished_at": "2026-09-25T01:32:06Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:32:24Z",
-              "finished_at": "2026-09-25T01:33:25Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:33:42Z",
-              "finished_at": "2026-09-25T01:34:43Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-02_inject",
-              "status": "passed",
-              "started_at": "2026-09-25T01:34:43Z",
-              "finished_at": "2026-09-25T01:34:43Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:35:00Z",
-              "finished_at": "2026-09-25T01:36:01Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:36:18Z",
-              "finished_at": "2026-09-25T01:40:19Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:40:37Z",
-              "finished_at": "2026-09-25T01:41:38Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T01:41:55Z",
-              "finished_at": "2026-09-25T01:42:56Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-03_rebuild",
-              "status": "passed",
-              "started_at": "2026-09-25T01:42:56Z",
-              "finished_at": "2026-09-25T03:29:44Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-04_verify",
-              "status": "passed",
-              "started_at": "2026-09-25T03:29:44Z",
-              "finished_at": "2026-09-25T05:13:55Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T05:14:13Z",
-              "finished_at": "2026-09-25T05:15:15Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T05:15:31Z",
-              "finished_at": "2026-09-25T05:19:33Z",
-              "confidence": 0.5
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T05:19:51Z",
-              "finished_at": "2026-09-25T05:20:52Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T05:21:09Z",
-              "finished_at": "2026-09-25T05:22:11Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -9283,117 +10308,105 @@
           "status": "failed",
           "runner_status": "failed",
           "started_at": "2026-09-25T05:41:02Z",
-          "finished_at": "2026-09-25T07:39:59Z",
+          "finished_at": "2026-09-25T07:39:05Z",
           "failure_class": "run",
           "confidence": null,
           "cases": [
             {
               "id": "PHASE-01_fill",
-              "status": "passed",
-              "started_at": "2026-09-25T05:43:16Z",
-              "finished_at": "2026-09-25T06:15:26Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:15:43Z",
-              "finished_at": "2026-09-25T06:16:43Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:17:00Z",
-              "finished_at": "2026-09-25T06:21:01Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:21:18Z",
-              "finished_at": "2026-09-25T06:22:19Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:22:36Z",
-              "finished_at": "2026-09-25T06:23:37Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-02_inject",
-              "status": "passed",
-              "started_at": "2026-09-25T06:23:37Z",
-              "finished_at": "2026-09-25T06:23:37Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:23:54Z",
-              "finished_at": "2026-09-25T06:24:55Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:25:12Z",
-              "finished_at": "2026-09-25T06:29:13Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:29:31Z",
-              "finished_at": "2026-09-25T06:30:32Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T06:30:49Z",
-              "finished_at": "2026-09-25T06:31:50Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-03_rebuild",
-              "status": "passed",
-              "started_at": "2026-09-25T06:31:50Z",
-              "finished_at": "2026-09-25T07:00:27Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-04_verify",
-              "status": "passed",
-              "started_at": "2026-09-25T07:00:32Z",
-              "finished_at": "2026-09-25T07:30:49Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T07:31:05Z",
-              "finished_at": "2026-09-25T07:32:07Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T07:32:24Z",
-              "finished_at": "2026-09-25T07:36:25Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T07:36:43Z",
-              "finished_at": "2026-09-25T07:37:44Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T07:38:01Z",
-              "finished_at": "2026-09-25T07:39:03Z",
-              "confidence": 1.0
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         },
@@ -9405,108 +10418,108 @@
           "category": null,
           "model": null,
           "primarycache": "cold",
-          "status": "running",
-          "runner_status": "running",
+          "status": "failed",
+          "runner_status": "failed",
           "started_at": "2026-09-25T07:54:51Z",
-          "finished_at": null,
-          "failure_class": null,
+          "finished_at": "2026-09-25T10:47:01Z",
+          "failure_class": "run",
           "confidence": null,
           "cases": [
             {
               "id": "PHASE-01_fill",
-              "status": "passed",
-              "started_at": "2026-09-25T07:56:23Z",
-              "finished_at": "2026-09-25T08:31:37Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:31:55Z",
-              "finished_at": "2026-09-25T08:32:56Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:33:13Z",
-              "finished_at": "2026-09-25T08:37:14Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:37:31Z",
-              "finished_at": "2026-09-25T08:38:32Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S1_healthy__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:38:49Z",
-              "finished_at": "2026-09-25T08:39:50Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-02_inject",
-              "status": "passed",
-              "started_at": "2026-09-25T08:39:50Z",
-              "finished_at": "2026-09-25T08:39:50Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:40:07Z",
-              "finished_at": "2026-09-25T08:41:08Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:41:25Z",
-              "finished_at": "2026-09-25T08:45:26Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:45:43Z",
-              "finished_at": "2026-09-25T08:46:44Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S2_degraded_idle__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T08:47:01Z",
-              "finished_at": "2026-09-25T08:48:02Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-03_rebuild",
-              "status": "passed",
-              "started_at": "2026-09-25T08:48:02Z",
-              "finished_at": "2026-09-25T09:31:37Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "PHASE-04_verify",
-              "status": "passed",
-              "started_at": "2026-09-25T09:31:38Z",
-              "finished_at": "2026-09-25T10:38:43Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T10:39:01Z",
-              "finished_at": "2026-09-25T10:40:02Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T10:40:19Z",
-              "finished_at": "2026-09-25T10:44:20Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T10:44:38Z",
-              "finished_at": "2026-09-25T10:45:40Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "S4_healthy_again__STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T10:45:56Z",
-              "finished_at": "2026-09-25T10:46:58Z"
+              "status": "pending",
+              "started_at": null,
+              "finished_at": null
             }
           ]
         }
@@ -9516,7 +10529,7 @@
       "id": 8,
       "name": "RAID5/6 write-hole trip under unclean shutdown (STO-WH)",
       "status": "pending",
-      "captured_at": "2026-09-25T10:47:03Z",
+      "captured_at": "2026-09-25T10:47:29Z",
       "confidence": null,
       "confidence_subjects": 0,
       "confidence_unmeasured": 0,
