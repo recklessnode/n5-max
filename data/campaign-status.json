@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-25T12:07:28Z",
+  "updated_at": "2026-09-25T12:11:10Z",
   "harness_commit": null,
-  "git_commit": "14e1ef317",
+  "git_commit": "342789574",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 7,
@@ -1229,9 +1229,9 @@
         },
         {
           "id": "S1_healthy__STO-01_seq_write_1M_j4",
-          "status": "running",
+          "status": "passed",
           "started_at": "2026-09-25T12:07:03Z",
-          "finished_at": null
+          "finished_at": "2026-09-25T12:11:04Z"
         },
         {
           "id": "S1_healthy__STO-02_rand_read_4k_j4",
@@ -1361,7 +1361,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T12:07:25Z",
+      "captured_at": "2026-09-25T12:11:07Z",
       "confidence": null,
       "confidence_subjects": 221,
       "confidence_unmeasured": 3,
@@ -3604,7 +3604,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T12:07:25Z",
+      "captured_at": "2026-09-25T12:11:07Z",
       "confidence": 0.5,
       "confidence_subjects": 170,
       "confidence_unmeasured": 0,
@@ -5391,7 +5391,7 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "failed",
-      "captured_at": "2026-09-25T12:07:27Z",
+      "captured_at": "2026-09-25T12:11:10Z",
       "confidence": null,
       "confidence_subjects": 136,
       "confidence_unmeasured": 6,
@@ -6682,7 +6682,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-25T12:07:27Z",
+      "captured_at": "2026-09-25T12:11:10Z",
       "confidence": 0.998,
       "confidence_subjects": 6,
       "confidence_unmeasured": 0,
@@ -6776,7 +6776,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T12:07:28Z",
+      "captured_at": "2026-09-25T12:11:10Z",
       "confidence": 0.5,
       "confidence_subjects": 192,
       "confidence_unmeasured": 0,
@@ -8449,7 +8449,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "soft_finished",
-      "captured_at": "2026-09-25T12:07:28Z",
+      "captured_at": "2026-09-25T12:11:10Z",
       "confidence": null,
       "confidence_subjects": 2,
       "confidence_unmeasured": 2,
@@ -8493,7 +8493,7 @@
       "id": 7,
       "name": "Degraded-mode cost and rebuild toll (STO-09)",
       "status": "running",
-      "captured_at": "2026-09-25T12:07:28Z",
+      "captured_at": "2026-09-25T12:11:10Z",
       "confidence": null,
       "confidence_subjects": 132,
       "confidence_unmeasured": 16,
@@ -9718,9 +9718,9 @@
             },
             {
               "id": "S1_healthy__STO-01_seq_write_1M_j4",
-              "status": "running",
+              "status": "passed",
               "started_at": "2026-09-25T12:07:03Z",
-              "finished_at": null
+              "finished_at": "2026-09-25T12:11:04Z"
             },
             {
               "id": "S1_healthy__STO-02_rand_read_4k_j4",
@@ -9850,7 +9850,7 @@
       "id": 8,
       "name": "RAID5/6 write-hole trip under unclean shutdown (STO-WH)",
       "status": "pending",
-      "captured_at": "2026-09-25T12:07:28Z",
+      "captured_at": "2026-09-25T12:11:10Z",
       "confidence": null,
       "confidence_subjects": 0,
       "confidence_unmeasured": 0,
