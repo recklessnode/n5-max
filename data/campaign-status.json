@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-26T02:58:29Z",
+  "updated_at": "2026-09-26T03:02:32Z",
   "harness_commit": null,
-  "git_commit": "008bc3cdf",
+  "git_commit": "861455ef3",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 7,
@@ -1289,14 +1289,14 @@
         },
         {
           "id": "S4_control_after_standin__STO-01_seq_write_1M_j4",
-          "status": "running",
+          "status": "passed",
           "started_at": "2026-09-26T02:58:00Z",
-          "finished_at": null
+          "finished_at": "2026-09-26T03:02:02Z"
         },
         {
           "id": "S4_control_after_standin__STO-02_rand_read_4k_j4",
-          "status": "pending",
-          "started_at": null,
+          "status": "running",
+          "started_at": "2026-09-26T03:02:21Z",
           "finished_at": null
         },
         {
@@ -1361,7 +1361,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-26T02:58:27Z",
+      "captured_at": "2026-09-26T03:02:32Z",
       "confidence": null,
       "confidence_subjects": 221,
       "confidence_unmeasured": 3,
@@ -3604,7 +3604,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "soft_finished",
-      "captured_at": "2026-09-26T02:58:27Z",
+      "captured_at": "2026-09-26T03:02:32Z",
       "confidence": 0.5,
       "confidence_subjects": 170,
       "confidence_unmeasured": 0,
@@ -5391,7 +5391,7 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "failed",
-      "captured_at": "2026-09-26T02:58:29Z",
+      "captured_at": "2026-09-26T03:02:32Z",
       "confidence": null,
       "confidence_subjects": 136,
       "confidence_unmeasured": 6,
@@ -6682,7 +6682,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-26T02:58:29Z",
+      "captured_at": "2026-09-26T03:02:32Z",
       "confidence": 0.998,
       "confidence_subjects": 6,
       "confidence_unmeasured": 0,
@@ -6776,10 +6776,10 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-26T02:58:29Z",
-      "confidence": 0.5,
+      "captured_at": "2026-09-26T03:02:32Z",
+      "confidence": null,
       "confidence_subjects": 192,
-      "confidence_unmeasured": 0,
+      "confidence_unmeasured": 96,
       "confidence_measured_min": 0.5,
       "cells": [
         {
@@ -6830,11 +6830,9 @@
               "started_at": "2026-09-14T05:35:31Z",
               "finished_at": "2026-09-14T05:37:32Z",
               "measured_in": {
-                "cells": [
-                  "stage5/n1"
-                ],
-                "started_at": "2026-09-26T00:22:05Z",
-                "finished_at": "2026-09-26T00:27:06Z"
+                "cells": [],
+                "started_at": "2026-09-16T06:09:51Z",
+                "finished_at": "2026-09-16T06:14:52Z"
               },
               "confidence": 1.0
             },
@@ -7625,135 +7623,119 @@
           "category": null,
           "model": null,
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-25T16:04:02Z",
           "finished_at": "2026-09-25T17:14:38Z",
           "failure_class": null,
-          "confidence": 0.999,
+          "confidence": null,
           "cases": [
             {
               "id": "PRE-00_canary_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T16:07:14Z",
-              "finished_at": "2026-09-25T16:07:30Z"
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T16:07:47Z",
-              "finished_at": "2026-09-25T16:12:18Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T16:12:35Z",
-              "finished_at": "2026-09-25T16:14:36Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:15:13Z",
-              "finished_at": "2026-09-25T16:19:43Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:20:00Z",
-              "finished_at": "2026-09-25T16:25:01Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:25:48Z",
-              "finished_at": "2026-09-25T16:27:49Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:28:16Z",
-              "finished_at": "2026-09-25T16:32:47Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:33:04Z",
-              "finished_at": "2026-09-25T16:38:34Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:39:21Z",
-              "finished_at": "2026-09-25T16:43:52Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:44:09Z",
-              "finished_at": "2026-09-25T16:49:10Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:49:57Z",
-              "finished_at": "2026-09-25T16:54:28Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:54:45Z",
-              "finished_at": "2026-09-25T16:59:15Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T16:59:42Z",
-              "finished_at": "2026-09-25T17:04:13Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T17:12:28Z",
-              "finished_at": "2026-09-25T17:12:49Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T17:13:11Z",
-              "finished_at": "2026-09-25T17:14:08Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-25T17:14:29Z",
-              "finished_at": "2026-09-25T17:14:36Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-07_vm_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T17:04:30Z",
-              "finished_at": "2026-09-25T17:09:01Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 16,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.999
+          "confidence_unmeasured": 16,
+          "confidence_measured_min": null
         },
         {
           "n": 8,
@@ -7763,135 +7745,119 @@
           "category": null,
           "model": null,
           "primarycache": "warm",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-25T17:30:02Z",
           "finished_at": "2026-09-25T18:37:49Z",
           "failure_class": null,
-          "confidence": 0.999,
+          "confidence": null,
           "cases": [
             {
               "id": "PRE-00_canary_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T17:30:55Z",
-              "finished_at": "2026-09-25T17:31:10Z"
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T17:31:41Z",
-              "finished_at": "2026-09-25T17:36:11Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T17:36:46Z",
-              "finished_at": "2026-09-25T17:38:47Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T17:39:17Z",
-              "finished_at": "2026-09-25T17:43:47Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T17:44:32Z",
-              "finished_at": "2026-09-25T17:49:33Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T17:50:03Z",
-              "finished_at": "2026-09-25T17:52:04Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T17:52:34Z",
-              "finished_at": "2026-09-25T17:57:05Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T17:57:36Z",
-              "finished_at": "2026-09-25T18:03:07Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T18:03:47Z",
-              "finished_at": "2026-09-25T18:08:18Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T18:08:48Z",
-              "finished_at": "2026-09-25T18:13:49Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T18:14:19Z",
-              "finished_at": "2026-09-25T18:18:50Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T18:19:23Z",
-              "finished_at": "2026-09-25T18:23:53Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T18:24:24Z",
-              "finished_at": "2026-09-25T18:28:55Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T18:34:16Z",
-              "finished_at": "2026-09-25T18:34:35Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T18:36:03Z",
-              "finished_at": "2026-09-25T18:36:13Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-25T18:37:41Z",
-              "finished_at": "2026-09-25T18:37:47Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-07_vm_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T18:29:25Z",
-              "finished_at": "2026-09-25T18:33:56Z",
-              "confidence": 0.999
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 16,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.999
+          "confidence_unmeasured": 16,
+          "confidence_measured_min": null
         },
         {
           "n": 9,
@@ -7901,135 +7867,119 @@
           "category": null,
           "model": null,
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-25T18:53:24Z",
           "finished_at": "2026-09-25T19:59:27Z",
           "failure_class": null,
-          "confidence": 1.0,
+          "confidence": null,
           "cases": [
             {
               "id": "PRE-00_canary_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T18:55:26Z",
-              "finished_at": "2026-09-25T18:55:42Z"
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T18:56:00Z",
-              "finished_at": "2026-09-25T19:00:31Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T19:00:59Z",
-              "finished_at": "2026-09-25T19:02:59Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:03:27Z",
-              "finished_at": "2026-09-25T19:07:58Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:08:16Z",
-              "finished_at": "2026-09-25T19:13:17Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:14:05Z",
-              "finished_at": "2026-09-25T19:16:06Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:16:24Z",
-              "finished_at": "2026-09-25T19:20:55Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:21:33Z",
-              "finished_at": "2026-09-25T19:27:03Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:27:21Z",
-              "finished_at": "2026-09-25T19:31:52Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:32:10Z",
-              "finished_at": "2026-09-25T19:37:11Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:37:29Z",
-              "finished_at": "2026-09-25T19:42:00Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:42:28Z",
-              "finished_at": "2026-09-25T19:46:59Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:47:27Z",
-              "finished_at": "2026-09-25T19:51:58Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T19:57:05Z",
-              "finished_at": "2026-09-25T19:57:26Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T19:57:48Z",
-              "finished_at": "2026-09-25T19:58:46Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-25T19:59:07Z",
-              "finished_at": "2026-09-25T19:59:25Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-07_vm_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T19:52:16Z",
-              "finished_at": "2026-09-25T19:56:47Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 16,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 1.0
+          "confidence_unmeasured": 16,
+          "confidence_measured_min": null
         },
         {
           "n": 10,
@@ -8039,135 +7989,119 @@
           "category": null,
           "model": null,
           "primarycache": "warm",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-25T20:14:48Z",
           "finished_at": "2026-09-25T21:22:39Z",
           "failure_class": null,
-          "confidence": 1.0,
+          "confidence": null,
           "cases": [
             {
               "id": "PRE-00_canary_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T20:15:38Z",
-              "finished_at": "2026-09-25T20:15:54Z"
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T20:16:24Z",
-              "finished_at": "2026-09-25T20:20:54Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T20:21:27Z",
-              "finished_at": "2026-09-25T20:23:27Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:23:57Z",
-              "finished_at": "2026-09-25T20:28:28Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:29:01Z",
-              "finished_at": "2026-09-25T20:34:02Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:34:32Z",
-              "finished_at": "2026-09-25T20:36:32Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:37:02Z",
-              "finished_at": "2026-09-25T20:41:33Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:42:04Z",
-              "finished_at": "2026-09-25T20:47:35Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:48:06Z",
-              "finished_at": "2026-09-25T20:52:37Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:53:14Z",
-              "finished_at": "2026-09-25T20:58:15Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T20:58:45Z",
-              "finished_at": "2026-09-25T21:03:16Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T21:03:51Z",
-              "finished_at": "2026-09-25T21:08:22Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T21:09:01Z",
-              "finished_at": "2026-09-25T21:13:32Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T21:18:57Z",
-              "finished_at": "2026-09-25T21:19:20Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T21:20:49Z",
-              "finished_at": "2026-09-25T21:21:00Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-25T21:22:30Z",
-              "finished_at": "2026-09-25T21:22:38Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-07_vm_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T21:14:02Z",
-              "finished_at": "2026-09-25T21:18:33Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 16,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 1.0
+          "confidence_unmeasured": 16,
+          "confidence_measured_min": null
         },
         {
           "n": 11,
@@ -8177,135 +8111,119 @@
           "category": null,
           "model": null,
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-25T21:38:18Z",
           "finished_at": "2026-09-25T22:44:49Z",
           "failure_class": null,
-          "confidence": 0.5,
+          "confidence": null,
           "cases": [
             {
               "id": "PRE-00_canary_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T21:41:15Z",
-              "finished_at": "2026-09-25T21:41:31Z"
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T21:41:49Z",
-              "finished_at": "2026-09-25T21:46:19Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T21:46:37Z",
-              "finished_at": "2026-09-25T21:48:38Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T21:49:26Z",
-              "finished_at": "2026-09-25T21:53:57Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T21:54:15Z",
-              "finished_at": "2026-09-25T21:59:16Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:00:04Z",
-              "finished_at": "2026-09-25T22:02:05Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:02:22Z",
-              "finished_at": "2026-09-25T22:06:53Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:07:11Z",
-              "finished_at": "2026-09-25T22:12:42Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:13:00Z",
-              "finished_at": "2026-09-25T22:17:31Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:17:49Z",
-              "finished_at": "2026-09-25T22:22:49Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:23:07Z",
-              "finished_at": "2026-09-25T22:27:40Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:27:58Z",
-              "finished_at": "2026-09-25T22:32:29Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:32:47Z",
-              "finished_at": "2026-09-25T22:37:18Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T22:42:25Z",
-              "finished_at": "2026-09-25T22:42:56Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-25T22:43:17Z",
-              "finished_at": "2026-09-25T22:44:16Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-25T22:44:37Z",
-              "finished_at": "2026-09-25T22:44:47Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-07_vm_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T22:37:36Z",
-              "finished_at": "2026-09-25T22:42:07Z",
-              "confidence": 0.5
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 16,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.5
+          "confidence_unmeasured": 16,
+          "confidence_measured_min": null
         },
         {
           "n": 12,
@@ -8315,135 +8233,119 @@
           "category": null,
           "model": null,
           "primarycache": "warm",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-25T23:00:17Z",
           "finished_at": "2026-09-26T00:08:29Z",
           "failure_class": null,
-          "confidence": 1.0,
+          "confidence": null,
           "cases": [
             {
               "id": "PRE-00_canary_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T23:01:08Z",
-              "finished_at": "2026-09-25T23:01:23Z"
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T23:01:53Z",
-              "finished_at": "2026-09-25T23:06:24Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j1",
-              "status": "passed",
-              "started_at": "2026-09-25T23:06:59Z",
-              "finished_at": "2026-09-25T23:08:59Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_write_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:09:29Z",
-              "finished_at": "2026-09-25T23:14:00Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-01_seq_read_1M_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:14:34Z",
-              "finished_at": "2026-09-25T23:19:35Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:20:05Z",
-              "finished_at": "2026-09-25T23:22:06Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_4k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:22:36Z",
-              "finished_at": "2026-09-25T23:27:07Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:27:50Z",
-              "finished_at": "2026-09-25T23:33:21Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:33:51Z",
-              "finished_at": "2026-09-25T23:38:22Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_read_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:39:00Z",
-              "finished_at": "2026-09-25T23:44:01Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-02_rand_write_64k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:44:31Z",
-              "finished_at": "2026-09-25T23:49:02Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-03_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:49:37Z",
-              "finished_at": "2026-09-25T23:54:08Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-04_sync_write_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:54:47Z",
-              "finished_at": "2026-09-25T23:59:19Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_copy_1stream",
-              "status": "passed",
-              "started_at": "2026-09-26T00:04:44Z",
-              "finished_at": "2026-09-26T00:05:06Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_read_1stream",
-              "status": "passed",
-              "started_at": "2026-09-26T00:06:35Z",
-              "finished_at": "2026-09-26T00:06:46Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-06_smallfiles_delete",
-              "status": "passed",
-              "started_at": "2026-09-26T00:08:16Z",
-              "finished_at": "2026-09-26T00:08:27Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "STO-07_vm_mixed_70r30w_16k_j4",
-              "status": "passed",
-              "started_at": "2026-09-25T23:59:50Z",
-              "finished_at": "2026-09-26T00:04:21Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 16,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 1.0
+          "confidence_unmeasured": 16,
+          "confidence_measured_min": null
         }
       ]
     },
@@ -8451,7 +8353,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "soft_finished",
-      "captured_at": "2026-09-26T02:58:29Z",
+      "captured_at": "2026-09-26T03:02:32Z",
       "confidence": null,
       "confidence_subjects": 2,
       "confidence_unmeasured": 2,
@@ -8495,7 +8397,7 @@
       "id": 7,
       "name": "Degraded-mode cost and rebuild toll (STO-09)",
       "status": "running",
-      "captured_at": "2026-09-26T02:58:29Z",
+      "captured_at": "2026-09-26T03:02:32Z",
       "confidence": null,
       "confidence_subjects": 132,
       "confidence_unmeasured": 16,
@@ -9780,14 +9682,14 @@
             },
             {
               "id": "S4_control_after_standin__STO-01_seq_write_1M_j4",
-              "status": "running",
+              "status": "passed",
               "started_at": "2026-09-26T02:58:00Z",
-              "finished_at": null
+              "finished_at": "2026-09-26T03:02:02Z"
             },
             {
               "id": "S4_control_after_standin__STO-02_rand_read_4k_j4",
-              "status": "pending",
-              "started_at": null,
+              "status": "running",
+              "started_at": "2026-09-26T03:02:21Z",
               "finished_at": null
             },
             {
@@ -9852,7 +9754,7 @@
       "id": 8,
       "name": "RAID5/6 write-hole trip under unclean shutdown (STO-WH)",
       "status": "pending",
-      "captured_at": "2026-09-26T02:58:29Z",
+      "captured_at": "2026-09-26T03:02:32Z",
       "confidence": null,
       "confidence_subjects": 0,
       "confidence_unmeasured": 0,
