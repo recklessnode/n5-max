@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-29T07:27:28Z",
+  "updated_at": "2026-09-29T07:35:37Z",
   "harness_commit": null,
-  "git_commit": "e2e95f62a",
+  "git_commit": "a93e73176",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 1,
@@ -2247,7 +2247,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T07:27:27Z",
+      "captured_at": "2026-09-29T07:35:34Z",
       "confidence": null,
       "confidence_subjects": 221,
       "confidence_unmeasured": 3,
@@ -4490,7 +4490,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T07:27:28Z",
+      "captured_at": "2026-09-29T07:35:34Z",
       "confidence": 0.5,
       "confidence_subjects": 170,
       "confidence_unmeasured": 0,
@@ -6277,10 +6277,10 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "failed",
-      "captured_at": "2026-09-29T07:27:28Z",
+      "captured_at": "2026-09-29T07:35:36Z",
       "confidence": null,
       "confidence_subjects": 145,
-      "confidence_unmeasured": 11,
+      "confidence_unmeasured": 3,
       "confidence_measured_min": 0.333,
       "cells": [
         {
@@ -7107,35 +7107,38 @@
           "category": "llm",
           "model": "kimi-k2-thinking-smol-iq1kt",
           "primarycache": "cold",
-          "status": "unmeasured",
+          "status": "passed",
           "runner_status": "passed",
           "started_at": "2026-09-29T03:21:42Z",
           "finished_at": "2026-09-29T04:38:54Z",
           "failure_class": null,
-          "confidence": null,
+          "confidence": 0.5,
           "cases": [
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
-              "status": "unmeasured",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T03:39:41Z",
+              "finished_at": "2026-09-29T04:26:54Z",
+              "confidence": 0.75
             },
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
-              "status": "unmeasured",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T03:38:30Z",
+              "finished_at": "2026-09-29T03:39:11Z",
+              "confidence": 1.0
             },
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_qa_short",
-              "status": "unmeasured",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T04:30:29Z",
+              "finished_at": "2026-09-29T04:38:47Z",
+              "confidence": 0.5
             }
           ],
           "confidence_subjects": 3,
-          "confidence_unmeasured": 3,
-          "confidence_measured_min": null
+          "confidence_unmeasured": 0,
+          "confidence_measured_min": 0.5
         },
         {
           "n": 11,
@@ -7580,35 +7583,38 @@
           "category": "llm",
           "model": "deepseek-v31-ud-q2kxl",
           "primarycache": "all",
-          "status": "unmeasured",
+          "status": "passed",
           "runner_status": "passed",
           "started_at": "2026-09-29T05:00:13Z",
           "finished_at": "2026-09-29T06:05:44Z",
           "failure_class": null,
-          "confidence": null,
+          "confidence": 0.825,
           "cases": [
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
-              "status": "unmeasured",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T05:21:37Z",
+              "finished_at": "2026-09-29T05:43:29Z",
+              "confidence": 0.875
             },
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
-              "status": "unmeasured",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T05:20:59Z",
+              "finished_at": "2026-09-29T05:21:06Z",
+              "confidence": 1.0
             },
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_qa_short",
-              "status": "unmeasured",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T05:45:35Z",
+              "finished_at": "2026-09-29T06:05:42Z",
+              "confidence": 0.825
             }
           ],
           "confidence_subjects": 3,
-          "confidence_unmeasured": 3,
-          "confidence_measured_min": null
+          "confidence_unmeasured": 0,
+          "confidence_measured_min": 0.825
         },
         {
           "n": 18,
@@ -7627,19 +7633,27 @@
           "cases": [
             {
               "id": "AI-00_canary_resident",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T06:58:19Z",
+              "finished_at": "2026-09-29T06:58:21Z",
+              "measured_in": {
+                "cells": [
+                  "stage3/n6"
+                ],
+                "started_at": "2026-09-23T15:04:20Z",
+                "finished_at": "2026-09-23T15:04:43Z"
+              }
             },
             {
               "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_load",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T07:01:28Z",
+              "finished_at": "2026-09-29T07:01:34Z",
+              "confidence": 1.0
             },
             {
               "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_bench",
-              "status": "pending",
+              "status": "unmeasured",
               "started_at": null,
               "finished_at": null
             }
@@ -7662,19 +7676,27 @@
           "cases": [
             {
               "id": "AI-00_canary_resident",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T07:23:31Z",
+              "finished_at": "2026-09-29T07:23:33Z",
+              "measured_in": {
+                "cells": [
+                  "stage3/n6"
+                ],
+                "started_at": "2026-09-23T15:04:20Z",
+                "finished_at": "2026-09-23T15:04:43Z"
+              }
             },
             {
               "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_load",
-              "status": "pending",
-              "started_at": null,
-              "finished_at": null
+              "status": "passed",
+              "started_at": "2026-09-29T07:26:46Z",
+              "finished_at": "2026-09-29T07:26:55Z",
+              "confidence": 1.0
             },
             {
               "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_bench",
-              "status": "pending",
+              "status": "unmeasured",
               "started_at": null,
               "finished_at": null
             }
@@ -7686,7 +7708,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-29T07:27:28Z",
+      "captured_at": "2026-09-29T07:35:36Z",
       "confidence": 0.998,
       "confidence_subjects": 6,
       "confidence_unmeasured": 0,
@@ -7780,7 +7802,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T07:27:28Z",
+      "captured_at": "2026-09-29T07:35:36Z",
       "confidence": 0.5,
       "confidence_subjects": 192,
       "confidence_unmeasured": 0,
@@ -9455,7 +9477,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T07:27:28Z",
+      "captured_at": "2026-09-29T07:35:36Z",
       "confidence": null,
       "confidence_subjects": 2,
       "confidence_unmeasured": 2,
@@ -9499,7 +9521,7 @@
       "id": 7,
       "name": "Degraded-mode cost and rebuild toll (STO-09)",
       "status": "failed",
-      "captured_at": "2026-09-29T07:27:28Z",
+      "captured_at": "2026-09-29T07:35:37Z",
       "confidence": null,
       "confidence_subjects": 132,
       "confidence_unmeasured": 1,
@@ -10871,7 +10893,7 @@
       "id": 8,
       "name": "RAID5/6 write-hole trip under unclean shutdown (STO-WH)",
       "status": "pending",
-      "captured_at": "2026-09-29T07:27:28Z",
+      "captured_at": "2026-09-29T07:35:37Z",
       "confidence": null,
       "confidence_subjects": 0,
       "confidence_unmeasured": 0,
