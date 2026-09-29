@@ -1,9 +1,9 @@
 {
   "confidence_requirement": 0.9,
   "schema": "n5-campaign-status/v1",
-  "updated_at": "2026-09-29T18:03:11Z",
-  "harness_commit": null,
-  "git_commit": "fc7ddd1a3",
+  "updated_at": "2026-09-29T18:08:06Z",
+  "harness_commit": "d4b24ac04",
+  "git_commit": "0114e0284",
   "campaign": "N5 MAX storage + AI-NAS characterization",
   "stage": {
     "id": 3,
@@ -834,38 +834,35 @@
       "category": "llm",
       "model": "kimi-k2-thinking-smol-iq1kt",
       "primarycache": "cold",
-      "status": "passed",
+      "status": "unmeasured",
       "runner_status": "passed",
       "started_at": "2026-09-29T03:21:42Z",
       "finished_at": "2026-09-29T04:38:54Z",
       "failure_class": null,
-      "confidence": 0.5,
+      "confidence": null,
       "cases": [
         {
           "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
-          "status": "passed",
-          "started_at": "2026-09-29T03:39:41Z",
-          "finished_at": "2026-09-29T04:26:54Z",
-          "confidence": 0.75
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
-          "status": "passed",
-          "started_at": "2026-09-29T03:38:30Z",
-          "finished_at": "2026-09-29T03:39:11Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-29T04:30:29Z",
-          "finished_at": "2026-09-29T04:38:47Z",
-          "confidence": 0.5
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         }
       ],
       "confidence_subjects": 3,
-      "confidence_unmeasured": 0,
-      "confidence_measured_min": 0.5
+      "confidence_unmeasured": 3,
+      "confidence_measured_min": null
     },
     {
       "n": 11,
@@ -875,38 +872,35 @@
       "category": "llm",
       "model": "kimi-k2-thinking-smol-iq1kt",
       "primarycache": "all",
-      "status": "passed",
+      "status": "unmeasured",
       "runner_status": "passed",
       "started_at": "2026-09-29T13:35:57Z",
       "finished_at": "2026-09-29T14:56:03Z",
       "failure_class": null,
-      "confidence": 0.5,
+      "confidence": null,
       "cases": [
         {
           "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
-          "status": "passed",
-          "started_at": "2026-09-29T13:53:19Z",
-          "finished_at": "2026-09-29T14:44:04Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
-          "status": "passed",
-          "started_at": "2026-09-29T13:49:25Z",
-          "finished_at": "2026-09-29T13:52:28Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-29T14:49:21Z",
-          "finished_at": "2026-09-29T14:55:56Z",
-          "confidence": 0.5
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         }
       ],
       "confidence_subjects": 3,
-      "confidence_unmeasured": 0,
-      "confidence_measured_min": 0.5
+      "confidence_unmeasured": 3,
+      "confidence_measured_min": null
     },
     {
       "n": 12,
@@ -916,38 +910,35 @@
       "category": "llm",
       "model": "deepseek-v31-ud-q2kxl",
       "primarycache": "cold",
-      "status": "passed",
+      "status": "unmeasured",
       "runner_status": "passed",
       "started_at": "2026-09-29T15:18:03Z",
       "finished_at": "2026-09-29T16:07:50Z",
       "failure_class": null,
-      "confidence": 0.825,
+      "confidence": null,
       "cases": [
         {
           "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
-          "status": "passed",
-          "started_at": "2026-09-29T15:30:13Z",
-          "finished_at": "2026-09-29T15:49:21Z",
-          "confidence": 0.875
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
-          "status": "passed",
-          "started_at": "2026-09-29T15:29:47Z",
-          "finished_at": "2026-09-29T15:29:53Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-29T15:51:27Z",
-          "finished_at": "2026-09-29T16:07:48Z",
-          "confidence": 0.825
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         }
       ],
       "confidence_subjects": 3,
-      "confidence_unmeasured": 0,
-      "confidence_measured_min": 0.825
+      "confidence_unmeasured": 3,
+      "confidence_measured_min": null
     },
     {
       "n": 13,
@@ -1310,38 +1301,35 @@
       "category": "llm",
       "model": "deepseek-v31-ud-q2kxl",
       "primarycache": "all",
-      "status": "passed",
+      "status": "unmeasured",
       "runner_status": "passed",
       "started_at": "2026-09-29T05:00:13Z",
       "finished_at": "2026-09-29T06:05:44Z",
       "failure_class": null,
-      "confidence": 0.825,
+      "confidence": null,
       "cases": [
         {
           "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
-          "status": "passed",
-          "started_at": "2026-09-29T05:21:37Z",
-          "finished_at": "2026-09-29T05:43:29Z",
-          "confidence": 0.875
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
-          "status": "passed",
-          "started_at": "2026-09-29T05:20:59Z",
-          "finished_at": "2026-09-29T05:21:06Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-29T05:45:35Z",
-          "finished_at": "2026-09-29T06:05:42Z",
-          "confidence": 0.825
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         }
       ],
       "confidence_subjects": 3,
-      "confidence_unmeasured": 0,
-      "confidence_measured_min": 0.825
+      "confidence_unmeasured": 3,
+      "confidence_measured_min": null
     },
     {
       "n": 18,
@@ -1351,31 +1339,35 @@
       "category": "llm",
       "model": "qwen3.8-27b-ud-q4kxl",
       "primarycache": "cold",
-      "status": "passed",
+      "status": "unmeasured",
       "runner_status": "passed",
       "started_at": "2026-09-29T08:00:00Z",
       "finished_at": "2026-09-29T08:35:20Z",
       "failure_class": null,
-      "confidence": 0.0,
+      "confidence": null,
       "cases": [
         {
-          "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_gufo_bench",
-          "status": "passed",
-          "started_at": "2026-09-29T08:03:56Z",
-          "finished_at": "2026-09-29T08:35:19Z",
-          "confidence": 0.0
+          "id": "AI-00_canary_resident",
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-29T08:03:29Z",
-          "finished_at": "2026-09-29T08:03:36Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_bench",
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         }
       ],
       "confidence_subjects": 2,
-      "confidence_unmeasured": 0,
-      "confidence_measured_min": 0.0
+      "confidence_unmeasured": 2,
+      "confidence_measured_min": null
     },
     {
       "n": 19,
@@ -1385,31 +1377,35 @@
       "category": "llm",
       "model": "qwen3.8-27b-ud-q8kxl",
       "primarycache": "cold",
-      "status": "passed",
+      "status": "unmeasured",
       "runner_status": "passed",
       "started_at": "2026-09-29T09:55:49Z",
       "finished_at": "2026-09-29T10:31:59Z",
       "failure_class": null,
-      "confidence": 0.0,
+      "confidence": null,
       "cases": [
         {
-          "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_gufo_bench",
-          "status": "passed",
-          "started_at": "2026-09-29T09:58:19Z",
-          "finished_at": "2026-09-29T10:31:57Z",
-          "confidence": 0.0
+          "id": "AI-00_canary_resident",
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-29T09:58:01Z",
-          "finished_at": "2026-09-29T09:58:09Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
+        },
+        {
+          "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_bench",
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         }
       ],
       "confidence_subjects": 2,
-      "confidence_unmeasured": 0,
-      "confidence_measured_min": 0.0
+      "confidence_unmeasured": 2,
+      "confidence_measured_min": null
     },
     {
       "n": 20,
@@ -1419,38 +1415,35 @@
       "category": "llm",
       "model": "deepseek-v4-flash-0731-iq2xxs-antirez",
       "primarycache": "cold",
-      "status": "passed",
+      "status": "unmeasured",
       "runner_status": "passed",
       "started_at": "2026-09-29T16:41:04Z",
       "finished_at": "2026-09-29T17:45:43Z",
       "failure_class": null,
-      "confidence": 1.0,
+      "confidence": null,
       "cases": [
         {
-          "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_bench",
-          "status": "passed",
-          "started_at": "2026-09-29T16:45:21Z",
-          "finished_at": "2026-09-29T17:42:28Z",
-          "confidence": 1.0
+          "id": "AI-00_canary_resident",
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
           "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_load",
-          "status": "passed",
-          "started_at": "2026-09-29T16:44:45Z",
-          "finished_at": "2026-09-29T16:45:00Z",
-          "confidence": 1.0
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         },
         {
-          "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_qa_short",
-          "status": "passed",
-          "started_at": "2026-09-29T17:44:42Z",
-          "finished_at": "2026-09-29T17:45:41Z",
-          "confidence": 1.0
+          "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_bench",
+          "status": "unmeasured",
+          "started_at": null,
+          "finished_at": null
         }
       ],
-      "confidence_subjects": 3,
-      "confidence_unmeasured": 0,
-      "confidence_measured_min": 1.0
+      "confidence_subjects": 2,
+      "confidence_unmeasured": 2,
+      "confidence_measured_min": null
     },
     {
       "n": 21,
@@ -1462,19 +1455,25 @@
       "primarycache": "cold",
       "status": "running",
       "runner_status": "running",
-      "started_at": "2026-09-29T17:54:35Z",
+      "started_at": "2026-09-29T18:07:30Z",
       "finished_at": null,
       "failure_class": null,
       "confidence": null,
       "cases": [
         {
-          "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_gufo_bench",
+          "id": "AI-00_canary_resident",
+          "status": "unmeasured",
+          "started_at": "2026-09-29T18:07:53Z",
+          "finished_at": "2026-09-29T18:07:55Z"
+        },
+        {
+          "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_load",
           "status": "pending",
           "started_at": null,
           "finished_at": null
         },
         {
-          "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_load",
+          "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_bench",
           "status": "pending",
           "started_at": null,
           "finished_at": null
@@ -1487,7 +1486,7 @@
       "id": 1,
       "name": "4-wide storage (4x NM790 @ Gen4 x1) \u2014 calibration (0) + none pass (1-6) + metadata pass (7-12)",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T18:03:10Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": null,
       "confidence_subjects": 221,
       "confidence_unmeasured": 3,
@@ -3730,7 +3729,7 @@
       "id": 2,
       "name": "5-wide storage (4x NM790 @ Gen4 x1 + 1x NM790 @ Gen4 x4) \u2014 none pass + metadata pass",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T18:03:10Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": 0.5,
       "confidence_subjects": 170,
       "confidence_unmeasured": 0,
@@ -5517,11 +5516,11 @@
       "id": 3,
       "name": "AI bat (streamed from the winning pool layout)",
       "status": "running",
-      "captured_at": "2026-09-29T18:03:10Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": null,
-      "confidence_subjects": 150,
-      "confidence_unmeasured": 3,
-      "confidence_measured_min": 0.0,
+      "confidence_subjects": 149,
+      "confidence_unmeasured": 21,
+      "confidence_measured_min": 0.333,
       "cells": [
         {
           "n": 1,
@@ -6347,38 +6346,35 @@
           "category": "llm",
           "model": "kimi-k2-thinking-smol-iq1kt",
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-29T03:21:42Z",
           "finished_at": "2026-09-29T04:38:54Z",
           "failure_class": null,
-          "confidence": 0.5,
+          "confidence": null,
           "cases": [
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
-              "status": "passed",
-              "started_at": "2026-09-29T03:39:41Z",
-              "finished_at": "2026-09-29T04:26:54Z",
-              "confidence": 0.75
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
-              "status": "passed",
-              "started_at": "2026-09-29T03:38:30Z",
-              "finished_at": "2026-09-29T03:39:11Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-29T04:30:29Z",
-              "finished_at": "2026-09-29T04:38:47Z",
-              "confidence": 0.5
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 3,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.5
+          "confidence_unmeasured": 3,
+          "confidence_measured_min": null
         },
         {
           "n": 11,
@@ -6388,38 +6384,35 @@
           "category": "llm",
           "model": "kimi-k2-thinking-smol-iq1kt",
           "primarycache": "all",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-29T13:35:57Z",
           "finished_at": "2026-09-29T14:56:03Z",
           "failure_class": null,
-          "confidence": 0.5,
+          "confidence": null,
           "cases": [
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_bench",
-              "status": "passed",
-              "started_at": "2026-09-29T13:53:19Z",
-              "finished_at": "2026-09-29T14:44:04Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_load",
-              "status": "passed",
-              "started_at": "2026-09-29T13:49:25Z",
-              "finished_at": "2026-09-29T13:52:28Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_kimi-k2-thinking-smol-iq1kt_streamed_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-29T14:49:21Z",
-              "finished_at": "2026-09-29T14:55:56Z",
-              "confidence": 0.5
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 3,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.5
+          "confidence_unmeasured": 3,
+          "confidence_measured_min": null
         },
         {
           "n": 12,
@@ -6429,38 +6422,35 @@
           "category": "llm",
           "model": "deepseek-v31-ud-q2kxl",
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-29T15:18:03Z",
           "finished_at": "2026-09-29T16:07:50Z",
           "failure_class": null,
-          "confidence": 0.825,
+          "confidence": null,
           "cases": [
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
-              "status": "passed",
-              "started_at": "2026-09-29T15:30:13Z",
-              "finished_at": "2026-09-29T15:49:21Z",
-              "confidence": 0.875
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
-              "status": "passed",
-              "started_at": "2026-09-29T15:29:47Z",
-              "finished_at": "2026-09-29T15:29:53Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-29T15:51:27Z",
-              "finished_at": "2026-09-29T16:07:48Z",
-              "confidence": 0.825
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 3,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.825
+          "confidence_unmeasured": 3,
+          "confidence_measured_min": null
         },
         {
           "n": 13,
@@ -6823,38 +6813,35 @@
           "category": "llm",
           "model": "deepseek-v31-ud-q2kxl",
           "primarycache": "all",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-29T05:00:13Z",
           "finished_at": "2026-09-29T06:05:44Z",
           "failure_class": null,
-          "confidence": 0.825,
+          "confidence": null,
           "cases": [
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_bench",
-              "status": "passed",
-              "started_at": "2026-09-29T05:21:37Z",
-              "finished_at": "2026-09-29T05:43:29Z",
-              "confidence": 0.875
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_load",
-              "status": "passed",
-              "started_at": "2026-09-29T05:20:59Z",
-              "finished_at": "2026-09-29T05:21:06Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_deepseek-v31-ud-q2kxl_streamed_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-29T05:45:35Z",
-              "finished_at": "2026-09-29T06:05:42Z",
-              "confidence": 0.825
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 3,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.825
+          "confidence_unmeasured": 3,
+          "confidence_measured_min": null
         },
         {
           "n": 18,
@@ -6864,31 +6851,35 @@
           "category": "llm",
           "model": "qwen3.8-27b-ud-q4kxl",
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-29T08:00:00Z",
           "finished_at": "2026-09-29T08:35:20Z",
           "failure_class": null,
-          "confidence": 0.0,
+          "confidence": null,
           "cases": [
             {
-              "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_gufo_bench",
-              "status": "passed",
-              "started_at": "2026-09-29T08:03:56Z",
-              "finished_at": "2026-09-29T08:35:19Z",
-              "confidence": 0.0
+              "id": "AI-00_canary_resident",
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_load",
-              "status": "passed",
-              "started_at": "2026-09-29T08:03:29Z",
-              "finished_at": "2026-09-29T08:03:36Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_bench",
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 2,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.0
+          "confidence_unmeasured": 2,
+          "confidence_measured_min": null
         },
         {
           "n": 19,
@@ -6898,31 +6889,35 @@
           "category": "llm",
           "model": "qwen3.8-27b-ud-q8kxl",
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-29T09:55:49Z",
           "finished_at": "2026-09-29T10:31:59Z",
           "failure_class": null,
-          "confidence": 0.0,
+          "confidence": null,
           "cases": [
             {
-              "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_gufo_bench",
-              "status": "passed",
-              "started_at": "2026-09-29T09:58:19Z",
-              "finished_at": "2026-09-29T10:31:57Z",
-              "confidence": 0.0
+              "id": "AI-00_canary_resident",
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_load",
-              "status": "passed",
-              "started_at": "2026-09-29T09:58:01Z",
-              "finished_at": "2026-09-29T09:58:09Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
+            },
+            {
+              "id": "AI-01_qwen3.8-27b-ud-q8kxl_resident_bench",
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
           "confidence_subjects": 2,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 0.0
+          "confidence_unmeasured": 2,
+          "confidence_measured_min": null
         },
         {
           "n": 20,
@@ -6932,38 +6927,35 @@
           "category": "llm",
           "model": "deepseek-v4-flash-0731-iq2xxs-antirez",
           "primarycache": "cold",
-          "status": "passed",
+          "status": "unmeasured",
           "runner_status": "passed",
           "started_at": "2026-09-29T16:41:04Z",
           "finished_at": "2026-09-29T17:45:43Z",
           "failure_class": null,
-          "confidence": 1.0,
+          "confidence": null,
           "cases": [
             {
-              "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_bench",
-              "status": "passed",
-              "started_at": "2026-09-29T16:45:21Z",
-              "finished_at": "2026-09-29T17:42:28Z",
-              "confidence": 1.0
+              "id": "AI-00_canary_resident",
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
               "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_load",
-              "status": "passed",
-              "started_at": "2026-09-29T16:44:45Z",
-              "finished_at": "2026-09-29T16:45:00Z",
-              "confidence": 1.0
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             },
             {
-              "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_qa_short",
-              "status": "passed",
-              "started_at": "2026-09-29T17:44:42Z",
-              "finished_at": "2026-09-29T17:45:41Z",
-              "confidence": 1.0
+              "id": "AI-01_deepseek-v4-flash-0731-iq2xxs-antirez_resident_bench",
+              "status": "unmeasured",
+              "started_at": null,
+              "finished_at": null
             }
           ],
-          "confidence_subjects": 3,
-          "confidence_unmeasured": 0,
-          "confidence_measured_min": 1.0
+          "confidence_subjects": 2,
+          "confidence_unmeasured": 2,
+          "confidence_measured_min": null
         },
         {
           "n": 21,
@@ -6975,19 +6967,25 @@
           "primarycache": "cold",
           "status": "running",
           "runner_status": "running",
-          "started_at": "2026-09-29T17:54:35Z",
+          "started_at": "2026-09-29T18:07:30Z",
           "finished_at": null,
           "failure_class": null,
           "confidence": null,
           "cases": [
             {
-              "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_gufo_bench",
+              "id": "AI-00_canary_resident",
+              "status": "unmeasured",
+              "started_at": "2026-09-29T18:07:53Z",
+              "finished_at": "2026-09-29T18:07:55Z"
+            },
+            {
+              "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_load",
               "status": "pending",
               "started_at": null,
               "finished_at": null
             },
             {
-              "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_load",
+              "id": "AI-01_qwen3.8-27b-ud-q4kxl_resident_bench",
               "status": "pending",
               "started_at": null,
               "finished_at": null
@@ -7000,7 +6998,7 @@
       "id": 4,
       "name": "Soak (SLC exhaustion + thermal throttle time series) \u2014 after stage 1",
       "status": "passed",
-      "captured_at": "2026-09-29T18:03:10Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": 0.998,
       "confidence_subjects": 6,
       "confidence_unmeasured": 0,
@@ -7094,7 +7092,7 @@
       "id": 5,
       "name": "filesystem controls (ZFS vs btrfs vs mdadm+ext4) \u2014 raid10 / raid5 / raid6 x cold / warm, file-based access on every filesystem",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T18:03:11Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": 0.5,
       "confidence_subjects": 192,
       "confidence_unmeasured": 0,
@@ -8769,7 +8767,7 @@
       "id": 6,
       "name": "Boot media & external transfer (the USB-attached NVMe path)",
       "status": "soft_finished",
-      "captured_at": "2026-09-29T18:03:11Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": null,
       "confidence_subjects": 2,
       "confidence_unmeasured": 2,
@@ -8813,7 +8811,7 @@
       "id": 7,
       "name": "Degraded-mode cost and rebuild toll (STO-09)",
       "status": "failed",
-      "captured_at": "2026-09-29T18:03:11Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": null,
       "confidence_subjects": 132,
       "confidence_unmeasured": 1,
@@ -10185,7 +10183,7 @@
       "id": 8,
       "name": "RAID5/6 write-hole trip under unclean shutdown (STO-WH)",
       "status": "pending",
-      "captured_at": "2026-09-29T18:03:11Z",
+      "captured_at": "2026-09-29T18:08:06Z",
       "confidence": null,
       "confidence_subjects": 0,
       "confidence_unmeasured": 0,
