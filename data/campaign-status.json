@@ -5165,7 +5165,7 @@
           "finished_at": "2026-09-13T04:43:29Z",
           "failure_class": null,
           "confidence": 0.5,
-          "cases": [
+$         "cases": [
             {
               "id": "STO-01_seq_read_1M_j1",
               "status": "passed",
