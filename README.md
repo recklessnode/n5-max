@@ -3,12 +3,13 @@
 Public face for **Minisforum N5 MAX** local-AI NAS benchmark reporting (storage layouts + AI destination story).
 
 - **Live site:** https://recklessnode.github.io/n5-max/
-- **Status:** provisional — sticky banner **RUNNING ANALYSIS — DO NOT DEPEND**. Do not cite as final until chapters are reviewed/sealed under the Publisher gate and the banner is updated/removed.
+- **Status:** final campaign data (2026-10-08). Stages 1–7 are sealed and stage 8 (write-hole) was deferred. The editorial seal (`story_sealed`) is pending the Publisher gate.
+- **Final report:** [`/report/`](https://recklessnode.github.io/n5-max/report/) (self-contained HTML + [PDF](https://recklessnode.github.io/n5-max/report/N5-MAX-final-report.pdf) + chart SVG/PNG under `report/charts/`).
 - **Source of truth:** reviewed result artifacts promoted from a private lab notebook. This repo holds **allowlisted site content only** (HTML/CSS/JS/media). Harness, raw campaign logs, and lab docs are not published here.
 
 ## What you will find
 
-- RAID10 vs RAIDZ1 story and charts (preliminary storage chapter figures — under review)
+- Final dashboard covering ZFS / btrfs / mdadm layouts, drive-failure rebuilds, soak, USB and local-LLM inference, plus a **Not yet measured** list for every gap
 - Live **campaign matrix** at [`/matrix/`](https://recklessnode.github.io/n5-max/matrix/) — status and timestamps only (not a sealed story)
 - Telemetry viz labeled **DEMO** / provisional (synthetic until reviewed)
 - Media approved for public Pages (no full drive serials)
@@ -19,4 +20,4 @@ Reviewed site content is promoted into this repository’s root (so GitHub Pages
 
 ## License / citation
 
-Treat numbers as provisional until the site banner says otherwise. Prefer citing reviewed result artifacts after seal, not draft prose.
+Cite the final report. Non-steady and PROVISIONAL figures are labelled where they appear. Items under “Not yet measured” have no sealed data.
