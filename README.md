@@ -9,10 +9,18 @@ Public face for **Minisforum N5 MAX** local-AI NAS benchmark reporting (storage 
 
 ## What you will find
 
-- Final dashboard covering ZFS / btrfs / mdadm layouts, drive-failure rebuilds, soak, USB and local-LLM inference, plus a **Not yet measured** list for every gap
+- Results organised by use case (local AI and RAG, AI + VM server, media archive, models larger than memory), each with a recommended configuration backed by sealed figures, plus a read-only layout explorer and a **Not measured** list
 - Live **campaign matrix** at [`/matrix/`](https://recklessnode.github.io/n5-max/matrix/) — status and timestamps only (not a sealed story)
 - Telemetry viz labeled **DEMO** / provisional (synthetic until reviewed)
 - Media approved for public Pages (no full drive serials)
+
+## How the results page is built
+
+`index.html` is generated, not hand-edited: `python3 scripts/site/build.py` reads `data/sealed-metrics.json`
+and writes the page. Every figure is a lookup that names its source key (hover a number to see it), and the
+charts are fed from the same lookups. `python3 scripts/site/test_site.py` checks that every number and chart
+point resolves to the data, that the layout explorer only offers tested configurations, and (in headless
+Chrome) that no chart value can be changed from the page. The same checks run in `.github/workflows/site-checks.yml`.
 
 ## Promoting updates
 
