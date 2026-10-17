@@ -1070,7 +1070,10 @@
     {
       "layout": "raidz2",
       "layout_full": "stage2-raidz2-full",
-      "stage": 2,
+      "stages": [
+        1,
+        2
+      ],
       "cache": "none",
       "usable_tib": 10.21,
       "members": "SN1@x1+SN2@x1+SN3@x1+SN4@x1+SN5@x4",
@@ -1084,7 +1087,8 @@
           "p99_ms": 3.65,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 2
         },
         "STO-01_seq_read_1M_j4": {
           "bw_gbps": 8.911,
@@ -1094,7 +1098,8 @@
           "p99_ms": 12.78,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 2
         },
         "STO-01_seq_write_1M_j1": {
           "bw_gbps": 0.464,
@@ -1104,7 +1109,8 @@
           "p99_ms": 193.99,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 2
         },
         "STO-01_seq_write_1M_j4": {
           "bw_gbps": 0.961,
@@ -1114,7 +1120,8 @@
           "p99_ms": 518.0,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 2
         },
         "STO-02_rand_read_4k_j4": {
           "bw_gbps": 0.334,
@@ -1124,7 +1131,8 @@
           "p99_ms": 2.28,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 2
         },
         "STO-02_rand_write_4k_j4": {
           "bw_gbps": 0.042,
@@ -1134,7 +1142,8 @@
           "p99_ms": 28.18,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 1
         },
         "STO-02_rand_read_16k_j4": {
           "bw_gbps": 0.441,
@@ -1144,7 +1153,8 @@
           "p99_ms": 43.78,
           "steady": false,
           "provisional": false,
-          "publishable": false
+          "publishable": false,
+          "stage": 1
         },
         "STO-02_rand_write_16k_j4": {
           "bw_gbps": 0.179,
@@ -1154,7 +1164,8 @@
           "p99_ms": 13.04,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 1
         },
         "STO-02_rand_read_64k_j4": {
           "bw_gbps": 0.773,
@@ -1164,7 +1175,8 @@
           "p99_ms": 58.98,
           "steady": false,
           "provisional": false,
-          "publishable": false
+          "publishable": false,
+          "stage": 1
         },
         "STO-02_rand_write_64k_j4": {
           "bw_gbps": 0.523,
@@ -1174,7 +1186,8 @@
           "p99_ms": 17.43,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 1
         },
         "STO-03_mixed_70r30w_16k_j4": {
           "bw_gbps": 0.455,
@@ -1184,7 +1197,8 @@
           "p99_ms": 17.96,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 1
         },
         "STO-04_sync_write_16k_j4": {
           "bw_gbps": 0.007,
@@ -1194,7 +1208,8 @@
           "p99_ms": 650.12,
           "steady": true,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 1
         },
         "STO-06_smallfiles_copy_1stream": {
           "bw_gbps": 0.532,
@@ -1204,7 +1219,8 @@
           "p99_ms": null,
           "steady": null,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 1
         },
         "STO-06_smallfiles_read_1stream": {
           "bw_gbps": 0.099,
@@ -1214,7 +1230,8 @@
           "p99_ms": null,
           "steady": null,
           "provisional": false,
-          "publishable": true
+          "publishable": true,
+          "stage": 1
         }
       }
     }

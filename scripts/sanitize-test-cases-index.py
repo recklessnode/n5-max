@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build public-safe slim test-cases-index.json (SANITIZED ONLY).
 
-Public modal fields: id, title, objective, pass_fail.
+Public modal fields: id, title, subtitle?, created?, updated?, priority?,
+objective(=description), pass_fail (no tcid/tcms).
 No procedure/comments/configurations/requirements. Scrubs lab leaks.
 Lab keeps full docs + full index private. Never copy docs/test-cases/*.md
 to the public repo.
@@ -73,13 +74,28 @@ def scrub_block(text: str, max_chars: int) -> str:
 
 
 def public_doc(full: dict) -> dict:
-    return {
+    # Public modal: id / title / subtitle / created / updated / priority /
+    # objective(description) / pass_fail. Title is name-only (no id fused).
+    # Optional fields omitted when empty after strip.
+    out = {
         "id": full.get("id") or full.get("tcid"),
-        "tcid": full.get("tcid") or full.get("id"),
         "title": (full.get("title") or "").strip(),
         "objective": scrub_block(full.get("objective") or "", 800),
         "pass_fail": scrub_block(full.get("pass_fail") or "", 1000),
     }
+    sub = (full.get("subtitle") or "").strip()
+    if sub:
+        out["subtitle"] = scrub_block(sub, 240)
+    created = (full.get("created") or "").strip()
+    if created:
+        out["created"] = created
+    updated = (full.get("updated") or "").strip()
+    if updated:
+        out["updated"] = updated
+    priority = (full.get("priority") or "").strip().lower()
+    if priority:
+        out["priority"] = priority
+    return out
 
 
 def load_builder(repo: Path):
@@ -95,12 +111,15 @@ def load_builder(repo: Path):
 def from_docs(repo: Path):
     mod = load_builder(repo)
     families, sealed_map = {}, {}
+    dates = mod.created_dates(repo) if hasattr(mod, "created_dates") else {}
     for md in sorted((repo / "docs" / "test-cases").glob("*.md")):
         if md.name.upper() == "README.MD":
             continue
-        doc = mod.parse_md(md.read_text(encoding="utf-8"), md.stem)
+        doc = mod.parse_md(md.read_text(encoding="utf-8"), md.stem, md_path=md)
         if not doc:
             continue
+        if not doc.get("created"):
+            doc["created"] = dates.get(md.stem, "")
         sealed = doc.pop("_sealed", [])
         fam = doc["id"]
         families[fam] = doc
@@ -145,7 +164,7 @@ def gate(cases: dict) -> None:
 def main() -> None:
     repo = Path(__file__).resolve().parents[1]
     ap = argparse.ArgumentParser()
-    ap.add_argument("dst", nargs="?", default=str(repo / "site" / "data" / "test-cases-index.public.json"))
+    ap.add_argument("dst", nargs="?", default=str(repo / "site" / "data" / "test-cases-index.json"))
     args = ap.parse_args()
     families, sealed_map = from_docs(repo)
     cases = {fam: public_doc(full) for fam, full in families.items()}
@@ -158,7 +177,8 @@ def main() -> None:
         "source": "docs/test-cases/ (public-sanitized)",
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "note": (
-            "Public-safe slim fields only (id/title/objective/pass_fail). "
+            "Public-safe slim fields only "
+            "(id/title/subtitle/created/updated/priority/objective/pass_fail; no tcid). "
             "Full docs stay private in lab. Sealed ids aliased to family docs."
         ),
         "cases": cases,
