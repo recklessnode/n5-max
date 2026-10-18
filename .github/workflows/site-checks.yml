@@ -1,0 +1,20 @@
+# Results-site checks: numbers trace to data/sealed-metrics.json; charts are read-only.
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: index.html is the current build of sealed-metrics.json
+        run: python3 scripts/site/build.py --check
+      - name: Lookup, chart and read-only tests (incl. headless Chrome audit)
+        run: python3 scripts/site/test_site.py
