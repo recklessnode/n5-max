@@ -19,9 +19,11 @@ Soft radial washes of orange and teal sit behind the hero so the tradeoff is fel
 
 ## Typography
 
-- **Ubuntu** — body / UI / captions (site go-to sans).
-- **Orbitron** — display / tech: hero titles, section heads, eyebrows where a board-lab tone helps (don’t paint everything Orbitron).
+- **Ubuntu** — body / UI / captions (site go-to sans). Self-hosted woff2 under `fonts/ubuntu/` (Ubuntu Font Licence 1.0; see `LICENCE.txt`).
+- **Orbitron** — display / tech: hero titles, section heads, eyebrows where a board-lab tone helps (don’t paint everything Orbitron). Self-hosted woff2 under `fonts/orbitron/` (SIL OFL; see `OFL.txt`).
 - **Intel One Mono** — measured / provisional numerals, chips, axis ticks, amplification bars, `code`/`pre`/`kbd`, case IDs, SN/seat labels, Matrix timestamps, telemetry readouts. Self-hosted woff2 under `fonts/intel-one-mono/` (SIL Open Font License; see `OFL.txt` there). Numbers never share the UI sans.
+
+All three faces are declared once, in `css/theme.css`, and every page loads `theme.css`. No page requests fonts from a third party (`scripts/site/test_site.py` enforces this).
 
 ## Structure
 
