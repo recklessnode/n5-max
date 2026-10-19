@@ -39,6 +39,68 @@
   font-display: swap;
 }
 
+/* Self-hosted Ubuntu (Ubuntu Font Licence 1.0) — body face. Latin subset from
+ * @fontsource/ubuntu 5.3.0 (Google Fonts v21). No third-party font requests. */
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/ubuntu/ubuntu-latin-300-normal.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/ubuntu/ubuntu-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/ubuntu/ubuntu-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/ubuntu/ubuntu-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/ubuntu/ubuntu-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Self-hosted Orbitron (SIL OFL 1.1) — display face for headings and brand. Latin subset
+ * from @fontsource/orbitron 5.3.0 (Google Fonts v35). */
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/orbitron/orbitron-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/orbitron/orbitron-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("../fonts/orbitron/orbitron-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* —— Light (editorial) —— */
   --bg: #f4f1ec;

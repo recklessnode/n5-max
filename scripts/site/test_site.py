@@ -172,6 +172,76 @@ class TestChartsAndExplorer(unittest.TestCase):
         self.assertFalse(os.path.exists(os.path.join(ROOT, "js", "interactive-compare.js")))
 
 
+FACES = ("Ubuntu", "Orbitron", "Intel One Mono")
+PAGES = ("index.html", "matrix/index.html", "telemetry-viz/index.html", "report/index.html")
+LICENCES = {"ubuntu": "LICENCE.txt", "orbitron": "OFL.txt", "intel-one-mono": "OFL.txt"}
+
+
+def page_css(rel, page=None):
+    """Inline <style> blocks plus every local stylesheet the page links, as (css, base_dir) pairs."""
+    path = os.path.join(ROOT, rel)
+    page = read_index(path) if page is None else page
+    out = [(m, os.path.dirname(path)) for m in re.findall(r"<style[^>]*>(.*?)</style>", page, re.S)]
+    for href in re.findall(r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', page):
+        href = href.split("?")[0]
+        if re.match(r"[a-z]+:|//", href):
+            continue
+        css = os.path.normpath(os.path.join(os.path.dirname(path), href))
+        with open(css, encoding="utf-8") as fh:
+            out.append((fh.read(), os.path.dirname(css)))
+    return out
+
+
+def font_faces(css_list):
+    """{family: [resolved src paths or data: marker]} for every @font-face in the given CSS."""
+    faces = {}
+    for css, base in css_list:
+        for block in re.findall(r"@font-face\s*{(.*?)}", css, re.S):
+            fam = re.search(r"font-family:\s*['\"]?([^;'\"]+)", block).group(1).strip()
+            for u in re.findall(r"url\(\s*['\"]?([^)'\"]+)", block):
+                faces.setdefault(fam, []).append(u if u.startswith("data:") else os.path.normpath(os.path.join(base, u)))
+    return faces
+
+
+class TestTypefaces(unittest.TestCase):
+    """The Oct 17 promote dropped the Google Fonts link and the site fell back to system sans. Every page
+    must carry its own @font-face for all three faces, from files that exist, with no third-party fetch."""
+
+    def check_page(self, rel, page=None):
+        faces = font_faces(page_css(rel, page))
+        for fam in FACES:
+            self.assertIn(fam, faces, f"{rel}: no @font-face for {fam}")
+            for src in faces[fam]:
+                if not src.startswith("data:"):
+                    self.assertTrue(os.path.isfile(src), f"{rel}: {fam} font file missing: {os.path.relpath(src, ROOT)}")
+
+    def test_built_index_has_all_faces(self):
+        build = __import__("build")
+        self.check_page("index.html", build.page())
+        self.check_page("index.html")
+
+    def test_every_page_has_all_faces(self):
+        for rel in PAGES:
+            with self.subTest(page=rel):
+                self.check_page(rel)
+
+    def test_theme_tokens_name_the_faces(self):
+        with open(os.path.join(ROOT, "css", "theme.css"), encoding="utf-8") as fh:
+            css = fh.read()
+        self.assertRegex(css, r'--font:\s*"Ubuntu"')
+        self.assertRegex(css, r'--display:\s*"Orbitron"')
+        self.assertRegex(css, r'--mono:\s*"Intel One Mono"')
+
+    def test_no_third_party_font_requests(self):
+        for rel in PAGES:
+            css = "".join(c for c, _ in page_css(rel))
+            self.assertNotRegex(read_index(os.path.join(ROOT, rel)) + css, r"fonts\.(googleapis|gstatic)\.com|use\.typekit|@import\s+url\(\s*['\"]?https?:", rel)
+
+    def test_font_licences_ship(self):
+        for d, lic in LICENCES.items():
+            self.assertTrue(os.path.isfile(os.path.join(ROOT, "fonts", d, lic)), f"fonts/{d}/{lic} missing")
+
+
 def chrome():
     for c in ("google-chrome", "chromium", "chromium-browser"):
         p = shutil.which(c)
